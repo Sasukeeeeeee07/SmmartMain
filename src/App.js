@@ -8,14 +8,19 @@ import Header from './component/Header';
 import Footer from './component/Footer';
 import Events from './component/Events';
 import Home from "./component/Home";
+import OurImpact from './component/OurImpact';
 import About from "./component/About";
 import People from "./component/People";
 import Career from "./component/Career";
+import OfferSection from './component/OfferSection';
 import Blog from "./component/Blog";
 import BlogDetail from "./component/BlogDetail";
 import Merchandise from "./component/Merchandise";
 import Contact from "./component/Contact";
 import ApplyJob from "./component/ApplyJob";
+import Featured from './component/Featured';
+import FAQSection from './component/FAQSection';
+
 import './App.css';
 
 function AppContent() {
@@ -24,7 +29,7 @@ function AppContent() {
 
   return (
     <>
-      {showHeaderFooter && <Header />}
+     
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -34,19 +39,26 @@ function AppContent() {
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/merchandise" element={<Merchandise />} />
         <Route path="/contact" element={<Contact />} />
+        
         <Route path="/apply" element={<ApplyJob />} />
         <Route path="/events" element={<Events />} />
       </Routes>
-      {showHeaderFooter && <Footer />}
+     
     </>
   );
 }
 
 function App() {
   return (
-    
-      <AppContent />
-    
+    <div>
+      <Home />
+      <Featured />
+      <OfferSection />
+      <OurImpact />
+      <FAQSection />
+      <Footer />
+      
+    </div>
   );
 }
 
