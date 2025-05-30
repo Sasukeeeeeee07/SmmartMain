@@ -86,6 +86,7 @@ const BlogDetail = () => {
   };
 
   return (
+    
     <div className="blog-detail-page">
       <Header />
       
@@ -151,7 +152,7 @@ const BlogDetail = () => {
           </div>
         </div>
       </main>
-
+jkkk
       <Footer />
     </div>
   );
