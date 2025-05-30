@@ -1,0 +1,199 @@
+/* Knowledge Section Styles */
+.knowledge-section {
+  display: flex;
+  background-color: #000000;
+  width: 100%;
+  min-height: 400px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+/* Left Side - Knowledge Card */
+.knowledge-card {
+  flex: 1;
+  background: linear-gradient(to bottom right, #444444, #666666);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 30px;
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  max-width: 80%;
+}
+
+.card-content h2 {
+  color: white;
+  font-size: 42px;
+  font-weight: 600;
+  margin: 0 0 15px 0;
+}
+
+.card-content p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 16px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.bg-text {
+  position: absolute;
+  font-size: 120px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.15);
+  font-style: italic;
+  z-index: 1;
+  white-space: nowrap;
+  transform: translateX(-50%) translateY(-50%);
+  top: 50%;
+  left: 50%;
+}
+
+/* Right Side - Network Diagram */
+.network-diagram {
+  flex: 1;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+}
+
+.network-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+/* Network Buttons */
+.network-button {
+  position: absolute;
+  background-color: #FF8C00;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+/* Button Positions */
+.knowledge-btn {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.creativity-btn {
+  top: 60px;
+  left: 10px;
+}
+
+.attitude-btn {
+  top: 60px;
+  right: 10px;
+}
+
+.strategies-btn {
+  bottom: 80px;
+  left: 10px;
+}
+
+.skills-btn {
+  bottom: 80px;
+  right: 10px;
+}
+
+.habits-btn {
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Connection Lines */
+.connector {
+  position: absolute;
+  background-color: #FF8C00;
+  z-index: 1;
+}
+
+/* Vertical Lines */
+.knowledge-creativity {
+  width: 2px;
+  height: 50px;
+  top: 28px;
+  left: 50px;
+  transform: rotate(-30deg);
+}
+
+.knowledge-attitude {
+  width: 2px;
+  height: 50px;
+  top: 28px;
+  right: 50px;
+  transform: rotate(30deg);
+}
+
+.creativity-strategies {
+  width: 2px;
+  height: 90px;
+  top: 88px;
+  left: 50px;
+}
+
+.attitude-skills {
+  width: 2px;
+  height: 90px;
+  top: 88px;
+  right: 50px;
+}
+
+.strategies-habits {
+  width: 70px;
+  height: 2px;
+  bottom: 40px;
+  left: 80px;
+  transform: rotate(30deg);
+}
+
+.skills-habits {
+  width: 70px;
+  height: 2px;
+  bottom: 40px;
+  right: 80px;
+  transform: rotate(-30deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .knowledge-section {
+    flex-direction: column;
+  }
+
+  .knowledge-card, 
+  .network-diagram {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-content h2 {
+    font-size: 32px;
+  }
+
+  .bg-text {
+    font-size: 80px;
+  }
+  
+  .network-container {
+    transform: scale(0.9);
+  }
+} 

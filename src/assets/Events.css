@@ -1,0 +1,273 @@
+/* General Page Styles */
+.events-page-container {
+  background-color: #060018; /* Dark background for the whole page */
+  min-height: 100vh;
+  color: #fff; /* Default text color */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Header Section */
+.events-header-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Align to top */
+  margin-bottom: 40px;
+  position: relative; /* For annotation positioning */
+}
+
+.events-main-title {
+  font-size: 2.5rem; /* Match image */
+  font-weight: 700;   /* Match image */
+  margin: 0;
+}
+
+.short-catchy-annotation {
+  display: flex;
+  flex-direction: column; /* Stack icon and text */
+  align-items: center;  /* Center items in column */
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 20px; /* Adjust as needed */
+}
+
+.video-on-loop-icon {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #FF8C42; /* Orange border for icon */
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 5px; /* Space between icon and text */
+}
+
+.video-on-loop-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -50%);
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid #FF8C42; /* Orange play triangle */
+}
+
+/* Events Layout Grid */
+.events-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* Featured takes 2/3, others 1/3 */
+  gap: 20px;
+}
+
+/* Featured Event Section */
+.featured-event-section {
+  grid-column: 1 / -1; /* Span full width */
+  margin-bottom: 20px; /* Space below featured event */
+}
+
+/* Regular Events Grid (for the two smaller cards) */
+.regular-events-grid {
+  grid-column: 1 / span 2; /* Takes up 2/3 of the space if we imagine 3 cols */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Coming Soon Section */
+.coming-soon-section {
+  grid-column: 3 / span 1; /* Takes up 1/3 of the space */
+  position: relative;      /* For overlay text */
+  border-radius: 15px;
+  overflow: hidden; /* Clip the blur */
+}
+
+.coming-soon-blurred-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card Styling (Common) */
+.card {
+  background: linear-gradient(to right, rgba(50, 50, 50, 0.6), rgba(30, 30, 30, 0.5)); /* Darker gradient */
+  border-radius: 15px;
+  padding: 25px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Pushes button down if card content is short */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.featured-card {
+  padding: 30px; /* More padding for featured */
+  min-height: 200px; /* Match image */
+}
+
+.regular-card {
+  min-height: 180px; /* Match image */
+}
+
+.card-content {
+  /* flex-grow: 1; Let content determine height, button at bottom */
+}
+
+.featured-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  color: rgba(255,255,255,0.9);
+}
+
+.card-title {
+  font-size: 1.75rem; /* Match image */
+  font-weight: 600;
+  margin-top: 0; /* Reset margin */
+  margin-bottom: 8px;
+}
+
+.featured-card .card-title {
+  font-size: 2rem; /* Larger for featured */
+}
+
+.card-description {
+  font-size: 0.9rem; /* Match image */
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.learn-more-btn {
+  background-color: #FF8C42; /* Orange from image */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: capitalize; /* 'Learn more' */
+  transition: background-color 0.2s ease;
+  align-self: flex-start; /* Align button to the left */
+}
+
+.learn-more-btn:hover {
+  background-color: #FFA500; /* Slightly darker orange */
+}
+
+/* Blurred Placeholder Cards for Coming Soon */
+.blurred-card-placeholder {
+  background: linear-gradient(to right, rgba(50, 50, 50, 0.4), rgba(30, 30, 30, 0.3));
+  border-radius: 15px;
+  padding: 25px;
+  height: 180px; /* Match regular card height */
+  filter: blur(3px); /* Blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  opacity: 0.6;
+}
+
+.card-content-blurred {
+  /* Styles for text inside blurred cards to make it look like content */
+}
+
+.card-title-blurred,
+.card-description-blurred,
+.learn-more-btn-blurred {
+  color: rgba(255, 255, 255, 0.3); /* Very faint text */
+}
+
+.card-title-blurred {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.card-description-blurred {
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+.learn-more-btn-blurred {
+  background-color: rgba(255, 140, 66, 0.3); /* Faint orange */
+  border: none;
+  border-radius: 8px;
+  padding: 10px 25px;
+  font-size: 0.9rem;
+  align-self: flex-start;
+}
+
+.coming-soon-text-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem; /* Match image */
+  font-weight: 700;   /* Match image */
+  color: #fff;
+  background-color: rgba(6, 0, 24, 0.5); /* Semi-transparent overlay to make text pop */
+  backdrop-filter: blur(2px); /* Slight blur on background behind text */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) { /* Tablet and smaller */
+  .events-layout {
+    grid-template-columns: 1fr; /* Stack everything */
+  }
+
+  .regular-events-grid {
+    grid-column: auto; /* Reset grid column span */
+  }
+
+  .coming-soon-section {
+    grid-column: auto; /* Reset grid column span */
+    margin-top: 20px;
+  }
+
+  .short-catchy-annotation {
+    position: static; /* Don't float on smaller screens */
+    margin-top: 10px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) { /* Mobile */
+  .events-main-title {
+    font-size: 2rem;
+  }
+
+  .regular-events-grid {
+    grid-template-columns: 1fr; /* Stack regular cards on mobile */
+  }
+
+  .card-title {
+    font-size: 1.5rem;
+  }
+  .featured-card .card-title {
+    font-size: 1.75rem;
+  }
+  .coming-soon-text-overlay {
+    font-size: 1.8rem;
+  }
+}
+
+/* Basic Header and Footer STYLES REMOVED FROM HERE */ 

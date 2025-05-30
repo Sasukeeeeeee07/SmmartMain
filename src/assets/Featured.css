@@ -1,0 +1,264 @@
+.featured-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Poppins', Arial, sans-serif;
+  position: relative;
+  background: linear-gradient(to bottom, #0A0A0A, #000000),
+    radial-gradient(circle at 50% 50%, #202020 0%, #111111 25%, #000000 100%);
+  min-height: 100vh;
+}
+
+/* Meet person section */
+.meet-person {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 6rem;
+  align-items: center;
+  background: linear-gradient(90deg, #110B33 0%, #321D63 100%);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.meet-info {
+  flex: 1;
+  padding: 40px;
+}
+
+.introducing {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.introducing .highlight {
+  color: #6B3FCB;
+  font-weight: 600;
+}
+
+.meet-title {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.purple-text {
+  color: #6B3FCB;
+}
+
+.meet-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #E6E6E6;
+  max-width: 90%;
+}
+
+.meet-image {
+  flex: 1;
+  position: relative;
+}
+
+.person-image {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(107, 63, 203, 0.2);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Upcoming events section */
+.events-section {
+  margin-top: 4rem;
+}
+
+.events-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.events-navigation {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.see-more {
+  color: #6B3FCB;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.nav-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-btn {
+  background: #fff;
+  border: 2px solid #6B3FCB;
+  color: #6B3FCB;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #6B3FCB;
+  color: #fff;
+}
+
+/* Event cards grid */
+.events-grid {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.events-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.event-card {
+  min-width: 280px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-date {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #6B3FCB;
+  margin-bottom: 1rem;
+}
+
+.event-details {
+  color: #333;
+}
+
+.event-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-subtitle {
+  color: #666;
+  margin-bottom: 0.5rem;
+}
+
+.event-time {
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* Event indicators */
+.event-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: #6B3FCB;
+  transform: scale(1.2);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .featured-section {
+    padding: 30px 20px;
+  }
+
+  .meet-person {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .meet-description {
+    max-width: 100%;
+  }
+
+  .person-image {
+    min-height: 250px;
+  }
+
+  .meet-title {
+    font-size: 2rem;
+  }
+
+  .events-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .events-navigation {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .event-card {
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .events-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .events-navigation {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
