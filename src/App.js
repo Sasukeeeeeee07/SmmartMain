@@ -4,8 +4,6 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import Header from './component/Header';
-import Footer from './component/Footer';
 import Events from './component/Events';
 import Home from "./component/Home";
 import OurImpact from './component/OurImpact';
@@ -20,18 +18,27 @@ import Contact from "./component/Contact";
 import ApplyJob from "./component/ApplyJob";
 import Featured from './component/Featured';
 import FAQSection from './component/FAQSection';
+import TestimonialCarousel from './component/TestimonialCarousel';
 
 import './App.css';
 
-function AppContent() {
+function App() {
   const location = useLocation();
-  const showHeaderFooter = location.pathname !== "/apply";
+  const isHomePage = location.pathname === "/";
 
   return (
-    <>
-     
+    <div>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={
+          <>
+            <Home />
+            <Featured />
+            <OfferSection />
+            <TestimonialCarousel />
+            <OurImpact />
+            <FAQSection />
+          </>
+        } />
         <Route path="/about" element={<About />} />
         <Route path="/about/people" element={<People />} />
         <Route path="/careers" element={<Career />} />
@@ -39,25 +46,9 @@ function AppContent() {
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/merchandise" element={<Merchandise />} />
         <Route path="/contact" element={<Contact />} />
-        
         <Route path="/apply" element={<ApplyJob />} />
         <Route path="/events" element={<Events />} />
       </Routes>
-     
-    </>
-  );
-}
-
-function App() {
-  return (
-    <div>
-      <Home />
-      <Featured />
-      <OfferSection />
-      <OurImpact />
-      <FAQSection />
-      <Footer />
-      
     </div>
   );
 }
