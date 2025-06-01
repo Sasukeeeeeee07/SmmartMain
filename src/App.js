@@ -20,7 +20,8 @@ import ApplyJob from "./component/ApplyJob";
 import Featured from './component/Featured';
 import FAQSection from './component/FAQSection';
 import TestimonialCarousel from './component/TestimonialCarousel';
-
+import NotFound from './component/NotFound';
+import Footer from './component/Footer';
 import './App.css';
 
 function App() {
@@ -38,18 +39,20 @@ function App() {
             <TestimonialCarousel />
             <OurImpact />
             <FAQSection />
+            <Footer />
           </>
         } />
         <Route path="/about" element={<About />} />
         <Route path="/about/people" element={<People />} />
         <Route path="/careers" element={<Career />} />
+        <Route path="/careers/apply/:id" element={<ApplyJob />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/merchandise" element={<Merchandise />} />
         <Route path="/merchandise/:id" element={<BookDetail />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/apply" element={<ApplyJob />} />
         <Route path="/events" element={<Events />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

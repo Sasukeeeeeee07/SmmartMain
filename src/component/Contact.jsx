@@ -7,7 +7,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    subject: '',
     message: ''
   });
 
@@ -27,102 +27,95 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
-    <Header />
+      <Header />
       <div className="contact-content">
-        <h1>Contact Us</h1>
-        
         <div className="contact-grid">
           <div className="contact-info">
-            <div className="info-section">
-              <h3>Office Address</h3>
-              <p>
-                F - wing, 701/702 7th floor Remi Bizcourt,<br />
-                Opp Veera Desai Road,<br />
-                Opposite Supreme Chambers,<br />
-                Andheri West, Mumbai - 400 053
-              </p>
-            </div>
+            <h1>We'd Love to<br />Hear from you.</h1>
+            <p className="contact-subtitle">
+              Feel free to reach out to us for any inquiries or collaboration opportunities.
+            </p>
+            
+            <div className="contact-features">
+              <div className="feature-item">
+                <div className="feature-icon">📍</div>
+                <div className="feature-text">
+                  <h3>Visit Us</h3>
+                  <p>F-wing, 701/702 7th floor Remi Bizcourt, Andheri West, Mumbai - 400 053</p>
+                </div>
+              </div>
 
-            <div className="info-section">
-              <h3>Contact Numbers</h3>
-              <p>+91 84510 51500</p>
-              <p>+91 84510 51531</p>
-            </div>
+              <div className="feature-item">
+                <div className="feature-icon">📞</div>
+                <div className="feature-text">
+                  <h3>Call Us</h3>
+                  <p>+91 84510 51500<br />+91 84510 51531</p>
+                </div>
+              </div>
 
-            <div className="info-section">
-              <h3>Email</h3>
-              <p>info@smmart.co.in</p>
-            </div>
-
-            <div className="info-section">
-              <h3>Our Locations</h3>
-              <p>Mumbai | Surat | Rajkot</p>
-            </div>
-
-            <div className="social-links">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-instagram"></i>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
+              <div className="feature-item">
+                <div className="feature-icon">✉️</div>
+                <div className="feature-text">
+                  <h3>Email Us</h3>
+                  <p>info@smmart.co.in</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div className="contact-form">
-            <h2>Send us a Message</h2>
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  placeholder="Your Email"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Your Phone"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder="Your Message"
-                  required
-                ></textarea>
-              </div>
-              <button type="submit">Send Message</button>
-            </form>
+          <div className="contact-form-container">
+            <div className="form-card">
+              <h2>Contact Us</h2>
+              <form onSubmit={handleSubmit}>
+                <div className="form-row">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Name"
+                      required
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <div className="form-group">
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder="Subject"
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Message"
+                    required
+                    rows="4"
+                  ></textarea>
+                </div>
+                <button type="submit" className="submit-button">Send</button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };
