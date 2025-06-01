@@ -8,7 +8,7 @@ import Events from './component/Events';
 import Home from "./component/Home";
 import OurImpact from './component/OurImpact';
 import About from "./component/About";
-import People from "./component/People";
+import People from "./component/AboutSmmart";
 import Career from "./component/Career";
 import OfferSection from './component/OfferSection';
 import Blog from "./component/Blog";
@@ -23,6 +23,7 @@ import TestimonialCarousel from './component/TestimonialCarousel';
 import NotFound from './component/NotFound';
 import Footer from './component/Footer';
 import './App.css';
+import AboutSmmart from './component/AboutSmmart';
 
 function App() {
   const location = useLocation();
@@ -43,7 +44,7 @@ function App() {
           </>
         } />
         <Route path="/about" element={<About />} />
-        <Route path="/about/people" element={<People />} />
+        <Route path="/about/AboutSmmart" element={<AboutSmmart />} />
         <Route path="/careers" element={<Career />} />
         <Route path="/careers/apply/:id" element={<ApplyJob />} />
         <Route path="/blog" element={<Blog />} />

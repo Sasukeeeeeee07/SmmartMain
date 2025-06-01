@@ -40,7 +40,7 @@ const Header = () => {
               About
             </button>
             <div className={`dropdown-menu ${activeDropdown === 'about' ? 'show' : ''}`}>
-              <Link to="/about/people">About Smmart</Link>
+              <Link to="/about/AboutSmmart">About Smmart</Link>
               <Link to="/about">Our People</Link>
               
             </div>
