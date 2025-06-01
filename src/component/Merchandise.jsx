@@ -3,31 +3,34 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './Merchandise.css';
+import bookcoverpage1 from './images/bookcoverpage1.jpg';
+import bookcoverpage2 from './images/bookcoverpage2.jpg';
+import bookcoverpage3 from './images/bookcoverpage3.jpg';
 
 const books = [
   {
     id: 1,
-    image: '/images/book1.jpg',
+    image: bookcoverpage1,
     title: 'Why do Entrepreneurs miss the Bus?',
     author: 'Santosh Nair',
     rating: 4.5,
-    description: 'An engaging exploration of entrepreneurship. Santosh Nair offers his unique perspective on the bumpy road ahead for dreamers. This book encourages readers to challenge traditional thinking, take risks, and seize opportunities. Through real-world stories and practical advice, Nair inspires entrepreneurs to overcome the challenges and self-imposed barriers that confine their progress.',
+    description: 'An engaging exploration of entrepreneurship. Santosh Nair offers his unique perspective on the bumpy road ahead for dreamers. This book encourages readers to challenge traditional thinking, take risks, and seize opportunities.',
   },
   {
     id: 2,
-    image: '/images/book2.jpg',
-    title: 'Eleven Commandments of Life Maximization.',
+    image: bookcoverpage2,
+    title: 'Eleven Commandments of Life Maximization',
     author: 'Santosh Nair',
     rating: 5,
     description: 'Principles, procedures, and action-based tools for maximizing your life. This book will empower you to become a "Life Maximizer" rather than a "Handsome Destroyer."',
   },
   {
     id: 3,
-    image: '/images/book3.jpg',
+    image: bookcoverpage3,
     title: '52 Result Multiplier Thoughts',
     author: 'Santosh Nair',
     rating: 4,
-    description: '52 life-boosters, this book lays down something or other that can move you forward in life. It is a collection of powerful result multiplier thoughts, each with a story, a lesson, and an action point you can apply in your life as the thought-multiplier in the world of people.',
+    description: '52 life-boosters, this book lays down something or other that can move you forward in life. A collection of powerful result multiplier thoughts.',
   },
 ];
 
@@ -35,12 +38,22 @@ const Merchandise = () => {
   return (
     <div className="merchandise-bg">
       <Header />
-      <div className="merch-quote-section">
-        <h1 className="merch-quote">"Today a Reader,<br/>Tomorrow a Leader."</h1>
-        <div className="merch-quote-author">- Margaret Fuller</div>
-      </div>
-      <div className="merch-visualization-img-wrap">
-        <img src="/images/santosh.jpg" alt="Books Visualization" className="merch-visualization-img" />
+      <div className="merch-hero-section">
+        <div className="merch-quote-section">
+          <h1 className="merch-quote">"Today a Reader,<br/>Tomorrow a Leader."</h1>
+          <div className="merch-quote-author">- Margaret Fuller</div>
+        </div>
+        <div className="floating-books-container">
+          <div className="floating-book book1">
+            <img src={bookcoverpage1} alt="Book 1" />
+          </div>
+          <div className="floating-book book2">
+            <img src={bookcoverpage2} alt="Book 2" />
+          </div>
+          <div className="floating-book book3">
+            <img src={bookcoverpage3} alt="Book 3" />
+          </div>
+        </div>
       </div>
       <div className="merch-books-list">
         {books.map(book => (

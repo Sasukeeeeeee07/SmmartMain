@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import Header from './Header';
+import Footer from './Footer';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -25,6 +27,7 @@ const Contact = () => {
 
   return (
     <div className="contact-page">
+    <Header />
       <div className="contact-content">
         <h1>Contact Us</h1>
         
@@ -119,6 +122,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

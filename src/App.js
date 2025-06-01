@@ -14,6 +14,7 @@ import OfferSection from './component/OfferSection';
 import Blog from "./component/Blog";
 import BlogDetail from "./component/BlogDetail";
 import Merchandise from "./component/Merchandise";
+import BookDetail from "./component/BookDetail";
 import Contact from "./component/Contact";
 import ApplyJob from "./component/ApplyJob";
 import Featured from './component/Featured';
@@ -45,6 +46,7 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<BlogDetail />} />
         <Route path="/merchandise" element={<Merchandise />} />
+        <Route path="/merchandise/:id" element={<BookDetail />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/apply" element={<ApplyJob />} />
         <Route path="/events" element={<Events />} />
