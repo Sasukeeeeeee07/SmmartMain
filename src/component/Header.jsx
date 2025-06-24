@@ -27,11 +27,11 @@ const Header = () => {
     const handleClickOutside = (event) => {
       const navSection = document.querySelector('.nav-section');
       const hamburger = document.querySelector('.hamburger');
-      
+
       if (
-        isMenuOpen && 
-        navSection && 
-        hamburger && 
+        isMenuOpen &&
+        navSection &&
+        hamburger &&
         !navSection.contains(event.target) &&
         !hamburger.contains(event.target)
       ) {
@@ -53,8 +53,8 @@ const Header = () => {
         </Link>
       </div>
 
-      <button 
-        className={`hamburger ${isMenuOpen ? 'active' : ''}`} 
+      <button
+        className={`hamburger ${isMenuOpen ? 'active' : ''}`}
         onClick={toggleMenu}
         aria-label="Toggle menu"
         aria-expanded={isMenuOpen}
@@ -66,8 +66,8 @@ const Header = () => {
 
       <div className={`nav-section ${isMenuOpen ? 'open' : ''}`}>
         <div className={`main-nav-links ${isMenuOpen ? 'open' : ''}`}>
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={location.pathname === '/' ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
@@ -83,29 +83,29 @@ const Header = () => {
               <Link to="/about" onClick={() => setIsMenuOpen(false)}>Our People</Link>
             </div>
           </div>
-          <Link 
-            to="/blog" 
+          <Link
+            to="/blog"
             className={location.pathname === '/blog' ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
             Blog
           </Link>
-          <Link 
-            to="/careers" 
+          <Link
+            to="/careers"
             className={location.pathname === '/careers' ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
             Careers
           </Link>
-          <Link 
-            to="/merchandise" 
+          <Link
+            to="/merchandise"
             className={location.pathname === '/merchandise' ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
             Merchandise
           </Link>
-          <Link 
-            to="/contact" 
+          <Link
+            to="/contact"
             className="mobile-contact-btn"
             onClick={() => setIsMenuOpen(false)}
           >
