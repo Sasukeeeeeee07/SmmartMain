@@ -25,6 +25,7 @@ import NotFound from './component/NotFound';
 import Footer from './component/Footer';
 import './App.css';
 import AboutSmmart from './component/AboutSmmart';
+import IndividualTransformation from './pages/IndividualTransformation';
 
 // Component to wrap route elements and force scroll to top
 const ScrollToTopWrapper = ({ children }) => {
@@ -75,6 +76,9 @@ function App() {
         <Route path="/merchandise/:id" element={<ScrollToTopWrapper><BookDetail /></ScrollToTopWrapper>} />
         <Route path="/contact" element={<ScrollToTopWrapper><Contact /></ScrollToTopWrapper>} />
         <Route path="/events" element={<ScrollToTopWrapper><Events /></ScrollToTopWrapper>} />
+        <Route path="/products/individual" element={<ScrollToTopWrapper><IndividualTransformation /></ScrollToTopWrapper>} />
+        <Route path="/products/entrepreneur" element={<ScrollToTopWrapper><NotFound /></ScrollToTopWrapper>} />
+        <Route path="/products/enterprise" element={<ScrollToTopWrapper><NotFound /></ScrollToTopWrapper>} />
         <Route path="*" element={<ScrollToTopWrapper><NotFound /></ScrollToTopWrapper>} />
       </Routes>
     </div>

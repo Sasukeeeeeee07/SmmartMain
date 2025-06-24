@@ -1,8 +1,23 @@
 /* Merchandise Page Styles */
 .merchandise-bg {
   min-height: 100vh;
-  background: #060018;
+  background: linear-gradient(135deg, #101630 0%, #1c1245 50%, #0d192c 100%);
   padding: 0;
+  position: relative;
+}
+
+.merchandise-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(41, 70, 153, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(66, 30, 138, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .merch-hero-section {
@@ -12,7 +27,8 @@
   overflow: hidden;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, rgba(6, 0, 24, 0.9) 0%, rgba(127, 95, 255, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(16, 22, 48, 0.8) 0%, rgba(28, 18, 69, 0.6) 100%);
+  z-index: 1;
 }
 
 .merch-quote-section {
@@ -26,6 +42,7 @@
   padding: 0 60px;
   box-sizing: border-box;
   z-index: 2;
+  position: relative;
 }
 
 .merch-quote {
@@ -98,13 +115,19 @@
   gap: 32px;
   padding: 0 60px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 1;
 }
 
 .merch-book-card {
   display: flex;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(18, 21, 40, 0.6);
+  /* Changed to darker, more consistent background */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  /* Added subtle border */
   border-radius: 18px;
-  box-shadow: 0 2px 16px rgba(127, 95, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  /* Enhanced shadow */
   padding: 32px;
   align-items: center;
   gap: 36px;
@@ -196,11 +219,11 @@
   .merch-hero-section {
     height: 500px;
   }
-  
+
   .merch-quote {
     font-size: 3rem;
   }
-  
+
   .floating-book img {
     width: 150px;
     height: 225px;
@@ -213,34 +236,34 @@
     height: auto;
     padding: 60px 0;
   }
-  
+
   .merch-quote-section {
     padding: 0 20px;
     text-align: center;
     align-items: center;
   }
-  
+
   .floating-books-container {
     position: relative;
     width: 100%;
     height: 300px;
     margin-top: 40px;
   }
-  
+
   .merch-books-list {
     padding: 0 20px;
   }
-  
+
   .merch-book-card {
     flex-direction: column;
     text-align: center;
     padding: 24px;
   }
-  
+
   .merch-book-info {
     align-items: center;
   }
-  
+
   .merch-readmore-btn {
     align-self: center;
   }
@@ -255,6 +278,7 @@
   justify-content: center;
   padding: 60px 0;
 }
+
 .book-detail-card {
   background: rgba(24, 26, 35, 0.98);
   border-radius: 18px;
@@ -266,6 +290,7 @@
   max-width: 900px;
   width: 100%;
 }
+
 .book-detail-img {
   width: 200px;
   height: 280px;
@@ -274,26 +299,31 @@
   box-shadow: 0 4px 24px #7f5fff33;
   background: #fff;
 }
+
 .book-detail-info {
   flex: 1;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
+
 .book-detail-info h1 {
   color: #fff;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 6px;
 }
+
 .book-detail-author {
   color: #b39ddb;
   font-size: 1.15rem;
 }
+
 .book-detail-rating {
   color: #ffea61;
   font-size: 1.3rem;
 }
+
 .book-detail-desc {
   color: #e0e0e0;
   font-size: 1.12rem;
@@ -308,6 +338,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .merch-visualization-img {
   width: 420px;
   max-width: 90vw;
@@ -318,9 +349,10 @@
   margin-top: 0;
   margin-bottom: 0;
 }
+
 @media (max-width: 900px) {
   .merch-visualization-img {
     width: 90vw;
     max-width: 98vw;
   }
-} 
+}

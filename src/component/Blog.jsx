@@ -7,6 +7,7 @@ import Footer from './Footer';
 import { FaSearch, FaClock, FaBookmark, FaShare, FaTags } from 'react-icons/fa';
 
 const featuredBlog = {
+  id: 1,
   title: 'Are You a Dreamer or a Doer?',
   author: 'Dr. Smmart',
   image: BlogPhoto,
@@ -17,6 +18,7 @@ const featuredBlog = {
 };
 
 const blogTeaser = {
+  id: 2,
   quote: 'Why do we remain disturbed?',
   text: 'Explore the root causes of our persistent worries and how to overcome them for a more peaceful life.',
   cta: 'Discover inner peace'
@@ -24,6 +26,7 @@ const blogTeaser = {
 
 const blogCards = [
   {
+    id: 2,
     title: 'Why Your Inner Voice Defines Your Outer Reality',
     author: 'Dr. Smmart',
     image: BlogPhoto,
@@ -33,6 +36,7 @@ const blogCards = [
     tags: ['Mindset', 'Growth', 'Self-Development']
   },
   {
+    id: 3,
     title: 'Clarity Is the New Currency',
     author: 'Dr. Smmart',
     image: BlogPhoto,
@@ -42,6 +46,7 @@ const blogCards = [
     tags: ['Strategy', 'Focus', 'Productivity']
   },
   {
+    id: 4,
     title: 'Build a Business That Builds You',
     author: 'Dr. Smmart',
     image: BlogPhoto,
@@ -51,6 +56,7 @@ const blogCards = [
     tags: ['Business', 'Growth', 'Leadership']
   },
   {
+    id: 1,
     title: 'The Freedom Matrix: Living Beyond Profit',
     author: 'Dr. Smmart',
     image: BlogPhoto,
@@ -115,9 +121,7 @@ const Blog = () => {
                 {featuredBlog.tags.map((tag, index) => (
                   <span key={index} className="blog-tag">{tag}</span>
                 ))}
-              </div>
-
-              <button className="blog-featured-btn" onClick={() => navigate('/blog/1')}>
+              </div>              <button className="blog-featured-btn" onClick={() => navigate(`/blog/${featuredBlog.id}`)}>
                 Read Full Article
               </button>
             </div>
@@ -133,8 +137,7 @@ const Blog = () => {
         <section className="blog-teaser">
           <div className="blog-teaser-content">
             <div className="blog-teaser-quote">"{blogTeaser.quote}"</div>
-            <p className="blog-teaser-text">{blogTeaser.text}</p>
-            <button className="blog-teaser-btn" onClick={() => navigate('/blog/2')}>
+            <p className="blog-teaser-text">{blogTeaser.text}</p>            <button className="blog-teaser-btn" onClick={() => navigate(`/blog/${blogTeaser.id}`)}>
               {blogTeaser.cta}
             </button>
           </div>
@@ -174,8 +177,7 @@ const Blog = () => {
             ))}
           </div>
 
-          {/* Blog Cards Grid */}
-          <div className="blog-card-grid">
+          {/* Blog Cards Grid */}          <div className="blog-card-grid">
             {visibleCards.map((card, idx) => (
               <div className="blog-card" key={idx}>
                 <div className="blog-card-image-container">
@@ -202,10 +204,8 @@ const Blog = () => {
                       <span key={index} className="blog-card-tag">{tag}</span>
                     ))}
                     {card.tags.length > 2 && <span className="blog-card-tag-more">+{card.tags.length - 2}</span>}
-                  </div>
-
-                  <div className="blog-card-footer">
-                    <button className="blog-card-btn" onClick={() => navigate('/blog/1')}>
+                  </div>                  <div className="blog-card-footer">
+                    <button className="blog-card-btn" onClick={() => navigate(`/blog/${card.id}`)}>
                       Read More
                     </button>
 

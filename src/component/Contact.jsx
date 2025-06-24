@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Contact.css';
 import Header from './Header';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -35,7 +35,7 @@ const Contact = () => {
             <p className="contact-subtitle">
               Feel free to reach out to us for any inquiries or collaboration opportunities.
             </p>
-            
+
             <div className="contact-features">
               <div className="feature-item">
                 <div className="feature-icon">📍</div>
@@ -113,8 +113,7 @@ const Contact = () => {
               </form>
             </div>
           </div>
-        </div>
-      </div>
+        </div>      </div>
       {/* <Footer /> */}
     </div>
   );

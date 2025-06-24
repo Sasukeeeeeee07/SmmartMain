@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
+import logoImage from '../assets/image/logo.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
 
-  // Close mobile menu when route changes
+  // Close mobile menu and dropdowns when route changes
   useEffect(() => {
     setIsMenuOpen(false);
     setActiveDropdown(null);
@@ -22,90 +23,53 @@ const Header = () => {
     setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
   };
 
-  // Close menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      const navSection = document.querySelector('.nav-section');
-      const hamburger = document.querySelector('.hamburger');
-
-      if (
-        isMenuOpen &&
-        navSection &&
-        hamburger &&
-        !navSection.contains(event.target) &&
-        !hamburger.contains(event.target)
-      ) {
-        setIsMenuOpen(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isMenuOpen]);
-
   return (
-    <nav className="main-navbar">
-      <div className="main-logo">
-        <Link to="/">
-          Smm<span>art</span>
-        </Link>
-      </div>
+    <nav className="main-navbar">      <div className="main-logo">
+      <Link to="/">
+        <img src={logoImage} alt="Smmart Logo" className="logo-image" />
+      </Link>
+    </div>
 
-      <button
-        className={`hamburger ${isMenuOpen ? 'active' : ''}`}
-        onClick={toggleMenu}
-        aria-label="Toggle menu"
-        aria-expanded={isMenuOpen}
-      >
+      <button className="hamburger" onClick={toggleMenu}>
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
       </button>
 
       <div className={`nav-section ${isMenuOpen ? 'open' : ''}`}>
-        <div className={`main-nav-links ${isMenuOpen ? 'open' : ''}`}>
-          <Link
-            to="/"
-            className={location.pathname === '/' ? 'active' : ''}
-            onClick={() => setIsMenuOpen(false)}
-          >
+        <div className="main-nav-links">
+          <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
             Home
-          </Link>
-          <div className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}>
+          </Link>          <div className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}>
             <button className="dropdown-trigger" onClick={() => toggleDropdown('about')}>
               About
-              <span className="dropdown-icon"></span>
             </button>
             <div className={`dropdown-menu ${activeDropdown === 'about' ? 'show' : ''}`}>
-              <Link to="/about/AboutSmmart" onClick={() => setIsMenuOpen(false)}>About Smmart</Link>
-              <Link to="/about" onClick={() => setIsMenuOpen(false)}>Our People</Link>
+              <Link to="/about/AboutSmmart">About Smmart</Link>
+              <Link to="/about">Our People</Link>
             </div>
           </div>
-          <Link
-            to="/blog"
-            className={location.pathname === '/blog' ? 'active' : ''}
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <div className={`dropdown ${activeDropdown === 'products' ? 'active' : ''}`}>
+            <button className="dropdown-trigger" onClick={() => toggleDropdown('products')}>
+              Our Products
+            </button>
+            <div className={`dropdown-menu ${activeDropdown === 'products' ? 'show' : ''}`}>
+              <Link to="/products/individual">Individual Transformation</Link>
+              <Link to="/products/entrepreneur">Entrepreneur Transformation</Link>
+              <Link to="/products/enterprise">Enterprise Transformation</Link>
+            </div>
+          </div>
+          <Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>
             Blog
           </Link>
-          <Link
-            to="/careers"
-            className={location.pathname === '/careers' ? 'active' : ''}
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <Link to="/careers" className={location.pathname === '/careers' ? 'active' : ''}>
             Careers
           </Link>
-          <Link
-            to="/merchandise"
-            className={location.pathname === '/merchandise' ? 'active' : ''}
-            onClick={() => setIsMenuOpen(false)}
-          >
+          <Link to="/merchandise" className={location.pathname === '/merchandise' ? 'active' : ''}>
             Merchandise
           </Link>
         </div>
-        <Link to="/contact" className="contact-btn desktop-only">
+        <Link to="/contact" className="contact-btn">
           Contact Us
         </Link>
       </div>

@@ -84,6 +84,8 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  position: relative;
+  z-index: 5;
 }
 
 .see-more {
@@ -94,25 +96,36 @@
 
 .nav-buttons {
   display: flex;
-  gap: 10px;
+  gap: 15px;
+  /* Increased gap between buttons */
 }
 
 .nav-btn {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  border: 1px solid #ddd;
-  background: transparent;
+  border: none;
+  background: #7f56da;
+  /* Purple background to match theme */
+  color: white;
+  /* White text/arrow color */
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.2rem;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(127, 86, 218, 0.3);
+  /* Add shadow for depth */
 }
 
 .nav-btn:hover {
-  background-color: #f5f5f5;
+  background-color: #6943b5;
+  /* Slightly darker on hover */
+  transform: translateY(-2px);
+  /* Small lift effect */
+  box-shadow: 0 6px 12px rgba(127, 86, 218, 0.4);
+  /* Enhanced shadow on hover */
 }
 
 .events-grid {
@@ -171,20 +184,26 @@
 .event-indicators {
   display: flex;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
+  /* Slightly increased gap */
   margin-top: 30px;
 }
 
 .indicator {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  /* Slightly larger dots */
+  height: 10px;
   border-radius: 50%;
-  background-color: #ddd;
+  background-color: rgba(127, 86, 218, 0.3);
+  /* Light purple instead of gray */
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .indicator.active {
   background-color: #7f56da;
+  transform: scale(1.2);
+  /* Slightly larger when active */
 }
 
 /* Media queries for responsive design */

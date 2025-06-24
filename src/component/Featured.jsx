@@ -56,12 +56,20 @@ const Featured = () => {
       {/* Upcoming events section */}
       <div className="events-section">
         <div className="events-header">
-          <h2 className="section-title">smmart events</h2>
-          <div className="events-navigation">
-            {/* <span className="see-more">See more events</span> */}
-            <div className="nav-buttons">
-              <button className="nav-btn prev-btn" onClick={handlePrevClick}>←</button>
-              <button className="nav-btn next-btn" onClick={handleNextClick}>→</button>
+          <h2 className="section-title">smmart events</h2>          <div className="events-navigation">
+            {/* <span className="see-more">See more events</span> */}            <div className="nav-buttons">
+              <button
+                className="nav-btn prev-btn"
+                onClick={handlePrevClick}
+                aria-label="Previous events"
+                title="Previous events"
+              >&larr;</button>
+              <button
+                className="nav-btn next-btn"
+                onClick={handleNextClick}
+                aria-label="Next events"
+                title="Next events"
+              >&rarr;</button>
             </div>
           </div>
         </div>
