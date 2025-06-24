@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Route,
   Routes,
   useLocation,
 } from "react-router-dom";
+import ScrollToTop from './component/ScrollToTop';
 import Events from './component/Events';
 import Home from "./component/Home";
 import OurImpact from './component/OurImpact';
@@ -25,12 +26,34 @@ import Footer from './component/Footer';
 import './App.css';
 import AboutSmmart from './component/AboutSmmart';
 
+// Component to wrap route elements and force scroll to top
+const ScrollToTopWrapper = ({ children }) => {
+  useEffect(() => {
+    // Force scroll to top with multiple approaches
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0; // For Safari
+    console.log("ScrollToTopWrapper executed");
+  }, []);
+
+  return <>{children}</>;
+};
+
 function App() {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
+  // Force scroll to top whenever location changes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+    console.log("App location change scroll reset:", location.pathname);
+  }, [location]);
+
   return (
     <div>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={
           <>
@@ -42,18 +65,17 @@ function App() {
             <FAQSection />
             <Footer />
           </>
-        } />
-        <Route path="/about" element={<About />} />
-        <Route path="/about/AboutSmmart" element={<AboutSmmart />} />
-        <Route path="/careers" element={<Career />} />
-        <Route path="/careers/apply/:id" element={<ApplyJob />} />
-        <Route path="/blog" element={<Blog />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
-        <Route path="/merchandise" element={<Merchandise />} />
-        <Route path="/merchandise/:id" element={<BookDetail />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/events" element={<Events />} />
-        <Route path="*" element={<NotFound />} />
+        } />        <Route path="/about" element={<ScrollToTopWrapper><About /></ScrollToTopWrapper>} />
+        <Route path="/about/AboutSmmart" element={<ScrollToTopWrapper><AboutSmmart /></ScrollToTopWrapper>} />
+        <Route path="/careers" element={<ScrollToTopWrapper><Career /></ScrollToTopWrapper>} />
+        <Route path="/careers/apply/:id" element={<ScrollToTopWrapper><ApplyJob /></ScrollToTopWrapper>} />
+        <Route path="/blog" element={<ScrollToTopWrapper><Blog /></ScrollToTopWrapper>} />
+        <Route path="/blog/:id" element={<ScrollToTopWrapper><BlogDetail /></ScrollToTopWrapper>} />
+        <Route path="/merchandise" element={<ScrollToTopWrapper><Merchandise /></ScrollToTopWrapper>} />
+        <Route path="/merchandise/:id" element={<ScrollToTopWrapper><BookDetail /></ScrollToTopWrapper>} />
+        <Route path="/contact" element={<ScrollToTopWrapper><Contact /></ScrollToTopWrapper>} />
+        <Route path="/events" element={<ScrollToTopWrapper><Events /></ScrollToTopWrapper>} />
+        <Route path="*" element={<ScrollToTopWrapper><NotFound /></ScrollToTopWrapper>} />
       </Routes>
     </div>
   );
