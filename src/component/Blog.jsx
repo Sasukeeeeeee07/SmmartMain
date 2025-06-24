@@ -45,7 +45,7 @@ const blogCards = [
   {
     title: 'Building resilience in tough times',
     author: 'Dr. Smmart',
-    image:BlogPhoto,
+    image: BlogPhoto,
     text: 'Discover strategies to stay strong and bounce back from setbacks, both personally and professionally.',
   },
   {
@@ -69,7 +69,7 @@ const Blog = () => {
       <Header />
       <section className="blog-hero">
         <div className="blog-hero-featured attractive-featured">
-          <img src={featuredBlog.image} alt="author" className="blog-hero-img" style={{width:'180px',height:'180px'}} />
+          <img src={featuredBlog.image} alt="author" className="blog-hero-img" style={{ width: '180px', height: '180px' }} />
           <div className="blog-hero-content">
             <h1 className="featured-title">{featuredBlog.title}</h1>
             <div className="blog-hero-author">By <span className="featured-author">{featuredBlog.author}</span></div>
@@ -114,8 +114,8 @@ const Blog = () => {
           </div>
         )}
       </section>
-      {/* <Footer />
-       */}
+      <Footer />
+
     </div>
   );
 };

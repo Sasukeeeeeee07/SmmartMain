@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './Career.css';
+import './ApplyJob.css';
 
 const jobs = [
   {
@@ -181,16 +182,24 @@ const ApplyJob = () => {
   const { id } = useParams();
   const [tab, setTab] = useState('overview');
   const job = jobs.find(j => String(j.id) === String(id));
-  const [submitted, setSubmitted] = useState(false);
-
-  if (!job) {
+  const [submitted, setSubmitted] = useState(false); if (!job) {
     return (
-      <div className="career-bg">
+      <div className="apply-page">
         <Header />
-        <div className="career-content-wrapper">
-          <div className="applyjob-card" style={{textAlign:'center'}}>
-            <h2>Job not found</h2>
-            <Link to="/careers" className="career-apply-btn">Back to Careers</Link>
+        <div className="apply-container">
+          <div className="job-card">
+            <div className="job-card-header">
+              <h2 className="job-card-title">Job Not Found</h2>
+            </div>
+            <div className="tab-content">
+              <div className="success-card">
+                <h2>Position Not Available</h2>
+                <p>Sorry, the job you're looking for doesn't exist or has been removed.</p>
+                <div className="explore-link">
+                  <Link to="/careers">View All Jobs</Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <Footer />
@@ -201,90 +210,125 @@ const ApplyJob = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
-  };
-
-  return (
-    <div className="career-bg">
+  }; return (
+    <div className="apply-page">
       <Header />
-      <div className="career-content-wrapper">
-        <div className="applyjob-card">
-          <div className="applyjob-card-header">
-            <div className="applyjob-card-title">{job.title}</div>
-            <div className="applyjob-card-meta">
-              <span className="applyjob-type">{job.type}</span>
-              <span className="applyjob-location">{job.location}</span>
-            </div>
-          </div>
-          <div className="applyjob-tabs">
-            <button className={tab === 'overview' ? 'active' : ''} onClick={() => setTab('overview')}>Overview</button>
-            <button className={tab === 'application' ? 'active' : ''} onClick={() => setTab('application')}>Application</button>
-          </div>
+      <div className="apply-container">
+        {/* Page Title */}
+        <div className="page-title">
+          <h1>Apply for a Position</h1>
+          <p>Take the next step in your career journey with us</p>
         </div>
-        <div className="applyjob-tab-content">
-          {tab === 'overview' && (
-            <div className="applyjob-overview">
-              <h3>Job Description</h3>
-              <p>{job.description}</p>
-              <h3>Role Significance</h3>
-              <p>{job.roleSignificance}</p>
-              <h3>Key Responsibilities</h3>
-              <ul>{job.responsibilities.map((r, i) => <li key={i}>{r}</li>)}</ul>
-              <h3>Job Requirements</h3>
-              <ul>{job.requirements.map((r, i) => <li key={i}>{r}</li>)}</ul>
-              <h3>Qualifications Required</h3>
-              <ul>{job.qualifications.map((q, i) => <li key={i}>{q}</li>)}</ul>
-              <h3>Skills & Traits</h3>
-              <ul>{job.skills.map((s, i) => <li key={i}>{s}</li>)}</ul>
-              <h3>Benefits</h3>
-              <ul>{job.benefits.map((b, i) => <li key={i}>{b}</li>)}</ul>
-              <h3>Salary Range</h3>
-              <p>{job.salary}</p>
-              <h3>Company Info</h3>
-              <p>{job.company}</p>
+
+        {/* Job Card */}
+        <div className="job-card">
+          <div className="job-card-header">
+            <h2 className="job-card-title">{job.title}</h2>
+            <div className="job-card-meta">
+              <span className="job-badge"><i className="fas fa-briefcase"></i> {job.type}</span>
+              <span className="job-badge"><i className="fas fa-map-marker-alt"></i> {job.location}</span>
+              <span className="job-badge"><i className="fas fa-building"></i> {job.company}</span>
             </div>
-          )}
-          {tab === 'application' && (
-            <div className="application-form-container">
-              {!submitted ? (
-                <form className="application-form" onSubmit={handleSubmit}>
-                  <h2>Apply for a Position</h2>
-                  <label>
-                    Full Name
-                <input type="text" placeholder="First Name" className='FirstName' required />
-                  </label>
-                  <label>
-                    Email Address
-                <input type="email" placeholder="Email" required />
-                  </label>
-                  <label>
-                    Phone Number
-                    <input type="tel" placeholder="Phone Number" pattern="[0-9]{10,15}" required />
-                  </label>
-                  <label>
-                    Resume
-                    <input type="file" accept=".pdf,.doc,.docx" required />
-                  </label>
-                  <label>
-                    Summary
-                    <textarea rows={4} placeholder="Summary" />
-                  </label>
-                  <button type="submit" className="career-apply-btn" style={{marginTop: '18px'}}>Submit Application</button>
-                  <div className="explore-link">
-                    <a href="/careers">Explore jobs</a>
+          </div>
+
+          {/* Tabs Navigation */}
+          <div className="job-tabs">
+            <button
+              className={`job-tab ${tab === 'overview' ? 'active' : ''}`}
+              onClick={() => setTab('overview')}
+            >
+              Job Overview
+            </button>
+            <button
+              className={`job-tab ${tab === 'application' ? 'active' : ''}`}
+              onClick={() => setTab('application')}
+            >
+              Apply Now
+            </button>
+          </div>
+
+          {/* Tab Content */}
+          <div className="tab-content">
+            {tab === 'overview' && (
+              <div className="job-overview">
+                <h3>Job Description</h3>
+                <p>{job.description}</p>
+
+                <h3>Role Significance</h3>
+                <p>{job.roleSignificance}</p>
+
+                <h3>Key Responsibilities</h3>
+                <ul>{job.responsibilities.map((r, i) => <li key={i}>{r}</li>)}</ul>
+
+                <h3>Job Requirements</h3>
+                <ul>{job.requirements.map((r, i) => <li key={i}>{r}</li>)}</ul>
+
+                <h3>Qualifications Required</h3>
+                <ul>{job.qualifications.map((q, i) => <li key={i}>{q}</li>)}</ul>
+
+                <h3>Skills & Traits</h3>
+                <ul>{job.skills.map((s, i) => <li key={i}>{s}</li>)}</ul>
+
+                <h3>Benefits</h3>
+                <ul>{job.benefits.map((b, i) => <li key={i}>{b}</li>)}</ul>
+
+                <h3>Salary Range</h3>
+                <p>{job.salary}</p>
               </div>
-                </form>
-              ) : (
-                <div className="success-card">
-                  <img src="/images/Book.jpg" alt="Success" className="success-icon" />
-                  <h2>Your Application is In!</h2>
-                  <p>
-                    Thank you for applying to join our team. Your passion inspires us and we can't wait to explore your talents!
-                  </p>
-                  <a href="/careers" className="explore-link">Explore more jobs</a>
+            )}
+
+            {tab === 'application' && (
+              <div className="application-form-container">
+                {!submitted ? (
+                  <form className="application-form" onSubmit={handleSubmit}>
+                    <h2>Apply for this Position</h2>
+
+                    <label>
+                      Full Name
+                      <input type="text" placeholder="Your full name" required />
+                    </label>
+
+                    <label>
+                      Email Address
+                      <input type="email" placeholder="Your email address" required />
+                    </label>
+
+                    <label>
+                      Phone Number
+                      <input type="tel" placeholder="Your phone number" pattern="[0-9]{10,15}" required />
+                    </label>
+
+                    <label>
+                      Resume/CV
+                      <input type="file" accept=".pdf,.doc,.docx" required />
+                    </label>
+
+                    <label>
+                      Cover Letter
+                      <textarea placeholder="Tell us why you're a good fit for this role..." />
+                    </label>
+
+                    <button type="submit" className="submit-btn">Submit Application</button>
+
+                    <div className="explore-link">
+                      <Link to="/careers">Browse all open positions</Link>
+                    </div>
+                  </form>
+                ) : (
+                  <div className="success-card">
+                    <img src="/images/Book.jpg" alt="Success" className="success-icon" />
+                    <h2>Your Application is In!</h2>
+                    <p>
+                      Thank you for applying to join our team. Your passion inspires us and we can't wait to explore your talents!
+                    </p>
+                    <div className="explore-link">
+                      <Link to="/careers">Explore more jobs</Link>
+                    </div>
+                  </div>
+                )}
               </div>
-              )}
-              </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
       <Footer />

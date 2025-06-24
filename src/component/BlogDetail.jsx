@@ -116,7 +116,7 @@ const BlogDetail = () => {
 
   return (
     <div className="blog-detail-page">
-      {/* <Header /> */}
+      <Header />
       
       <main className="blog-detail-main">
         <div className="blog-detail-container">
@@ -184,7 +184,7 @@ const BlogDetail = () => {
         </div>
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

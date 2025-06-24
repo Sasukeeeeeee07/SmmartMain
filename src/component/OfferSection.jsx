@@ -4,68 +4,56 @@ import '../assets/OfferSection.css';
 const programsData = [
   {
     id: 1,
-    name: "Leadership Development",
-    description: "Comprehensive program designed to enhance leadership skills, strategic thinking, and team management capabilities.",
+    name: "Entrepreneur Gurukul (EG)",
+    description: "smmart’s flagship transformation program that helps entrepreneurs build self-led, scalable, and system-driven businesses. It focuses on mindset shifts, business clarity, delegation, team empowerment, and strategic scaling..",
     details: [
-      "Executive Leadership Training",
-      "Strategic Decision Making",
-      "Team Building & Management",
-      "Change Management",
+      " Business owners, founders, second-generation entrepreneurs, and solopreneurs looking to break out of daily operations and grow sustainably.",
+      "Duration: 14 months (7 sessions over 8 days)",
     ]
   },
   {
     id: 2,
-    name: "Sales Excellence",
-    description: "Master modern sales techniques and strategies to drive business growth and customer satisfaction.",
+    name: "Auto Pilot Organization (APO)",
+    description: "A tactical implementation-focused program that equips entrepreneurs to create systems, build SOPs, delegate effectively, and run their business without being stuck in operations.",
     details: [
-      "Advanced Sales Techniques",
-      "Customer Relationship Management",
-      "Negotiation Skills",
-      "Digital Sales Tools",
+      "Entrepreneurs overwhelmed with firefighting, seeking freedom from daily chaos and looking to run a business that works without them.",
+      "Duration: 3–6 months (Multiple live + implementation sessions)",
     ]
   },
   {
     id: 3,
-    name: "Digital Transformation",
-    description: "Learn to leverage digital technologies and drive organizational transformation in the modern business landscape.",
+    name: "T.I.G.E.R. Program",
+    description: "A personal leadership and identity transformation program that turns ordinary individuals into extraordinary thinkers and doers. T.I.G.E.R. stands for Tough, Ingenious, Go-getter, Enterprising, Resourceful.",
     details: [
-      "Digital Strategy Development",
-      "Technology Implementation",
-      "Process Optimization",
-      "Change Management",
+      "Aspiring leaders, professionals, students, and entrepreneurs who want to build mental toughness, clarity, and fearlessness.",
+      "Duration: 1 Day or Weekend Format",
     ]
   },
   {
     id: 4,
-    name: "Business Analytics",
-    description: "Master data-driven decision making and business intelligence tools for better business outcomes.",
+    name: "Financial Azadi (Wealth & Financial Wellness)",
+    description: "A focused session that helps entrepreneurs understand wealth-building stages, money psychology, and the path to long-term financial independence. Covers the “0 to 100 Cr Club” journey.",
     details: [
-      "Data Analysis Fundamentals",
-      "Business Intelligence Tools",
-      "Predictive Analytics",
-      "Data Visualization",
+      "Business owners, salaried professionals, and youth aiming to build financial intelligence, discipline, and passive income strategies.",
+      "Duration: 1-Day Workshop + follow-up learning",
     ]
   },
   {
     id: 5,
-    name: "Project Management",
-    description: "Learn industry-standard project management methodologies and best practices.",
+    name: "Why Do Entrepreneurs Miss the Bus?",
+    description: "A mindset-reset session that reveals the real reasons why entrepreneurs get stuck—micromanagement, lack of systems, unclear roles—and how to regain direction and scale smartly.",
     details: [
-      "Project Planning",
-      "Risk Management",
-      "Agile Methodologies",
-      "Team Leadership",
+      "Entrepreneurs who feel stuck, overwhelmed, or unscalable despite working hard.",
+      "Duration: 2-Day Workshop",
     ]
   },
   {
     id: 6,
-    name: "Customer Experience",
-    description: "Design and implement superior customer experience strategies for business growth.",
+    name: "smmart PepTalk (Coming Soon)",
+    description: "A high-voltage motivational and clarity-driven talk that energizes entrepreneurs with fresh perspectives, execution triggers, and business truth bombs.",
     details: [
-      "Customer Journey Mapping",
-      "Service Design",
-      "Voice of Customer",
-      "Experience Metrics",
+      "General entrepreneurs, sales teams, young leaders, franchise owners, and anyone needing a growth jolt.",
+      "Duration: 60–90 mins per session (multi-city/high-frequency)",
     ]
   }
 ];
@@ -84,7 +72,7 @@ const ProgramButton = ({ program, isOpen, onClick }) => {
               <li key={index}>{detail}</li>
             ))}
           </ul>
-          <button className="learn-more">Learn More</button>
+          {/* <button className="learn-more">Learn More</button> */}
         </div>
       )}
     </div>
@@ -106,7 +94,7 @@ const OfferSection = () => {
       <div className="offer-header">
         <h2>WHAT WE CAN OFFER</h2>
       </div>
-      
+
       <div className="programs-container">
         <div className="programs-column">
           {firstColumn.map(program => (
@@ -118,7 +106,7 @@ const OfferSection = () => {
             />
           ))}
         </div>
-        
+
         <div className="programs-column">
           {secondColumn.map(program => (
             <ProgramButton

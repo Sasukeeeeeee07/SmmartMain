@@ -28,6 +28,7 @@
   font-size: 1.1rem;
   margin-bottom: 3rem;
   opacity: 0.9;
+  color: black;
 }
 
 .contact-features {
@@ -58,6 +59,7 @@
 .feature-text p {
   opacity: 0.8;
   line-height: 1.6;
+  color: #f0f0f0;
 }
 
 .contact-form-container {
@@ -76,6 +78,7 @@
   font-size: 2rem;
   margin-bottom: 2rem;
   text-align: center;
+  color: black;
 }
 
 .form-row {
@@ -153,4 +156,4 @@
   .contact-content {
     padding: 2rem 1rem;
   }
-} 
+}
