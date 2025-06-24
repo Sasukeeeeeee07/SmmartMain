@@ -5,54 +5,53 @@ import Footer from './Footer';
 import './Career.css';
 
 const categories = [
-  { label: 'View All', value: 'all' },
-  { label: 'Marketing', value: 'marketing' },
-  { label: 'Design', value: 'design' },
-  { label: 'Operations', value: 'operations' },
-  { label: 'Finance', value: 'finance' },
+  { label: 'All Positions', value: 'all', icon: '📋' },
+  { label: 'Business Development', value: 'marketing', icon: '📈' },
+  { label: 'Creative & Design', value: 'design', icon: '🎨' },
+  { label: 'Operations', value: 'operations', icon: '⚙️' },
+  { label: 'Finance & Admin', value: 'finance', icon: '💼' },
 ];
 
-const jobs = [
-  {
-    id: 1,
-    title: 'Executive / Sr. Executive – Reviews',
-    desc: 'We are having urgent opening for the position of Executive / Sr Executive – Review Department, based in Mumbai.',
-    location: 'Mumbai',
-    type: '100% Full-Time',
-    category: 'operations',
-  },
-  {
-    id: 2,
-    title: 'Marketing Specialist',
-    desc: 'Join our marketing team to drive campaigns and brand awareness.',
-    location: 'Mumbai',
-    type: '100% Full-Time',
-    category: 'marketing',
-  },
-  {
-    id: 3,
-    title: 'Finance Analyst',
-    desc: 'Analyze financial data and help us grow smartly.',
-    location: 'Mumbai',
-    type: '100% Full-Time',
-    category: 'finance',
-  },
-  {
-    id: 4,
-    title: 'UI/UX Designer',
-    desc: 'Design beautiful and user-friendly interfaces for our products.',
-    location: 'Remote',
-    type: 'Contract',
-    category: 'design',
-  },
-  {
-    id: 5,
-    title: 'Operations Manager',
-    desc: 'Lead and optimize our operations team for maximum efficiency.',
-    location: 'Mumbai',
-    type: '100% Full-Time',
-    category: 'operations',
-  },
+const jobs = [{
+  id: 1,
+  title: 'Manager – Human Resources',
+  desc: 'Lead talent acquisition, performance systems, and people culture initiatives. This is a strategic role for HR professionals ready to build and scale teams.',
+  location: 'Mumbai',
+  // type: 'Full-Time',
+  category: 'operations',
+},
+{
+  id: 2,
+  title: 'Business Development Manager (BDM)',
+  desc: 'Drive partnerships, revenue growth, and program enrollments across India. Must have sharp sales acumen, leadership ability, and a result-oriented mindset.',
+  location: 'Mumbai',
+  // type: 'Full-Time',
+  category: 'marketing',
+},
+{
+  id: 3,
+  title: 'Business Development Executive (BDE)',
+  desc: 'Engage leads, pitch programs, and hit monthly conversion targets. Ideal for high-energy sales talent with excellent communication skills',
+  location: 'Mumbai',
+  // type: 'Full-Time',
+  category: 'finance',
+},
+{
+  id: 4,
+  title: 'Business Miner (Lead Research & Prospecting)',
+  desc: 'Identify, filter, and qualify potential clients and partners. This role requires research ability, data discipline, and commercial understanding.',
+  location: 'Mumbai',
+  // type: 'Contract',
+  category: 'design',
+},
+{
+  id: 5,
+  title: 'Customer Relationship Manager (CRM)',
+  desc: 'Build and nurture relationships with clients pre- and post-program. Own engagement, feedback, and retention across the customer journey.',
+  location: 'Mumbai',
+  // type: 'Full-Time',
+  category: 'operations',
+},
 ];
 
 const Career = () => {
@@ -66,36 +65,40 @@ const Career = () => {
       <Header />
       <div className="career-content-wrapper">
         <div className="career-container">
-          <div className="career-heading">Be Part of our Mission</div>
-          <div className="career-desc">
-            We're looking for passionate people to join us on our mission. We value flat hierarchies, clear communication, and full ownership and responsibility.
-          </div>
-          <div className="career-categories">
+          <div className="career-heading">Be Part of our Mission</div>          <div className="career-desc">
+            Join our team of passionate innovators! At Smmart, we believe in empowering talent, fostering growth, and creating meaningful impact. We offer a collaborative environment where your ideas matter and your growth is prioritized.
+          </div><div className="career-categories">
             {categories.map(cat => (
               <button
                 key={cat.value}
                 className={`career-category-btn${selected === cat.value ? ' active' : ''}`}
                 onClick={() => setSelected(cat.value)}
               >
+                <span className="category-icon">{cat.icon}</span>
                 {cat.label}
               </button>
             ))}
           </div>
           <div className="career-job-list">
-            {filteredJobs.map(job => (
-              <div className="career-job-card" key={job.id}>
-                <div className="career-job-info">
-                  <div className="career-job-title">{job.title}</div>
-                  <div className="career-job-desc">{job.desc}</div>
-                  <div className="career-job-tags">
-                    <span className="career-job-tag">{job.location}</span>
-                    <span className="career-job-tag">{job.type}</span>
-                  </div>
+            {filteredJobs.map(job => (<div className="career-job-card" key={job.id}>
+              <div className="career-job-info">
+                <div className="career-job-title">{job.title}</div>
+                <div className="career-job-desc">{job.desc}</div>
+                <div className="career-job-tags">
+                  <span className="career-job-tag">
+                    <span role="img" aria-label="location">📍</span>
+                    {job.location}
+                  </span>
+                  <span className="career-job-tag">
+                    <span role="img" aria-label="job type">{job.type === 'Full-Time' ? '⏱️' : '📄'}</span>
+                    {job.type}
+                  </span>
                 </div>
-                <button className="career-apply-btn" onClick={() => navigate(`/careers/apply/${job.id}`)}>
-                  Apply now <span className="career-apply-arrow">↗</span>
-                </button>
               </div>
+              <button className="career-apply-btn" onClick={() => navigate(`/careers/apply/${job.id}`)}>
+                Apply now <span className="career-apply-arrow">→</span>
+              </button>
+            </div>
             ))}
           </div>
         </div>

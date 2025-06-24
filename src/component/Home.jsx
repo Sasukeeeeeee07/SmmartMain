@@ -18,6 +18,7 @@ const Home = () => {
         autoPlay
         loop
         playsInline
+        muted
         controls /* Add controls so users can control volume and playback */
         src={homevideo}
       >

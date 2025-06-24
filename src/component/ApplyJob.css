@@ -4,14 +4,30 @@
 /* General Styles */
 .apply-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0533 0%, #1a0b4b 100%);
+  background: linear-gradient(135deg, #101630 0%, #1c1245 50%, #0d192c 100%);
   color: #fff;
+  position: relative;
+}
+
+.apply-page::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(41, 70, 153, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(66, 30, 138, 0.15) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .apply-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 3rem 1.5rem 5rem;
+  position: relative;
+  z-index: 1;
 }
 
 /* Page Title */
@@ -23,11 +39,12 @@
 .page-title h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  background: linear-gradient(to right, #fff, #a991ff);
+  background: linear-gradient(to right, #fff, #a0b4ff);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 0.5rem;
+  letter-spacing: 0.5px;
 }
 
 .page-title p {
@@ -37,15 +54,26 @@
 
 /* Job Card */
 .job-card {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(26, 29, 58, 0.75);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow:
-    0 8px 30px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(10px);
   margin-bottom: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.job-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #235aff, #4c71ff, transparent);
+  z-index: 1;
 }
 
 .job-card-header {
@@ -81,15 +109,16 @@
 }
 
 .job-badge {
-  background: linear-gradient(135deg, #6f4cff, #4285f4);
+  background: linear-gradient(135deg, #235aff, #4c71ff);
   color: #fff;
   font-weight: 600;
   padding: 0.5rem 1.25rem;
-  border-radius: 50px;
+  border-radius: 8px;
   font-size: 0.9rem;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  box-shadow: 0 2px 8px rgba(35, 90, 255, 0.2);
 }
 
 .job-badge i {
@@ -132,11 +161,12 @@
 
 .job-tab.active::after {
   transform: scaleX(1);
+  background: linear-gradient(to right, #235aff, #4c71ff);
 }
 
 /* Tab Content Container */
 .tab-content {
-  background: rgba(13, 12, 34, 0.7);
+  background: rgba(18, 21, 40, 0.7);
   border-radius: 0 0 16px 16px;
   padding: 2.5rem;
 }
@@ -150,11 +180,23 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin: 1.75rem 0 0.75rem;
-  color: #6f4cff;
+  color: #235aff;
+  display: flex;
+  align-items: center;
 }
 
 .job-overview h3:first-child {
   margin-top: 0;
+}
+
+.job-overview h3::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: #235aff;
+  margin-right: 10px;
+  border-radius: 50%;
 }
 
 .job-overview p {
@@ -175,7 +217,7 @@
 
 .job-overview li::before {
   content: "•";
-  color: #4285f4;
+  color: #4c71ff;
   font-weight: bold;
   font-size: 1.25rem;
   position: absolute;
@@ -191,12 +233,25 @@
 }
 
 .application-form {
-  background: rgba(25, 23, 54, 0.8);
+  background: rgba(28, 33, 66, 0.85);
   border-radius: 16px;
   padding: 2.5rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.application-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #235aff, #4c71ff);
 }
 
 .application-form h2 {
@@ -246,7 +301,7 @@
 .submit-btn {
   width: 100%;
   padding: 0.875rem;
-  background: linear-gradient(135deg, #6f4cff, #4285f4);
+  background: linear-gradient(135deg, #235aff, #415fff);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -258,9 +313,9 @@
 }
 
 .submit-btn:hover {
-  background: linear-gradient(135deg, #5a3ee0, #3b77e0);
+  background: linear-gradient(135deg, #1a45d4, #235aff);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 6px 15px rgba(35, 90, 255, 0.3);
 }
 
 .explore-link {
@@ -282,13 +337,26 @@
 
 /* Success Card */
 .success-card {
-  background: rgba(25, 23, 54, 0.8);
+  background: rgba(28, 33, 66, 0.85);
   border-radius: 16px;
   padding: 3rem 2rem;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
   width: 100%;
   max-width: 500px;
   text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.success-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #235aff, #4c71ff);
 }
 
 .success-icon {
@@ -320,15 +388,17 @@
 .success-card .explore-link a {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background: rgba(111, 76, 255, 0.2);
-  border: 1px solid rgba(111, 76, 255, 0.5);
+  background: rgba(35, 90, 255, 0.2);
+  border: 1px solid rgba(35, 90, 255, 0.5);
   border-radius: 8px;
   transition: all 0.3s ease;
 }
 
 .success-card .explore-link a:hover {
-  background: rgba(111, 76, 255, 0.3);
+  background: rgba(35, 90, 255, 0.3);
   text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(35, 90, 255, 0.2);
 }
 
 /* Responsive Styles */

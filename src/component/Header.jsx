@@ -104,13 +104,6 @@ const Header = () => {
           >
             Merchandise
           </Link>
-          <Link
-            to="/contact"
-            className="mobile-contact-btn"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Contact Us
-          </Link>
         </div>
         <Link to="/contact" className="contact-btn desktop-only">
           Contact Us
