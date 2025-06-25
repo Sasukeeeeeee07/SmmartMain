@@ -39,8 +39,7 @@ const Header = () => {
       <div className={`nav-section ${isMenuOpen ? 'open' : ''}`}>
         <div className="main-nav-links">
           <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
-            Home
-          </Link>          <div className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}>
+            Home          </Link>          <div className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}>
             <button className="dropdown-trigger" onClick={() => toggleDropdown('about')}>
               About
             </button>
@@ -49,16 +48,9 @@ const Header = () => {
               <Link to="/about">Our People</Link>
             </div>
           </div>
-          <div className={`dropdown ${activeDropdown === 'products' ? 'active' : ''}`}>
-            <button className="dropdown-trigger" onClick={() => toggleDropdown('products')}>
-              Our Products
-            </button>
-            <div className={`dropdown-menu ${activeDropdown === 'products' ? 'show' : ''}`}>
-              <Link to="/products/individual">Individual Transformation</Link>
-              <Link to="/products/entrepreneur">Entrepreneur Transformation</Link>
-              <Link to="/products/enterprise">Enterprise Transformation</Link>
-            </div>
-          </div>
+          <Link to="/products/individual" className={location.pathname === '/products/individual' ? 'active' : ''}>
+            Our Product
+          </Link>
           <Link to="/blog" className={location.pathname === '/blog' ? 'active' : ''}>
             Blog
           </Link>
