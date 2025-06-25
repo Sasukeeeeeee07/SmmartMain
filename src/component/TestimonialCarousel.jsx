@@ -19,15 +19,15 @@ const extractYouTubeVideoId = (url) => {
 // Just 2 testimonials to match the image exactly
 const testimonials = [
   {
-    name: 'Ruchita Shah',
-    role: 'DF Network LLP',
-    text: '"I grew so much through this program—personally and professionally. It boosted my confidence, sharpened my skills, and surrounded me with support. I truly recommend it to anyone seeking real change."',
+    name: 'Chirag Katira',
+    role: 'SNGT Director',
+    text: '"Chirag, Director of SNGT Group, congratulates SMART for completing 25 years and empowering over 30,000 entrepreneurs. He credits smmart for SNGTs growth from ₹25 crores in 2011 to over ₹150 crores today. After his father Rajesh Katira joined the Tiger Program, followed by Chira and his cousins, the company expanded to 90+ branches (90% owned), entered warehousing (5 lakh sq. ft.), and diversified into six other businesses. Managing their joint family business of 32 members with a 10-member core team has been smooth due to smmart clarity in vision, mission, and purpose. He thanks Santosh Sir and Sindhu Ma’am sincerely."',
     videoId: 'xX7lBxQgh0o'
   },
   {
-    name: 'Siddhesh Sawant',
-    role: 'North Light Studio',
-    text: '"This program gave me practical tools to overcome challenges and communicate better. I\'m so thankful for the mentorship I received—it\'s made a real difference in my personal and professional life."',
+    name: 'Truven Jorge',
+    role: 'Co-founder of Yellow (Goa)',
+    text: '"The co-founder of Yellow (Goa) realized he was blocking his company’s growth. After the first session, he delegated 80% of his tasks, promoted juniors, eliminated non-revenue work, and gained personal freedom. Sales began growing 100% monthly, and he even enjoyed a stress-free anniversary. He overcame trust issues, embraced team responsibility, and implemented systems. He calls the transformation massive and says the program returned 100x the value of his investment."',
     videoId: extractYouTubeVideoId('https://youtu.be/Bz_97XhIF_g')
   }
 ];
@@ -64,12 +64,23 @@ const TestimonialCarousel = () => {
     return () => {
       window.removeEventListener('message', handleMessage);
     };
-  }, []);
-  // Handle testimonial switching
+  }, []);  // Handle testimonial switching
   const handleIndicatorClick = (index) => {
     setActiveIndex(index);
     setPlayerReady(false); // Reset player state when switching testimonials
     setIsMuted(true); // Reset to muted when switching videos
+  };
+
+  // Navigate to previous testimonial
+  const handlePrevClick = () => {
+    const prevIndex = activeIndex === 0 ? testimonials.length - 1 : activeIndex - 1;
+    handleIndicatorClick(prevIndex);
+  };
+
+  // Navigate to next testimonial  
+  const handleNextClick = () => {
+    const nextIndex = (activeIndex + 1) % testimonials.length;
+    handleIndicatorClick(nextIndex);
   };
   // Toggle mute/unmute for YouTube video
   const toggleMute = () => {
@@ -108,50 +119,69 @@ const TestimonialCarousel = () => {
       console.error("Error toggling YouTube mute state:", error);
     }
   };
-
   return (
     <section className="testimonials-section">
       <div className="testimonials-container">
         <h2 className="testimonials-title">What Our Participants Say</h2>
         <p className="testimonials-subtitle">Hear from those who have experienced the transformation</p>
 
-        {/* Active testimonial card */}
-        <div className="testimonial-card">          <div className="testimonial-content">
-          <div className="testimonial-video">
-            <iframe
-              ref={iframeRef}
-              src={`https://www.youtube.com/embed/${testimonials[activeIndex].videoId}?autoplay=1&enablejsapi=1&mute=1&modestbranding=1&rel=0&origin=${window.location.origin}`}
-              title="Testimonial video"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="youtube-iframe"
-            ></iframe>            {/* Audio icon in bottom right corner */}
-            <div className="volume-control" onClick={toggleMute}>
-              <div className="volume-icon">
-                {isMuted ? (
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
-                  </svg>
-                ) : (
-                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                    <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
-                  </svg>
-                )}
+        {/* Navigation Arrows */}
+        <button
+          className="testimonial-arrow testimonial-arrow-prev"
+          onClick={handlePrevClick}
+          aria-label="Previous testimonial"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z" />
+          </svg>
+        </button>
+        <button
+          className="testimonial-arrow testimonial-arrow-next"
+          onClick={handleNextClick}
+          aria-label="Next testimonial"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" />
+          </svg>
+        </button>
+
+        {/* Active testimonial card */}        <div className="testimonial-card">
+          <div className="testimonial-content">
+            <div className="testimonial-video">
+              <iframe
+                ref={iframeRef}
+                src={`https://www.youtube.com/embed/${testimonials[activeIndex].videoId}?autoplay=1&enablejsapi=1&mute=1&modestbranding=1&rel=0&origin=${window.location.origin}`}
+                title="Testimonial video"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="youtube-iframe"
+              ></iframe>
+              {/* Audio icon in bottom right corner */}
+              <div className="volume-control" onClick={toggleMute}>
+                <div className="volume-icon">
+                  {isMuted ? (
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.2.05-.41.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z" />
+                    </svg>
+                  ) : (
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                      <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                    </svg>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Testimonial text content */}
-          <div className="testimonial-text-container">
-            <blockquote className="testimonial-quote">
-              {testimonials[activeIndex].text}
-            </blockquote>
-            <div className="testimonial-author">
-              <strong>{testimonials[activeIndex].name}</strong>, {testimonials[activeIndex].role}
-            </div>
+            {/* Testimonial text content */}
+            <div className="testimonial-text-container">
+              <blockquote className="testimonial-quote">
+                {testimonials[activeIndex].text}
+              </blockquote>
+              <div className="testimonial-author">
+                <strong>{testimonials[activeIndex].name}</strong>, {testimonials[activeIndex].role}
+              </div>          </div>
           </div>
-        </div>
         </div>
 
         {/* Navigation dots */}

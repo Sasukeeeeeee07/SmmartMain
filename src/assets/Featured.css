@@ -60,7 +60,13 @@
   max-height: 450px;
   object-fit: cover;
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.person-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(255, 109, 0, 0.2);
 }
 
 /* Events section styling */
@@ -226,7 +232,11 @@
   }
 
   .person-image {
-    max-height: 350px;
+    max-height: 400px;
+    width: 100%;
+    object-position: center top;
+    margin: 0 auto;
+    display: block;
   }
 
   .event-card {
@@ -246,6 +256,15 @@
   .section-title,
   .meet-title {
     font-size: 1.8rem;
+  }
+
+  .person-image {
+    max-height: 350px;
+    border-radius: 8px;
+  }
+
+  .meet-image {
+    padding: 0 5px;
   }
 }
 

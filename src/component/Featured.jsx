@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import '../assets/Featured.css';
-import santosh from './images/santosh.jpg';
+import santosh from './images/santoshnairfeature.jpg';
 
 const Featured = () => {
   const [currentPage, setCurrentPage] = useState(0);
