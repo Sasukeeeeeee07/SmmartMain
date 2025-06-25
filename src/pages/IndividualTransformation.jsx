@@ -273,58 +273,75 @@ const IndividualTransformation = () => {
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Orientation Gurukul</h3>
-                    <span className="program-duration">14 Months</span>
+                    
                   </div>
-                  <p>Our flagship transformation program helps entrepreneurs build self-led, scalable, and system-driven businesses. Focus on mindset shifts, business clarity, delegation, and strategic scaling.</p>
+                  <p> For entrepreneurs with greater than 1 Cr turnover. Build mindset, structure, and clarity.</p>
                   <ul className="program-features">
-                    <li>7 sessions over 8 days</li>
-                    <li>Implementation support</li>
-                    <li>Business transformation</li>
+                    <li>Method: Group sessions, peer activities, learning assignments.</li>
                   </ul>
                   <button className="program-btn">Learn More</button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3>Auto Pilot Organization (APO)</h3>
-                    <span className="program-duration">3-6 Months</span>
+                    <h3>Foundation Gurukul</h3>
+                    
                   </div>
-                  <p>A tactical implementation-focused program that equips entrepreneurs to create systems, build SOPs, delegate effectively, and run their business without being stuck in operations.</p>
+                  <p>For ₹1–5 Cr turnover. Focus on people, processes, and productivity..</p>
                   <ul className="program-features">
-                    <li>Systems development</li>
-                    <li>Delegation mastery</li>
-                    <li>Operational freedom</li>
+                    <li>Method: Strategy sessions, live reviews, process tools.</li>
                   </ul>
                   <button className="program-btn">Enroll Now</button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3>Financial Azadi</h3>
-                    <span className="program-duration">1 Day + Follow-up</span>
+                    <h3>Entrepreneur Gurukul</h3>
+                    
                   </div>
-                  <p>Helps entrepreneurs understand wealth-building stages, money psychology, and the path to long-term financial independence. Covers the "0 to 100 Cr Club" journey.</p>
+                  <p> For ₹5–50 Cr turnover. Build leadership team, scalability, and profits.</p>
                   <ul className="program-features">
-                    <li>Financial intelligence</li>
-                    <li>Wealth strategies</li>
-                    <li>Passive income planning</li>
+                    <li>Method: Live sessions + business reviews + buddy meets.</li>
                   </ul>
                   <button className="program-btn">Register</button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3>Why Entrepreneurs Miss the Bus?</h3>
-                    <span className="program-duration">2 Days</span>
+                    <h3>Advanced Gurukul</h3>
+                    
                   </div>
-                  <p>A mindset-reset session that reveals the real reasons why entrepreneurs get stuck—micromanagement, lack of systems, unclear roles—and how to regain direction and scale smartly.</p>
+                  <p>For Less than ₹50 Cr businesses. Focus on reorientation and transformation.</p>
                   <ul className="program-features">
-                    <li>Diagnosis of barriers</li>
-                    <li>Clarity on solutions</li>
-                    <li>Action planning</li>
+                    <li>Method: Deep diagnostics, leadership tools, planning frameworks.</li>
                   </ul>
                   <button className="program-btn">View Details</button>
                 </div>
+
+                <div className="program-card glass-card">
+                  <div className="program-card-header">
+                    <h3>Master Gurukul</h3>
+                    
+                  </div>
+                  <p>For evolved entrepreneurs. Focus on business mastery and long-term vision.</p>
+                  <ul className="program-features">
+                    <li>Method: Mentoring, immersion labs, strategic execution planning.</li>
+                  </ul>
+                  <button className="program-btn">View Details</button>
+                </div>
+
+                <div className="program-card glass-card">
+                  <div className="program-card-header">
+                    <h3>Nirvana Gurukul</h3>
+                    
+                  </div>
+                  <p> For legacy-building entrepreneurs. Focus on purpose and long-term impact.</p>
+                  <ul className="program-features">
+                    <li>Method: Coaching + deep reflection + leadership visioning.</li>
+                  </ul>
+                  <button className="program-btn">View Details</button>
+                </div>
+
               </div>
             </section>
 
@@ -408,56 +425,72 @@ const IndividualTransformation = () => {
               <div className="program-grid">
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3>Auto Transforming Organization (ATO)</h3>
-                    <span className="program-duration">6-12 Months</span>
+                    <h3>Organization Diagnostics</h3>
+                    
                   </div>
-                  <p>A comprehensive organizational development program that transforms company culture, leadership structures, and operational systems to create self-improving, adaptive enterprises.</p>
+                  <p>360° study of business across people, systems, culture, and processes.</p>
                   <ul className="program-features">
-                    <li>Leadership alignment</li>
-                    <li>Systems integration</li>
-                    <li>Cultural transformation</li>
+                    <li>Method: Interviews, surveys, field study, gap analysis.</li>
                   </ul>
                   <button className="program-btn">Request Consultation</button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3>Leadership Development Program</h3>
-                    <span className="program-duration">3-6 Months</span>
+                    <h3> Leadership Development</h3>
+                    
                   </div>
-                  <p>Equips mid to senior-level managers with the mindset, tools, and techniques needed to lead teams effectively and drive organizational success.</p>
+                  <p>Equip leaders to handle change, performance, and future readiness</p>
                   <ul className="program-features">
-                    <li>Leadership frameworks</li>
-                    <li>Team empowerment</li>
-                    <li>Strategic thinking</li>
+                    <li>Method: Custom training, simulations, coaching labs.</li>
                   </ul>
                   <button className="program-btn">Learn More</button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3>Sales Mastery for Teams</h3>
-                    <span className="program-duration">Flexible</span>
+                    <h3>Sales Transformation</h3>
+                    
                   </div>
-                  <p>Transforms sales teams into high-performing units through structured training in consultative selling, objection handling, and client relationship management.</p>
+                  <p>Build a high-performing sales engine with systems and accountability.</p>
                   <ul className="program-features">
-                    <li>Sales process optimization</li>
-                    <li>Communication training</li>
-                    <li>Performance systems</li>
+                    <li>Method: Audits, workshops, field enablement, reviews.</li>
                   </ul>
                   <button className="program-btn">Get Details</button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3>Organization Diagnostics</h3>
-                    <span className="program-duration">2-4 Weeks</span>
+                    <h3>Zone-wise/Division-wise Projects</h3>
+                    
                   </div>
-                  <p>A comprehensive assessment of your organization's current state, identifying structural inefficiencies, leadership gaps, and growth opportunities.</p>
+                  <p>Long-term structured interventions across company units or verticals.</p>
                   <ul className="program-features">
-                    <li>Cultural assessment</li>
-                    <li>Process evaluation</li>
-                    <li>Leadership analysis</li>
+                    <li>Method: Phase-wise rollout, performance tracking, team coaching.</li>
+                  </ul>
+                  <button className="program-btn">Schedule Assessment</button>
+                </div>
+
+                <div className="program-card glass-card">
+                  <div className="program-card-header">
+                    <h3>Capability Building Programs</h3>
+                    
+                  </div>
+                  <p>Functional training for HR, Admin, Ops, Finance, and Sales teams.</p>
+                  <ul className="program-features">
+                    <li>Method: Department-specific curriculum + implementation support.</li>
+                  </ul>
+                  <button className="program-btn">Schedule Assessment</button>
+                </div>
+
+                <div className="program-card glass-card">
+                  <div className="program-card-header">
+                    <h3> Culture Transformation</h3>
+                    
+                  </div>
+                  <p> Build alignment, accountability, and ownership mindset in your workforce.</p>
+                  <ul className="program-features">
+                    <li>Method: Storytelling, rituals, systems, team engagement formats.</li>
                   </ul>
                   <button className="program-btn">Schedule Assessment</button>
                 </div>
