@@ -238,7 +238,7 @@ const BlogDetail = () => {
           </div>
 
           <div className="blog-detail-actions">
-            <div className="blog-detail-action-left">
+            {/* <div className="blog-detail-action-left">
               <button
                 className={`blog-detail-like-btn ${isLiked ? 'active' : ''}`}
                 onClick={handleLike}
@@ -252,9 +252,9 @@ const BlogDetail = () => {
                 <FaComment className="blog-detail-action-icon" />
                 <span>{comments.length}</span>
               </button>
-            </div>
+            </div> */}
 
-            <div className="blog-detail-action-right">
+            {/* <div className="blog-detail-action-right">
               <button className="blog-detail-share-btn" title="Share this article">
                 <FaShare className="blog-detail-action-icon" />
                 <span>Share</span>
@@ -268,7 +268,7 @@ const BlogDetail = () => {
                 <FaBookmark className="blog-detail-action-icon" />
                 <span>{isBookmarked ? "Saved" : "Save"}</span>
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="blog-detail-tags-section">
