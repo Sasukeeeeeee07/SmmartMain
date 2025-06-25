@@ -2,6 +2,13 @@ import React, { useRef, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './OurImpact.css';
 
+// Import company logos
+import TataLogo from './images/TataLogo.png';
+import VodaphoneLogo from './images/Vodaphone.jpg';
+import GodrejLogo from './images/GodrejLogo.png';
+import HyundaiLogo from './images/HyundaiLogo.png';
+import MahindraLogo from './images/MahindraLogo.png';
+
 const impactData = [
   { value: 201473, label: 'LIVES TOUCHED', color: '#3aebd7' },
   { value: 80589, label: 'CUSTOMERS TRANSFORMED', color: '#ffb347' },
@@ -9,12 +16,12 @@ const impactData = [
   { value: 151, label: 'COMPANIES SERVED', color: '#ff914d' },
 ];
 
-const companyNames = [
-  { name: 'TATA', color: '#3a8dde' },
-  { name: 'VODAFONE', color: '#ff914d' },
-  { name: 'GODREJ', color: '#6be36b' },
-  { name: 'HYUNDAI', color: '#3aebd7' },
-  { name: 'MAHINDRA', color: '#ffb347' }
+const companyLogos = [
+  { logo: TataLogo, name: 'TATA', color: '#3a8dde' },
+  { logo: VodaphoneLogo, name: 'VODAFONE', color: '#ff914d' },
+  { logo: GodrejLogo, name: 'GODREJ', color: '#6be36b' },
+  { logo: HyundaiLogo, name: 'HYUNDAI', color: '#3aebd7' },
+  { logo: MahindraLogo, name: 'MAHINDRA', color: '#ffb347' }
 ];
 
 function useCountUp(target, start, duration, trigger) {
@@ -52,9 +59,8 @@ const OurImpact = () => {
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
-
-  // Duplicate company names for seamless loop
-  const allCompanies = [...companyNames, ...companyNames, ...companyNames, ...companyNames];
+  // Duplicate company logos for seamless loop
+  const allCompanies = [...companyLogos, ...companyLogos, ...companyLogos, ...companyLogos];
 
   const count1 = useCountUp(impactData[0].value, 0, 1800, inView);
   const count2 = useCountUp(impactData[1].value, 0, 1800, inView);
@@ -101,14 +107,17 @@ const OurImpact = () => {
             <div className="impact-progress" style={{ background: impactData[3].color }}></div>
           </div>
         </div>
-      </div>
-
-      <div className="impact-marquee-container">
+      </div>      <div className="impact-marquee-container">
         <div className="impact-marquee" ref={marqueeRef}>
           <div className="impact-marquee-inner">
             {allCompanies.map((company, i) => (
-              <div className="company-name" key={i} style={{ '--company-color': company.color }}>
-                {company.name}
+              <div className="company-logo-container" key={i} style={{ '--company-color': company.color }}>
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  className="company-logo"
+                  title={company.name}
+                />
               </div>
             ))}
           </div>
