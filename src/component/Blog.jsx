@@ -209,14 +209,14 @@ const Blog = () => {
                       Read More
                     </button>
 
-                    <div className="blog-card-actions">
+                    {/* <div className="blog-card-actions">
                       <button className="blog-card-action-btn" title="Bookmark">
                         <FaBookmark />
                       </button>
                       <button className="blog-card-action-btn" title="Share">
                         <FaShare />
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </div>

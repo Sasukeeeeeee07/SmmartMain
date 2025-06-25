@@ -1,8 +1,8 @@
 /* Individual Transformation Page Styles */
 .individual-transformation-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, #101630 0%, #1c1245 50%, #0d192c 100%);
-  color: #fff;
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+  color: #1976D2;
   position: relative;
   overflow-x: hidden;
 }
@@ -15,8 +15,8 @@
   right: 0;
   bottom: 0;
   background-image:
-    radial-gradient(circle at 20% 30%, rgba(41, 70, 153, 0.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(66, 30, 138, 0.15) 0%, transparent 50%);
+    radial-gradient(circle at 20% 30%, rgba(33, 150, 243, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(25, 118, 210, 0.15) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -30,18 +30,18 @@
 
 /* Glass Card Effect */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(33, 150, 243, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 40px rgba(33, 150, 243, 0.25);
 }
 
 /* Section Headers */
@@ -53,7 +53,7 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 15px;
-  background: linear-gradient(90deg, #a0b4ff, #d4b0ff);
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -67,7 +67,7 @@
 .divider {
   height: 4px;
   width: 80px;
-  background: linear-gradient(90deg, #7f5fff, #a0b4ff);
+  background: linear-gradient(90deg, #2196F3, #1976D2);
   margin-bottom: 20px;
   border-radius: 2px;
 }
@@ -79,7 +79,7 @@
 
 .section-subtitle {
   font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #546E7A;
   margin-bottom: 30px;
 }
 
@@ -103,7 +103,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(127, 95, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle at center, rgba(33, 150, 243, 0.1) 0%, transparent 70%);
   z-index: -1;
 }
 
@@ -116,17 +116,21 @@
   font-weight: 800;
   margin-bottom: 20px;
   letter-spacing: 1px;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 10px rgba(33, 150, 243, 0.2);
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #546E7A;
 }
 
 .cta-button {
-  background: linear-gradient(45deg, #7f5fff, #5b3dff);
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
   color: white;
   border: none;
   padding: 16px 32px;
@@ -135,12 +139,12 @@
   border-radius: 50px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(127, 95, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(127, 95, 255, 0.5);
+  box-shadow: 0 12px 28px rgba(33, 150, 243, 0.5);
 }
 
 /* Introduction Section */
@@ -172,13 +176,14 @@
   text-align: center;
   padding: 30px 20px;
   border-radius: 15px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(33, 150, 243, 0.2);
   transition: transform 0.3s ease;
 }
 
 .key-point:hover {
   transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .point-icon {
@@ -189,11 +194,11 @@
 .key-point h3 {
   font-size: 1.4rem;
   margin-bottom: 15px;
-  color: #a0b4ff;
+  color: #1976D2;
 }
 
 .key-point p {
-  color: rgba(255, 255, 255, 0.8);
+  color: #546E7A;
   font-size: 1rem;
 }
 
