@@ -21,32 +21,31 @@ const testimonials = [
   {
     name: 'Chirag Katira',
     role: 'SNGT Director',
-    text: '"Chirag, Director of SNGT Group, congratulates SMART for completing 25 years and empowering over 30,000 entrepreneurs. He credits smmart for SNGTs growth from ₹25 crores in 2011 to over ₹150 crores today. After his father Rajesh Katira joined the Tiger Program, followed by Chira and his cousins, the company expanded to 90+ branches (90% owned), entered warehousing (5 lakh sq. ft.), and diversified into six other businesses. Managing their joint family business of 32 members with a 10-member core team has been smooth due to smmart clarity in vision, mission, and purpose. He thanks Santosh Sir and Sindhu Ma’am sincerely."',
+    text: '"Chirag, Director of SNGT Group, congratulates SMART for completing 25 years and empowering over 30,000 entrepreneurs. He credits smmart for SNGTs growth from ₹25 crores in 2011 to over ₹150 crores today. After his father Rajesh Katira joined the Tiger Program, followed by Chira and his cousins, the company expanded to 90+ branches (90% owned), entered warehousing (5 lakh sq. ft.), and diversified into six other businesses. Managing their joint family business of 32 members with a 10-member core team has been smooth due to smmart clarity in vision, mission, and purpose. He thanks Santosh Sir and Sindhu Maam sincerely."',
     videoId: 'xX7lBxQgh0o'
   },
   {
     name: 'Truven Jorge',
     role: 'Co-founder of Yellow (Goa)',
-    text: '"The co-founder of Yellow (Goa) realized he was blocking his company’s growth. After the first session, he delegated 80% of his tasks, promoted juniors, eliminated non-revenue work, and gained personal freedom. Sales began growing 100% monthly, and he even enjoyed a stress-free anniversary. He overcame trust issues, embraced team responsibility, and implemented systems. He calls the transformation massive and says the program returned 100x the value of his investment."',
-    videoId: extractYouTubeVideoId('https://youtu.be/Bz_97XhIF_g')
+    text: '"The co-founder of Yellow (Goa) realized he was blocking his companys growth. After the first session, he delegated 80% of his tasks, promoted juniors, eliminated non-revenue work, and gained personal freedom. Sales began growing 100% monthly, and he even enjoyed a stress-free anniversary. He overcame trust issues, embraced team responsibility, and implemented systems. He calls the transformation massive and says the program returned 100x the value of his investment."',
+    videoId: extractYouTubeVideoId('https://youtu.be/Bz_97XhIF_g'),
   }
 ];
 
 const TestimonialCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isMuted, setIsMuted] = useState(true); // Start muted for YouTube embed
+  const [isMuted, setIsMuted] = useState(true);
+  const [key, setKey] = useState(0); // Add a key to force iframe reload
   const iframeRef = useRef(null);
   const [playerReady, setPlayerReady] = useState(false);
 
   // Set up YouTube iframe API
   useEffect(() => {
-    // Add YouTube API script
     const tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
     const firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-    // Listen for messages from YouTube iframe
     const handleMessage = (event) => {
       if (event.data && typeof event.data === 'string') {
         try {
@@ -64,35 +63,32 @@ const TestimonialCarousel = () => {
     return () => {
       window.removeEventListener('message', handleMessage);
     };
-  }, []);  // Handle testimonial switching
+  }, []);
+
   const handleIndicatorClick = (index) => {
     setActiveIndex(index);
-    setPlayerReady(false); // Reset player state when switching testimonials
-    setIsMuted(true); // Reset to muted when switching videos
+    setPlayerReady(false);
+    setIsMuted(true);
+    setKey(prevKey => prevKey + 1); // Force iframe reload
   };
 
-  // Navigate to previous testimonial
   const handlePrevClick = () => {
     const prevIndex = activeIndex === 0 ? testimonials.length - 1 : activeIndex - 1;
     handleIndicatorClick(prevIndex);
   };
 
-  // Navigate to next testimonial  
   const handleNextClick = () => {
     const nextIndex = (activeIndex + 1) % testimonials.length;
     handleIndicatorClick(nextIndex);
   };
-  // Toggle mute/unmute for YouTube video
+
   const toggleMute = () => {
     try {
       const iframe = iframeRef.current;
       if (iframe && iframe.contentWindow) {
-        // Send postMessage to YouTube iframe to mute/unmute
         const newMuteState = !isMuted;
-
         const command = newMuteState ? 'mute' : 'unMute';
 
-        // Use YouTube Player API via postMessage - both formats for compatibility
         iframe.contentWindow.postMessage(
           JSON.stringify({
             event: 'command',
@@ -102,30 +98,24 @@ const TestimonialCarousel = () => {
           '*'
         );
 
-        // Also try the alternative message format
         iframe.contentWindow.postMessage(
           `{"event":"command","func":"${command}","args":""}`,
           '*'
         );
 
-        console.log(`Attempting to ${command} YouTube video`);
-
-        // Update mute state
         setIsMuted(newMuteState);
-      } else {
-        console.warn("YouTube iframe not ready yet");
       }
     } catch (error) {
       console.error("Error toggling YouTube mute state:", error);
     }
   };
+
   return (
     <section className="testimonials-section">
       <div className="testimonials-container">
         <h2 className="testimonials-title">What Our Participants Say</h2>
         <p className="testimonials-subtitle">Hear from those who have experienced the transformation</p>
 
-        {/* Navigation Arrows */}
         <button
           className="testimonial-arrow testimonial-arrow-prev"
           onClick={handlePrevClick}
@@ -145,10 +135,11 @@ const TestimonialCarousel = () => {
           </svg>
         </button>
 
-        {/* Active testimonial card */}        <div className="testimonial-card">
+        <div className="testimonial-card">
           <div className="testimonial-content">
             <div className="testimonial-video">
               <iframe
+                key={key} // Add key to force reload
                 ref={iframeRef}
                 src={`https://www.youtube.com/embed/${testimonials[activeIndex].videoId}?autoplay=1&enablejsapi=1&mute=1&modestbranding=1&rel=0&origin=${window.location.origin}`}
                 title="Testimonial video"
@@ -157,7 +148,6 @@ const TestimonialCarousel = () => {
                 allowFullScreen
                 className="youtube-iframe"
               ></iframe>
-              {/* Audio icon in bottom right corner */}
               <div className="volume-control" onClick={toggleMute}>
                 <div className="volume-icon">
                   {isMuted ? (
@@ -173,18 +163,17 @@ const TestimonialCarousel = () => {
               </div>
             </div>
 
-            {/* Testimonial text content */}
             <div className="testimonial-text-container">
               <blockquote className="testimonial-quote">
                 {testimonials[activeIndex].text}
               </blockquote>
               <div className="testimonial-author">
                 <strong>{testimonials[activeIndex].name}</strong>, {testimonials[activeIndex].role}
-              </div>          </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        {/* Navigation dots */}
         <div className="testimonial-navigation">
           {testimonials.map((_, index) => (
             <button
