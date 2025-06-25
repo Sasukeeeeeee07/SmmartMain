@@ -126,7 +126,8 @@
 .hero-subtitle {
   font-size: 1.5rem;
   margin-bottom: 40px;
-  color: #546E7A;
+  color: black !important;
+
 }
 
 .cta-button {
@@ -157,11 +158,11 @@
   font-size: 1.2rem;
   line-height: 1.8;
   margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #546E7A;
 }
 
 .highlight {
-  color: #a0b4ff;
+  color: #1976D2;
   font-weight: 700;
 }
 
@@ -232,24 +233,24 @@
 
 .program-card h3 {
   font-size: 1.5rem;
-  color: #a0b4ff;
+  color: #1976D2;
   font-weight: 600;
 }
 
 .program-duration {
-  background: rgba(127, 95, 255, 0.2);
+  background: rgba(33, 150, 243, 0.1);
   padding: 6px 12px;
   border-radius: 50px;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #a0b4ff;
+  color: #1976D2;
 }
 
 .program-card p {
   margin-bottom: 20px;
   font-size: 1rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85);
+  color: #546E7A;
   flex-grow: 1;
 }
 
@@ -262,21 +263,21 @@
 .program-features li {
   padding: 8px 0 8px 28px;
   position: relative;
-  color: rgba(255, 255, 255, 0.8);
+  color: #546E7A;
 }
 
 .program-features li::before {
   content: "✓";
-  color: #7f5fff;
+  color: #2196F3;
   position: absolute;
   left: 0;
   font-weight: bold;
 }
 
 .program-btn {
-  background: rgba(127, 95, 255, 0.2);
-  color: #a0b4ff;
-  border: 1px solid rgba(160, 180, 255, 0.3);
+  background: rgba(33, 150, 243, 0.1);
+  color: #1976D2;
+  border: 1px solid rgba(33, 150, 243, 0.3);
   padding: 10px 20px;
   border-radius: 50px;
   font-size: 0.9rem;
@@ -287,7 +288,7 @@
 }
 
 .program-btn:hover {
-  background: rgba(127, 95, 255, 0.4);
+  background: rgba(33, 150, 243, 0.2);
   transform: translateY(-2px);
 }
 
@@ -306,9 +307,9 @@
 .audience-card {
   text-align: center;
   padding: 30px 20px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(33, 150, 243, 0.2);
   transition: transform 0.3s ease;
   display: flex;
   flex-direction: column;
@@ -317,7 +318,7 @@
 
 .audience-card:hover {
   transform: translateY(-5px);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .audience-icon {
@@ -327,20 +328,20 @@
 
 .audience-card h3 {
   font-size: 1.3rem;
-  color: #a0b4ff;
+  color: #1976D2;
   margin-bottom: 10px;
 }
 
 .audience-card p {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: #546E7A;
   margin-bottom: 20px;
   flex-grow: 1;
 }
 
 .audience-btn {
-  background: rgba(127, 95, 255, 0.2);
-  color: #a0b4ff;
+  background: rgba(33, 150, 243, 0.1);
+  color: #1976D2;
   text-decoration: none;
   padding: 8px 18px;
   border-radius: 50px;
@@ -351,7 +352,7 @@
 }
 
 .audience-btn:hover {
-  background: rgba(127, 95, 255, 0.4);
+  background: rgba(33, 150, 243, 0.2);
   transform: translateY(-2px);
 }
 
@@ -433,7 +434,7 @@
 .cta-section h2 {
   font-size: 2.5rem;
   margin-bottom: 20px;
-  background: linear-gradient(90deg, #a0b4ff, #d4b0ff);
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -443,7 +444,7 @@
 .cta-section p {
   font-size: 1.2rem;
   margin-bottom: 40px;
-  color: rgba(255, 255, 255, 0.9);
+  color: #546E7A;
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
@@ -457,7 +458,7 @@
 }
 
 .primary-btn {
-  background: linear-gradient(45deg, #7f5fff, #5b3dff);
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
   color: white;
   text-decoration: none;
   padding: 14px 32px;
@@ -465,19 +466,19 @@
   font-size: 1rem;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 20px rgba(127, 95, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(33, 150, 243, 0.4);
   display: inline-block;
 }
 
 .primary-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(127, 95, 255, 0.5);
+  box-shadow: 0 12px 28px rgba(33, 150, 243, 0.5);
 }
 
 .secondary-btn {
   background: transparent;
-  color: white;
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: #1976D2;
+  border: 2px solid rgba(33, 150, 243, 0.3);
   padding: 14px 32px;
   border-radius: 50px;
   font-size: 1rem;
@@ -487,7 +488,7 @@
 }
 
 .secondary-btn:hover {
-  border-color: rgba(255, 255, 255, 0.5);
+  border-color: rgba(33, 150, 243, 0.5);
   transform: translateY(-3px);
 }
 
@@ -506,18 +507,18 @@
   flex-wrap: wrap;
   max-width: 100%;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 50px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(33, 150, 243, 0.2);
+  box-shadow: 0 4px 16px rgba(33, 150, 243, 0.1);
 }
 
 .tab-btn {
   padding: 12px 24px;
   background: transparent;
-  color: rgba(255, 255, 255, 0.7);
+  color: #546E7A;
   border: none;
   border-radius: 50px;
   font-size: 1rem;
@@ -528,13 +529,13 @@
 }
 
 .tab-btn:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: #1976D2;
 }
 
 .tab-btn.active {
-  background: linear-gradient(45deg, #7f5fff, #5b3dff);
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
   color: white;
-  box-shadow: 0 4px 12px rgba(127, 95, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
 }
 
 @media (max-width: 768px) {
