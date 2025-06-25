@@ -35,8 +35,8 @@
   border-radius: 12px;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
   overflow: hidden;
-  margin-bottom: 20px;
-  /* Reduced margin from 30px to 20px */
+  margin-bottom: 5px;
+  /* Reduced margin from 10px to 5px */
 }
 
 .testimonial-content {
@@ -125,7 +125,7 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 5px;
 }
 
 .nav-dot {
