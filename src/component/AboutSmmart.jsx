@@ -96,11 +96,11 @@ const AboutSmmart = () => {
             <h2>OUR<br />JOURNEY</h2>
             <div className="journey-text">
               <p>
-                Smmart began with a bold vision:<br />
+                smmart began with a bold vision:<br />
                 to ignite the entrepreneurial spirit across India and beyond.<br /><br />
                 From humble beginnings, we have evolved into a dynamic force —<br />
                 helping businesses scale, innovate, grow, and succeed over time.<br /><br />
-                Today, Smmart stands for structured growth, sustainable success,<br />
+                Today, smmart stands for structured growth, sustainable success,<br />
                 and a smarter way to build your dream.
               </p>
             </div>
@@ -225,7 +225,7 @@ const AboutSmmart = () => {
           <div className="approach-content">
             <h3>Our Approach</h3>
             <p>
-              Smmart's approach combines time-tested strategies with real-world experience.
+              smmart's approach combines time-tested strategies with real-world experience.
               Our methodology is not just theoretical - it is crafted from years of hands-on
               experience working with real businesses facing real challenges.
             </p>

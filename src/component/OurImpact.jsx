@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import './OurImpact.css';
 
 // Import company logos
-import TataLogo from './images/TataLogo.png';
 import VodaphoneLogo from './images/Vodaphone.jpg';
 import GodrejLogo from './images/GodrejLogo.png';
 import HyundaiLogo from './images/HyundaiLogo.png';
@@ -17,7 +16,6 @@ const impactData = [
 ];
 
 const companyLogos = [
-  { logo: TataLogo, name: 'TATA', color: '#3a8dde' },
   { logo: VodaphoneLogo, name: 'VODAFONE', color: '#ff914d' },
   { logo: GodrejLogo, name: 'GODREJ', color: '#6be36b' },
   { logo: HyundaiLogo, name: 'HYUNDAI', color: '#3aebd7' },

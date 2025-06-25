@@ -13,7 +13,7 @@ const Philosophy = () => {
           </div>
           
           <h1 className="main-heading">
-            Smmart has taken the responsibility of<br />
+            smmart has taken the responsibility of<br />
             making Change Creators.
           </h1>
           
@@ -22,7 +22,7 @@ const Philosophy = () => {
           </p>
           
           <p className="highlight-text">
-            Smmart – Your new way of doing business.
+            smmart – Your new way of doing business.
           </p>
         </div>
       </section>

@@ -136,7 +136,7 @@ function SigmaTeamSection() {
   return (
     <div className="sigma-team-section">
       <h2 className="sigma-team-title">
-        Meet the SMMART Training Team
+        Meet the smmart Training Team
       </h2>
       <div className="sigma-team-cards">
         {sigmaTeam.map((member, idx) => (
@@ -227,7 +227,7 @@ function About() {
     <div className="container">
       <Header />
       <div className="main-content">
-        <h2 className="subtitle">Leadership that thinks Smmart</h2>
+        <h2 className="subtitle">Leadership that thinks smmart</h2>
         <div className="leader-info">
           <h1 className="leader-name">{current.name}</h1>
           <h3 className="leader-title">{current.position}</h3>

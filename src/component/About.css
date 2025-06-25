@@ -1,9 +1,11 @@
-body, html, #root {
+body,
+html,
+#root {
   margin: 0;
   padding: 0;
   height: 100%;
   font-family: 'Arial', sans-serif;
-  background-color: black;
+  background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #ADD8E6 50%, #87CEFA 75%, #4682B4 100%);
   color: white;
 }
 
@@ -13,7 +15,7 @@ body, html, #root {
   background-position: center;
   min-height: 100vh;
   position: relative;
-  background: linear-gradient(to bottom, #0A0A0A, #000000);
+  background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #ADD8E6 50%, #87CEFA 75%, #4682B4 100%);
   padding-top: 80px;
 }
 
@@ -22,7 +24,9 @@ body, html, #root {
   justify-content: space-between;
   align-items: center;
   padding: 20px 50px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .logo {
@@ -43,6 +47,17 @@ body, html, #root {
   font-weight: bold;
 }
 
+.nav-arrow {
+  color: #1a365d !important;
+  font-size: 2rem !important;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-arrow:hover {
+  color: #000 !important;
+}
+
 .main-content {
   display: flex;
   justify-content: space-between;
@@ -56,7 +71,8 @@ body, html, #root {
   top: -20px;
   left: 100px;
   font-size: 28px;
-  color: #fff;
+  color: #000;
+  font-weight: bold;
   z-index: 1;
 }
 
@@ -69,19 +85,20 @@ body, html, #root {
   font-size: 48px;
   font-weight: bold;
   margin-bottom: 10px;
-  color: #fff;
+  color: #000;
 }
 
 .leader-title {
-  color: #3a8dde;
+  color: #1a365d;
   margin-bottom: 20px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .leader-description {
   font-size: 18px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: #000;
 }
 
 .leader-image img {
@@ -94,8 +111,10 @@ body, html, #root {
   margin: 40px auto;
   padding: 40px;
   max-width: 1200px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .person-card {
@@ -120,28 +139,30 @@ body, html, #root {
 }
 
 .person-card:hover img {
-  box-shadow: 0 0 32px 8px #fff, 0 4px 32px rgba(255,255,255,0.18);
+  box-shadow: 0 0 32px 8px rgba(0, 0, 0, 0.2), 0 4px 32px rgba(0, 0, 0, 0.1);
   transform: scale(1.06);
 }
 
 .person-card.active {
   border: 3px solid transparent !important;
 }
+
 .person-card.active img {
   box-shadow: none;
   transform: none;
 }
 
 .person-card p {
-  margin-top: 10px;
-  font-size: 16px;
+  color: #000;
   text-align: center;
-  color: #fff;
+  margin-top: 8px;
+  font-weight: 600;
 }
 
 .sigma-team-section {
   width: 100%;
-  background: linear-gradient(to bottom, #181c24 0%, #0d1120 100%);
+  background: linear-gradient(135deg, rgba(135, 206, 235, 0.1) 0%, rgba(176, 224, 230, 0.1) 25%, rgba(173, 216, 230, 0.1) 50%, rgba(135, 206, 250, 0.1) 75%, rgba(70, 130, 180, 0.1) 100%);
+  backdrop-filter: blur(10px);
   padding: 60px 0 80px 0;
   margin-top: 60px;
   display: flex;
@@ -150,12 +171,11 @@ body, html, #root {
 }
 
 .sigma-team-title {
-  color: #fff;
+  color: #000;
   font-size: 48px;
   font-weight: 700;
   margin-bottom: 60px;
   text-align: center;
-  text-shadow: 0 0 16px #fff, 0 0 32px #fff;
   letter-spacing: 1px;
 }
 
@@ -170,9 +190,10 @@ body, html, #root {
 }
 
 .sigma-card {
-  background: rgba(20, 25, 40, 0.85);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
-  box-shadow: 0 4px 32px rgba(255,255,255,0.08);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.1);
   padding: 0;
   width: 100%;
   max-width: 350px;
@@ -180,20 +201,20 @@ body, html, #root {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid rgba(255,255,255,0.12);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .sigma-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(93, 169, 233, 0.3);
-  border-color: rgba(93, 169, 233, 0.5);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 0, 0, 0.3);
 }
 
 .sigma-card-image {
   width: 100%;
   height: 60%;
-  background: linear-gradient(45deg, #2a3f77, #1a2544);
+  background: linear-gradient(45deg, rgba(255, 140, 0, 0.3), rgba(135, 206, 235, 0.3));
   position: relative;
   overflow: hidden;
 }
@@ -215,8 +236,9 @@ body, html, #root {
   left: 0;
   right: 0;
   padding: 24px;
-  background: rgba(20, 25, 40, 0.95);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  color: #000;
   height: 40%;
   display: flex;
   flex-direction: column;
@@ -227,22 +249,40 @@ body, html, #root {
   font-weight: 700;
   font-size: 20px;
   margin-bottom: 8px;
-  color: #fff;
+  color: #000;
 }
 
 .sigma-card-role {
-  color: #3fa1ff;
+  color: #1a365d;
   font-weight: 600;
   font-size: 16px;
   margin-bottom: 12px;
 }
 
 .sigma-card-desc {
-  color: #e0e6f6;
+  color: #000;
   font-size: 14px;
   line-height: 1.5;
   opacity: 1;
   transform: none;
+}
+
+.sigma-glowing-card {
+  background: rgba(255, 255, 255, 0.3) !important;
+  color: #000 !important;
+}
+
+.sigma-glowing-card .title {
+  color: #000 !important;
+  text-shadow: none !important;
+}
+
+.sigma-glowing-card .role {
+  color: #1a365d !important;
+}
+
+.sigma-glowing-card .description {
+  color: #000 !important;
 }
 
 @media (max-width: 1200px) {
@@ -335,7 +375,7 @@ body, html, #root {
 
 .about-container {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #0A0A0A, #000000);
+  background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #ADD8E6 50%, #87CEFA 75%, #4682B4 100%);
   color: #fff;
   padding-top: 80px;
 }
@@ -383,7 +423,8 @@ body, html, #root {
 }
 
 .team-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   border-radius: 12px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -391,6 +432,7 @@ body, html, #root {
   aspect-ratio: 3/4;
   display: flex;
   flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .team-card:hover {
@@ -418,7 +460,8 @@ body, html, #root {
 
 .card-content {
   padding: 1.5rem;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(10px);
   flex: 1;
   display: flex;
   flex-direction: column;

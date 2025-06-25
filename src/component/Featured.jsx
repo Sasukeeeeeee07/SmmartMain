@@ -41,7 +41,7 @@ const Featured = () => {
       <div className="meet-person">
         <div className="meet-info">
           <div className="introducing">
-            <span>Introducing</span> <span className="highlight">Smmart</span>
+            <span>Introducing</span> <span className="highlight">smmart</span>
           </div>
           <h2 className="meet-title">Meet, <span className="purple-text">Santosh Nair</span></h2>
           <p className="meet-description">

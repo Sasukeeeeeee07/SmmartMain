@@ -11,7 +11,7 @@ const allBlogs = {
   1: {
     id: 1,
     title: 'Are You a Dreamer or a Doer?',
-    author: 'Dr. Smmart',
+    author: 'Santosh Nair',
     image: BlogPhoto,
     date: 'May 15, 2023',
     readTime: '5 min read',
@@ -26,7 +26,7 @@ const allBlogs = {
   2: {
     id: 2,
     title: 'Why Your Inner Voice Defines Your Outer Reality',
-    author: 'Dr. Smmart',
+    author: 'Santosh Nair',
     image: BlogPhoto,
     date: 'April 28, 2023',
     readTime: '4 min read',
@@ -41,7 +41,7 @@ const allBlogs = {
   3: {
     id: 3,
     title: 'Clarity Is the New Currency',
-    author: 'Dr. Smmart',
+    author: 'Santosh Nair',
     image: BlogPhoto,
     date: 'April 10, 2023',
     readTime: '3 min read',
@@ -56,7 +56,7 @@ const allBlogs = {
   4: {
     id: 4,
     title: 'Build a Business That Builds You',
-    author: 'Dr. Smmart',
+    author: 'Santosh Nair',
     image: BlogPhoto,
     date: 'March 23, 2023',
     readTime: '6 min read',
@@ -71,7 +71,7 @@ const allBlogs = {
   5: {
     id: 5,
     title: 'The Freedom Matrix: Living Beyond Profit',
-    author: 'Dr. Smmart',
+    author: 'Santosh Nair',
     image: BlogPhoto,
     date: 'February 15, 2023',
     readTime: '5 min read',

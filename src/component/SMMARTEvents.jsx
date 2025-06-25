@@ -61,7 +61,7 @@ const BlurredCard = () => (
 const SMMARTEvents = () => {
   return (
     <div className="bg-black min-h-screen px-8 py-10 font-sans">
-      <h1 className="text-3xl font-bold text-white mb-8">Explore SMMART Events</h1>
+      <h1 className="text-3xl font-bold text-white mb-8">Explore smmart Events</h1>
 
       <div className="grid grid-cols-2 gap-6">
         <EventCard {...events[0]} />

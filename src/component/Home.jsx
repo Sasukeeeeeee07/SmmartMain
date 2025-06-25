@@ -26,7 +26,7 @@ const Home = () => {
       </video>
 
         <div className="centered-text">
-          <h1>Smmart- True School for Entrepreneurs</h1>
+          <h1>smmart- True School for Entrepreneurs</h1>
           <button className="ml-button">Join Now</button>
         </div>
       </div>

@@ -45,7 +45,7 @@ const jobs = [
       'Career advancement paths',
     ],
     salary: '₹8,00,000 – ₹12,00,000 per annum',
-    company: 'Smmart Training & Consultancy',
+    company: 'smmart Training & Consultancy',
   },
   {
     id: 2,
@@ -86,7 +86,7 @@ const jobs = [
       'Travel allowance',
     ],
     salary: '₹10,00,000 – ₹15,00,000 per annum + incentives',
-    company: 'Smmart Training & Consultancy',
+    company: 'smmart Training & Consultancy',
   },
   {
     id: 3,
@@ -126,7 +126,7 @@ const jobs = [
       'Team incentive trips',
     ],
     salary: '₹4,50,000 – ₹7,00,000 per annum + incentives',
-    company: 'Smmart Training & Consultancy',
+    company: 'smmart Training & Consultancy',
   },
   {
     id: 4,
@@ -166,7 +166,7 @@ const jobs = [
       'Remote work options',
     ],
     salary: '₹3,50,000 – ₹5,50,000 per annum',
-    company: 'Smmart Training & Consultancy',
+    company: 'smmart Training & Consultancy',
   },
   {
     id: 5,
@@ -206,7 +206,7 @@ const jobs = [
       'Work-life balance initiatives',
     ],
     salary: '₹4,50,000 – ₹7,00,000 per annum',
-    company: 'Smmart Training & Consultancy',
+    company: 'smmart Training & Consultancy',
   },
 ];
 

@@ -144,7 +144,7 @@ const Header = () => {
               About
             </button>
             <div className={`dropdown-menu ${activeDropdown === 'about' ? 'show' : ''}`}>
-              <Link to="/about/AboutSmmart" onClick={() => setIsMenuOpen(false)}>About Smmart</Link>
+              <Link to="/about/AboutSmmart" onClick={() => setIsMenuOpen(false)}>About smmart</Link>
               <Link to="/about" onClick={() => setIsMenuOpen(false)}>Our People</Link>
             </div>
           </div>

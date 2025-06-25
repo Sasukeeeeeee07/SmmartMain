@@ -66,7 +66,7 @@ const Career = () => {
       <div className="career-content-wrapper">
         <div className="career-container">
           <div className="career-heading">Be Part of our Mission</div>          <div className="career-desc">
-            Join our team of passionate innovators! At Smmart, we believe in empowering talent, fostering growth, and creating meaningful impact. We offer a collaborative environment where your ideas matter and your growth is prioritized.
+            Join our team of passionate innovators! At smmart, we believe in empowering talent, fostering growth, and creating meaningful impact. We offer a collaborative environment where your ideas matter and your growth is prioritized.
           </div><div className="career-categories">
             {categories.map(cat => (
               <button

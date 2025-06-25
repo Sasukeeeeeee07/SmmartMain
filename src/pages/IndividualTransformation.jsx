@@ -100,10 +100,8 @@ const IndividualTransformation = () => {
                   <p>In-person motivational sessions to spark clarity, action, and energy.</p>
                   <ul className="program-features">
                     <li>Method: Live 1:1 or group motivational sessions.</li>
-                    {/* <li>Clarity on next steps</li>
-                    <li>Actionable strategies</li> */}
                   </ul>
-                  <button className="program-btn">Learn More</button>
+                  <Link to="/contact" className="program-btn">Learn More</Link>
                 </div>
 
                 <div className="program-card glass-card">
@@ -115,7 +113,7 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Offline community meet-ups.</li>
                   </ul>
-                  <button className="program-btn">Learn More</button>
+                  <Link to="/contact" className="program-btn">Learn More</Link>
                 </div>
 
                 <div className="program-card glass-card">
@@ -127,7 +125,7 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: On-demand, self-paced video learning.</li>
                   </ul>
-                  <button className="program-btn">Access Library</button>
+                  <Link to="/contact" className="program-btn">Access Library</Link>
                 </div>
 
                 <div className="program-card glass-card">
@@ -139,43 +137,40 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Offline/online hands-on learning.</li>
                   </ul>
-                  <button className="program-btn">Enroll Now</button>
+                  <Link to="/contact" className="program-btn">Enroll Now</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>APO – Auto Pilot Organization</h3>
-                    {/* <span className="program-duration">1-2 Days</span> */}
                   </div>
                   <p>  Learn how to build systems and processes to run your business independently.</p>
                   <ul className="program-features">
                     <li>Method: Offline/online hands-on learning.</li>
                   </ul>
-                  <button className="program-btn">Enroll Now</button>
+                  <Link to="/contact" className="program-btn">Enroll Now</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>AEO – Auto Exponential Organization</h3>
-                    {/* <span className="program-duration">1-2 Days</span> */}
                   </div>
                   <p>Learn how to create scalable growth engines in life and business.</p>
                   <ul className="program-features">
                     <li>Method: Online models + strategy tools.</li>
                   </ul>
-                  <button className="program-btn">Enroll Now</button>
+                  <Link to="/contact" className="program-btn">Enroll Now</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>ATO – Auto Transforming Organization</h3>
-                    {/* <span className="program-duration">1-2 Days</span> */}
                   </div>
                   <p>Build systems for ongoing transformation, adaptability, and mindset evolution.</p>
                   <ul className="program-features">
                     <li>Method:Self-diagnostics + reflection tools + video-based learning.</li>
                   </ul>
-                  <button className="program-btn">Enroll Now</button>
+                  <Link to="/contact" className="program-btn">Enroll Now</Link>
                 </div>
 
                 <div className="program-card glass-card">
@@ -183,11 +178,11 @@ const IndividualTransformation = () => {
                     <h3>Train the Trainer</h3>
                     <span className="program-duration">1-2 Days</span>
                   </div>
-                  <p> Become a certified Smmart Trainer. Build facilitation and delivery expertise.</p>
+                  <p> Become a certified smmart Trainer. Build facilitation and delivery expertise.</p>
                   <ul className="program-features">
                     <li>Method: Hybrid – Live coaching + facilitation labs + expert feedback.</li>
                   </ul>
-                  <button className="program-btn">Enroll Now</button>
+                  <Link to="/contact" className="program-btn">Enroll Now</Link>
                 </div>
               </div>
             </section>
@@ -273,75 +268,68 @@ const IndividualTransformation = () => {
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Orientation Gurukul</h3>
-                    
                   </div>
                   <p> For entrepreneurs with greater than 1 Cr turnover. Build mindset, structure, and clarity.</p>
                   <ul className="program-features">
                     <li>Method: Group sessions, peer activities, learning assignments.</li>
                   </ul>
-                  <button className="program-btn">Learn More</button>
+                  <Link to="/contact" className="program-btn">Learn More</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Foundation Gurukul</h3>
-                    
                   </div>
-                  <p>For ₹1–5 Cr turnover. Focus on people, processes, and productivity..</p>
+                  <p>For ₹1–5 Cr turnover. Focus on people, processes, and productivity.</p>
                   <ul className="program-features">
                     <li>Method: Strategy sessions, live reviews, process tools.</li>
                   </ul>
-                  <button className="program-btn">Enroll Now</button>
+                  <Link to="/contact" className="program-btn">Enroll Now</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Entrepreneur Gurukul</h3>
-                    
                   </div>
                   <p> For ₹5–50 Cr turnover. Build leadership team, scalability, and profits.</p>
                   <ul className="program-features">
                     <li>Method: Live sessions + business reviews + buddy meets.</li>
                   </ul>
-                  <button className="program-btn">Register</button>
+                  <Link to="/contact" className="program-btn">Register</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Advanced Gurukul</h3>
-                    
                   </div>
                   <p>For Less than ₹50 Cr businesses. Focus on reorientation and transformation.</p>
                   <ul className="program-features">
                     <li>Method: Deep diagnostics, leadership tools, planning frameworks.</li>
                   </ul>
-                  <button className="program-btn">View Details</button>
+                  <Link to="/contact" className="program-btn">View Details</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Master Gurukul</h3>
-                    
                   </div>
                   <p>For evolved entrepreneurs. Focus on business mastery and long-term vision.</p>
                   <ul className="program-features">
                     <li>Method: Mentoring, immersion labs, strategic execution planning.</li>
                   </ul>
-                  <button className="program-btn">View Details</button>
+                  <Link to="/contact" className="program-btn">View Details</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Nirvana Gurukul</h3>
-                    
                   </div>
                   <p> For legacy-building entrepreneurs. Focus on purpose and long-term impact.</p>
                   <ul className="program-features">
                     <li>Method: Coaching + deep reflection + leadership visioning.</li>
                   </ul>
-                  <button className="program-btn">View Details</button>
+                  <Link to="/contact" className="program-btn">View Details</Link>
                 </div>
-
               </div>
             </section>
 
@@ -426,73 +414,67 @@ const IndividualTransformation = () => {
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Organization Diagnostics</h3>
-                    
                   </div>
                   <p>360° study of business across people, systems, culture, and processes.</p>
                   <ul className="program-features">
                     <li>Method: Interviews, surveys, field study, gap analysis.</li>
                   </ul>
-                  <button className="program-btn">Request Consultation</button>
+                  <Link to="/contact" className="program-btn">Request Consultation</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3> Leadership Development</h3>
-                    
+                    <h3>Leadership Development</h3>
                   </div>
                   <p>Equip leaders to handle change, performance, and future readiness</p>
                   <ul className="program-features">
                     <li>Method: Custom training, simulations, coaching labs.</li>
                   </ul>
-                  <button className="program-btn">Learn More</button>
+                  <Link to="/contact" className="program-btn">Learn More</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Sales Transformation</h3>
-                    
                   </div>
                   <p>Build a high-performing sales engine with systems and accountability.</p>
                   <ul className="program-features">
                     <li>Method: Audits, workshops, field enablement, reviews.</li>
                   </ul>
-                  <button className="program-btn">Get Details</button>
+                  <Link to="/contact" className="program-btn">Get Details</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Zone-wise/Division-wise Projects</h3>
-                    
                   </div>
                   <p>Long-term structured interventions across company units or verticals.</p>
                   <ul className="program-features">
                     <li>Method: Phase-wise rollout, performance tracking, team coaching.</li>
                   </ul>
-                  <button className="program-btn">Schedule Assessment</button>
+                  <Link to="/contact" className="program-btn">Schedule Assessment</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Capability Building Programs</h3>
-                    
                   </div>
                   <p>Functional training for HR, Admin, Ops, Finance, and Sales teams.</p>
                   <ul className="program-features">
                     <li>Method: Department-specific curriculum + implementation support.</li>
                   </ul>
-                  <button className="program-btn">Schedule Assessment</button>
+                  <Link to="/contact" className="program-btn">Schedule Assessment</Link>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
-                    <h3> Culture Transformation</h3>
-                    
+                    <h3>Culture Transformation</h3>
                   </div>
                   <p> Build alignment, accountability, and ownership mindset in your workforce.</p>
                   <ul className="program-features">
                     <li>Method: Storytelling, rituals, systems, team engagement formats.</li>
                   </ul>
-                  <button className="program-btn">Schedule Assessment</button>
+                  <Link to="/contact" className="program-btn">Schedule Assessment</Link>
                 </div>
               </div>
             </section>
@@ -538,7 +520,7 @@ const IndividualTransformation = () => {
             <p>Take the first step toward unlocking your full potential and creating lasting positive change.</p>
             <div className="cta-buttons">
               <Link to="/contact" className="primary-btn">Contact Us</Link>
-              <button className="secondary-btn">Download Brochure</button>
+              <Link to="/contact" className="secondary-btn">Download Brochure</Link>
             </div>
           </div>
         </section>
