@@ -538,45 +538,6 @@
   box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4);
 }
 
-@media (max-width: 768px) {
-  .tab-buttons {
-    width: 90%;
-    flex-direction: row;
-    gap: 10px;
-    border-radius: 20px;
-  }
-
-  .tab-btn {
-    padding: 10px 15px;
-    font-size: 0.9rem;
-    min-width: 100px;
-  }
-}
-
-@media (max-width: 480px) {
-  .tab-buttons {
-    width: 100%;
-    flex-direction: column;
-    border-radius: 15px;
-    gap: 8px;
-  }
-
-  .tab-btn {
-    width: 100%;
-    padding: 10px;
-    border-radius: 10px;
-  }
-
-  .tab-btn.active {
-    border-radius: 10px;
-  }
-
-  .transformation-tabs {
-    margin-bottom: 30px;
-  }
-}
-
-/* Responsive Styles */
 @media (max-width: 1024px) {
   .hero-content h1 {
     font-size: 3.5rem;
@@ -616,6 +577,27 @@
 
   .program-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hero-section {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 95%;
+    margin: 0 auto;
+  }
+
+  .hero-content h1 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+
+  .hero-content .hero-subtitle {
+    font-size: 1rem;
+    line-height: 1.5;
   }
 }
 

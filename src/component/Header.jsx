@@ -153,7 +153,7 @@ const Header = () => {
             className={location.pathname.startsWith('/products/individual') ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
-            Our Product
+            Our Products
           </Link>
           <Link
             to="/blog"

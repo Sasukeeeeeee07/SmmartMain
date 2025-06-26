@@ -63,12 +63,38 @@ const Featured = () => {
                 onClick={handlePrevClick}
                 aria-label="Previous events"
                 title="Previous events"
+                style={{
+                  backgroundColor: '#FF5733',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '40px',
+                  height: '40px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  cursor: 'pointer'
+                }}
               >&larr;</button>
               <button
                 className="nav-btn next-btn"
                 onClick={handleNextClick}
                 aria-label="Next events"
                 title="Next events"
+                style={{
+                  backgroundColor: '#FF5733',
+                  color: '#FFFFFF',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '40px',
+                  height: '40px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                  cursor: 'pointer'
+                }}
               >&rarr;</button>
             </div>
           </div>
@@ -77,11 +103,29 @@ const Featured = () => {
         <div className="events-grid" ref={eventsContainerRef}>
           {events.map(event => (
             <div key={event.id} className="event-card">
-              <div className="event-date">{event.date}°</div>
-              <div className="event-details">
-                <h3 className="event-title">{event.title}</h3>
-                <p className="event-subtitle">{event.subtitle}</p>
-                <p className="event-time">{event.time}</p>
+              <div className="event-details" style={{
+                padding: '1rem',
+                background: 'rgba(255, 255, 255, 0.2)',
+                borderRadius: '10px',
+                boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                backdropFilter: 'blur(10px)',
+                color: '#333'
+              }}>
+                <h3 className="event-title" style={{
+                  fontSize: '1.5rem',
+                  fontWeight: '600',
+                  color: '#007BFF',
+                  marginBottom: '0.5rem'
+                }}>{event.title}</h3>
+                <p className="event-subtitle" style={{
+                  fontSize: '1rem',
+                  color: '#555',
+                  marginBottom: '0.5rem'
+                }}>{event.subtitle}</p>
+                <p className="event-time" style={{
+                  fontSize: '0.9rem',
+                  color: '#777'
+                }}>{event.time}</p>
               </div>
             </div>
           ))}
@@ -101,4 +145,4 @@ const Featured = () => {
   );
 };
 
-export default Featured; 
+export default Featured;

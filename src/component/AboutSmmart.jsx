@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import './AboutSmmart.css';
+import { motion } from 'framer-motion';
 
 const AboutSmmart = () => {
   const [activeTab, setActiveTab] = useState('VALUES');
@@ -17,61 +18,129 @@ const AboutSmmart = () => {
     setActiveTab(tab);
   };
 
+  // Animation variants
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.6 } }
+  };
+
+  const slideUp = {
+    hidden: { y: 50, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6 } }
+  };
+
+  const staggeredChildren = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const statItem = {
+    hidden: { scale: 0.8, opacity: 0 },
+    visible: {
+      scale: 1,
+      opacity: 1,
+      transition: { type: "spring", stiffness: 100 }
+    }
+  };
+
   const renderTabContent = () => {
     switch (activeTab) {
       case 'VALUES':
         return (
-          <div className="values-content">
-            <div className="value-card">
-              <div className="value-icon">💡</div>
-              <h4>Knowledge</h4>
+          <motion.div
+            className="values-content"
+            variants={staggeredChildren}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div className="value-card" variants={slideUp} whileHover={{ scale: 1.05 }}>
+              <motion.div
+                className="value-icon"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                style={{ backgroundColor: '#FF8C00', color: '#fff' }}
+              >💡</motion.div>
+              <h4 style={{ color: '#FF8C00' }}>Knowledge</h4>
               <p>We transform through knowledge and believe in continuous learning.</p>
-            </div>
-            <div className="value-card">
-              <div className="value-icon">🌱</div>
-              <h4>Empowerment</h4>
+            </motion.div>
+            <motion.div className="value-card" variants={slideUp} whileHover={{ scale: 1.05 }}>
+              <motion.div
+                className="value-icon"
+                whileHover={{ scale: 1.2, rotate: -5 }}
+                style={{ backgroundColor: '#FF8C00', color: '#fff' }}
+              >🌱</motion.div>
+              <h4 style={{ color: '#FF8C00' }}>Empowerment</h4>
               <p>Empowering others is life and our core mission.</p>
-            </div>
-            <div className="value-card">
-              <div className="value-icon">🚀</div>
-              <h4>Growth</h4>
+            </motion.div>
+            <motion.div className="value-card" variants={slideUp} whileHover={{ scale: 1.05 }}>
+              <motion.div
+                className="value-icon"
+                whileHover={{ scale: 1.2, rotate: 5 }}
+                style={{ backgroundColor: '#FF8C00', color: '#fff' }}
+              >🚀</motion.div>
+              <h4 style={{ color: '#FF8C00' }}>Growth</h4>
               <p>Building businesses is our way of life. We transform mindsets before businesses.</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         );
       case 'VISION':
         return (
-          <div className="vision-content">
-            <p>To be the catalyst for entrepreneurial success across India and beyond, creating a wave of innovative, sustainable, and impactful businesses.</p>
-            <div className="vision-goals">
-              <h4>Future Goals</h4>
+          <motion.div
+            className="vision-content"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+          >
+            <motion.p whileHover={{ scale: 1.02 }}>To be the catalyst for entrepreneurial success across India and beyond, creating a wave of innovative, sustainable, and impactful businesses.</motion.p>
+            <motion.div
+              className="vision-goals"
+              variants={slideUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.3 }}
+            >
+              <h4 style={{ color: '#FF8C00' }}>Future Goals</h4>
               <ul>
-                <li>Reaching 100,000+ entrepreneurs by 2027</li>
-                <li>Expanding our presence to 5 new countries</li>
-                <li>Creating an online learning platform for global reach</li>
+                <motion.li whileHover={{ x: 10, color: '#FF8C00' }}>Reaching 100,000+ entrepreneurs by 2027</motion.li>
+                <motion.li whileHover={{ x: 10, color: '#FF8C00' }}>Expanding our presence to 5 new countries</motion.li>
+                <motion.li whileHover={{ x: 10, color: '#FF8C00' }}>Creating an online learning platform for global reach</motion.li>
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         );
       case 'MISSION':
         return (
-          <div className="mission-content">
-            <p>Our mission is to provide entrepreneurs with the tools, knowledge, and support they need to build thriving businesses that make a positive impact on society.</p>
-            <div className="mission-pillars">
-              <div className="pillar">
-                <h4>Educate</h4>
+          <motion.div
+            className="mission-content"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+          >
+            <motion.p whileHover={{ scale: 1.02 }}>Our mission is to provide entrepreneurs with the tools, knowledge, and support they need to build thriving businesses that make a positive impact on society.</motion.p>
+            <motion.div
+              className="mission-pillars"
+              variants={staggeredChildren}
+              initial="hidden"
+              animate="visible"
+            >
+              <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
+                <h4 style={{ color: '#FF8C00' }}>Educate</h4>
                 <p>Providing practical business knowledge</p>
-              </div>
-              <div className="pillar">
-                <h4>Enable</h4>
+              </motion.div>
+              <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
+                <h4 style={{ color: '#FF8C00' }}>Enable</h4>
                 <p>Creating supportive networks and resources</p>
-              </div>
-              <div className="pillar">
-                <h4>Empower</h4>
+              </motion.div>
+              <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
+                <h4 style={{ color: '#FF8C00' }}>Empower</h4>
                 <p>Building confidence and capability</p>
-              </div>
-            </div>
-          </div>
+              </motion.div>
+            </motion.div>
+          </motion.div>
         );
       default:
         return null;
@@ -79,194 +148,430 @@ const AboutSmmart = () => {
   };
 
   return (
-    <div className="about-page">
+    <motion.div
+      className="about-page"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      style={{ background: 'linear-gradient(135deg, #87CEEB 0%, #4682B4 100%)' }}
+    >
       <Header />
-      <main className="about-container">
+      <motion.main
+        className="about-container"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.2, duration: 0.5 }}
+      >
         {/* Hero Section */}
-        <section className="hero-section">
-          <div className="hero-content">
-            <h1>Empowering Entrepreneurs, Enterprises and Individuals.</h1>
-            <p>Coaching. Mentoring. Transforming over 2 million lives and counting.</p>
-          </div>
-        </section>
+        <motion.section
+          className="hero-section"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          style={{
+            padding: '2rem 1rem',
+            textAlign: 'center'
+          }}
+        >
+          <motion.div
+            className="hero-content"
+            initial={{ y: -50, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            style={{
+              maxWidth: '90%',
+              margin: '0 auto'
+            }}
+          >
+            <motion.h1
+              style={{
+                color: '#FF8C00',
+                fontSize: '2rem',
+                lineHeight: '1.5'
+              }}
+              whileHover={{ scale: 1.03 }}
+            >
+              Empowering Entrepreneurs, Enterprises and Individuals.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6, duration: 0.8 }}
+              style={{
+                fontSize: '1rem',
+                lineHeight: '1.5',
+                color: '#333'
+              }}
+            >
+              Coaching. Mentoring. Transforming over 2 million lives and counting.
+            </motion.p>
+          </motion.div>
+        </motion.section>
 
         {/* Journey Section */}
-        <section className="journey-section">
-          <div className="journey-content">
-            <h2>OUR<br />JOURNEY</h2>
-            <div className="journey-text">
+        <motion.section
+          className="journey-section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeIn}
+        >
+          <motion.div
+            className="journey-content"
+            variants={slideUp}
+          >
+            <motion.h2
+              style={{ color: '#FF8C00' }}
+              whileHover={{ scale: 1.05 }}
+            >
+              OUR<br />JOURNEY
+            </motion.h2>
+            <motion.div className="journey-text" variants={fadeIn}>
               <p>
-                smmart began with a bold vision:<br />
+                <span style={{ color: '#FF8C00' }}>smmart</span> began with a bold vision:<br />
                 to ignite the entrepreneurial spirit across India and beyond.<br /><br />
                 From humble beginnings, we have evolved into a dynamic force —<br />
                 helping businesses scale, innovate, grow, and succeed over time.<br /><br />
-                Today, smmart stands for structured growth, sustainable success,<br />
+                Today, <span style={{ color: '#FF8C00' }}>smmart</span> stands for structured growth, sustainable success,<br />
                 and a smarter way to build your dream.
               </p>
-            </div>
-          </div>
-          <div className="journey-image">
-            <div className="gradient-overlay"></div>
+            </motion.div>
+          </motion.div>
+          <motion.div
+            className="journey-image"
+            whileHover={{ scale: 1.03 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <div className="gradient-overlay" style={{ background: 'linear-gradient(45deg, #87CEEB, #FF8C00)' }}></div>
             <div className="dot-pattern"></div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* Quick Stats Section */}
-        <section className="stats-section">
-          <h2 className="glow-text">QUICK STATS</h2>
-          <div className="stats-grid">
-            <div className="stat-item">
-              <div className="stat-number">{stats.entrepreneurs}</div>
-              <div className="stat-divider"></div>
+        <motion.section
+          className="stats-section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggeredChildren}
+        >
+          <motion.h2
+            className="glow-text"
+            style={{ color: '#FF8C00' }}
+            whileHover={{ scale: 1.05, textShadow: '0 0 8px rgba(255,140,0,0.7)' }}
+          >
+            QUICK STATS
+          </motion.h2>
+          <motion.div className="stats-grid" variants={staggeredChildren}>
+            <motion.div className="stat-item" variants={statItem} whileHover={{ y: -10 }}>
+              <motion.div
+                className="stat-number"
+                style={{ color: '#FF8C00' }}
+                whileHover={{ scale: 1.1 }}
+              >
+                {stats.entrepreneurs}
+              </motion.div>
+              <div className="stat-divider" style={{ background: '#FF8C00' }}></div>
               <p>Entrepreneurs Empowered</p>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">{stats.programs}</div>
-              <div className="stat-divider"></div>
+            </motion.div>
+            <motion.div className="stat-item" variants={statItem} whileHover={{ y: -10 }}>
+              <motion.div
+                className="stat-number"
+                style={{ color: '#FF8C00' }}
+                whileHover={{ scale: 1.1 }}
+              >
+                {stats.programs}
+              </motion.div>
+              <div className="stat-divider" style={{ background: '#FF8C00' }}></div>
               <p>Training Programs Conducted</p>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">{stats.experience}</div>
-              <div className="stat-divider"></div>
+            </motion.div>
+            <motion.div className="stat-item" variants={statItem} whileHover={{ y: -10 }}>
+              <motion.div
+                className="stat-number"
+                style={{ color: '#FF8C00' }}
+                whileHover={{ scale: 1.1 }}
+              >
+                {stats.experience}
+              </motion.div>
+              <div className="stat-divider" style={{ background: '#FF8C00' }}></div>
               <p>Years of Experience</p>
-            </div>
-            <div className="stat-item">
-              <div className="stat-number">{stats.presence}</div>
-              <div className="stat-divider"></div>
+            </motion.div>
+            <motion.div className="stat-item" variants={statItem} whileHover={{ y: -10 }}>
+              <motion.div
+                className="stat-number"
+                style={{ color: '#FF8C00' }}
+                whileHover={{ scale: 1.1 }}
+              >
+                {stats.presence}
+              </motion.div>
+              <div className="stat-divider" style={{ background: '#FF8C00' }}></div>
               <p>Presence</p>
-            </div>
-          </div>
-          <div className="stat-buttons">
-            <button className="stat-btn gradient-btn">INSIGHTS</button>
-            <button className="stat-btn gradient-btn">CORE</button>
-          </div>
-          <p className="stat-note">All brands and our operations to build on modern principles</p>
-        </section>
+            </motion.div>
+          </motion.div>
+          <motion.div className="stat-buttons" variants={fadeIn}>
+            <motion.button
+              className="stat-btn gradient-btn"
+              whileHover={{ scale: 1.05, backgroundColor: '#FF8C00' }}
+              whileTap={{ scale: 0.95 }}
+              style={{ background: 'linear-gradient(135deg, #FF8C00, #FFA500)' }}
+            >
+              INSIGHTS
+            </motion.button>
+            <motion.button
+              className="stat-btn gradient-btn"
+              whileHover={{ scale: 1.05, backgroundColor: '#FF8C00' }}
+              whileTap={{ scale: 0.95 }}
+              style={{ background: 'linear-gradient(135deg, #FF8C00, #FFA500)' }}
+            >
+              CORE
+            </motion.button>
+          </motion.div>
+          <motion.p
+            className="stat-note"
+            variants={fadeIn}
+          >
+            All brands and our operations to build on modern principles
+          </motion.p>
+        </motion.section>
 
         {/* Mission & Vision Section */}
-        <section className="mission-vision-section">
-          <h2 className="section-title">OUR MISSION<br />&amp; VISION</h2>
+        <motion.section
+          className="mission-vision-section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeIn}
+        >
+          <motion.h2
+            className="section-title"
+            style={{ color: '#FF8C00' }}
+            whileHover={{ scale: 1.05 }}
+          >
+            OUR MISSION<br />&amp; VISION
+          </motion.h2>
 
-          <div className="tab-navigation">
-            <button
+          <motion.div className="tab-navigation">
+            <motion.button
               className={`tab-btn ${activeTab === 'VALUES' ? 'active' : ''}`}
               onClick={() => handleTabChange('VALUES')}
+              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'VALUES' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
+              whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: activeTab === 'VALUES' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
             >
               VALUES
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               className={`tab-btn ${activeTab === 'MISSION' ? 'active' : ''}`}
               onClick={() => handleTabChange('MISSION')}
+              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'MISSION' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
+              whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: activeTab === 'MISSION' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
             >
               MISSION
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               className={`tab-btn ${activeTab === 'VISION' ? 'active' : ''}`}
               onClick={() => handleTabChange('VISION')}
+              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'VISION' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
+              whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: activeTab === 'VISION' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
             >
               VISION
-            </button>
-          </div>
+            </motion.button>
+          </motion.div>
 
-          <div className="tab-content">
+          <motion.div
+            className="tab-content"
+            key={activeTab}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             {renderTabContent()}
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* What We Do Section */}
-        <section className="what-we-do-section">
-          <div className="what-we-do-content">
-            <h3>What We Do</h3>
-            <ul className="what-we-do-list">
-              <li>
-                <span className="list-marker">01</span>
+        <motion.section
+          className="what-we-do-section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeIn}
+        >
+          <motion.div
+            className="what-we-do-content"
+            variants={slideUp}
+          >
+            <motion.h3 style={{ color: '#FF8C00' }}>What We Do</motion.h3>
+            <motion.ul
+              className="what-we-do-list"
+              variants={staggeredChildren}
+            >
+              <motion.li variants={slideUp} whileHover={{ x: 10 }}>
+                <span className="list-marker" style={{ color: '#FF8C00' }}>01</span>
                 We believe in continuous efforts to reach to needy ones.
-              </li>
-              <li>
-                <span className="list-marker">02</span>
+              </motion.li>
+              <motion.li variants={slideUp} whileHover={{ x: 10 }}>
+                <span className="list-marker" style={{ color: '#FF8C00' }}>02</span>
                 We transform through knowledge.
-              </li>
-              <li>
-                <span className="list-marker">03</span>
+              </motion.li>
+              <motion.li variants={slideUp} whileHover={{ x: 10 }}>
+                <span className="list-marker" style={{ color: '#FF8C00' }}>03</span>
                 We transform mindset before we transform businesses.
-              </li>
-              <li>
-                <span className="list-marker">04</span>
+              </motion.li>
+              <motion.li variants={slideUp} whileHover={{ x: 10 }}>
+                <span className="list-marker" style={{ color: '#FF8C00' }}>04</span>
                 Empowering others is life.
-              </li>
-              <li>
-                <span className="list-marker">05</span>
+              </motion.li>
+              <motion.li variants={slideUp} whileHover={{ x: 10 }}>
+                <span className="list-marker" style={{ color: '#FF8C00' }}>05</span>
                 Building businesses is in our - It's a way of life.
-              </li>
-            </ul>
-          </div>
-          <div className="what-we-do-image">
-            <div className="image-frame">
+              </motion.li>
+            </motion.ul>
+          </motion.div>
+          <motion.div
+            className="what-we-do-image"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <div className="image-frame" style={{ borderColor: '#FF8C00' }}>
               <div className="image-placeholder">
                 <div className="placeholder-content">
-                  <div className="placeholder-icon">🚀</div>
+                  <motion.div
+                    className="placeholder-icon"
+                    animate={{ rotate: [0, 10, 0, -10, 0] }}
+                    transition={{ repeat: Infinity, duration: 5 }}
+                    style={{ color: '#FF8C00' }}
+                  >🚀</motion.div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         {/* Approach Section */}
-        <section className="approach-section">
-          <div className="approach-image">
-            <div className="image-frame">
+        <motion.section
+          className="approach-section"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeIn}
+        >
+          <motion.div
+            className="approach-image"
+            whileHover={{ scale: 1.05 }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <div className="image-frame" style={{ borderColor: '#FF8C00' }}>
               <div className="image-placeholder">
                 <div className="placeholder-content">
-                  <div className="placeholder-icon">📊</div>
+                  <motion.div
+                    className="placeholder-icon"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{ repeat: Infinity, duration: 3 }}
+                    style={{ color: '#FF8C00' }}
+                  >📊</motion.div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="approach-content">
-            <h3>Our Approach</h3>
-            <p>
-              smmart's approach combines time-tested strategies with real-world experience.
+          </motion.div>
+          <motion.div
+            className="approach-content"
+            variants={slideUp}
+          >
+            <motion.h3 style={{ color: '#FF8C00' }}>Our Approach</motion.h3>
+            <motion.p whileHover={{ scale: 1.02 }}>
+              <span style={{ color: '#FF8C00' }}>smmart</span>'s approach combines time-tested strategies with real-world experience.
               Our methodology is not just theoretical - it is crafted from years of hands-on
               experience working with real businesses facing real challenges.
-            </p>
-            <p className="highlight-text">
+            </motion.p>
+            <motion.p
+              className="highlight-text"
+              whileHover={{ scale: 1.05 }}
+              style={{ color: '#FF8C00' }}
+            >
               We don't just teach business growth,<br />
               We teach business mastery.
-            </p>
-          </div>
-        </section>
+            </motion.p>
+          </motion.div>
+        </motion.section>
 
         {/* Future Goals Section */}
-        <section className="future-goals">
-          <h2 className="section-title">FUTURE GOALS</h2>
-          <div className="goals-timeline">
-            <div className="timeline-item">
-              <div className="timeline-year">2025</div>
+        <motion.section
+          className="future-goals"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeIn}
+        >
+          <motion.h2
+            className="section-title"
+            style={{ color: '#FF8C00' }}
+            whileHover={{ scale: 1.05 }}
+          >
+            FUTURE GOALS
+          </motion.h2>
+          <motion.div
+            className="goals-timeline"
+            variants={staggeredChildren}
+          >
+            <motion.div
+              className="timeline-item"
+              variants={slideUp}
+              whileHover={{ y: -10 }}
+            >
+              <motion.div
+                className="timeline-year"
+                style={{ backgroundColor: '#FF8C00' }}
+                whileHover={{ scale: 1.1 }}
+              >
+                2025
+              </motion.div>
               <div className="timeline-content">
-                <h4>National Expansion</h4>
+                <h4 style={{ color: '#FF8C00' }}>National Expansion</h4>
                 <p>Establish presence in all major Indian cities</p>
               </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-year">2026</div>
+            </motion.div>
+            <motion.div
+              className="timeline-item"
+              variants={slideUp}
+              whileHover={{ y: -10 }}
+            >
+              <motion.div
+                className="timeline-year"
+                style={{ backgroundColor: '#FF8C00' }}
+                whileHover={{ scale: 1.1 }}
+              >
+                2026
+              </motion.div>
               <div className="timeline-content">
-                <h4>Global Reach</h4>
+                <h4 style={{ color: '#FF8C00' }}>Global Reach</h4>
                 <p>Begin international operations in 3 countries</p>
               </div>
-            </div>
-            <div className="timeline-item">
-              <div className="timeline-year">2027</div>
+            </motion.div>
+            <motion.div
+              className="timeline-item"
+              variants={slideUp}
+              whileHover={{ y: -10 }}
+            >
+              <motion.div
+                className="timeline-year"
+                style={{ backgroundColor: '#FF8C00' }}
+                whileHover={{ scale: 1.1 }}
+              >
+                2027
+              </motion.div>
               <div className="timeline-content">
-                <h4>Digital Transformation</h4>
+                <h4 style={{ color: '#FF8C00' }}>Digital Transformation</h4>
                 <p>Launch comprehensive online learning platform</p>
               </div>
-            </div>
-          </div>
-        </section>
-      </main>
+            </motion.div>
+          </motion.div>
+        </motion.section>
+      </motion.main>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
-export default AboutSmmart; 
+export default AboutSmmart;

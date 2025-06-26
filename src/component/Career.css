@@ -7,6 +7,7 @@
   color: #1976D2;
   padding: 0;
   position: relative;
+  padding-top: 80px; /* Adjust this value based on header height */
 }
 
 .career-bg::before {
@@ -246,6 +247,26 @@
     width: 100%;
     justify-content: center;
     padding: 10px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .career-bg {
+    padding: 0 1rem;
+    padding-top: 60px; /* Adjust for smaller screens */
+  }
+
+  .career-container {
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .career-content-wrapper {
+    padding: 1rem 0;
+  }
+
+  .career-job-card {
+    padding: 1rem;
   }
 }
 
