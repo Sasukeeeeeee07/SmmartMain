@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
+import logo from '../assets/image/logo.png';
 
 const Footer = () => {
   const handleSubmit = (e) => {
@@ -11,35 +12,34 @@ const Footer = () => {
   return (
     <footer className="sigma-footer">
       <div className="footer-content">
-        <div className="footer-col">
-          <div className="footer-heading">About</div>
-          <Link to="/mission" className="footer-link">Mission</Link>
-          <Link to="/programs" className="footer-link">Programs</Link>
-          <Link to="/coaching" className="footer-link">Coaching</Link>
-          <Link to="/start-now" className="footer-link">Start Now</Link>
-        </div>
-        <div className="footer-col">
-          <div className="footer-heading">Community</div>
-          <Link to="/disc-assessment" className="footer-link">DISC Assessment</Link>
-          <Link to="/careers" className="footer-link">Careers</Link>
-          <Link to="/gifting" className="footer-link">Gifting</Link>
-          <Link to="/sitemap" className="footer-link">Sitemap</Link>
-        </div>
-        <div className="footer-col">
-          <div className="footer-heading">Documentary</div>
-          <Link to="/blog" className="footer-link">Blog</Link>
-          <Link to="/free-resources" className="footer-link">Free resources</Link>
-          <Link to="/shop" className="footer-link">Shop all</Link>
-        </div>
-        <div className="footer-col">
-          <div className="footer-heading">Customer Support</div>
-          <div className="footer-link">
-            Support is available 24/7 for all your questions on products, coaching or events.
+        <div className="footer-col footer-logo-col">
+          <div className="footer-logo">
+            <img src={logo} alt="SMMART Logo" />
+          </div>          <div className="footer-link no-hover">
+            Transform your life with SMMART's expert guidance and proven methodologies. Join us on a journey of personal and professional growth.
           </div>
-          <Link to="/help" className="footer-link">Need help?</Link>
         </div>
-        <div className="footer-col quick-consult">
-          <div className="footer-heading" style={{ color: '#ff3c1a' }}>Quick Consultation</div>
+        <div className="footer-col">
+          <div className="footer-heading">Navigation</div>
+          <Link to="/" className="footer-link">Home</Link>
+          <Link to="/about/AboutSmmart" className="footer-link">About Us</Link>
+          <Link to="/events" className="footer-link">Events</Link>
+          <Link to="/contact" className="footer-link">Contact</Link>
+        </div>
+        <div className="footer-col">
+          <div className="footer-heading">Resources</div>
+          <Link to="/blog" className="footer-link">Blog</Link>
+          <Link to="/merchandise" className="footer-link">Books</Link>
+          <Link to="/careers" className="footer-link">Careers</Link>
+        </div>
+        <div className="footer-col">
+          <div className="footer-heading">Products</div>
+          <Link to="/products/individual" className="footer-link">Individual Transformation</Link>
+          <Link to="/products/entrepreneur" className="footer-link">Entrepreneur Transformation</Link>
+          <Link to="/products/enterprise" className="footer-link">Enterprise Transformation</Link>
+        </div>
+        {/* <div className="footer-col quick-consult">
+          <div className="footer-heading" style={{ color: '#FF8C00' }}>Quick Consultation</div>
           <form className="footer-form" onSubmit={handleSubmit}>
             <input type="text" placeholder="Full Name" required />
             <input type="email" placeholder="Email Address" required />
@@ -47,26 +47,26 @@ const Footer = () => {
             <textarea placeholder="Enter your message here..." required></textarea>
             <button type="submit">Submit</button>
           </form>
-        </div>
+        </div> */}
       </div>
       <div className="footer-bottom">
         <div>
           <span>English</span>
           <span>Privacy Policy</span>
           <span>Terms of Service</span>
-          <span>© 2025. All rights reserved</span>
+          <span>© 2025 SMMART. All rights reserved</span>
         </div>
         <div className="footer-socials">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
             <i className="fab fa-twitter"></i>
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <i className="fab fa-instagram"></i>
           </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
             <i className="fab fa-youtube"></i>
           </a>
         </div>
