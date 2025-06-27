@@ -172,6 +172,43 @@
   background: linear-gradient(135deg, #FF7800, #FF9500);
 }
 
+/* Success Message Styling */
+.success-message {
+  text-align: center;
+  padding: 2rem;
+  color: #0D47A1;
+}
+
+.success-icon {
+  font-size: 3.5rem;
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.2);
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+}
+
+.success-message h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: #0D47A1;
+}
+
+.success-message p {
+  font-size: 1.1rem;
+  color: #455A64;
+  margin-bottom: 1.5rem;
+}
+
+/* Button states */
+.submit-button:disabled {
+  background: linear-gradient(90deg, #FF9800 0%, #FFB74D 100%);
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
@@ -188,5 +225,24 @@
 
   .contact-content {
     padding: 2rem 1rem;
+  }
+  
+  .success-message {
+    padding: 1rem;
+  }
+  
+  .success-icon {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 2.5rem;
+  }
+  
+  .success-message h3 {
+    font-size: 1.4rem;
+  }
+  
+  .success-message p {
+    font-size: 1rem;
   }
 }

@@ -645,15 +645,15 @@
 
 /* Future Goals Section */
 .future-goals {
-  padding: 5rem 0;
+  padding: 4rem 2rem;
   margin: 4rem 0;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.25);
   border-radius: 20px;
   position: relative;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(33, 150, 243, 0.15);
+  box-shadow: 0 10px 40px rgba(33, 150, 243, 0.18);
   overflow: hidden;
 }
 
@@ -664,8 +664,19 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(135deg, rgba(33, 150, 243, 0.05), rgba(255, 109, 0, 0.05));
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(33, 150, 243, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(255, 140, 0, 0.08) 0%, transparent 50%);
   z-index: -1;
+}
+
+.future-goals h3 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #1976D2;
+  text-shadow: 0 2px 10px rgba(33, 150, 243, 0.2);
 }
 
 .goals-timeline {
@@ -674,17 +685,19 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding-top: 40px;
+  padding-top: 60px;
 }
 
 .goals-timeline::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 20px;
   left: 0;
   width: 100%;
-  height: 2px;
+  height: 4px;
   background: linear-gradient(to right, #1976D2, #FF6D00);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(33, 150, 243, 0.2);
 }
 
 .timeline-item {
@@ -695,44 +708,65 @@
 
 .timeline-year {
   position: absolute;
-  top: -70px;
+  top: -45px;
   left: 50%;
   transform: translateX(-50%);
   background: linear-gradient(45deg, #1976D2, #FF6D00);
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 50px;
   font-weight: 700;
+  font-size: 1.1rem;
   box-shadow: 0 5px 15px rgba(255, 109, 0, 0.3);
   animation: pulse 2s infinite;
+  z-index: 2;
 }
 
 .timeline-content {
-  background: rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 15px;
-  padding: 1.5rem;
-  margin-top: 1.5rem;
+  padding: 1.8rem 1.5rem;
+  margin-top: 1rem;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   box-shadow: 0 8px 32px rgba(33, 150, 243, 0.15);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .timeline-content:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(33, 150, 243, 0.25);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(33, 150, 243, 0.25);
+  border-color: rgba(255, 140, 0, 0.4);
 }
 
 .timeline-content h4 {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #FF6D00;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-bottom: 0.8rem;
+}
+
+.timeline-content h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, #1976D2, #FF6D00);
 }
 
 .timeline-content p {
-  font-size: 0.9rem;
-  color: black;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  flex-grow: 1;
 }
 
 /* Animations */
@@ -779,10 +813,19 @@
     gap: 1rem;
   }
 
+  .future-goals {
+    padding: 3rem 1.5rem;
+  }
+
+  .future-goals h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2.5rem;
+  }
+
   .goals-timeline {
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
+    gap: 3.5rem;
     padding-top: 0;
   }
 
@@ -792,12 +835,16 @@
 
   .timeline-item {
     width: 80%;
+    max-width: 400px;
   }
 
   .timeline-year {
     position: relative;
     top: 0;
     margin-bottom: 1rem;
+    transform: none;
+    left: auto;
+    display: inline-block;
   }
 }
 
@@ -869,5 +916,36 @@
   .stat-buttons {
     flex-direction: column;
     gap: 0.5rem;
+  }
+
+  .future-goals {
+    padding: 2rem 1rem;
+    margin: 2rem 0;
+  }
+
+  .future-goals h3 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .timeline-item {
+    width: 95%;
+  }
+
+  .timeline-year {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .timeline-content {
+    padding: 1.2rem 1rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
   }
 }

@@ -522,7 +522,14 @@ const AboutSmmart = () => {
             >
               <motion.div
                 className="timeline-year"
-                style={{ backgroundColor: '#FF8C00' }}
+                style={{
+                  backgroundColor: '#FF8C00',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
+                  maxWidth: '100%',
+                  display: 'inline-block'
+                }}
                 whileHover={{ scale: 1.1 }}
               >
                 2025
@@ -539,7 +546,14 @@ const AboutSmmart = () => {
             >
               <motion.div
                 className="timeline-year"
-                style={{ backgroundColor: '#FF8C00' }}
+                style={{
+                  backgroundColor: '#FF8C00',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
+                  maxWidth: '100%',
+                  display: 'inline-block'
+                }}
                 whileHover={{ scale: 1.1 }}
               >
                 2026
@@ -556,7 +570,14 @@ const AboutSmmart = () => {
             >
               <motion.div
                 className="timeline-year"
-                style={{ backgroundColor: '#FF8C00' }}
+                style={{
+                  backgroundColor: '#FF8C00',
+                  overflow: 'hidden',
+                  whiteSpace: 'nowrap',
+                  textOverflow: 'ellipsis',
+                  maxWidth: '100%',
+                  display: 'inline-block'
+                }}
                 whileHover={{ scale: 1.1 }}
               >
                 2027

@@ -10,6 +10,7 @@ import himanshuTiwari from './images/himanshu.jpg';
 import darshanMehta from './images/darshan.jpg';
 import jasmineThakker from './images/jasmine.jpg';
 import Footer from './Footer';
+import { motion } from 'framer-motion';
 
 const teamMembers = [
   {
@@ -133,41 +134,121 @@ const sigmaTeam = [
 ];
 
 function SigmaTeamSection() {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
+  // Text-specific animation variants
+  const textVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+  };
+
   return (
-    <div className="sigma-team-section">
-      <h2 className="sigma-team-title">
+    <motion.div
+      className="sigma-team-section"
+      initial="hidden"
+      animate="visible"
+      variants={{
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+      }}
+    >
+      <motion.h2
+        className="sigma-team-title"
+        variants={textVariants}
+      >
         Meet the smmart Training Team
-      </h2>
+      </motion.h2>
       <div className="sigma-team-cards">
         {sigmaTeam.map((member, idx) => (
-          <div className="sigma-card" key={idx}>
+          <motion.div
+            className="sigma-card"
+            key={idx}
+            variants={cardVariants}
+          >
             <div className="sigma-card-image">
               <img src={member.image} alt={member.name} />
             </div>
             <div className="sigma-card-content">
-              <div className="sigma-card-title">{member.name}</div>
-              <div className="sigma-card-role">{member.title}</div>
-              <div className="sigma-card-desc">{member.desc}</div>
+              <motion.div
+                className="sigma-card-title"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {member.name}
+              </motion.div>
+              <motion.div
+                className="sigma-card-role"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                {member.title}
+              </motion.div>
+              <motion.div
+                className="sigma-card-desc"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                {member.desc}
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
 
 function SigmaGlowingCard() {
+  const glowingCardVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
+  };
+
+  // Text animation variants with staggered delays
+  const titleVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
+  };
+
+  const roleVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, delay: 0.3 }
+    }
+  };
+
+  const descVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.7, delay: 0.5 }
+    }
+  };
+
   return (
-    <div style={{
-      width: '100%',
-      minHeight: 'calc(100vh - 300px)',
-      display: 'flex',
-      alignItems: 'flex-start',
-      justifyContent: 'center',
-      background: 'none',
-      marginTop: 24,
-      marginBottom: 24,
-    }}>
+    <motion.div
+      style={{
+        width: '100%',
+        minHeight: 'calc(100vh - 300px)',
+        display: 'flex',
+        alignItems: 'flex-start',
+        justifyContent: 'center',
+        background: 'none',
+        marginTop: 24,
+        marginBottom: 24,
+      }}
+      initial="hidden"
+      animate="visible"
+      variants={glowingCardVariants}
+    >
       <div
         style={{
           background: 'rgba(20, 25, 40, 0.85)',
@@ -181,33 +262,42 @@ function SigmaGlowingCard() {
           border: '2px solid rgba(255,255,255,0.12)',
         }}
       >
-        <div style={{
-          fontWeight: 700,
-          fontSize: 32,
-          color: '#fff',
-          marginBottom: 12,
-          textShadow: '0 0 12px #fff, 0 0 24px #fff',
-        }}>
+        <motion.div
+          style={{
+            fontWeight: 700,
+            fontSize: 32,
+            color: '#fff',
+            marginBottom: 12,
+            textShadow: '0 0 12px #fff, 0 0 24px #fff',
+          }}
+          variants={titleVariants}
+        >
           T.I.G.E.R. Aditya Singh Rajawat
-        </div>
-        <div style={{
-          color: '#3fa1ff',
-          fontWeight: 600,
-          fontSize: 20,
-          marginBottom: 24,
-        }}>
+        </motion.div>
+        <motion.div
+          style={{
+            color: '#3fa1ff',
+            fontWeight: 600,
+            fontSize: 20,
+            marginBottom: 24,
+          }}
+          variants={roleVariants}
+        >
           Trainer
-        </div>
-        <div style={{
-          color: '#fff',
-          fontSize: 20,
-          lineHeight: 1.6,
-          letterSpacing: 0.2,
-        }}>
+        </motion.div>
+        <motion.div
+          style={{
+            color: '#fff',
+            fontSize: 20,
+            lineHeight: 1.6,
+            letterSpacing: 0.2,
+          }}
+          variants={descVariants}
+        >
           T.I.G.E.R. Aditya Singh is a dynamic trainer specializing in professional sales and individual transformation. Since 2005, he has addressed over 5 lakh people, transformed 2,500+ MNC team members, and supported 1 lakh insurance professionals. Known for activity-driven workshops, Aditya excels in Selling Skills, Sales Mastery, Telephone Handling, Objection Handling, and Retail & Channel Management.
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -223,35 +313,166 @@ function About() {
   };
   const handleSelect = (idx) => setCurrentIndex(idx);
 
+  // Animation variants for text elements
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut"
+      }
+    }
+  };
+
+  // Staggered text animation for leader info
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
   return (
     <div className="container">
       <Header />
       <div className="main-content">
-        <h2 className="subtitle">Leadership that thinks smmart</h2>
-        <div className="leader-info">
-          <h1 className="leader-name">{current.name}</h1>
-          <h3 className="leader-title">{current.position}</h3>
-          <p className="leader-description">{current.bio}</p>
-        </div>
+        <motion.h2
+          className="subtitle"
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
+        >
+          Leadership that thinks smmart
+        </motion.h2>
+        <motion.div
+          className="leader-info"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          <motion.h1 className="leader-name" variants={textVariants}>{current.name}</motion.h1>
+          <motion.h3 className="leader-title" variants={textVariants}>{current.position}</motion.h3>
+          <motion.p className="leader-description" variants={textVariants}>{current.bio}</motion.p>
+        </motion.div>
         <div className="leader-image">
           <img src={current.image} alt={current.name} />
         </div>
       </div>
-      <div className="people-section" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 16 }}>
-        <button className="nav-arrow left" onClick={handlePrev} style={{ fontSize: 32, background: 'none', border: 'none', color: '#5da9e9', cursor: 'pointer' }}>&lt;</button>
-        {teamMembers.map((person, idx) => (
-          <div
-            key={person.name}
-            className={`person-card${idx === currentIndex ? ' active' : ''}`}
-            style={{ margin: '0 8px', border: idx === currentIndex ? '3px solid #5da9e9' : '3px solid transparent', borderRadius: '50%', transition: 'border 0.2s' }}
-            onClick={() => handleSelect(idx)}
-          >
-            <img src={person.image} alt={person.name} style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover' }} />
-            <p style={{ color: '#fff', textAlign: 'center', marginTop: 8 }}>{person.name}</p>
+
+      {/* Responsive carousel section */}
+      <div className="people-section"
+        style={{
+          overflowX: 'auto',
+          overflowY: 'hidden',
+          display: 'flex',
+          padding: '20px 0',
+          margin: '0 -10px',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'none',
+          msOverflowStyle: 'none'
+        }}>
+        <style>
+          {`
+            .people-section::-webkit-scrollbar {
+              display: none;
+            }
+            .carousel-container {
+              display: flex;
+              align-items: center;
+              min-width: 100%;
+              justify-content: center;
+              padding: 0 10px;
+            }
+            .carousel-items {
+              display: flex;
+              flex-wrap: nowrap;
+              align-items: center;
+            }
+            .person-card {
+              flex: 0 0 auto;
+              transition: all 0.3s ease;
+            }
+            @media (max-width: 768px) {
+              .carousel-container {
+                justify-content: flex-start;
+                padding: 0 20px;
+              }
+              .person-card img {
+                width: 60px !important;
+                height: 60px !important;
+              }
+            }
+          `}
+        </style>
+        <div className="carousel-container">
+          <button
+            className="nav-arrow left"
+            onClick={handlePrev}
+            style={{
+              fontSize: 32,
+              background: 'none',
+              border: 'none',
+              color: '#5da9e9',
+              cursor: 'pointer',
+              minWidth: '30px',
+              zIndex: 2
+            }}>&lt;</button>
+          <div className="carousel-items">
+            {teamMembers.map((person, idx) => (
+              <div
+                key={person.name}
+                className={`person-card${idx === currentIndex ? ' active' : ''}`}
+                style={{
+                  margin: '0 8px',
+                  border: idx === currentIndex ? '3px solid #5da9e9' : '3px solid transparent',
+                  borderRadius: '50%',
+                  transition: 'border 0.2s',
+                  cursor: 'pointer'
+                }}
+                onClick={() => handleSelect(idx)}
+              >
+                <img src={person.image} alt={person.name} style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover' }} />
+                <motion.p
+                  style={{
+                    color: '#fff',
+                    textAlign: 'center',
+                    marginTop: 8,
+                    fontSize: 'clamp(0.75rem, 2vw, 1rem)',
+                    maxWidth: '100px',
+                    overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap'
+                  }}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  {person.name}
+                </motion.p>
+              </div>
+            ))}
           </div>
-        ))}
-        <button className="nav-arrow right" onClick={handleNext} style={{ fontSize: 32, background: 'none', border: 'none', color: '#5da9e9', cursor: 'pointer' }}>&gt;</button>
+          <button
+            className="nav-arrow right"
+            onClick={handleNext}
+            style={{
+              fontSize: 32,
+              background: 'none',
+              border: 'none',
+              color: '#5da9e9',
+              cursor: 'pointer',
+              minWidth: '30px',
+              zIndex: 2
+            }}>&gt;</button>
+        </div>
       </div>
+
       <SigmaTeamSection />
       <SigmaGlowingCard />
       <Footer />
