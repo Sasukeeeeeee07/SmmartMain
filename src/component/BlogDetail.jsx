@@ -94,8 +94,7 @@ const BlogDetail = () => {
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
-  // Update currentBlogId when URL parameter changes
+  // Update currentBlogId when URL parameter changes and load comments for that blog
   useEffect(() => {
     if (id) {
       const blogId = Number(id);
@@ -104,6 +103,40 @@ const BlogDetail = () => {
         setIsLoading(true);
         setCurrentBlogId(blogId);
         window.scrollTo(0, 0);
+
+        // Load comments for this specific blog
+        const savedComments = localStorage.getItem(`blog-${blogId}-comments`);
+        if (savedComments) {
+          setComments(JSON.parse(savedComments));
+        } else {
+          // Reset to default comments if no saved comments for this blog
+          setComments([
+            {
+              id: 1,
+              author: "John Smith",
+              avatar: BlogPhoto,
+              text: "This is exactly what I needed to hear. The future is indeed bright if we approach it with the right mindset.",
+              timestamp: "2 hours ago",
+              likes: 8
+            },
+            {
+              id: 2,
+              author: "Sarah Johnson",
+              avatar: BlogPhoto,
+              text: "Great insights! I especially appreciate the point about healthcare advancements. It's amazing to see how technology is transforming medicine.",
+              timestamp: "5 hours ago",
+              likes: 5
+            },
+            {
+              id: 3,
+              author: "Michael Brown",
+              avatar: BlogPhoto,
+              text: "Very thought-provoking article. It's refreshing to see such an optimistic yet realistic take on technological advancement.",
+              timestamp: "1 day ago",
+              likes: 12
+            }
+          ]);
+        }
 
         // Simulate loading for a smoother transition
         setTimeout(() => {
@@ -114,56 +147,99 @@ const BlogDetail = () => {
         navigate('/blog');
       }
     }
-  }, [id, navigate]);
-  const [comments, setComments] = useState([
-    {
-      id: 1,
-      author: "John Smith",
-      avatar: BlogPhoto,
-      text: "This is exactly what I needed to hear. The future is indeed bright if we approach it with the right mindset.",
-      timestamp: "2 hours ago",
-      likes: 8
-    },
-    {
-      id: 2,
-      author: "Sarah Johnson",
-      avatar: BlogPhoto,
-      text: "Great insights! I especially appreciate the point about healthcare advancements. It's amazing to see how technology is transforming medicine.",
-      timestamp: "5 hours ago",
-      likes: 5
-    },
-    {
-      id: 3,
-      author: "Michael Brown",
-      avatar: BlogPhoto,
-      text: "Very thought-provoking article. It's refreshing to see such an optimistic yet realistic take on technological advancement.",
-      timestamp: "1 day ago",
-      likes: 12
+  }, [id, navigate]);// Load comments from localStorage or use defaults
+  const [comments, setComments] = useState(() => {
+    const savedComments = localStorage.getItem(`blog-${currentBlogId}-comments`);
+    if (savedComments) {
+      return JSON.parse(savedComments);
     }
-  ]);
+    return [
+      {
+        id: 1,
+        author: "John Smith",
+        avatar: BlogPhoto,
+        text: "This is exactly what I needed to hear. The future is indeed bright if we approach it with the right mindset.",
+        timestamp: "2 hours ago",
+        likes: 8
+      },
+      {
+        id: 2,
+        author: "Sarah Johnson",
+        avatar: BlogPhoto,
+        text: "Great insights! I especially appreciate the point about healthcare advancements. It's amazing to see how technology is transforming medicine.",
+        timestamp: "5 hours ago",
+        likes: 5
+      },
+      {
+        id: 3,
+        author: "Michael Brown",
+        avatar: BlogPhoto,
+        text: "Very thought-provoking article. It's refreshing to see such an optimistic yet realistic take on technological advancement.",
+        timestamp: "1 day ago",
+        likes: 12
+      }
+    ];
+  });
+
+  // Effect to update localStorage when comments change or when blog changes
+  useEffect(() => {
+    localStorage.setItem(`blog-${currentBlogId}-comments`, JSON.stringify(comments));
+  }, [comments, currentBlogId]);
 
   const currentBlog = allBlogs[currentBlogId];
 
   const relatedBlogs = Object.values(allBlogs)
     .filter(blog => blog.id !== currentBlogId)
-    .slice(0, 3);
+    .slice(0, 3); const handleCommentSubmit = (e) => {
+      e.preventDefault();
 
-  const handleCommentSubmit = (e) => {
-    e.preventDefault();
-    if (comment.trim()) {
-      const newComment = {
-        id: comments.length + 1,
-        author: "Guest User",
-        avatar: BlogPhoto,
-        text: comment,
-        timestamp: "Just now",
-        likes: 0
-      };
-      const updatedComments = [newComment, ...comments];
-      setComments(updatedComments);
-      setComment('');
-    }
-  };
+      if (comment.trim()) {
+        // Create new comment
+        const newComment = {
+          id: Date.now(), // Use timestamp for unique ID
+          author: "Guest User",
+          avatar: BlogPhoto,
+          text: comment,
+          timestamp: "Just now",
+          likes: 0
+        };
+
+        // Add new comment to the beginning and limit to 3 most recent
+        const updatedComments = [newComment, ...comments].slice(0, 3);
+        setComments(updatedComments);
+        setComment('');
+
+        // Save to localStorage
+        localStorage.setItem(`blog-${currentBlogId}-comments`, JSON.stringify(updatedComments));
+
+        // Submit to Google Form via hidden form
+        const googleFormURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdrxzgeCKul2VUDbg8rvTvUnUknrlYpGz5_aTm1M9rzRd4B1g/formResponse';
+
+        const form = document.createElement('form');
+        form.action = googleFormURL;
+        form.method = 'POST';
+        form.target = 'hidden-iframe';
+        form.style.display = 'none';
+
+        const commentField = document.createElement('input');
+        commentField.type = 'hidden';
+        commentField.name = 'entry.810634119';
+        commentField.value = newComment.text;
+        form.appendChild(commentField);
+
+        // Add the blog ID or title to know which blog the comment is for
+        const blogField = document.createElement('input');
+        blogField.type = 'hidden';
+        blogField.name = 'entry.1234567890'; // Used for tracking which blog the comment is for
+        blogField.value = currentBlog.title;
+        form.appendChild(blogField);
+
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+      }
+    };
+
   const handleReadMore = (blogId) => {
     // Navigate to the correct blog URL instead of just updating state
     navigate(`/blog/${blogId}`);
@@ -186,6 +262,12 @@ const BlogDetail = () => {
   return (
     <div className="blog-detail-page">
       <Header />
+      {/* Hidden iframe for form submission */}
+      <iframe
+        name="hidden-iframe"
+        style={{ display: 'none' }}
+        title="hidden-google-form"
+      />
 
       <div className={`blog-detail-wrapper ${isLoading ? 'loading' : ''}`}>
         <div className="blog-detail-back-link">
@@ -285,37 +367,44 @@ const BlogDetail = () => {
           <div className="blog-comments-section">
             <h2 className="blog-comments-title">
               <FaComment className="blog-detail-icon" /> Comments ({comments.length})
-            </h2>
-
-            <form onSubmit={handleCommentSubmit} className="comment-form">
+            </h2>            <form className="comment-form">
               <textarea
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
                 placeholder="Share your thoughts..."
                 required
               />
-              <button type="submit">Post Comment</button>
-            </form>
-
-            <div className="comments-list">
-              {comments.map(comment => (
-                <div key={comment.id} className="comment">
-                  <div className="comment-header">
-                    <div className="comment-user">
-                      <img src={comment.avatar} alt={comment.author} className="comment-avatar" />
-                      <span className="comment-author">{comment.author}</span>
+              <button type="button" onClick={handleCommentSubmit}>Post Comment</button>
+            </form>            <div className="comments-list">
+              {comments.length > 0 ? (
+                <>
+                  {comments.map(comment => (
+                    <div key={comment.id} className="comment">
+                      <div className="comment-header">
+                        <div className="comment-user">
+                          <img src={comment.avatar} alt={comment.author} className="comment-avatar" />
+                          <span className="comment-author">{comment.author}</span>
+                        </div>
+                        <span className="comment-time">{comment.timestamp}</span>
+                      </div>
+                      <p className="comment-text">{comment.text}</p>
+                      <div className="comment-actions">
+                        <button className="comment-like-btn">
+                          <FaHeart className="comment-action-icon" /> {comment.likes}
+                        </button>
+                        <button className="comment-reply-btn">Reply</button>
+                      </div>
                     </div>
-                    <span className="comment-time">{comment.timestamp}</span>
+                  ))}
+                  <div className="comments-notice">
+                    Only the 3 most recent comments are shown.
                   </div>
-                  <p className="comment-text">{comment.text}</p>
-                  <div className="comment-actions">
-                    <button className="comment-like-btn">
-                      <FaHeart className="comment-action-icon" /> {comment.likes}
-                    </button>
-                    <button className="comment-reply-btn">Reply</button>
-                  </div>
+                </>
+              ) : (
+                <div className="no-comments">
+                  No comments yet. Be the first to share your thoughts!
                 </div>
-              ))}
+              )}
             </div>
           </div>
         </div>

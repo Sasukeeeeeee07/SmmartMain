@@ -3,6 +3,9 @@
   background: linear-gradient(135deg, #87CEEB 0%, #B0E0E6 25%, #ADD8E6 50%, #87CEFA 75%, #4682B4 100%);
   color: #fff;
   position: relative;
+  padding-top: 64px;
+  /* Minimum header height */
+  box-sizing: border-box;
 }
 
 .contact-page::before {
@@ -21,14 +24,64 @@
 .contact-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 10rem 2rem 4rem;
+  /* Significantly increased top padding to prevent header overlap */
+  position: relative;
+  z-index: 2;
+  /* Higher than the ::before pseudo-element but lower than the header */
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 12rem 1.5rem 4rem;
+    /* Even more top padding on mobile */
+  }
+
+  .contact-page {
+    padding-top: 70px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    /* Stack vertically on mobile */
+    gap: 3rem;
+  }
+}
+
+/* Additional media queries for smaller screens */
+@media (max-width: 480px) {
+  .contact-content {
+    padding: 13rem 1rem 3rem;
+    /* Extra padding for very small screens */
+  }
+}
+
+@media (max-width: 375px) {
+  .contact-content {
+    padding-top: 14rem;
+  }
+}
+
+/* Clear fix for header overlap */
+.main-navbar+.contact-content,
+header+.contact-content {
+  margin-top: 120px !important;
+  /* Force margin regardless of other styles */
+}
+
+/* Ensure full visibility */
+body.contact-page-open {
+  padding-top: 80px;
 }
 
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
-  align-items: center;
+  align-items: start;
+  /* Changed from center to help with vertical spacing */
+  margin-top: 30px;
+  /* Extra top margin */
 }
 
 .contact-info h1 {
@@ -99,6 +152,14 @@
   padding: 2.5rem;
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 1rem;
+  /* Ensure the form is fully visible */
+}
+
+@media (max-width: 768px) {
+  .form-card {
+    padding: 1.8rem;
+  }
 }
 
 .form-card h2 {
@@ -209,6 +270,26 @@
   cursor: not-allowed;
 }
 
+/* Final fixes for header overlap */
+.header-spacer {
+  width: 100%;
+  display: block;
+  height: 5px !important;
+  /* Extra space to ensure no overlap */
+}
+
+/* Override existing styles to ensure content is below header */
+.contact-content {
+  position: relative;
+  padding-top: min(5vh, 20px) !important;
+}
+
+/* Make sure form is completely visible */
+.form-card {
+  position: relative;
+  z-index: 10;
+}
+
 @media (max-width: 768px) {
   .contact-grid {
     grid-template-columns: 1fr;
@@ -223,25 +304,21 @@
     grid-template-columns: 1fr;
   }
 
-  .contact-content {
-    padding: 2rem 1rem;
-  }
-  
   .success-message {
     padding: 1rem;
   }
-  
+
   .success-icon {
     width: 60px;
     height: 60px;
     line-height: 60px;
     font-size: 2.5rem;
   }
-  
+
   .success-message h3 {
     font-size: 1.4rem;
   }
-  
+
   .success-message p {
     font-size: 1rem;
   }
