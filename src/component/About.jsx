@@ -349,10 +349,10 @@ function About() {
     animate: { y: 0, opacity: 1 },
     transition: { duration: 0.8 }
   };
-
   return (
-    <motion.div {...fadeIn}>
+    <motion.div {...fadeIn} className="about-page-wrapper">
       <Header />
+      <div className="header-spacer" style={{ height: '80px' }}></div>
       <div className="main-content">
         <motion.h2
           className="subtitle"
@@ -375,22 +375,25 @@ function About() {
         <div className="leader-image">
           <img src={current.image} alt={current.name} />
         </div>
-      </div>
-
-      {/* Responsive carousel section */}
-      <div className="people-section"
-        style={{
-          overflowX: 'auto',
-          overflowY: 'hidden',
-          display: 'flex',
-          padding: '20px 0',
-          margin: '0 -10px',
-          WebkitOverflowScrolling: 'touch',
-          scrollbarWidth: 'none',
-          msOverflowStyle: 'none'
-        }}>
+      </div>      {/* Responsive carousel section */}
+      <div className="people-section">
         <style>
           {`
+            .people-section {
+              overflow-x: auto;
+              overflow-y: hidden;
+              display: flex;
+              padding: 30px 0;
+              margin: 40px auto;
+              max-width: 1200px;
+              background: rgba(255, 255, 255, 0.15);
+              backdrop-filter: blur(10px);
+              border-radius: 20px;
+              border: 1px solid rgba(255, 255, 255, 0.25);
+              -webkit-overflow-scrolling: touch;
+              scrollbar-width: none;
+              -ms-overflow-style: none;
+            }
             .people-section::-webkit-scrollbar {
               display: none;
             }
@@ -399,21 +402,30 @@ function About() {
               align-items: center;
               min-width: 100%;
               justify-content: center;
-              padding: 0 10px;
+              padding: 0 20px;
             }
             .carousel-items {
               display: flex;
               flex-wrap: nowrap;
               align-items: center;
+              padding: 0 20px;
             }
             .person-card {
               flex: 0 0 auto;
               transition: all 0.3s ease;
+              margin: 0 12px;
             }
             @media (max-width: 768px) {
+              .people-section {
+                padding: 20px 10px;
+                margin: 20px 15px;
+              }
               .carousel-container {
                 justify-content: flex-start;
-                padding: 0 20px;
+                padding: 0 10px;
+              }
+              .person-card {
+                margin: 0 8px;
               }
               .person-card img {
                 width: 60px !important;

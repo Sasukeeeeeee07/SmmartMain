@@ -102,7 +102,7 @@ const Blog = () => {
     <motion.div initial="hidden" animate="visible" variants={slideUp}>
       <Header />
 
-      <div className="blog-content-wrapper">
+      <motion.div className="blog-content-wrapper" {...slideUp}>
         {/* Hero Section with Featured Blog */}
         <section className="blog-hero">
           <div className="blog-hero-featured">
@@ -262,7 +262,7 @@ const Blog = () => {
             </p>
           </div>
         </section>
-      </div>
+      </motion.div>
 
       <Footer />
     </motion.div>

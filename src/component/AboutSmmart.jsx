@@ -181,16 +181,20 @@ const AboutSmmart = () => {
               maxWidth: '90%',
               margin: '0 auto'
             }}
+          >          <motion.h1
+            className="hero-title"
+            style={{
+              color: '#FF8C00',
+              fontSize: '2.5rem',
+              lineHeight: '1.5',
+              fontWeight: 'bold',
+              textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+              position: 'relative',
+              zIndex: 10
+            }}
+            whileHover={{ scale: 1.03 }}
           >
-            <motion.h1
-              style={{
-                color: '#FF8C00',
-                fontSize: '2rem',
-                lineHeight: '1.5'
-              }}
-              whileHover={{ scale: 1.03 }}
-            >
-              Empowering Entrepreneurs, Enterprises and Individuals.
+              Leadership That Think SMMART
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
