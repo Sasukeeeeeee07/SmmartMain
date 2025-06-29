@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
 import './Merchandise.css';
@@ -35,13 +36,19 @@ const books = [
 ];
 
 const Merchandise = () => {
+  const slideUp = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: 0.8 }
+  };
+
   return (
-    <div className="merchandise-bg">
+    <motion.div initial="hidden" animate="visible" variants={slideUp} className="merchandise-bg">
       <Header />
       <div className="merch-hero-section">
         <div className="merch-quote-section">
-          <h1 className="merch-quote">"Today a Reader,<br/>Tomorrow a Leader."</h1>
-          <div className="merch-quote-author">- Margaret Fuller</div>
+          <motion.h1 className="merch-quote" {...slideUp}>"Today a Reader,<br />Tomorrow a Leader."</motion.h1>
+          <motion.div className="merch-quote-author" {...slideUp}>- Margaret Fuller</motion.div>
         </div>
         <div className="floating-books-container">
           <div className="floating-book book1">
@@ -72,8 +79,8 @@ const Merchandise = () => {
         ))}
       </div>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
-export default Merchandise; 
+export default Merchandise;

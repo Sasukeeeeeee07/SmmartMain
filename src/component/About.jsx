@@ -338,8 +338,20 @@ function About() {
     }
   };
 
+  const fadeIn = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 1 }
+  };
+
+  const slideUp = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: 0.8 }
+  };
+
   return (
-    <div className="container">
+    <motion.div {...fadeIn}>
       <Header />
       <div className="main-content">
         <motion.h2
@@ -476,7 +488,7 @@ function About() {
       <SigmaTeamSection />
       <SigmaGlowingCard />
       <Footer />
-    </div>
+    </motion.div>
   );
 }
 

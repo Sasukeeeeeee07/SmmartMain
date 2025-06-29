@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
 import './Career.css';
@@ -60,14 +61,22 @@ const Career = () => {
 
   const filteredJobs = selected === 'all' ? jobs : jobs.filter(j => j.category === selected);
 
+  const slideUp = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: 0.8 }
+  };
+
   return (
-    <div className="career-bg">
+    <motion.div className="career-bg" initial="hidden" animate="visible">
       <Header />
       <div className="career-content-wrapper">
         <div className="career-container">
-          <div className="career-heading">Be Part of our Mission</div>          <div className="career-desc">
+          <motion.div className="career-heading" {...slideUp}>Be Part of our Mission</motion.div>
+          <motion.div className="career-desc" {...slideUp}>
             Join our team of passionate innovators! At smmart, we believe in empowering talent, fostering growth, and creating meaningful impact. We offer a collaborative environment where your ideas matter and your growth is prioritized.
-          </div><div className="career-categories">
+          </motion.div>
+          <div className="career-categories">
             {categories.map(cat => (
               <button
                 key={cat.value}
@@ -80,32 +89,33 @@ const Career = () => {
             ))}
           </div>
           <div className="career-job-list">
-            {filteredJobs.map(job => (<div className="career-job-card" key={job.id}>
-              <div className="career-job-info">
-                <div className="career-job-title">{job.title}</div>
-                <div className="career-job-desc">{job.desc}</div>
-                <div className="career-job-tags">
-                  <span className="career-job-tag">
-                    <span role="img" aria-label="location">📍</span>
-                    {job.location}
-                  </span>
-                  <span className="career-job-tag">
-                    <span role="img" aria-label="job type">{job.type === 'Full-Time' ? '⏱️' : '📄'}</span>
-                    {job.type}
-                  </span>
+            {filteredJobs.map(job => (
+              <div className="career-job-card" key={job.id}>
+                <div className="career-job-info">
+                  <div className="career-job-title">{job.title}</div>
+                  <div className="career-job-desc">{job.desc}</div>
+                  <div className="career-job-tags">
+                    <span className="career-job-tag">
+                      <span role="img" aria-label="location">📍</span>
+                      {job.location}
+                    </span>
+                    <span className="career-job-tag">
+                      <span role="img" aria-label="job type">{job.type === 'Full-Time' ? '⏱️' : '📄'}</span>
+                      {job.type}
+                    </span>
+                  </div>
                 </div>
+                <button className="career-apply-btn" onClick={() => navigate(`/careers/apply/${job.id}`)}>
+                  Apply now <span className="career-apply-arrow">→</span>
+                </button>
               </div>
-              <button className="career-apply-btn" onClick={() => navigate(`/careers/apply/${job.id}`)}>
-                Apply now <span className="career-apply-arrow">→</span>
-              </button>
-            </div>
             ))}
           </div>
         </div>
       </div>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
-export default Career; 
+export default Career;

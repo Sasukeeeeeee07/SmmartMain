@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Contact.css';
 import Header from './Header';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -81,8 +82,21 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
+  const fadeIn = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 1 }
+  };
+
+  const slideUp = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: 0.8 }
+  };
+
   return (
-    <div className="contact-page">
+    <motion.div {...fadeIn}>
       <Header />
       <iframe
         title="hidden-iframe"
@@ -91,7 +105,12 @@ const Contact = () => {
         style={{ display: 'none' }}
       />
       {/* Spacer div to prevent header overlap */}
-      <div className="header-spacer" style={{ height: '80px', width: '100%' }}></div><div className="contact-content">
+      <div className="header-spacer" style={{ height: '80px', width: '100%' }}></div>
+      <div className="contact-content">
+        <motion.div className="contact-section" {...slideUp}>
+          <motion.h1 {...fadeIn}>Contact Us</motion.h1>
+          <motion.p {...slideUp}>We would love to hear from you.</motion.p>
+        </motion.div>
         <div className="contact-grid">
           <div className="contact-info">
             <h1>We'd Love to<br />Hear from you.</h1>
@@ -185,7 +204,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

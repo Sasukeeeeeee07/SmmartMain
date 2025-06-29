@@ -5,6 +5,7 @@ import Header from './Header';
 import BlogPhoto from './images/santosh.jpg';
 import Footer from './Footer';
 import { FaSearch, FaClock, FaBookmark, FaShare, FaTags } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const featuredBlog = {
   id: 1,
@@ -91,8 +92,14 @@ const Blog = () => {
 
   const visibleCards = showAll ? filteredCards : filteredCards.slice(0, 3);
 
+  const slideUp = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: 0.8 }
+  };
+
   return (
-    <div className="blog-bg">
+    <motion.div initial="hidden" animate="visible" variants={slideUp}>
       <Header />
 
       <div className="blog-content-wrapper">
@@ -258,7 +265,7 @@ const Blog = () => {
       </div>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

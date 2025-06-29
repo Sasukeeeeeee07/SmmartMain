@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
 import BlogPhoto from './images/santosh.jpg';
@@ -259,8 +260,20 @@ const BlogDetail = () => {
   };
   if (!currentBlog) return <div>Blog not found</div>;
 
+  const fadeIn = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    transition: { duration: 1 }
+  };
+
+  const slideUp = {
+    initial: { y: 50, opacity: 0 },
+    animate: { y: 0, opacity: 1 },
+    transition: { duration: 0.8 }
+  };
+
   return (
-    <div className="blog-detail-page">
+    <motion.div {...fadeIn}>
       <Header />
       {/* Hidden iframe for form submission */}
       <iframe
@@ -469,7 +482,7 @@ const BlogDetail = () => {
       </div>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 

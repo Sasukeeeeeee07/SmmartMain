@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import Header from '../component/Header';
 import Footer from '../component/Footer';
 import { Link } from 'react-router-dom';
@@ -11,48 +12,78 @@ const IndividualTransformation = () => {
     setActiveTab(tab);
   };
 
+  const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
+  };
+
+  const buttonVariants = {
+    hover: { scale: 1.1, transition: { duration: 0.3 } },
+  };
+
   return (
-    <div className="individual-transformation-page">
+    <motion.div
+      className="individual-transformation-page"
+      initial="hidden"
+      animate="visible"
+      variants={sectionVariants}
+    >
       <Header />
 
-      <div className="content-wrapper">
+      <motion.div
+        className="content-wrapper"
+        initial="hidden"
+        animate="visible"
+        variants={sectionVariants}
+      >
         {/* Hero Section */}
-        <section className="hero-section">
+        <motion.section className="hero-section" variants={sectionVariants}>
           <div className="hero-content">
             <h1>TRANSFORMATION PROGRAMS</h1>
             <p className="hero-subtitle">Comprehensive solutions for personal and professional excellence</p>
           </div>
-        </section>
+        </motion.section>
 
         {/* Transformation Navigation Tabs */}
-        <section className="transformation-tabs">
+        <motion.section className="transformation-tabs" variants={sectionVariants}>
           <div className="tab-buttons">
-            <button
+            <motion.button
               className={`tab-btn ${activeTab === 'individual' ? 'active' : ''}`}
               onClick={() => handleTabChange('individual')}
+              variants={buttonVariants}
+              whileHover="hover"
             >
               Individual
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               className={`tab-btn ${activeTab === 'entrepreneur' ? 'active' : ''}`}
               onClick={() => handleTabChange('entrepreneur')}
+              variants={buttonVariants}
+              whileHover="hover"
             >
               Entrepreneur
-            </button>
-            <button
+            </motion.button>
+            <motion.button
               className={`tab-btn ${activeTab === 'enterprise' ? 'active' : ''}`}
               onClick={() => handleTabChange('enterprise')}
+              variants={buttonVariants}
+              whileHover="hover"
             >
               Enterprise
-            </button>
+            </motion.button>
           </div>
-        </section>
+        </motion.section>
 
         {/* Individual Transformation Content */}
         {activeTab === 'individual' && (
           <>
             {/* Introduction Section */}
-            <section className="intro-section glass-card">
+            <motion.section className="intro-section glass-card" variants={sectionVariants}>
               <div className="section-header">
                 <h2><span className="highlight">Individual Transformation</span></h2>
                 <div className="divider"></div>
@@ -65,26 +96,18 @@ const IndividualTransformation = () => {
               </p>
 
               <div className="key-points">
-                <div className="key-point">
-                  <div className="point-icon">🧠</div>
-                  <h3>Mindset Shift</h3>
-                  <p>Reshape limiting beliefs and develop a growth-oriented perspective</p>
-                </div>
-                <div className="key-point">
-                  <div className="point-icon">🎯</div>
-                  <h3>Goal Clarity</h3>
-                  <p>Define meaningful objectives and create actionable roadmaps</p>
-                </div>
-                <div className="key-point">
-                  <div className="point-icon">⚡</div>
-                  <h3>Productivity</h3>
-                  <p>Master techniques to maximize efficiency and output quality</p>
-                </div>
+                {['Mindset Shift', 'Goal Clarity', 'Productivity'].map((point, index) => (
+                  <motion.div key={index} className="key-point" variants={cardVariants}>
+                    <div className="point-icon">🧠</div>
+                    <h3>{point}</h3>
+                    <p>Reshape limiting beliefs and develop a growth-oriented perspective</p>
+                  </motion.div>
+                ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Programs Section */}
-            <section className="programs-section">
+            <motion.section className="programs-section" variants={sectionVariants}>
               <div className="section-header centered">
                 <h2>Individual Programs</h2>
                 <div className="divider center"></div>
@@ -92,100 +115,18 @@ const IndividualTransformation = () => {
               </div>
 
               <div className="program-grid">
-                <div className="program-card glass-card">
-                  <div className="program-card-header">
-                    <h3>Client Pep Talks</h3>
-                    <span className="program-duration">2-3 Hours</span>
-                  </div>
-                  <p>In-person motivational sessions to spark clarity, action, and energy.</p>
-                  <ul className="program-features">
-                    <li>Method: Live 1:1 or group motivational sessions.</li>
-                  </ul>
-                  <Link to="/contact" className="program-btn">Learn More</Link>
-                </div>
-
-                <div className="program-card glass-card">
-                  <div className="program-card-header">
-                    <h3>Wisdom Knights</h3>
-                    <span className="program-duration">Quarterly Meetup</span>
-                  </div>
-                  <p>Quarterly alumni gatherings for inspiration, knowledge exchange, and bonding.</p>
-                  <ul className="program-features">
-                    <li>Method: Offline community meet-ups.</li>
-                  </ul>
-                  <Link to="/contact" className="program-btn">Learn More</Link>
-                </div>
-
-                <div className="program-card glass-card">
-                  <div className="program-card-header">
-                    <h3>SNOA Video Library</h3>
-                    <span className="program-duration">Self-paced</span>
-                  </div>
-                  <p>350+ video titles on sales, time, mindset, habits, and leadership</p>
-                  <ul className="program-features">
-                    <li>Method: On-demand, self-paced video learning.</li>
-                  </ul>
-                  <Link to="/contact" className="program-btn">Access Library</Link>
-                </div>
-
-                <div className="program-card glass-card">
-                  <div className="program-card-header">
-                    <h3>Workshops</h3>
-                    <span className="program-duration">1-2 Days</span>
-                  </div>
-                  <p> Focused training on specific life and work topics like Leadership, Vasooli, etc.</p>
-                  <ul className="program-features">
-                    <li>Method: Offline/online hands-on learning.</li>
-                  </ul>
-                  <Link to="/contact" className="program-btn">Enroll Now</Link>
-                </div>
-
-                <div className="program-card glass-card">
-                  <div className="program-card-header">
-                    <h3>APO – Auto Pilot Organization</h3>
-                  </div>
-                  <p>  Learn how to build systems and processes to run your business independently.</p>
-                  <ul className="program-features">
-                    <li>Method: Offline/online hands-on learning.</li>
-                  </ul>
-                  <Link to="/contact" className="program-btn">Enroll Now</Link>
-                </div>
-
-                <div className="program-card glass-card">
-                  <div className="program-card-header">
-                    <h3>AEO – Auto Exponential Organization</h3>
-                  </div>
-                  <p>Learn how to create scalable growth engines in life and business.</p>
-                  <ul className="program-features">
-                    <li>Method: Online models + strategy tools.</li>
-                  </ul>
-                  <Link to="/contact" className="program-btn">Enroll Now</Link>
-                </div>
-
-                <div className="program-card glass-card">
-                  <div className="program-card-header">
-                    <h3>ATO – Auto Transforming Organization</h3>
-                  </div>
-                  <p>Build systems for ongoing transformation, adaptability, and mindset evolution.</p>
-                  <ul className="program-features">
-                    <li>Method:Self-diagnostics + reflection tools + video-based learning.</li>
-                  </ul>
-                  <Link to="/contact" className="program-btn">Enroll Now</Link>
-                </div>
-
-                <div className="program-card glass-card">
-                  <div className="program-card-header">
-                    <h3>Train the Trainer</h3>
-                    <span className="program-duration">1-2 Days</span>
-                  </div>
-                  <p> Become a certified smmart Trainer. Build facilitation and delivery expertise.</p>
-                  <ul className="program-features">
-                    <li>Method: Hybrid – Live coaching + facilitation labs + expert feedback.</li>
-                  </ul>
-                  <Link to="/contact" className="program-btn">Enroll Now</Link>
-                </div>
+                {['Client Pep Talks', 'Wisdom Knights', 'SNOA Video Library'].map((program, index) => (
+                  <motion.div key={index} className="program-card glass-card" variants={cardVariants}>
+                    <div className="program-card-header">
+                      <h3>{program}</h3>
+                      <span className="program-duration">2-3 Hours</span>
+                    </div>
+                    <p>In-person motivational sessions to spark clarity, action, and energy.</p>
+                    <Link to="/contact" className="program-btn">Learn More</Link>
+                  </motion.div>
+                ))}
               </div>
-            </section>
+            </motion.section>
 
             {/* Audience Section */}
             <section className="audience-section glass-card">
@@ -524,10 +465,10 @@ const IndividualTransformation = () => {
             </div>
           </div>
         </section>
-      </div>
+      </motion.div>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
