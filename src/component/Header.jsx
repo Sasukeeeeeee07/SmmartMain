@@ -147,13 +147,13 @@ const Header = () => {
           >
             Our Products
           </Link>
-          <Link
+          {/* <Link
             to="/blog"
             className={location.pathname.startsWith('/blog') ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
             Blog
-          </Link>
+          </Link> */}
           <Link
             to="/careers"
             className={location.pathname.startsWith('/careers') ? 'active' : ''}
@@ -161,13 +161,13 @@ const Header = () => {
           >
             Careers
           </Link>
-          <Link
+          {/* <Link
             to="/merchandise"
             className={location.pathname.startsWith('/merchandise') ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
             Merchandise
-          </Link>
+          </Link> */}
         </div>
         <Link to="/contact" className="contact-btn" onClick={() => setIsMenuOpen(false)}>
           Contact Us

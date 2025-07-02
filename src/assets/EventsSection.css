@@ -1,0 +1,213 @@
+.events-section {
+  margin-top: 40px;
+  width: 100%;
+}
+
+.events-container {
+  width: 100%;
+  padding: 0 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.events-header {
+  margin-bottom: 1px;
+  /* Reduced spacing between title and images */
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.events-description p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.event-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  /* Removed white background */
+  box-shadow: none;
+  /* Removed shadow */
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+}
+
+.event-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+}
+
+.event-image-container {
+  height: 260px;
+  /* Reduced height */
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.event-image-container.full-banner {
+  height: 300px;
+  /* Uniform full-banner height */
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Makes the banner cover the entire box */
+  transform: scale(1.05);
+  /* Slight zoom effect */
+  transition: transform 0.4s ease;
+  will-change: transform;
+}
+
+.event-card:hover .event-image {
+  transform: scale(1.08);
+}
+
+.event-title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  z-index: 1;
+}
+
+.event-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.event-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 30px;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicator.active {
+  background-color: #ff6d00;
+  /* Orange accent color */
+}
+
+/* Responsive layouts */
+@media (max-width: 1200px) {
+  .events-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1200px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .event-image-container.full-banner {
+    min-height: 250px;
+  }
+}
+
+@media (max-width: 992px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .event-image-container.full-banner {
+    min-height: 220px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .event-image-container.full-banner {
+    min-height: 180px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .events-description p {
+    font-size: 1rem;
+  }
+
+  .event-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .events-container {
+    padding: 0 15px;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .event-image-container.full-banner {
+    min-height: 100px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .event-image-container.full-banner {
+    height: 300px;
+    /* Increased height for PC view */
+  }
+}

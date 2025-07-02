@@ -1,0 +1,27 @@
+/* Performance optimizations */
+.featured-section * {
+  box-sizing: border-box;
+}
+
+.events-grid {
+  contain: layout style;
+  /* CSS containment for performance */
+}
+
+.event-card {
+  contain: content;
+  will-change: transform;
+  transform: translateZ(0);
+  /* Force GPU acceleration */
+}
+
+.event-image {
+  backface-visibility: hidden;
+  /* Performance optimization for animations */
+  -webkit-backface-visibility: hidden;
+}
+
+/* Ensure images don't cause layout shifts */
+img {
+  display: block;
+}
