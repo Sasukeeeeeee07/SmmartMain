@@ -20,28 +20,28 @@ const Featured = () => {
       id: 1,
       title: 'Why do entrepreneurs fail to scale',
       image: whyDoGoaBanner,
-      link: 'https://example.com/why-do-entrepreneurs',
+      // link: 'https://example.com/why-do-entrepreneurs',
       date: 'July 28, 2025'
     },
     {
       id: 2,
       title: 'T.I.G.E.R. Program',
       image: tigerBanner,
-      link: 'https://example.com/tiger-program',
+      // link: 'https://example.com/tiger-program',
       date: 'July 10, 2025'
     },
     {
       id: 3,
       title: 'Pep Talk',
       image: pepTalkBanner,
-      link: 'https://example.com/pep-talk',
+      // link: 'https://example.com/pep-talk',
       date: 'July 25, 2025'
     },
     {
       id: 4,
       title: 'Entrepreneur Gurukul (50th Batch)',
       image: egBatchBanner,
-      link: 'https://example.com/entrepreneur-gurukul',
+      // link: 'https://example.com/entrepreneur-gurukul',
       date: 'July 31, 2025'
     }
   ];
@@ -157,16 +157,15 @@ const Featured = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="events-container">
-            <motion.div
+          <div className="events-container">            <motion.div
               className="events-header"
               variants={headerVariants}
             >
-              <h2 className="section-title">smmart events</h2>
+              <h2 className="section-title" style={{ textTransform: 'none' }}>smmart EVENTS</h2>
               <div className="events-description">
 
               </div>
-            </motion.div>            <motion.div
+            </motion.div><motion.div
               className="events-grid"
               ref={eventsContainerRef}
               variants={containerVariants}
