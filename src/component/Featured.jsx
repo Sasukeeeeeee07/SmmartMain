@@ -166,32 +166,55 @@ const Featured = () => {
               <div className="events-description">
 
               </div>
-            </motion.div>
-            <motion.div
+            </motion.div>            <motion.div
               className="events-grid"
               ref={eventsContainerRef}
               variants={containerVariants}
+              style={{ maxWidth: '1400px', margin: '0 auto' }}
             >
               {events.map(event => (<motion.div
                 key={event.id}
                 className="event-card"
                 variants={cardVariants}
                 whileHover={{
-                  y: -5, // Reduced hover movement
-                  transition: { duration: 0.2 } // Faster transition
+                  y: -5,
+                  transition: { duration: 0.2 }
                 }}
-                layoutId={`event-card-${event.id}`} // For smooth layout transitions
-              ><a href={event.link} className="event-link">                  <div className="event-image-container full-banner" style={{ height: '400px' }}>
-                <img
-                  src={event.image}
-                  alt={event.title}
-                  className="event-image"
-                  loading="lazy"
-                  style={{ objectFit: 'contain', width: '100%', height: '100%', transform: 'scale(1.15)' }}
-                />
-              </div>
-                  <div className="event-title-overlay">
-                    <h3 className="event-title">{event.title}</h3>
+                layoutId={`event-card-${event.id}`}
+              >                <a href={event.link} className="event-link">
+                  <div
+                    className="event-image-container"
+                    style={{
+                      height: '250px',
+                      width: '100%',
+                      boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
+                      borderRadius: '8px',
+                      overflow: 'hidden',
+                      padding: '0',
+                      margin: '5px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      position: 'relative'
+                    }}
+                  >
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      className="event-image"
+                      loading="eager"
+                      style={{
+                        objectFit: 'scale-down',
+                        width: 'auto',
+                        height: 'auto',
+                        maxWidth: '100%',
+                        maxHeight: '100%',
+                        position: 'absolute',
+                        top: '50%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)'
+                      }}
+                    />
                   </div>
                 </a>
               </motion.div>
