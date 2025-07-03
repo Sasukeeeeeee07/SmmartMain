@@ -3,15 +3,20 @@ import { useParams } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import './BookDetail.css';
-// Import book cover images
-import bookcoverpage1 from './images/bookcoverpage1.jpg';
-import bookcoverpage2 from './images/bookcoverpage2.jpg';
-import bookcoverpage3 from './images/bookcoverpage3.jpg';
+// Import book cover images from the correct path
+import cards52Image from '../assets/MerchandiseImages/52-CARDS.png';
+import whyDoImage from '../assets/MerchandiseImages/WHY DO.png';
+import clm11Image from '../assets/MerchandiseImages/11 CLM.png';
+import whyBookImage from '../assets/MerchandiseImages/5 WHY BOOK.png';
+import habit21Image from '../assets/MerchandiseImages/21 HABIT.png';
+import gratitudeImage from '../assets/MerchandiseImages/Gratitude Book.png';
+import paretoImage from '../assets/MerchandiseImages/Pareto Book.png';
+import peopleMultiplierImage from '../assets/MerchandiseImages/People Multipler Book.png';
 
 const books = [
   {
     id: 1,
-    image: bookcoverpage1,
+    image: whyDoImage,
     title: 'Why do Entrepreneurs Miss the Bus?',
     author: 'Santosh Nair',
     rating: 4.5,
@@ -57,10 +62,9 @@ Through compelling narratives and practical insights, readers will learn how to:
         date: "2024-01-05"
       }
     ]
-  },
-  {
+  }, {
     id: 2,
-    image: bookcoverpage2,
+    image: clm11Image,
     title: 'Eleven Commandments of Life Maximization',
     author: 'Santosh Nair',
     rating: 5,
@@ -84,10 +88,9 @@ The book provides readers with:
 4. Long-term sustainability strategies
 5. Metrics for measuring progress`,
     reviews: []
-  },
-  {
+  }, {
     id: 3,
-    image: bookcoverpage3,
+    image: cards52Image,
     title: '52 Result Multiplier Thoughts',
     author: 'Santosh Nair',
     rating: 4,
@@ -110,6 +113,149 @@ Readers Will Gain:
 3. Implementation strategies
 4. Progress tracking tools
 5. Community support resources`,
+    reviews: []
+  },
+  {
+    id: 4,
+    image: whyBookImage,
+    title: 'The 5 Whys Method',
+    author: 'Santosh Nair',
+    rating: 4.5,
+    genre: 'Business Strategy',
+    awards: ['Problem-Solving Excellence Award'],
+    description: `Discover the powerful "5 Whys" method that has revolutionized problem-solving in business and personal life. This methodical approach to finding root causes was popularized by Toyota but has applications far beyond manufacturing.
+
+In this comprehensive guide, Santosh Nair explores how asking "why" five times can break through surface-level symptoms to reveal the true underlying issues. The book provides a structured framework for implementing this technique across various scenarios.
+
+Key chapters include:
+- The Origins and Evolution of the 5 Whys
+- Common Pitfalls in Problem Analysis
+- Adapting the Method for Different Industries
+- Combining 5 Whys with Other Problem-Solving Tools
+- Building a Root Cause Analysis Culture
+
+Through practical case studies and guided exercises, readers will learn how to:
+1. Properly formulate "why" questions
+2. Recognize when you've reached a true root cause
+3. Implement effective countermeasures
+4. Document and share learnings across an organization
+5. Develop problem-solving teams`,
+    reviews: [
+      {
+        id: 1,
+        user: "Elena Rodriguez",
+        rating: 5,
+        comment: "This book transformed how our team approaches problems. Simple yet profound methodology.",
+        date: "2024-02-10"
+      }
+    ]
+  },
+  {
+    id: 5,
+    image: habit21Image,
+    title: '21 Habits of Success',
+    author: 'Santosh Nair',
+    rating: 4.5,
+    genre: 'Personal Development',
+    awards: ['Lifestyle Transformation Award'],
+    description: `Transform your life with 21 carefully curated habits that successful individuals practice consistently. This step-by-step guide breaks down complex behavior patterns into manageable daily practices.
+
+Each habit is thoroughly explored with scientific backing, practical implementation strategies, and real-world examples. The book follows a structured 21-day program to help readers integrate these habits systematically.
+
+Key habits explored include:
+- Strategic Morning Routines
+- Deep Work Practices
+- Relationship Building Techniques
+- Financial Intelligence Habits
+- Physical and Mental Wellness Practices
+
+The book provides readers with:
+1. Daily action plans for each habit
+2. Habit stacking strategies
+3. Tracking templates and tools
+4. Troubleshooting common obstacles
+5. Long-term sustainability frameworks`,
+    reviews: []
+  },
+  {
+    id: 6,
+    image: gratitudeImage,
+    title: 'The Gratitude Practice',
+    author: 'Santosh Nair',
+    rating: 5,
+    genre: 'Mindfulness & Well-being',
+    awards: ['Wellness Book of the Year'],
+    description: `Discover how the simple practice of gratitude can fundamentally transform your mindset, relationships, and success. This book dives deep into both the science and application of gratitude as a daily practice.
+
+Through a combination of research, case studies, and practical exercises, readers will understand how gratitude rewires neural pathways and creates cascading positive effects in all areas of life.
+
+Key sections include:
+- The Neuroscience of Gratitude
+- Gratitude in Leadership and Business
+- Overcoming Negativity Bias
+- Creating Sustainable Gratitude Practices
+- Measuring the Impact of Gratitude
+
+This comprehensive guide offers:
+1. Multiple gratitude journaling techniques
+2. Gratitude meditation scripts
+3. Exercises for teams and organizations
+4. Digital tools and resources
+5. Strategies for difficult circumstances`,
+    reviews: []
+  },
+  {
+    id: 7,
+    image: paretoImage,
+    title: 'The Pareto Principle in Business',
+    author: 'Santosh Nair',
+    rating: 4.5,
+    genre: 'Business Efficiency',
+    awards: ['Business Strategy Award 2023'],
+    description: `Master the transformative 80/20 rule that has revolutionized business efficiency across industries. This comprehensive guide explores how to identify and leverage the vital few inputs that produce the majority of your desired outcomes.
+
+Drawing on extensive research and case studies, the book demonstrates the Pareto Principle's application across marketing, sales, product development, time management, and strategic planning.
+
+Key chapters include:
+- The Mathematical Foundations of Pareto's Discovery
+- Identifying Your Critical 20%
+- Common Misapplications and How to Avoid Them
+- Creating Pareto-Driven Business Strategies
+- Combining the 80/20 Rule with Other Business Principles
+
+Through practical frameworks and tools, readers will learn to:
+1. Conduct meaningful 80/20 analysis in their organizations
+2. Reallocate resources for maximum impact
+3. Make smarter strategic decisions
+4. Implement focused productivity systems
+5. Build more efficient teams and processes`,
+    reviews: []
+  },
+  {
+    id: 8,
+    image: peopleMultiplierImage,
+    title: 'People Multiplier',
+    author: 'Santosh Nair',
+    rating: 5,
+    genre: 'Leadership & Management',
+    awards: ['Leadership Book of the Year', 'HR Innovation Award'],
+    description: `Discover the transformative power of becoming a People Multiplier - a leader who amplifies the capabilities, engagement, and impact of every team member. This comprehensive guide presents a new paradigm for leadership effectiveness.
+
+Drawing on extensive research and real-world application, Santosh Nair reveals the principles and practices that enable leaders to multiply human potential rather than merely manage it.
+
+Key sections include:
+- The Multiplier Mindset: Beyond Traditional Management
+- Creating Psychological Safety and Trust
+- Talent Identification and Development Systems
+- Building High-Performance Team Cultures
+- Scaling Multiplier Effects Throughout Organizations
+
+Through concrete frameworks and tools, readers will learn how to:
+1. Identify and remove barriers to human potential
+2. Create systems that amplify individual strengths
+3. Implement effective coaching and mentoring approaches
+4. Build scalable leadership development programs
+5. Measure and improve multiplier effects`,
     reviews: []
   }
 ];
@@ -149,7 +295,7 @@ const BookDetail = () => {
         <div className="book-detail-path">
           Home / Books / {book.title}
         </div>
-        
+
         <div className="book-detail-hero">
           <div className="book-image-container">
             <img src={book.image} alt={book.title} className="book-detail-image" />
@@ -244,4 +390,4 @@ const BookDetail = () => {
   );
 };
 
-export default BookDetail; 
+export default BookDetail;
