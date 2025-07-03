@@ -229,6 +229,31 @@
   box-shadow: 0 6px 15px rgba(255, 109, 0, 0.35);
 }
 
+.view-more-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.view-more-btn {
+  background-color: #ff6d00;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.view-more-btn:hover {
+  background-color: #e65100;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
 @media (max-width: 1024px) {
   .merch-hero-section {
     height: 500px;
