@@ -7,7 +7,9 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    contact: '',
+    city: '',
+    pincode: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -43,18 +45,11 @@ const Contact = () => {
       form.action = formUrl;
       form.target = 'hidden-iframe';
 
-      // Correct entry IDs based on your last message
       const nameField = document.createElement('input');
       nameField.type = 'hidden';
       nameField.name = 'entry.168932783';
       nameField.value = formData.name;
       form.appendChild(nameField);
-
-      const subjectField = document.createElement('input');
-      subjectField.type = 'hidden';
-      subjectField.name = 'entry.2083986652';
-      subjectField.value = formData.subject;
-      form.appendChild(subjectField);
 
       const emailField = document.createElement('input');
       emailField.type = 'hidden';
@@ -62,11 +57,23 @@ const Contact = () => {
       emailField.value = formData.email;
       form.appendChild(emailField);
 
-      const messageField = document.createElement('input');
-      messageField.type = 'hidden';
-      messageField.name = 'entry.586536441';
-      messageField.value = formData.message;
-      form.appendChild(messageField);
+      const contactField = document.createElement('input');
+      contactField.type = 'hidden';
+      contactField.name = 'entry.123456789'; // Replace with actual entry ID
+      contactField.value = formData.contact;
+      form.appendChild(contactField);
+
+      const cityField = document.createElement('input');
+      cityField.type = 'hidden';
+      cityField.name = 'entry.987654321'; // Replace with actual entry ID
+      cityField.value = formData.city;
+      form.appendChild(cityField);
+
+      const pincodeField = document.createElement('input');
+      pincodeField.type = 'hidden';
+      pincodeField.name = 'entry.112233445'; // Replace with actual entry ID
+      pincodeField.value = formData.pincode;
+      form.appendChild(pincodeField);
 
       document.body.appendChild(form);
       form.submit();
@@ -74,7 +81,7 @@ const Contact = () => {
 
       setTimeout(() => {
         setSubmitted(true);
-        setFormData({ name: '', email: '', subject: '', message: '' });
+        setFormData({ name: '', email: '', contact: '', city: '', pincode: '' });
         setIsSubmitting(false);
       }, 1500);
     } catch (error) {
@@ -175,15 +182,37 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                  <div className="form-group">
-                    <input
-                      type="text"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="Subject"
-                      required
-                    />
+                  <div className="form-row">
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="contact"
+                        value={formData.contact}
+                        onChange={handleChange}
+                        placeholder="Contact Number"
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="city"
+                        value={formData.city}
+                        onChange={handleChange}
+                        placeholder="City"
+                        required
+                      />
+                    </div>
+                    <div className="form-group">
+                      <input
+                        type="text"
+                        name="pincode"
+                        value={formData.pincode}
+                        onChange={handleChange}
+                        placeholder="Pincode"
+                        required
+                      />
+                    </div>
                   </div>
                   <div className="form-group">
                     <textarea

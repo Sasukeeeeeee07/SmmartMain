@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './About.css';
 import { Link } from 'react-router-dom';
 import Header from './Header';
@@ -10,7 +10,7 @@ import himanshuTiwari from './images/himanshu.jpg';
 import darshanMehta from './images/darshan.jpg';
 import jasmineThakker from './images/jasmine.jpg';
 import Footer from './Footer';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const teamMembers = [
   {
@@ -62,37 +62,37 @@ const sigmaTeam = [
   {
     name: 'T.I.G.E.R. Santosh Nair',
     title: 'Chairman | Chief Mentor | Trainer',
-    desc: 'T.I.G.E.R. Santosh Nair is a Leading Author and Life Coach, Business Transformation Guru & Motivational Speaker, Chairman at smmart Training & Consultancy.',
+    desc: 'Santosh Nair is one of India’s most inspiring business transformation coaches and the visionary behind smmart Training & Consultancy Services and the Santosh Nair Online Academy. With over 25 years of experience, he has mentored more than 1.5 lakh entrepreneurs and partnered with over 100+ organizations, driving real change from the ground up. Known for his fearless energy, sharp insights, and futuristic approach, Santosh Nair empowers individuals to become self-led, high-performance leaders. At the heart of his work is a powerful mission to build a new future for Indian enterprise, driven by bold minds and unstoppable action.',
     image: santoshNair
   },
   {
-    name: 'Yatin Samant',
+    name: 'Mehernosh',
     title: 'Coach',
-    desc: 'Yatin has 34 years of experience leading Sales, Marketing, Business Development, and General Management across India and Asia Pacific.',
+    desc: 'With over 25 years of rich, multi-industry and multi-location leadership experience, I bring a powerful blend of strategic foresight, operational precision, and transformation capability to every organisation I serve. I operate at the intersection of strategy, adaptability, and execution—ensuring that vision is not only crafted but also converted into sustainable business outcomes. My Value Proposition: I help organisations scale smartly—by simplifying complexity, aligning teams to business goals, building future-ready capabilities, and embedding agility into operations. Whether leading change, building new revenue engines, or reimagining structures, I drive performance through purpose. Key Contributions: - Spearheaded multi-location and multi-industry transformations across consulting, education, digital, and healthcare sectors - Led high-impact turnarounds through process innovation, strategic realignment, and revenue optimisation - Mentored CXOs and emerging leaders to develop strong internal pipelines and cultures of accountability - Integrated AI-readiness and data-driven decision-making into legacy systems for future resilience. My Skill Identity & Executive Presence: I am often seen as a strategic catalyst and calm executor—someone who can articulate the larger picture while driving granular excellence. My executive presence is grounded in authenticity, clarity, and the ability to lead with both empathy and impact. Skillset Snapshot: - Strategic Planning & Business Design - Operational Leadership & P&L Management - Change & Crisis Management - Team Alignment & Capability Building - Brand Communication & Stakeholder Engagement - Data & AI Integration for Business Decision Making.',
     image: sindhuNair
   },
   {
     name: 'Mrs. Sindhu Santosh Nair',
     title: 'Co-founder | Coach',
-    desc: 'Sindhu Nair along with her husband Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then.',
+    desc: 'I and my founder husband, Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then.Though we are based in Mumbai and Rajkot, we operate in Surat, Pune, Napgur, Amravati, Raipur, Delhi, Hyderabad, Calicut, Cochin. With the online curriculum added to our portfolio, we have added Pan India and international clients to our circle.After working for decades with corporates and multi national companies, we shifted gear to focus extensively with MSME Entrepreneurs thru our motivational programs, trainings, coaching, mentoring etc etc. We enhance their capability and have successfully helped transform more than 12 million individuals, entrepreneurs and their enterprises.We organise and also execute motivational programs, workshops, training interventions, review audits, Organisational need analysis, Training need analysis, creating systems & processes and making organisations future ready!.Our focus is implementation and not just Training.We have a fleet of highly acclaimed Trainers, coaches and OD Experts. Our set of Trainers and Business enhancers are key to us. We are always on the lookout for a Talent pool that is high on energy, ambitious, having a maverick mindset and willing to leave an inedible mark In our growth trajectory.Our journey is still on and we are ably guided by our chairmans strong BHAG to be the Harvard of entrepreneur transformation, create 100 million success stories and become a billion dollar company by 2035.',
     image: sindhuNair
   },
   {
-    name: 'Nayan Kotian',
+    name: 'Geeta Naidu Khan',
     title: 'Trainer',
-    desc: 'A Qualified Industrial Electronics Engineer, Nayan comes with over 29 years of rich experience in Sales, Sales Management, Business Development.',
+    desc: 'A result-oriented, award-winning Customer Experience leader with over 16 years of experience in BFSI, Travel & Hospitality. Proven expertise in setting up back-office operations, building service frameworks, driving SLAs, and managing large teams across global markets. Known for strategic thinking, people leadership, process innovation, and consistently exceeding customer and stakeholder expectations.',
     image: anupNair
   },
   {
-    name: 'Rajesh Tagore',
-    title: 'Trainer',
-    desc: 'Rajesh Tagore Is the Founder of Leader Factory-Sales and Leadership Training Center in Mumbai.',
+    name: 'Darshan Mehta',
+    title: 'Director | Professional Trainer | Motivational Speaker',
+    desc: 'Darshan Mehta is the Director, Professional Trainer and Motivational Speaker at Vigour Learnings.T.I.G.E.R. Darshan Mehta has succeeded in creating passionate experiences for his listeners and motivated them with his impactful insights and in-depth knowledge. After attending his sessions, an individual not only gets motivated for his professional growth, but also develops his personality, confidence, and intellectual level, and is able to see a new transformation in his life!',
     image: rajeshTanksali
   },
   {
-    name: 'Deepak Dhabalia',
-    title: 'Trainer',
-    desc: 'Deepak Dhabalia, popularly known as the Money Multiplier is the Founder of DDs Real Wealth Maximizer.',
+    name: 'Rajesh Tanksali',
+    title: 'Deputy General Manager – Accounts & Finance',
+    desc: 'Rajesh brings over 20 years of experience in managing core functions of accounts, finance, taxation, and audits. At smmart, he oversees financial planning, compliance, fund management, and finalization of accounts, ensuring robust financial governance and strategic support to business operations.',
     image: himanshuTiwari
   },
   {
@@ -134,15 +134,53 @@ const sigmaTeam = [
 ];
 
 function SigmaTeamSection() {
+  const [selectedMember, setSelectedMember] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
   };
 
-  // Text-specific animation variants
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+  };
+
+  // Ensure dialog opens within the visible view area of the section
+  const openDialog = (member, event) => {
+    setSelectedMember(member);
+    setDialogOpen(true);
+    setTimeout(() => {
+      const dialogElement = document.querySelector('.dialog-box');
+      if (dialogElement) {
+        const cardRect = event.target.closest('.sigma-card').getBoundingClientRect();
+        const sectionRect = document.querySelector('.sigma-team-section').getBoundingClientRect();
+
+        const topPosition = cardRect.top - sectionRect.top;
+        const leftPosition = cardRect.left - sectionRect.left;
+
+        dialogElement.style.position = 'absolute';
+        dialogElement.style.top = `${topPosition}px`;
+        dialogElement.style.left = `${leftPosition}px`;
+        dialogElement.style.transform = 'translate(0, 0)';
+      }
+    }, 0);
+  };
+
+  const closeDialog = () => {
+    setDialogOpen(false);
+  };
+
+  const isLongText = (text) => {
+    return text && text.length > 150;
+  };
+
+  const truncateText = (text, maxLength = 150) => {
+    if (text && text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
   };
 
   return (
@@ -155,10 +193,7 @@ function SigmaTeamSection() {
         visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
       }}
     >
-      <motion.h2
-        className="sigma-team-title"
-        variants={textVariants}
-      >
+      <motion.h2 className="sigma-team-title" variants={textVariants}>
         Meet the smmart Training Team
       </motion.h2>
       <div className="sigma-team-cards">
@@ -167,6 +202,7 @@ function SigmaTeamSection() {
             className="sigma-card"
             key={idx}
             variants={cardVariants}
+            onClick={(e) => openDialog(member, e)}
           >
             <div className="sigma-card-image">
               <img src={member.image} alt={member.name} />
@@ -194,12 +230,28 @@ function SigmaTeamSection() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                {member.desc}
+                {truncateText(member.desc)}
+                {isLongText(member.desc) && (
+                  <motion.button
+                    className="read-more-btn"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      openDialog(member);
+                    }}
+                  >
+                    Read More
+                  </motion.button>
+                )}
               </motion.div>
             </div>
           </motion.div>
         ))}
       </div>
+
+      <Dialog isOpen={dialogOpen} onClose={closeDialog} member={selectedMember} />
     </motion.div>
   );
 }
@@ -301,6 +353,92 @@ function SigmaGlowingCard() {
   );
 }
 
+// Dialog component for displaying team member details
+function Dialog({ isOpen, onClose, member }) {
+  useEffect(() => {
+    // Prevent body scrolling when dialog is open
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [isOpen]);
+
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.3 } },
+  };
+
+  const dialogVariants = {
+    hidden: { opacity: 0, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        type: 'spring',
+        stiffness: 300,
+        damping: 30,
+        duration: 0.4,
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.2,
+      },
+    },
+  };
+
+  if (!isOpen || !member) return null;
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          className="dialog-backdrop"
+          variants={backdropVariants}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          onClick={onClose}
+        >
+          <motion.div
+            className="dialog-content"
+            variants={dialogVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="dialog-header">
+              <h2>{member.name}</h2>
+              <button className="dialog-close" onClick={onClose}>
+                &times;
+              </button>
+            </div>
+            <div className="dialog-body">
+              <div className="dialog-image-container">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="dialog-image"
+                />
+              </div>
+              <h3 className="dialog-title">{member.title}</h3>
+              <p className="dialog-description">{member.desc}</p>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const current = teamMembers[currentIndex];
@@ -308,197 +446,62 @@ function About() {
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
   };
+
   const handleNext = () => {
     setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
   };
+
   const handleSelect = (idx) => setCurrentIndex(idx);
 
-  // Animation variants for text elements
-  const textVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut"
-      }
-    }
-  };
-
-  // Staggered text animation for leader info
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const fadeIn = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: 1 }
-  };
-
-  const slideUp = {
-    initial: { y: 50, opacity: 0 },
-    animate: { y: 0, opacity: 1 },
-    transition: { duration: 0.8 }
-  };
   return (
-    <motion.div {...fadeIn} className="about-page-wrapper">
+    <motion.div className="about-page-wrapper">
       <Header />
       <div className="header-spacer" style={{ height: '80px' }}></div>
       <div className="main-content">
-        <motion.h2
-          className="subtitle"
-          initial="hidden"
-          animate="visible"
-          variants={textVariants}
-        >
-          Leadership that thinks smmart
-        </motion.h2>
-        <motion.div
-          className="leader-info"
-          initial="hidden"
-          animate="visible"
-          variants={containerVariants}
-        >
-          <motion.h1 className="leader-name" variants={textVariants}>{current.name}</motion.h1>
-          <motion.h3 className="leader-title" variants={textVariants}>{current.position}</motion.h3>
-          <motion.p className="leader-description" variants={textVariants}>{current.bio}</motion.p>
+        <motion.h2 className="subtitle">Leadership that thinks smmart</motion.h2>
+        <motion.div className="leader-info">
+          <motion.h1 className="leader-name">{current.name}</motion.h1>
+          <motion.h3 className="leader-title">{current.position}</motion.h3>
+          <motion.p className="leader-description">{current.bio}</motion.p>
         </motion.div>
         <div className="leader-image">
           <img src={current.image} alt={current.name} />
         </div>
-      </div>      {/* Responsive carousel section */}
+      </div>
       <div className="people-section">
-        <style>
-          {`
-            .people-section {
-              overflow-x: auto;
-              overflow-y: hidden;
-              display: flex;
-              padding: 30px 0;
-              margin: 40px auto;
-              max-width: 1200px;
-              background: rgba(255, 255, 255, 0.15);
-              backdrop-filter: blur(10px);
-              border-radius: 20px;
-              border: 1px solid rgba(255, 255, 255, 0.25);
-              -webkit-overflow-scrolling: touch;
-              scrollbar-width: none;
-              -ms-overflow-style: none;
-            }
-            .people-section::-webkit-scrollbar {
-              display: none;
-            }
-            .carousel-container {
-              display: flex;
-              align-items: center;
-              min-width: 100%;
-              justify-content: center;
-              padding: 0 20px;
-            }
-            .carousel-items {
-              display: flex;
-              flex-wrap: nowrap;
-              align-items: center;
-              padding: 0 20px;
-            }
-            .person-card {
-              flex: 0 0 auto;
-              transition: all 0.3s ease;
-              margin: 0 12px;
-            }
-            @media (max-width: 768px) {
-              .people-section {
-                padding: 20px 10px;
-                margin: 20px 15px;
-              }
-              .carousel-container {
-                justify-content: flex-start;
-                padding: 0 10px;
-              }
-              .person-card {
-                margin: 0 8px;
-              }
-              .person-card img {
-                width: 60px !important;
-                height: 60px !important;
-              }
-            }
-          `}
-        </style>
         <div className="carousel-container">
-          <button
-            className="nav-arrow left"
-            onClick={handlePrev}
-            style={{
-              fontSize: 32,
-              background: 'none',
-              border: 'none',
-              color: '#5da9e9',
-              cursor: 'pointer',
-              minWidth: '30px',
-              zIndex: 2
-            }}>&lt;</button>
+          <button className="nav-arrow left" onClick={handlePrev}>&lt;</button>
           <div className="carousel-items">
             {teamMembers.map((person, idx) => (
-              <div
+              <motion.div
                 key={person.name}
                 className={`person-card${idx === currentIndex ? ' active' : ''}`}
-                style={{
-                  margin: '0 8px',
-                  border: idx === currentIndex ? '3px solid #5da9e9' : '3px solid transparent',
-                  borderRadius: '50%',
-                  transition: 'border 0.2s',
-                  cursor: 'pointer'
-                }}
+                style={{ cursor: 'pointer' }}
+                whileHover={{ scale: 1.05 }}
                 onClick={() => handleSelect(idx)}
               >
-                <img src={person.image} alt={person.name} style={{ width: 80, height: 80, borderRadius: '50%', objectFit: 'cover' }} />
-                <motion.p
+                <img
+                  src={person.image}
+                  alt={person.name}
                   style={{
-                    color: '#fff',
-                    textAlign: 'center',
-                    marginTop: 8,
-                    fontSize: 'clamp(0.75rem, 2vw, 1rem)',
-                    maxWidth: '100px',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'nowrap'
+                    width: 120,
+                    height: 120,
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    border: idx === currentIndex
+                      ? '3px solid #5da9e9'
+                      : '3px solid transparent',
+                    transition: 'all 0.3s ease',
                   }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  {person.name}
-                </motion.p>
-              </div>
+                />
+                <motion.p>{person.name}</motion.p>
+              </motion.div>
             ))}
           </div>
-          <button
-            className="nav-arrow right"
-            onClick={handleNext}
-            style={{
-              fontSize: 32,
-              background: 'none',
-              border: 'none',
-              color: '#5da9e9',
-              cursor: 'pointer',
-              minWidth: '30px',
-              zIndex: 2
-            }}>&gt;</button>
+          <button className="nav-arrow right" onClick={handleNext}>&gt;</button>
         </div>
       </div>
-
       <SigmaTeamSection />
-      <SigmaGlowingCard />
       <Footer />
     </motion.div>
   );

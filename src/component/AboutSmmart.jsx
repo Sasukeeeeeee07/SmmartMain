@@ -62,8 +62,8 @@ const AboutSmmart = () => {
               <motion.div
                 className="value-icon"
                 whileHover={{ scale: 1.2, rotate: 5 }}
-                style={{ backgroundColor: '#FF8C00', color: '#fff' }}
-              >💡</motion.div>
+                style={{ backgroundImage: 'url(/images/knowledge-icon.png)', backgroundSize: 'cover' }}
+              ></motion.div>
               <h4 style={{ color: '#FF8C00' }}>Knowledge</h4>
               <p>We transform through knowledge and believe in continuous learning.</p>
             </motion.div>
@@ -71,8 +71,8 @@ const AboutSmmart = () => {
               <motion.div
                 className="value-icon"
                 whileHover={{ scale: 1.2, rotate: -5 }}
-                style={{ backgroundColor: '#FF8C00', color: '#fff' }}
-              >🌱</motion.div>
+                style={{ backgroundImage: 'url(/images/empowerment-icon.png)', backgroundSize: 'cover' }}
+              ></motion.div>
               <h4 style={{ color: '#FF8C00' }}>Empowerment</h4>
               <p>Empowering others is life and our core mission.</p>
             </motion.div>
@@ -80,8 +80,8 @@ const AboutSmmart = () => {
               <motion.div
                 className="value-icon"
                 whileHover={{ scale: 1.2, rotate: 5 }}
-                style={{ backgroundColor: '#FF8C00', color: '#fff' }}
-              >🚀</motion.div>
+                style={{ backgroundImage: 'url(/images/growth-icon.png)', backgroundSize: 'cover' }}
+              ></motion.div>
               <h4 style={{ color: '#FF8C00' }}>Growth</h4>
               <p>Building businesses is our way of life. We transform mindsets before businesses.</p>
             </motion.div>
@@ -194,7 +194,7 @@ const AboutSmmart = () => {
             }}
             whileHover={{ scale: 1.03 }}
           >
-              Leadership That Think SMMART
+              Leadership That Think smmart
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -312,29 +312,29 @@ const AboutSmmart = () => {
             </motion.div>
           </motion.div>
           <motion.div className="stat-buttons" variants={fadeIn}>
-            <motion.button
+            {/* <motion.button
               className="stat-btn gradient-btn"
               whileHover={{ scale: 1.05, backgroundColor: '#FF8C00' }}
               whileTap={{ scale: 0.95 }}
               style={{ background: 'linear-gradient(135deg, #FF8C00, #FFA500)' }}
             >
               INSIGHTS
-            </motion.button>
-            <motion.button
+            </motion.button> */}
+            {/* <motion.button
               className="stat-btn gradient-btn"
               whileHover={{ scale: 1.05, backgroundColor: '#FF8C00' }}
               whileTap={{ scale: 0.95 }}
               style={{ background: 'linear-gradient(135deg, #FF8C00, #FFA500)' }}
             >
               CORE
-            </motion.button>
+            </motion.button> */}
           </motion.div>
-          <motion.p
+          {/* <motion.p
             className="stat-note"
             variants={fadeIn}
           >
             All brands and our operations to build on modern principles
-          </motion.p>
+          </motion.p> */}
         </motion.section>
 
         {/* Mission & Vision Section */}

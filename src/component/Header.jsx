@@ -43,14 +43,14 @@ const Header = () => {
     const handleClickOutside = (event) => {
       // Check if click is inside the nav or hamburger
       if (
-        navRef.current && 
-        navRef.current.contains(event.target) || 
-        (hamburgerRef.current && 
-        hamburgerRef.current.contains(event.target))
+        navRef.current &&
+        navRef.current.contains(event.target) ||
+        (hamburgerRef.current &&
+          hamburgerRef.current.contains(event.target))
       ) {
         return;
       }
-      
+
       // Close the menu if click is outside
       setIsMenuOpen(false);
       setActiveDropdown(null);
@@ -102,7 +102,7 @@ const Header = () => {
         <Link to="/">
           <img src={logoImage} alt="Smmart Logo" className="logo-image" />
         </Link>
-      </div>      
+      </div>
       <button
         className={`hamburger ${isMenuOpen ? 'active' : ''}`}
         onClick={toggleMenu}
@@ -124,29 +124,28 @@ const Header = () => {
           >
             Home
           </Link>
-          <Link
+          {/* <Link
             to="/About/AboutSmmart"
             className={location.pathname.startsWith('/AboutSmmart') ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
             About
-          </Link>
-          {/* <div className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}>
+          </Link> */}          <div className={`dropdown ${activeDropdown === 'about' ? 'active' : ''}`}>
             <button
               className="dropdown-trigger"
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 toggleDropdown('about');
               }}
               aria-expanded={activeDropdown === 'about'}
-            >
-              <Link to="/about/AboutSmmart" onClick={() => setIsMenuOpen(false)}>About </Link>
+            >              About
             </button>
             <div className={`dropdown-menu ${activeDropdown === 'about' ? 'show' : ''}`}>
               <Link to="/about/AboutSmmart" onClick={() => setIsMenuOpen(false)}>About smmart</Link>
               <Link to="/about" onClick={() => setIsMenuOpen(false)}>Our People</Link>
             </div>
-          </div> */}
+          </div>
           <Link
             to="/products/individual"
             className={location.pathname.startsWith('/products/individual') ? 'active' : ''}
@@ -154,13 +153,13 @@ const Header = () => {
           >
             Our Products
           </Link>
-          {/* <Link
+          <Link
             to="/blog"
             className={location.pathname.startsWith('/blog') ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
             Blog
-          </Link> */}
+          </Link>
           <Link
             to="/careers"
             className={location.pathname.startsWith('/careers') ? 'active' : ''}
