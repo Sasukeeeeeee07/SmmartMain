@@ -150,20 +150,46 @@
 }
 
 .event-card {
-  min-width: calc(25% - 15px);
+  min-width: calc(40% - 15px); /* Increased from 32% */
   background-color: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 16px; /* Larger corners */
+  padding: 40px; /* Increased padding */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* Larger shadow */
   display: flex;
   flex-direction: column;
 }
 
+.event-image-container {
+  height: 340px; /* Increased from 250px */
+  width: 100%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 0;
+  margin: 5px 0 18px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.event-image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  position: static; /* Remove absolute for better scaling */
+  top: unset;
+  left: unset;
+  transform: none;
+}
+
 .event-date {
-  font-size: 2.5rem;
+  font-size: 2.8rem; /* Slightly larger */
   font-weight: 700;
   color: #7f56da;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
 }
 
 .event-details {
@@ -171,9 +197,9 @@
 }
 
 .event-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-bottom: 5px;
+  font-size: 1.4rem; /* Increased from 1.2rem */
+  font-weight: 700;
+  margin-bottom: 8px;
   color: black;
 }
 
@@ -215,7 +241,11 @@
 /* Media queries for responsive design */
 @media screen and (max-width: 992px) {
   .event-card {
-    min-width: calc(33.33% - 14px);
+    min-width: calc(70% - 14px); /* Increased from 48% */
+    padding: 32px;
+  }
+  .event-image-container {
+    height: 260px;
   }
 }
 
@@ -240,17 +270,31 @@
   }
 
   .event-card {
-    min-width: calc(50% - 10px);
+    min-width: calc(98% - 10px); /* Increased from 90% */
+    padding: 18px;
+  }
+  .event-image-container {
+    height: 180px;
   }
 
   .meet-title {
     font-size: 2rem;
+  }
+  .event-title {
+    font-size: 1.2rem;
   }
 }
 
 @media screen and (max-width: 480px) {
   .event-card {
     min-width: 100%;
+    padding: 10px;
+  }
+  .event-image-container {
+    height: 120px;
+  }
+  .event-title {
+    font-size: 1.1rem;
   }
 
   .section-title,

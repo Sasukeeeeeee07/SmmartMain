@@ -136,6 +136,7 @@ const sigmaTeam = [
 function SigmaTeamSection() {
   const [selectedMember, setSelectedMember] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [dialogPosition, setDialogPosition] = useState({ top: 0, left: 0 });
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -146,26 +147,16 @@ function SigmaTeamSection() {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
-
-  // Ensure dialog opens within the visible view area of the section
+  
+  // Simple dialog opener that positions the dialog near the card
   const openDialog = (member, event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    setDialogPosition({
+      top: rect.top + window.scrollY + rect.height + 10, // 10px below the card
+      left: rect.left + window.scrollX + rect.width / 2, // center horizontally
+    });
     setSelectedMember(member);
     setDialogOpen(true);
-    setTimeout(() => {
-      const dialogElement = document.querySelector('.dialog-box');
-      if (dialogElement) {
-        const cardRect = event.target.closest('.sigma-card').getBoundingClientRect();
-        const sectionRect = document.querySelector('.sigma-team-section').getBoundingClientRect();
-
-        const topPosition = cardRect.top - sectionRect.top;
-        const leftPosition = cardRect.left - sectionRect.left;
-
-        dialogElement.style.position = 'absolute';
-        dialogElement.style.top = `${topPosition}px`;
-        dialogElement.style.left = `${leftPosition}px`;
-        dialogElement.style.transform = 'translate(0, 0)';
-      }
-    }, 0);
   };
 
   const closeDialog = () => {
@@ -182,7 +173,6 @@ function SigmaTeamSection() {
     }
     return text;
   };
-
   return (
     <motion.div
       className="sigma-team-section"
@@ -239,7 +229,7 @@ function SigmaTeamSection() {
                     transition={{ duration: 0.5, delay: 0.5 }}
                     onClick={(e) => {
                       e.stopPropagation();
-                      openDialog(member);
+                      openDialog(member, e);
                     }}
                   >
                     Read More
@@ -250,192 +240,77 @@ function SigmaTeamSection() {
           </motion.div>
         ))}
       </div>
-
-      <Dialog isOpen={dialogOpen} onClose={closeDialog} member={selectedMember} />
-    </motion.div>
-  );
-}
-
-function SigmaGlowingCard() {
-  const glowingCardVariants = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } },
-  };
-
-  // Text animation variants with staggered delays
-  const titleVariants = {
-    hidden: { opacity: 0, y: -30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } }
-  };
-
-  const roleVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.5, delay: 0.3 }
-    }
-  };
-
-  const descVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.7, delay: 0.5 }
-    }
-  };
-
-  return (
-    <motion.div
-      style={{
-        width: '100%',
-        minHeight: 'calc(100vh - 300px)',
-        display: 'flex',
-        alignItems: 'flex-start',
-        justifyContent: 'center',
-        background: 'none',
-        marginTop: 24,
-        marginBottom: 24,
-      }}
-      initial="hidden"
-      animate="visible"
-      variants={glowingCardVariants}
-    >
-      <div
-        style={{
-          background: 'rgba(20, 25, 40, 0.85)',
-          borderRadius: 20,
-          boxShadow: '0 0 40px 8px #fff, 0 4px 32px rgba(255,255,255,0.18)',
-          padding: '40px 36px',
-          maxWidth: 900,
-          width: '100%',
-          margin: '0 16px',
-          textAlign: 'center',
-          border: '2px solid rgba(255,255,255,0.12)',
-        }}
-      >
-        <motion.div
-          style={{
-            fontWeight: 700,
-            fontSize: 32,
-            color: '#fff',
-            marginBottom: 12,
-            textShadow: '0 0 12px #fff, 0 0 24px #fff',
-          }}
-          variants={titleVariants}
-        >
-          T.I.G.E.R. Aditya Singh Rajawat
-        </motion.div>
-        <motion.div
-          style={{
-            color: '#3fa1ff',
-            fontWeight: 600,
-            fontSize: 20,
-            marginBottom: 24,
-          }}
-          variants={roleVariants}
-        >
-          Trainer
-        </motion.div>
-        <motion.div
-          style={{
-            color: '#fff',
-            fontSize: 20,
-            lineHeight: 1.6,
-            letterSpacing: 0.2,
-          }}
-          variants={descVariants}
-        >
-          T.I.G.E.R. Aditya Singh is a dynamic trainer specializing in professional sales and individual transformation. Since 2005, he has addressed over 5 lakh people, transformed 2,500+ MNC team members, and supported 1 lakh insurance professionals. Known for activity-driven workshops, Aditya excels in Selling Skills, Sales Mastery, Telephone Handling, Objection Handling, and Retail & Channel Management.
-        </motion.div>
-      </div>
+      {/* Overlay with semi-transparent background when dialog is open */}
+      {dialogOpen && (
+        <div style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          background: 'rgba(0,0,0,0.6)',
+          zIndex: 999
+        }} onClick={closeDialog}></div>
+      )}
+      {dialogOpen && selectedMember && <Dialog isOpen={dialogOpen} onClose={closeDialog} member={selectedMember} position={dialogPosition} />}
     </motion.div>
   );
 }
 
 // Dialog component for displaying team member details
-function Dialog({ isOpen, onClose, member }) {
-  useEffect(() => {
-    // Prevent body scrolling when dialog is open
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [isOpen]);
-
-  const backdropVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.3 } },
-  };
-
-  const dialogVariants = {
-    hidden: { opacity: 0, scale: 0.9 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {
-        type: 'spring',
-        stiffness: 300,
-        damping: 30,
-        duration: 0.4,
-      },
-    },
-    exit: {
-      opacity: 0,
-      scale: 0.95,
-      transition: {
-        duration: 0.2,
-      },
-    },
-  };
-
+function Dialog({ isOpen, onClose, member, position }) {
   if (!isOpen || !member) return null;
-
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <motion.div
-          className="dialog-backdrop"
-          variants={backdropVariants}
-          initial="hidden"
-          animate="visible"
-          exit="hidden"
-          onClick={onClose}
+    <div className="dialog-box" style={{
+      position: 'absolute',
+      top: position?.top || 100,
+      left: (position?.left || 0) - 200, // center dialog horizontally (width/2)
+      background: 'white',
+      padding: '20px',
+      borderRadius: '12px',
+      boxShadow: '0 5px 20px rgba(0, 0, 0, 0.3)',
+      zIndex: 2000,
+      maxWidth: '90%',
+      width: '400px',
+      maxHeight: '80vh',
+      overflowY: 'auto',
+    }}>
+      <div style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderBottom: '1px solid #eee',
+        paddingBottom: '10px',
+        marginBottom: '15px'
+      }}>
+        <h2 style={{margin: 0}}>{member.name}</h2>
+        <button 
+          onClick={onClose} 
+          style={{
+            background: 'none',
+            border: 'none',
+            fontSize: '24px',
+            cursor: 'pointer'
+          }}
         >
-          <motion.div
-            className="dialog-content"
-            variants={dialogVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="dialog-header">
-              <h2>{member.name}</h2>
-              <button className="dialog-close" onClick={onClose}>
-                &times;
-              </button>
-            </div>
-            <div className="dialog-body">
-              <div className="dialog-image-container">
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="dialog-image"
-                />
-              </div>
-              <h3 className="dialog-title">{member.title}</h3>
-              <p className="dialog-description">{member.desc}</p>
-            </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          &times;
+        </button>
+      </div>
+      <div style={{textAlign: 'center'}}>
+        <img 
+          src={member.image} 
+          alt={member.name} 
+          style={{
+            width: '100px',
+            height: '100px',
+            borderRadius: '50%',
+            marginBottom: '15px'
+          }} 
+        />
+        <h3 style={{margin: '0 0 10px'}}>{member.title}</h3>
+        <p style={{margin: 0, textAlign: 'left'}}>{member.desc}</p>
+      </div>
+    </div>
   );
 }
 

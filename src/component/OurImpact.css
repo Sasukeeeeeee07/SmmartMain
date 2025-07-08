@@ -1,7 +1,7 @@
 .impact-bg {
   width: 100%;
   min-height: 100vh;
-  background: radial-gradient(ellipse at 60% 30%, #23243a 60%, #181a23 100%);
+  background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
   padding: 48px 0 0 0;
   display: flex;
   flex-direction: column;
@@ -11,13 +11,13 @@
 }
 
 .impact-title {
-  color: #eafffa;
+  color: #FF6D00;
   font-size: 2.7rem;
   font-weight: 800;
   text-align: center;
   margin-bottom: 38px;
   letter-spacing: 2px;
-  text-shadow: 0 0 18px #3aebd7, 0 0 32px #fff;
+  text-shadow: 0 0 18px #FF9800, 0 0 32px #fff;
   filter: brightness(1.2);
 }
 
@@ -33,9 +33,9 @@
 }
 
 .impact-card {
-  background: rgba(28, 30, 44, 0.98);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 18px;
-  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 4px 32px rgba(255, 109, 0, 0.10);
   min-width: 220px;
   max-width: 260px;
   flex: 1 1 220px;
@@ -51,8 +51,8 @@
 
 .impact-card:hover,
 .impact-card.glow {
-  border: 2px solid var(--glow-color, #3aebd7);
-  box-shadow: 0 0 18px 2px var(--glow-color, #3aebd7), 0 0 32px 2px #fff2;
+  border: 2px solid #FF9800;
+  box-shadow: 0 0 18px 2px #FF9800, 0 0 32px 2px #fff2;
   z-index: 2;
 }
 
@@ -61,12 +61,13 @@
   font-weight: 700;
   margin-bottom: 10px;
   letter-spacing: 1px;
+  color: #FF6D00;
   text-shadow: 0 0 8px #fff5, 0 0 2px #fff8;
   filter: brightness(1.2);
 }
 
 .impact-label {
-  color: #bfc4d1;
+  color: #1976D2;
   font-size: 1.08rem;
   font-weight: 500;
   margin-bottom: 28px;
@@ -77,7 +78,7 @@
 .impact-progress-bar {
   width: 100%;
   height: 6px;
-  background: #23243a;
+  background: #E3F2FD;
   border-radius: 4px;
   margin-top: auto;
   overflow: hidden;
@@ -88,6 +89,7 @@
   height: 100%;
   width: 60%;
   border-radius: 4px;
+  background: linear-gradient(90deg, #FF6D00 0%, #FF9800 100%);
   transition: background 0.3s;
 }
 
@@ -141,7 +143,7 @@
   padding: 10px 20px;
   border: 2px solid transparent;
   border-radius: 8px;
-  height: 60px;
+  height: 90px; /* Increased from 60px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,7 +152,7 @@
 
 .company-logo {
   max-height: 100%;
-  max-width: 120px;
+  max-width: 180px; /* Increased from 120px */
   object-fit: contain;
   filter: drop-shadow(0 0 5px var(--company-color));
   transition: all 0.3s ease;
@@ -195,12 +197,12 @@
   }
 
   .company-logo-container {
-    height: 50px;
+    height: 70px; /* Increased from 50px */
     padding: 8px 15px;
   }
 
   .company-logo {
-    max-width: 100px;
+    max-width: 140px; /* Increased from 100px */
   }
 }
 

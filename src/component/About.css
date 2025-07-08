@@ -424,12 +424,12 @@ html,
     -webkit-line-clamp: 4;
     line-clamp: 4;
   }
-
+/* 
   .dialog-content {
     width: 95%;
     max-height: 85vh;
   }
-}
+ */}
 
 @media (max-width: 768px) {
   .sigma-team-cards {
@@ -459,7 +459,7 @@ html,
     font-size: 13px;
   }
 
-  .dialog-image-container {
+  /* .dialog-image-container {
     width: 120px;
     height: 120px;
   }
@@ -481,7 +481,7 @@ html,
   .dialog-description {
     font-size: 16px;
   }
-}
+*/}
 
 @media (max-width: 480px) {
   .main-content {
@@ -531,7 +531,8 @@ html,
     padding: 12px;
   }
 
-  .dialog-content {
+  
+  /* .dialog-content {
     width: 95%;
     padding: 12px;
     max-height: 80vh;
@@ -553,7 +554,7 @@ html,
 
   .dialog-title {
     font-size: 16px;
-  }
+  } */
 }
 
 .about-container {
@@ -725,17 +726,20 @@ html,
   padding: 20px;
 }
 
-.dialog-content {
+.dialog-box {
+  position: absolute !important;
+  top: 100px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
   background: white;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  width: 90%;
-  max-width: 600px;
-  max-height: 85vh;
-  overflow-y: auto;
   padding: 20px;
-  position: relative;
-  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  z-index: 2000 !important;
+  max-width: 90%;
+  width: 400px;
+  max-height: 80vh;
+  overflow-y: auto;
 }
 
 .dialog-header {
@@ -748,10 +752,8 @@ html,
 }
 
 .dialog-header h2 {
-  font-size: 20px;
-  color: #333;
-  margin: 0;
-  font-weight: 600;
+  font-size: 22px;
+  text-align: center;
 }
 
 .dialog-close {
@@ -769,12 +771,10 @@ html,
 }
 
 .dialog-image-container {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
+  width: 120px;
+  height: 120px;
   margin: 0 auto 20px;
-  overflow: hidden;
-  border: 3px solid rgba(93, 169, 233, 0.4);
+  border-radius: 50%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -794,8 +794,9 @@ html,
 }
 
 .dialog-description {
-  line-height: 1.6;
   font-size: 16px;
+  line-height: 1.6;
+  text-align: center;
   margin: 0;
   white-space: pre-wrap;
   color: #333;
@@ -901,94 +902,57 @@ html,
 }
 
 @media (max-width: 480px) {
-  .about-header h1 {
-    font-size: 1.75rem;
+  .main-content {
+    padding: 70px 20px 30px;
+    margin-top: 10px;
   }
 
-  .team-grid {
-    grid-template-columns: 1fr;
+  .subtitle {
+    font-size: 22px;
+    top: -30px;
+    width: 100%;
     padding: 0 10px;
   }
 
-  .team-card {
-    max-width: 90%;
-    margin: 0 auto;
+  .leader-name {
+    font-size: 36px;
   }
 
-  .card-content {
-    transform: translateY(60%);
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
-    backdrop-filter: blur(5px);
+  .leader-title {
+    font-size: 18px;
   }
 
-  .card-content h3 {
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  .leader-description {
+    font-size: 16px;
   }
 
-  .card-content h4 {
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-    color: #5DA9E9;
+  .sigma-card {
+    min-width: 100%;
+    height: 400px;
   }
 
-  .card-content p {
-    color: rgba(255, 255, 255, 0.95);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+  .sigma-team-section {
+    padding: 30px 0 40px;
   }
 
-  /* Improve carousel on mobile */
-  .people-section {
-    border-radius: 12px;
-    padding: 15px 5px;
-    margin: 20px 15px;
+  .sigma-team-title {
+    font-size: 28px;
+    margin-bottom: 30px;
   }
 
-  .carousel-container {
-    padding: 0 5px;
+  .sigma-card-image {
+    height: 55%;
   }
 
-  .carousel-items {
-    padding: 0 30px;
-    /* Make room for nav buttons */
-    gap: 12px;
+  .sigma-card-content {
+    height: 45%;
+    padding: 12px;
   }
 
-  .person-card {
-    margin: 0 3px;
-    padding: 3px;
-  }
-
-  .person-card img {
-    width: 70px !important;
-    /* Much smaller for phones */
-    height: 70px !important;
-    border-width: 2px;
-  }
-
-  .person-card p {
-    font-size: 11px;
-    max-width: 70px;
-    margin-top: 5px;
-  }
-
-  .nav-arrow {
-    width: 28px !important;
-    height: 28px !important;
-    font-size: 18px !important;
-    min-width: 28px !important;
-  }
-
-  /* Dialog improvements for small phones */
-  .dialog-content {
-    padding: 14px;
-    border-radius: 10px;
-  }
-
-  .dialog-header {
-    padding-bottom: 10px;
-    margin-bottom: 12px;
+  /* .dialog-content {
+    width: 95%;
+    padding: 12px;
+    max-height: 80vh;
   }
 
   .dialog-image-container {
@@ -997,19 +961,39 @@ html,
     margin-bottom: 15px;
   }
 
-  .dialog-title {
-    font-size: 16px;
-    margin-bottom: 12px;
+  .dialog-header h2 {
+    font-size: 20px;
   }
 
   .dialog-description {
     font-size: 14px;
-    line-height: 1.5;
   }
 
-  .dialog-close {
-    font-size: 20px;
-    width: 24px;
-    height: 24px;
+  .dialog-title {
+    font-size: 16px;
+  } */
+
+  /* Improve carousel visibility in mobile view */
+  .carousel-container {
+    overflow-x: auto;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 10px;
+  }
+
+  .carousel-items {
+    gap: 15px;
+    padding: 0;
+  }
+
+  .person-card img {
+    width: 70px;
+    height: 70px;
+    border-width: 2px;
+  }
+
+  .person-card p {
+    font-size: 12px;
+    max-width: 70px;
   }
 }
