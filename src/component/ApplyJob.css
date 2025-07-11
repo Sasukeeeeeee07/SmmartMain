@@ -531,3 +531,23 @@
     padding: 1.25rem;
   }
 }
+
+.brochure-btn {
+  background: #FF8C00;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255,140,0,0.10);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  margin: 0.5rem 0;
+  outline: none;
+}
+.brochure-btn:hover, .brochure-btn:focus {
+  background: #d97706;
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 18px rgba(255,140,0,0.18);
+}

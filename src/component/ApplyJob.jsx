@@ -45,6 +45,9 @@ const jobs = [
       'Career advancement paths',
     ], salary: '₹8,00,000 – ₹12,00,000 per annum',
     company: 'SMMART Training & Consultancy',
+    brochures: [
+      { label: 'HR Manager Brochure', url: '/brochures/sample-brochure.pdf' }
+    ]
   },
   {
     id: 2,
@@ -85,6 +88,9 @@ const jobs = [
       'Travel allowance',
     ], salary: '₹10,00,000 – ₹15,00,000 per annum + incentives',
     company: 'SMMART Training & Consultancy',
+    brochures: [
+      { label: 'BDM Role Brochure', url: '/brochures/sample-brochure.pdf' }
+    ]
   },
   {
     id: 3,
@@ -124,6 +130,9 @@ const jobs = [
       'Team incentive trips',
     ], salary: '₹4,50,000 – ₹7,00,000 per annum + incentives',
     company: 'SMMART Training & Consultancy',
+    brochures: [
+      { label: 'BDE Position Brochure', url: '/brochures/sample-brochure.pdf' }
+    ]
   },
   {
     id: 4,
@@ -163,6 +172,9 @@ const jobs = [
       'Remote work options',
     ], salary: '₹3,50,000 – ₹5,50,000 per annum',
     company: 'SMMART Training & Consultancy',
+    brochures: [
+      { label: 'Business Miner Brochure', url: '/brochures/sample-brochure.pdf' }
+    ]
   },
   {
     id: 5,
@@ -202,6 +214,9 @@ const jobs = [
       'Work-life balance initiatives',
     ], salary: '₹4,50,000 – ₹7,00,000 per annum',
     company: 'SMMART Training & Consultancy',
+    brochures: [
+      { label: 'CRM Role Brochure', url: '/brochures/sample-brochure.pdf' }
+    ]
   },
 ];
 
@@ -241,6 +256,25 @@ const ApplyJob = () => {
     <div className="apply-page">
       <Header />
       <div className="apply-container">
+        {/* Brochures Section */}
+        {job.brochures && job.brochures.length > 0 && (
+          <div className="job-brochures">
+            <h3>Job Brochures</h3>
+            <ul>
+              {job.brochures.map((brochure, idx) => (
+                <li key={idx}>
+                  <button
+                    className="brochure-btn"
+                    onClick={() => window.open(brochure.url, '_blank', 'noopener,noreferrer')}
+                    type="button"
+                  >
+                    {brochure.label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
         {/* Page Title */}
         <div className="page-title">
           <h1>Apply for a Position</h1>
@@ -323,6 +357,21 @@ const ApplyJob = () => {
                     <label>
                       Phone Number
                       <input type="tel" placeholder="Your phone number" pattern="[0-9]{10,15}" required />
+                    </label>
+
+                    <label>
+                      Current CTC
+                      <input type="text" placeholder="Your current CTC (e.g. ₹8,00,000)" required />
+                    </label>
+
+                    <label>
+                      Expected CTC
+                      <input type="text" placeholder="Your expected CTC (e.g. ₹10,00,000)" required />
+                    </label>
+
+                    <label>
+                      Notice Period
+                      <input type="text" placeholder="Your notice period (e.g. 30 days)" required />
                     </label>
 
                     <label>

@@ -366,17 +366,6 @@ const BlogDetail = () => {
             </div> */}
           </div>
 
-          <div className="blog-detail-tags-section">
-            <h3 className="blog-detail-tags-title">
-              <FaTags className="blog-detail-icon" /> Tags
-            </h3>
-            <div className="blog-detail-tags-list">
-              {currentBlog.tags.map((tag, index) => (
-                <span key={index} className="blog-detail-tag-large">{tag}</span>
-              ))}
-            </div>
-          </div>
-
           <div className="blog-comments-section">
             <h2 className="blog-comments-title">
               <FaComment className="blog-detail-icon" /> Comments ({comments.length})
@@ -405,7 +394,6 @@ const BlogDetail = () => {
                         <button className="comment-like-btn">
                           <FaHeart className="comment-action-icon" /> {comment.likes}
                         </button>
-                        <button className="comment-reply-btn">Reply</button>
                       </div>
                     </div>
                   ))}

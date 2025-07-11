@@ -171,52 +171,24 @@ const Featured = () => {
               variants={containerVariants}
               style={{ maxWidth: '1400px', margin: '0 auto' }}
             >
-              {events.map(event => (<motion.div
-                key={event.id}
-                className="event-card"
-                variants={cardVariants}
-                whileHover={{
-                  y: -5,
-                  transition: { duration: 0.2 }
-                }}
-                layoutId={`event-card-${event.id}`}
-              >                <a href={event.link} className="event-link">
-                  <div
-                    className="event-image-container"
-                    style={{
-                      height: '250px',
-                      width: '100%',
-                      boxShadow: '0 5px 15px rgba(0,0,0,0.1)',
-                      borderRadius: '8px',
-                      overflow: 'hidden',
-                      padding: '0',
-                      margin: '5px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      position: 'relative'
-                    }}
-                  >
-                    <img
-                      src={event.image}
-                      alt={event.title}
-                      className="event-image"
-                      loading="eager"
-                      style={{
-                        objectFit: 'scale-down',
-                        width: 'auto',
-                        height: 'auto',
-                        maxWidth: '100%',
-                        maxHeight: '100%',
-                        position: 'absolute',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%, -50%)'
-                      }}
-                    />
-                  </div>
-                </a>
-              </motion.div>
+              {events.map(event => (
+                <img
+                  key={event.id}
+                  src={event.image}
+                  alt={event.title}
+                  className="event-image-large"
+                  loading="eager"
+                  style={{
+                    width: '100%',
+                    height: '340px',
+                    objectFit: 'contain',
+                    borderRadius: '16px',
+                    background: '#fff',
+                    margin: '0 10px 20px 10px',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
+                    display: 'block',
+                  }}
+                />
               ))}
             </motion.div>
 

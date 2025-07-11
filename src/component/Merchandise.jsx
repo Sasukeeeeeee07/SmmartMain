@@ -127,6 +127,7 @@ const Merchandise = () => {
               <div className="merch-book-rating">{'★'.repeat(Math.floor(book.rating))}{book.rating % 1 ? '½' : ''}</div>
               <div className="merch-book-desc">{book.description}</div>
               <Link to={`/merchandise/${book.id}`} className="merch-readmore-btn">Read More</Link>
+              <Link to="/contact" className="merch-buy-btn">Buy</Link>
             </div>
           </div>
         ))}

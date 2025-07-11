@@ -52,22 +52,22 @@ const Footer = () => {
       <div className="footer-bottom">
         <div>
           <span>English</span>
-          <span>Privacy Policy</span>
-          <span>Terms of Service</span>
+          <a href="/privacypolicy.html" target="_blank" rel="noopener noreferrer" className="footer-link">Privacy Policy</a>
+          <a href="/terms.html" target="_blank" rel="noopener noreferrer" className="footer-link">Terms and Conditions</a>
           <span>© 2025 SMMART. All rights reserved</span>
         </div>
         <div className="footer-socials">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+          <a href="https://www.facebook.com/SMMART" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
             <i className="fab fa-facebook-f"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+          <a href="https://x.com/smmartParivaar" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
             <i className="fab fa-twitter"></i>
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://www.instagram.com/smmart_parivaar/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <i className="fab fa-instagram"></i>
           </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-            <i className="fab fa-youtube"></i>
+          <a href="https://www.linkedin.com/company/smm-art-training-&-consultancy-services-pvt--ltd/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i className="fab fa-linkedin-in"></i>
           </a>
         </div>
       </div>
