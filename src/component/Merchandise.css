@@ -83,8 +83,6 @@
   border-radius: 8px;
   box-shadow: 0 10px 30px rgba(25, 118, 210, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 4px solid #fff;
-  background-color: #fff;
 }
 
 .floating-book img {
@@ -112,7 +110,6 @@
   transform: scale(1.05) translateY(-5px);
   z-index: 3;
   box-shadow: 0 15px 35px rgba(255, 109, 0, 0.3);
-  border-color: rgba(255, 109, 0, 0.6);
 }
 
 .merch-books-list {

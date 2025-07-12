@@ -5,7 +5,7 @@ import Header from './Header';
 import Footer from './Footer';
 import BlogPhoto from './images/santosh.jpg';
 import './BlogDetail.css';
-import { FaClock, FaUser, FaCalendarAlt, FaComment, FaShare, FaHeart, FaBookmark, FaArrowLeft, FaTags } from 'react-icons/fa';
+import { FaUser, FaComment, FaShare, FaHeart, FaBookmark, FaArrowLeft, FaTags } from 'react-icons/fa';
 
 // Blog data that should match the data in Blog.jsx
 const allBlogs = {
@@ -296,15 +296,6 @@ const BlogDetail = () => {
           </div>
 
           <div className="blog-detail-header-content">
-            <div className="blog-detail-meta">
-              <span className="blog-detail-date">
-                <FaCalendarAlt className="blog-detail-icon" /> {currentBlog.date}
-              </span>
-              <span className="blog-detail-divider">•</span>
-              <span className="blog-detail-readtime">
-                <FaClock className="blog-detail-icon" /> {currentBlog.readTime}
-              </span>
-            </div>
 
             <h1 className="blog-detail-title">{currentBlog.title}</h1>
 
@@ -387,14 +378,8 @@ const BlogDetail = () => {
                           <img src={comment.avatar} alt={comment.author} className="comment-avatar" />
                           <span className="comment-author">{comment.author}</span>
                         </div>
-                        <span className="comment-time">{comment.timestamp}</span>
                       </div>
                       <p className="comment-text">{comment.text}</p>
-                      <div className="comment-actions">
-                        <button className="comment-like-btn">
-                          <FaHeart className="comment-action-icon" /> {comment.likes}
-                        </button>
-                      </div>
                     </div>
                   ))}
                   <div className="comments-notice">
@@ -420,13 +405,6 @@ const BlogDetail = () => {
                   <div className="related-blog-overlay"></div>
                 </div>
                 <div className="related-blog-content">
-                  <div className="related-blog-meta">
-                    <span className="related-blog-date">{blog.date}</span>
-                    <span className="related-blog-divider">•</span>
-                    <span className="related-blog-readtime">
-                      <FaClock className="blog-icon" /> {blog.readTime}
-                    </span>
-                  </div>
                   <h3 className="related-blog-title">{blog.title}</h3>
                   <div className="related-blog-tags">
                     {blog.tags.slice(0, 2).map((tag, index) => (

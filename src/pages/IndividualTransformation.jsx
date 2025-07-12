@@ -98,7 +98,9 @@ const IndividualTransformation = () => {
               <div className="key-points">
                 {['Mindset Shift', 'Goal Clarity', 'Productivity'].map((point, index) => (
                   <motion.div key={index} className="key-point" variants={cardVariants}>
-                    <div className="point-icon">🧠</div>
+                    <div className="point-icon">
+                      <i className="fas fa-brain"></i>
+                    </div>
                     <h3>{point}</h3>
                     <p>Reshape limiting beliefs and develop a growth-oriented perspective</p>
                   </motion.div>
@@ -138,21 +140,27 @@ const IndividualTransformation = () => {
 
               <div className="audience-grid">
                 <div className="audience-card">
-                  <div className="audience-icon">👨‍🎓</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-graduation-cap"></i>
+                  </div>
                   <h3>Students</h3>
                   <p>Building foundations for future success with clarity and purpose</p>
                   <Link to="/contact" className="audience-btn">Start Now</Link>
                 </div>
 
                 <div className="audience-card">
-                  <div className="audience-icon">👩‍💼</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-briefcase"></i>
+                  </div>
                   <h3>Professionals</h3>
                   <p>Accelerating career growth and developing leadership capabilities</p>
                   <Link to="/contact" className="audience-btn">Start Now</Link>
                 </div>
 
                 <div className="audience-card">
-                  <div className="audience-icon">🏠</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-home"></i>
+                  </div>
                   <h3>Homemakers</h3>
                   <p>Finding purpose and creating value in personal and family contexts</p>
                   <Link to="/contact" className="audience-btn">Start Now</Link>
@@ -180,17 +188,23 @@ const IndividualTransformation = () => {
 
               <div className="key-points">
                 <div className="key-point">
-                  <div className="point-icon">🚀</div>
+                  <div className="point-icon">
+                    <i className="fas fa-rocket"></i>
+                  </div>
                   <h3>Business Scaling</h3>
                   <p>Implement frameworks for sustainable and efficient business growth</p>
                 </div>
                 <div className="key-point">
-                  <div className="point-icon">⚙️</div>
+                  <div className="point-icon">
+                    <i className="fas fa-cogs"></i>
+                  </div>
                   <h3>Systems Creation</h3>
                   <p>Develop automated processes that reduce founder dependency</p>
                 </div>
                 <div className="key-point">
-                  <div className="point-icon">👥</div>
+                  <div className="point-icon">
+                    <i className="fas fa-users"></i>
+                  </div>
                   <h3>Team Leadership</h3>
                   <p>Build and empower high-performing teams aligned with your vision</p>
                 </div>
@@ -284,21 +298,27 @@ const IndividualTransformation = () => {
 
               <div className="audience-grid">
                 <div className="audience-card">
-                  <div className="audience-icon">🚀</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-building"></i>
+                  </div>
                   <h3>Business Owners</h3>
                   <p>Looking to systematize operations and focus on strategic growth</p>
                   <Link to="/contact" className="audience-btn">Start Now</Link>
                 </div>
 
                 <div className="audience-card">
-                  <div className="audience-icon">🔄</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-chart-line"></i>
+                  </div>
                   <h3>Scaling Entrepreneurs</h3>
                   <p>Ready to break through current growth plateaus and scale up</p>
                   <Link to="/contact" className="audience-btn">Start Now</Link>
                 </div>
 
                 <div className="audience-card">
-                  <div className="audience-icon">👨‍👦</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-handshake"></i>
+                  </div>
                   <h3>Family Businesses</h3>
                   <p>Seeking structure, processes and successful generation transitions</p>
                   <Link to="/contact" className="audience-btn">Start Now</Link>
@@ -326,17 +346,23 @@ const IndividualTransformation = () => {
 
               <div className="key-points">
                 <div className="key-point">
-                  <div className="point-icon">🏢</div>
+                  <div className="point-icon">
+                    <i className="fas fa-building"></i>
+                  </div>
                   <h3>Organizational Design</h3>
                   <p>Create adaptive structures and workflows that support innovation</p>
                 </div>
                 <div className="key-point">
-                  <div className="point-icon">🔄</div>
+                  <div className="point-icon">
+                    <i className="fas fa-sync-alt"></i>
+                  </div>
                   <h3>Process Optimization</h3>
                   <p>Streamline operations for maximum efficiency and minimal waste</p>
                 </div>
                 <div className="key-point">
-                  <div className="point-icon">👥</div>
+                  <div className="point-icon">
+                    <i className="fas fa-users"></i>
+                  </div>
                   <h3>Culture Transformation</h3>
                   <p>Build engaged, performance-driven teams with shared values</p>
                 </div>
@@ -430,21 +456,27 @@ const IndividualTransformation = () => {
 
               <div className="audience-grid">
                 <div className="audience-card">
-                  <div className="audience-icon">🏢</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-building"></i>
+                  </div>
                   <h3>Medium Enterprises</h3>
                   <p>Organizations ready to implement structured growth systems</p>
                   <Link to="/contact" className="audience-btn">Contact Us</Link>
                 </div>
 
                 <div className="audience-card">
-                  <div className="audience-icon">📈</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-chart-line"></i>
+                  </div>
                   <h3>Growth-Stage Companies</h3>
                   <p>Businesses navigating rapid expansion and organizational challenges</p>
                   <Link to="/contact" className="audience-btn">Contact Us</Link>
                 </div>
 
                 <div className="audience-card">
-                  <div className="audience-icon">🔄</div>
+                  <div className="audience-icon">
+                    <i className="fas fa-exchange-alt"></i>
+                  </div>
                   <h3>Companies in Transition</h3>
                   <p>Organizations undergoing leadership changes or strategic pivots</p>
                   <Link to="/contact" className="audience-btn">Contact Us</Link>

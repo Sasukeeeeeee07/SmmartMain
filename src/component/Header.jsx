@@ -179,7 +179,7 @@ const Header = () => {
             className={location.pathname.startsWith('/smmartevents') ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
-            Smmart Events
+            smmart Events
           </Link>
         </div>
         <Link to="/contact" className="contact-btn" onClick={() => setIsMenuOpen(false)}>

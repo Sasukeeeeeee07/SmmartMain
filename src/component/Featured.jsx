@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import '../assets/Featured.css';
 import '../assets/EventsSection.css';
 import '../assets/EventsPerformance.css';
@@ -13,6 +14,7 @@ import whyDoGoaBanner from '../assets/banners/why do goa.jpg';
 const Featured = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const eventsContainerRef = useRef(null);
+  const navigate = useNavigate();
 
   // Event data with banner images
   const events = [
@@ -92,6 +94,10 @@ const Featured = () => {
 
   const handleNextClick = () => {
     setCurrentPage(prev => (prev < totalPages - 1 ? prev + 1 : 0));
+  };
+
+  const handleEventClick = () => {
+    navigate('/smmartevents');
   };
   return (
     <LazyMotion features={domAnimation}>
@@ -187,11 +193,7 @@ const Featured = () => {
                   alt={event.title}
                   className="event-image-large"
                   loading="eager"
-                  whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 12px 32px rgba(0,0,0,0.2)',
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
+                  onClick={handleEventClick}
                   style={{
                     width: '100%',
                     height: '340px',
@@ -200,6 +202,12 @@ const Featured = () => {
                     margin: '0 10px 20px 10px',
                     boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                     display: 'block',
+                    cursor: 'pointer',
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0 12px 32px rgba(0,0,0,0.2)',
+                    transition: { duration: 0.3, ease: "easeOut" }
                   }}
                 />
               ))}

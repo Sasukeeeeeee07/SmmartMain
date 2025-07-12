@@ -120,7 +120,9 @@ const AboutSmmart = () => {
             animate="visible"
             variants={fadeIn}
           >
-            <motion.p whileHover={{ scale: 1.02 }}>Our mission is to provide entrepreneurs with the tools, knowledge, and support they need to build thriving businesses that make a positive impact on society.</motion.p>
+            <motion.p whileHover={{ scale: 1.02 }}>
+              At smmart Training & Consultancy Services, our mission is to awaken the fearless entrepreneur in every individual and empower them to build self-led, scalable, and system-driven organizations. We operate with a high-performance culture grounded in discipline, accountability, and action — where transformation is driven not by theory, but by implementation.
+            </motion.p>
             <motion.div
               className="mission-pillars"
               variants={staggeredChildren}
@@ -128,16 +130,16 @@ const AboutSmmart = () => {
               animate="visible"
             >
               <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
-                <h4 style={{ color: '#FF8C00' }}>Educate</h4>
-                <p>Providing practical business knowledge</p>
-              </motion.div>
-              <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
-                <h4 style={{ color: '#FF8C00' }}>Enable</h4>
-                <p>Creating supportive networks and resources</p>
+                <h4 style={{ color: '#FF8C00' }}>Awaken</h4>
+                <p>Igniting the fearless entrepreneur within</p>
               </motion.div>
               <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
                 <h4 style={{ color: '#FF8C00' }}>Empower</h4>
-                <p>Building confidence and capability</p>
+                <p>Building self-led, scalable organizations</p>
+              </motion.div>
+              <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
+                <h4 style={{ color: '#FF8C00' }}>Transform</h4>
+                <p>Implementation-driven transformation</p>
               </motion.div>
             </motion.div>
           </motion.div>

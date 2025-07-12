@@ -148,13 +148,33 @@ function SigmaTeamSection() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
   };
   
-  // Simple dialog opener that positions the dialog near the card
+  // Smart dialog opener that positions the dialog intelligently
   const openDialog = (member, event) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    setDialogPosition({
-      top: rect.top + window.scrollY + rect.height + 10, // 10px below the card
-      left: rect.left + window.scrollX + rect.width / 2, // center horizontally
-    });
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    // Calculate position to center the dialog in viewport
+    const dialogWidth = 400; // width of dialog
+    const dialogHeight = 400; // estimated height
+    
+    // Center horizontally in viewport
+    let left = (viewportWidth - dialogWidth) / 2;
+    
+    // Position vertically near the card
+    let top = rect.top + window.scrollY + rect.height + 20; // 20px below the card
+    
+    // If dialog would go below viewport, position it above the card
+    if (top + dialogHeight > window.scrollY + viewportHeight - 20) {
+      top = rect.top + window.scrollY - dialogHeight - 20;
+    }
+    
+    // Ensure top doesn't go above viewport
+    if (top < window.scrollY + 20) {
+      top = window.scrollY + 20;
+    }
+    
+    setDialogPosition({ top, left });
     setSelectedMember(member);
     setDialogOpen(true);
   };
@@ -262,9 +282,9 @@ function Dialog({ isOpen, onClose, member, position }) {
   if (!isOpen || !member) return null;
   return (
     <div className="dialog-box" style={{
-      position: 'absolute',
+      position: 'fixed',
       top: position?.top || 100,
-      left: (position?.left || 0) - 200, // center dialog horizontally (width/2)
+      left: position?.left || 100,
       background: 'white',
       padding: '20px',
       borderRadius: '12px',

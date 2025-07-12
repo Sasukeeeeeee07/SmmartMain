@@ -51,17 +51,21 @@
 
 .faq-question-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   color: #FF6D00;
   font-size: 1.1rem;
   font-weight: 500;
+  position: relative;
+  text-align: center;
 }
 
 .faq-arrow {
   color: #FF9800;
   transition: transform 0.3s ease;
   font-size: 0.8rem;
+  position: absolute;
+  right: 0;
 }
 
 .faq-arrow.active {

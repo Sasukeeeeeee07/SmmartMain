@@ -69,11 +69,11 @@ const blogCards = [
 ];
 
 const categories = [
-  { name: 'All', count: 12 },
-  { name: 'Leadership', count: 5 },
-  { name: 'Mindset', count: 4 },
-  { name: 'Business', count: 3 },
-  { name: 'Growth', count: 7 }
+  { name: 'All', count: 4 },
+  { name: 'Leadership', count: 1 },
+  { name: 'Mindset', count: 1 },
+  { name: 'Business', count: 1 },
+  { name: 'Growth', count: 2 }
 ];
 
 const Blog = () => {

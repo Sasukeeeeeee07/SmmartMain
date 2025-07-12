@@ -59,14 +59,15 @@
   color: #FF6D00;
   padding: 16px 24px;
   width: 100%;
-  text-align: left;
+  text-align: center;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .program-button:hover {
@@ -84,6 +85,8 @@
   transition: transform 0.3s ease;
   font-size: 20px;
   color: #FF9800;
+  position: absolute;
+  right: 16px;
 }
 
 .arrow-icon.open {

@@ -293,7 +293,7 @@
 .stat-item {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 20px;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px rgba(33, 150, 243, 0.15);
