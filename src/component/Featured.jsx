@@ -156,12 +156,21 @@ const Featured = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
+          style={{ marginTop: '80px' }}
         >
           <div className="events-container">            <motion.div
               className="events-header"
               variants={headerVariants}
             >
-              <h2 className="section-title" style={{ textTransform: 'none' }}>smmart EVENTS</h2>
+              <h2 className="section-title" style={{ 
+                textTransform: 'none',
+                background: 'linear-gradient(135deg, #1976D2, #FF8C00)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                fontSize: '2rem',
+                fontWeight: '700'
+              }}>smmart EVENTS</h2>
               <div className="events-description">
 
               </div>
@@ -172,18 +181,22 @@ const Featured = () => {
               style={{ maxWidth: '1400px', margin: '0 auto' }}
             >
               {events.map(event => (
-                <img
+                <motion.img
                   key={event.id}
                   src={event.image}
                   alt={event.title}
                   className="event-image-large"
                   loading="eager"
+                  whileHover={{
+                    scale: 1.05,
+                    boxShadow: '0 12px 32px rgba(0,0,0,0.2)',
+                    transition: { duration: 0.3, ease: "easeOut" }
+                  }}
                   style={{
                     width: '100%',
                     height: '340px',
                     objectFit: 'contain',
                     borderRadius: '16px',
-                    background: '#fff',
                     margin: '0 10px 20px 10px',
                     boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
                     display: 'block',
