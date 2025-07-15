@@ -136,7 +136,6 @@ const sigmaTeam = [
 function SigmaTeamSection() {
   const [selectedMember, setSelectedMember] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [dialogPosition, setDialogPosition] = useState({ top: 0, left: 0 });
 
   const cardVariants = {
     hidden: { opacity: 0, y: 50 },
@@ -146,41 +145,6 @@ function SigmaTeamSection() {
   const textVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-  };
-  
-  // Smart dialog opener that positions the dialog intelligently
-  const openDialog = (member, event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    // Calculate position to center the dialog in viewport
-    const dialogWidth = 400; // width of dialog
-    const dialogHeight = 400; // estimated height
-    
-    // Center horizontally in viewport
-    let left = (viewportWidth - dialogWidth) / 2;
-    
-    // Position vertically near the card
-    let top = rect.top + window.scrollY + rect.height + 20; // 20px below the card
-    
-    // If dialog would go below viewport, position it above the card
-    if (top + dialogHeight > window.scrollY + viewportHeight - 20) {
-      top = rect.top + window.scrollY - dialogHeight - 20;
-    }
-    
-    // Ensure top doesn't go above viewport
-    if (top < window.scrollY + 20) {
-      top = window.scrollY + 20;
-    }
-    
-    setDialogPosition({ top, left });
-    setSelectedMember(member);
-    setDialogOpen(true);
-  };
-
-  const closeDialog = () => {
-    setDialogOpen(false);
   };
 
   const isLongText = (text) => {
@@ -193,6 +157,14 @@ function SigmaTeamSection() {
     }
     return text;
   };
+
+  const handleReadMore = (member, e) => {
+    e.stopPropagation();
+    setSelectedMember(member);
+    setDialogOpen(true);
+  };
+  const handleCloseDialog = () => setDialogOpen(false);
+
   return (
     <motion.div
       className="sigma-team-section"
@@ -212,7 +184,6 @@ function SigmaTeamSection() {
             className="sigma-card"
             key={idx}
             variants={cardVariants}
-            onClick={(e) => openDialog(member, e)}
           >
             <div className="sigma-card-image">
               <img src={member.image} alt={member.name} />
@@ -247,10 +218,7 @@ function SigmaTeamSection() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      openDialog(member, e);
-                    }}
+                    onClick={(e) => handleReadMore(member, e)}
                   >
                     Read More
                   </motion.button>
@@ -260,19 +228,21 @@ function SigmaTeamSection() {
           </motion.div>
         ))}
       </div>
-      {/* Overlay with semi-transparent background when dialog is open */}
-      {dialogOpen && (
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: 'rgba(0,0,0,0.6)',
-          zIndex: 999
-        }} onClick={closeDialog}></div>
+      {dialogOpen && selectedMember && (
+        <div className="dialog-backdrop" onClick={handleCloseDialog}>
+          <div className="dialog-box" onClick={e => e.stopPropagation()}>
+            <div className="dialog-header">
+              <h2>{selectedMember.name}</h2>
+              <button className="dialog-close" onClick={handleCloseDialog}>&times;</button>
+            </div>
+            <div className="dialog-content">
+              <img src={selectedMember.image} alt={selectedMember.name} className="dialog-image" />
+              <h3>{selectedMember.title}</h3>
+              <p>{selectedMember.desc}</p>
+            </div>
+          </div>
+        </div>
       )}
-      {dialogOpen && selectedMember && <Dialog isOpen={dialogOpen} onClose={closeDialog} member={selectedMember} position={dialogPosition} />}
     </motion.div>
   );
 }
@@ -337,6 +307,15 @@ function Dialog({ isOpen, onClose, member, position }) {
 function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const current = teamMembers[currentIndex];
+  const [showLeaderDialog, setShowLeaderDialog] = useState(false);
+  const [dialogLeader, setDialogLeader] = useState(null);
+  const isLongBio = current.bio && current.bio.length > 120;
+
+  const handleReadMore = () => {
+    setDialogLeader(current);
+    setShowLeaderDialog(true);
+  };
+  const handleCloseDialog = () => setShowLeaderDialog(false);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
@@ -358,11 +337,27 @@ function About() {
           <motion.h1 className="leader-name">{current.name}</motion.h1>
           <motion.h3 className="leader-title">{current.position}</motion.h3>
           <motion.p className="leader-description">{current.bio}</motion.p>
+          <button className="leader-read-more" onClick={() => { setDialogLeader(current); setShowLeaderDialog(true); }}>Read More</button>
         </motion.div>
         <div className="leader-image">
           <img src={current.image} alt={current.name} />
         </div>
       </div>
+      {showLeaderDialog && dialogLeader && (
+        <div className="dialog-backdrop" onClick={handleCloseDialog}>
+          <div className="dialog-box" onClick={e => e.stopPropagation()}>
+            <div className="dialog-header">
+              <h2>{dialogLeader.name}</h2>
+              <button className="dialog-close" onClick={handleCloseDialog}>&times;</button>
+            </div>
+            <div className="dialog-content">
+              <img src={dialogLeader.image} alt={dialogLeader.name} className="dialog-image" />
+              <h3>{dialogLeader.position}</h3>
+              <p>{dialogLeader.bio}</p>
+            </div>
+          </div>
+        </div>
+      )}
       <div className="people-section">
         <div className="carousel-container">
           <button className="nav-arrow left" onClick={handlePrev}>&lt;</button>

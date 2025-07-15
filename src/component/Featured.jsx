@@ -168,15 +168,10 @@ const Featured = () => {
               className="events-header"
               variants={headerVariants}
             >
-              <h2 className="section-title" style={{ 
-                textTransform: 'none',
-                background: 'linear-gradient(135deg, #1976D2, #FF8C00)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                fontSize: '2rem',
-                fontWeight: '700'
-              }}>smmart EVENTS</h2>
+              <h2 className="events-heading">
+                smmart EVENTS
+              </h2>
+              <span className="events-heading-accent"></span>
               <div className="events-description">
 
               </div>

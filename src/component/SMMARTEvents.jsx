@@ -14,7 +14,7 @@ import whyDoGoaBanner from '../assets/banners/why do goa.jpg';
 const events = [
   {
     type: 'featured',
-    title: 'Entrepreneur Gurukul (50th Batch)',
+    // title: 'Entrepreneur Gurukul (50th Batch)',
     name: 'Entrepreneur Gurukul (50th Batch)',
     description: 'Join our flagship program - the 50th batch of Entrepreneur Gurukul. Transform your entrepreneurial journey with comprehensive training, mentorship, and practical insights from industry experts.',
     image: egBatchBanner,
@@ -103,7 +103,7 @@ const SMMARTEvents = () => {
       <Header />
       <div className="events-container">
         <div className="events-header-section">
-          <h1 className="events-main-title">Explore smmart Events</h1>
+          <h1 className="events-main-title">Explore Events</h1>
         </div>
         <div className="events-layout">
           <div className="featured-event-section">
