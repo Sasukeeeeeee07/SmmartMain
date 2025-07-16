@@ -3,6 +3,9 @@ import Header from './Header';
 import Footer from './Footer';
 import './AboutSmmart.css';
 import { motion } from 'framer-motion';
+import journeyImage from './images/01_3-1.jpg'; // Add this import at the top with other imports
+import journeyImageCake from './images/01_1.jpg';
+import journeyImage2 from './images/01-1.jpg';
 
 const AboutSmmart = () => {
   const [activeTab, setActiveTab] = useState('VALUES');
@@ -232,23 +235,70 @@ const AboutSmmart = () => {
               OUR<br />JOURNEY
             </motion.h2>
             <motion.div className="journey-text" variants={fadeIn}>
-              <p>
-                <span style={{ color: '#FF8C00' }}>smmart</span> began with a bold vision:<br />
-                to ignite the entrepreneurial spirit across India and beyond.<br /><br />
-                From humble beginnings, we have evolved into a dynamic force —<br />
-                helping businesses scale, innovate, grow, and succeed over time.<br /><br />
-                Today, <span style={{ color: '#FF8C00' }}>smmart</span> stands for structured growth, sustainable success,<br />
-                and a smarter way to build your dream.
+              <h3 style={{ color: '#FF8C00', marginBottom: '0.5em' }}>From a Garden Seed to a Nationwide Movement</h3>
+              <p style={{ marginBottom: '1.2em' }}>
+                From humble beginnings in a garden on 10th Feb 2000, smmart has grown into India’s most trusted transformation ecosystem for entrepreneurs. Here's how our fearless journey unfolded:
+              </p>
+              <div style={{ marginBottom: '1.2em' }}>
+                <strong style={{ color: '#1976D2' }}>2000–2009: The Foundation Years</strong>
+                <ul style={{ margin: '0.5em 0 1em 1.2em' }}>
+                  <li>Birth of smmart and entry into the MSME sector.</li>
+                  <li>First major failures shaped our resilience.</li>
+                  <li>Launched T.I.G.E.R., AMYC, and expanded into MLM and Kerala.</li>
+                  <li>Surat operations began to take off.</li>
+                </ul>
+              </div>
+              <div style={{ marginBottom: '1.2em' }}>
+                <strong style={{ color: '#1976D2' }}>2011–2016: Building the Base</strong>
+                <ul style={{ margin: '0.5em 0 1em 1.2em' }}>
+                  <li>National programs like Entrepreneur Gurukul gained momentum.</li>
+                  <li>International training broadcasted in 10 languages across 12 countries.</li>
+                  <li>smmart’s first leadership structure took shape.</li>
+                </ul>
+              </div>
+              <div style={{ marginBottom: '1.2em' }}>
+                <strong style={{ color: '#1976D2' }}>2020–2022: Reinvention Era</strong>
+                <ul style={{ margin: '0.5em 0 1em 1.2em' }}>
+                  <li>Pivoted online during the pandemic.</li>
+                  <li>Launched 3 online entrepreneur products.</li>
+                  <li>Collaborated to expand into Insurance & Consulting.</li>
+                  <li>Rolled out Result Multiplier Part I.</li>
+                </ul>
+              </div>
+              <div style={{ marginBottom: '1.2em' }}>
+                <strong style={{ color: '#1976D2' }}>2023: Expansion & Handover</strong>
+                <ul style={{ margin: '0.5em 0 1em 1.2em' }}>
+                  <li>Released second book Why Do Entrepreneurs Miss the Bus?</li>
+                  <li>Empowered younger leaders by handing over verticals.</li>
+                  <li>Restarted Wisdom Knights.</li>
+                </ul>
+              </div>
+              <div style={{ marginBottom: '1.2em' }}>
+                <strong style={{ color: '#1976D2' }}>2024: Multipliers in Motion</strong>
+                <ul style={{ margin: '0.5em 0 1em 1.2em' }}>
+                  <li>Entered Goa & Surat aggressively.</li>
+                  <li>Launched Opportunity Multiplier and Advanced Gurukul.</li>
+                  <li>Collaborated with new partners in Ahmedabad & Kerala.</li>
+                </ul>
+              </div>
+              <div style={{ marginBottom: '1.2em' }}>
+                <strong style={{ color: '#1976D2' }}>2025: Vision Forward</strong>
+                <ul style={{ margin: '0.5em 0 1em 1.2em' }}>
+                  <li>Rolled out a new Vision.</li>
+                  <li>Launched smmart Financial Azadi with Dipak Dhabalia.</li>
+                  <li>Conducted the Goa workshop Why Entrepreneurs Fail to Scale?</li>
+                </ul>
+              </div>
+              <p style={{ fontWeight: 600, color: '#FF8C00', marginTop: '1.5em' }}>
+                25 years. Thousands of lives transformed. One fearless mission.<br />
+                We continue to move forward — bigger, bolder, and more committed to building self-led, system-driven organizations across India.
               </p>
             </motion.div>
           </motion.div>
-          <motion.div
-            className="journey-image"
-            whileHover={{ scale: 1.03 }}
-            transition={{ type: "spring", stiffness: 300 }}
-          >
-            <div className="gradient-overlay" style={{ background: 'linear-gradient(45deg, #87CEEB, #FF8C00)' }}></div>
-            <div className="dot-pattern"></div>
+          <motion.div className="journey-images-row" style={{ display: 'flex', gap: '24px', justifyContent: 'center', alignItems: 'center', marginTop: '32px', flexWrap: 'wrap' }}>
+            <img src={journeyImage} alt="Smmart Event" style={{ width: '400px', maxWidth: '100%', borderRadius: '18px', boxShadow: '0 8px 32px rgba(25, 118, 210, 0.12)' }} />
+            <img src={journeyImageCake} alt="Smmart Cake" style={{ width: '400px', maxWidth: '100%', borderRadius: '18px', boxShadow: '0 8px 32px rgba(25, 118, 210, 0.12)' }} />
+            <img src={journeyImage2} alt="Smmart Event" style={{ width: '400px', maxWidth: '100%', borderRadius: '18px', boxShadow: '0 8px 32px rgba(25, 118, 210, 0.12)' }} />
           </motion.div>
         </motion.section>
 
