@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import journeyImage from './images/01_3-1.jpg'; // Add this import at the top with other imports
 import journeyImageCake from './images/01_1.jpg';
 import journeyImage2 from './images/01-1.jpg';
+import whatWeDo from './images/04-2.jpg';
+import ourApproach from './images/06-1.jpg';
 
 const AboutSmmart = () => {
   const [activeTab, setActiveTab] = useState('VALUES');
@@ -490,18 +492,7 @@ const AboutSmmart = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="image-frame" style={{ borderColor: '#FF8C00' }}>
-              <div className="image-placeholder">
-                <div className="placeholder-content">
-                  <motion.div
-                    className="placeholder-icon"
-                    animate={{ rotate: [0, 10, 0, -10, 0] }}
-                    transition={{ repeat: Infinity, duration: 5 }}
-                    style={{ color: '#FF8C00' }}
-                  >🚀</motion.div>
-                </div>
-              </div>
-            </div>
+            <img src={whatWeDo} alt="What We Do" style={{ width: '100%', maxWidth: '400px', borderRadius: '8px', display: 'block', margin: '0 auto' }} />
           </motion.div>
         </motion.section>
 
@@ -518,18 +509,7 @@ const AboutSmmart = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            <div className="image-frame" style={{ borderColor: '#FF8C00' }}>
-              <div className="image-placeholder">
-                <div className="placeholder-content">
-                  <motion.div
-                    className="placeholder-icon"
-                    animate={{ scale: [1, 1.2, 1] }}
-                    transition={{ repeat: Infinity, duration: 3 }}
-                    style={{ color: '#FF8C00' }}
-                  >📊</motion.div>
-                </div>
-              </div>
-            </div>
+            <img src={ourApproach} alt="Our Approach" style={{ width: '100%', maxWidth: '400px', borderRadius: '8px', display: 'block', margin: '0 auto' }} />
           </motion.div>
           <motion.div
             className="approach-content"
