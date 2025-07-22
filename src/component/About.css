@@ -148,31 +148,24 @@ html,
 }
 
 .carousel-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 0;
-  position: relative;
 }
 
 .carousel-items {
   display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  justify-content: center;
-  padding: 0 20px;
-  gap: 30px;
+  flex-direction: row;
+  gap: 16px;
+  padding: 8px 12px;
 }
 
 .person-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 auto;
-  cursor: pointer;
-  transition: transform 0.3s ease;
-  padding: 10px;
+  min-width: 100px;
+  margin: 0 4px;
 }
 
 .person-card img {
@@ -224,7 +217,6 @@ html,
   flex-direction: column;
   align-items: center;
   position: relative;
-  z-index: 5;
 }
 
 .sigma-team-title {
@@ -735,7 +727,7 @@ html,
   display: block;
 }
 
-/* Dialog styles */
+/* Dialog styles
 .dialog-backdrop {
   position: fixed;
   top: 0;
@@ -748,23 +740,19 @@ html,
   justify-content: center;
   z-index: 1000;
   padding: 20px;
-}
+} */
 
-.dialog-box {
-  position: absolute !important;
-  top: 100px !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-  z-index: 2000 !important;
-  max-width: 90%;
-  width: 400px;
-  max-height: 80vh;
-  overflow-y: auto;
-}
+/* .dialog-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+  max-width: 420px;
+  width: 90vw;
+  padding: 32px 24px 24px 24px;
+  position: relative;
+  z-index: 2100;
+  animation: dialogPop 0.25s cubic-bezier(0.4, 2, 0.6, 1) both;
+} */
 
 .dialog-header {
   display: flex;
@@ -868,7 +856,7 @@ html,
   box-shadow: 0 4px 18px rgba(255, 140, 0, 0.18);
 }
 
-.dialog-backdrop {
+ .dialog-backdrop {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(0,0,0,0.5);
@@ -876,17 +864,30 @@ html,
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} 
+
 .dialog-box {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
-  max-width: 420px;
-  width: 90vw;
-  padding: 32px 24px 24px 24px;
-  position: relative;
-  z-index: 2100;
-  animation: dialogPop 0.25s cubic-bezier(.4,2,.6,1) both;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  z-index: 2000;
+  width: 600px;         /* Increased width */
+  max-width: 95vw;      /* Responsive for smaller screens */
+  max-height: 80vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+@media (max-width: 700px) {
+  .dialog-box {
+    width: 98vw;
+    padding: 12px;
+  }
 }
 @keyframes dialogPop {
   0% { transform: scale(0.85); opacity: 0; }
@@ -962,14 +963,14 @@ html,
   }
 
   .carousel-container {
-    justify-content: center;
-    min-width: max-content;
+    justify-content: flex-start;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 
   .carousel-items {
-    gap: 20px;
-    padding: 0 35px;
-    /* Make room for navigation buttons */
+    gap: 8px;
+    padding: 8px 4px;
   }
 
   .person-card {
@@ -1000,6 +1001,7 @@ html,
   .dialog-image-container {
     width: 120px;
     height: 120px;
+    padding:10px
   }
 
   .dialog-header h2 {
