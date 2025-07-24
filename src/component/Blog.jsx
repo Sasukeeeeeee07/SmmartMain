@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Blog.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Header from './Header';
-import BlogPhoto from './images/santosh.jpg';
+import santoshNair from "./images/Santosh Nair.JPG";
 import Footer from './Footer';
 import { FaSearch, FaClock, FaBookmark, FaShare, FaTags } from 'react-icons/fa';
 import { motion } from 'framer-motion';
@@ -11,7 +11,7 @@ const featuredBlog = {
   id: 1,
   title: 'Are You a Dreamer or a Doer?',
   author: 'Santosh Nair',
-  image: BlogPhoto,
+  image: santoshNair,
   date: 'May 15, 2023',
   readTime: '5 min read',
   description: 'Too many get lost in ideas, believing success happens from thinking alone. Dreamers envision. Doers execute. The dream fuels your purpose—execution brings it to life. What matters isn\'t how big your dream is—it\'s how strong your doing muscle.',
@@ -30,7 +30,7 @@ const blogCards = [
     id: 2,
     title: 'Why Your Inner Voice Defines Your Outer Reality',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'April 28, 2023',
     readTime: '4 min read',
     text: 'The opinions you hold about yourself determine the world you build around you. Self-doubt builds blocks; self-belief builds bridges. "Speak to yourself with the respect you reserve for others—and watch your world change." Check your inner dialogue—it is shaping your business, your leadership, and your life.',
@@ -40,7 +40,7 @@ const blogCards = [
     id: 3,
     title: 'Clarity Is the New Currency',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'April 10, 2023',
     readTime: '3 min read',
     text: 'Confusion is the real barrier to growth—not competition. Clear goals, clear systems, clear communication—these create traction. When clarity becomes your routine, progress becomes your habit. Ask yourself today: What is my clearest next step?',
@@ -50,7 +50,7 @@ const blogCards = [
     id: 4,
     title: 'Build a Business That Builds You',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'March 23, 2023',
     readTime: '6 min read',
     text: 'Most businesses grow around their founders. The best businesses grow because of them. If your business isn\'t stretching you, it\'s not scaling. Every challenge should stretch your mind, skills, and vision. When you build a business that upgrades you every day, legacy follows.',
@@ -60,7 +60,7 @@ const blogCards = [
     id: 1,
     title: 'The Freedom Matrix: Living Beyond Profit',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'February 15, 2023',
     readTime: '5 min read',
     text: 'Profit is essential. Real freedom is optional. Time freedom. Creative freedom. Leadership freedom. Financial freedom. To achieve them, build systems that deliver both impact and independence. A business that runs without you is a business that truly frees you.',

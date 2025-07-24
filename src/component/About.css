@@ -229,10 +229,10 @@ html,
 }
 
 .sigma-team-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  justify-items: center;
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap for better responsiveness */
+  justify-content: space-around; /* Improved alignment */
+  gap: 20px; /* Added gap between cards */
   width: 100%;
   max-width: 1200px;
   padding: 0 40px;
@@ -251,13 +251,14 @@ html,
   overflow: hidden;
   cursor: pointer;
   border: 2px solid rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Reduced animation duration */
+  min-width: 280px; /* Adjusted width for better spacing */
+  margin: 10px; /* Added margin to prevent overlap */
 }
 
 .sigma-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-  border-color: rgba(93, 169, 233, 0.6);
+  transform: translateY(-3px); /* Reduced hover effect */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 .sigma-card-image {

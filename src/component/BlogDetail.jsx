@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
-import BlogPhoto from './images/santosh.jpg';
+import santoshNair from "./images/Santosh Nair.JPG";
 import './BlogDetail.css';
 import { FaUser, FaComment, FaShare, FaHeart, FaBookmark, FaArrowLeft, FaTags } from 'react-icons/fa';
 
@@ -13,7 +13,7 @@ const allBlogs = {
     id: 1,
     title: 'Are You a Dreamer or a Doer?',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'May 15, 2023',
     readTime: '5 min read',
     tags: ['Leadership', 'Motivation', 'Success'],
@@ -28,7 +28,7 @@ const allBlogs = {
     id: 2,
     title: 'Why Your Inner Voice Defines Your Outer Reality',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'April 28, 2023',
     readTime: '4 min read',
     tags: ['Mindset', 'Growth', 'Self-Development'],
@@ -43,7 +43,7 @@ const allBlogs = {
     id: 3,
     title: 'Clarity Is the New Currency',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'April 10, 2023',
     readTime: '3 min read',
     tags: ['Strategy', 'Focus', 'Productivity'],
@@ -58,7 +58,7 @@ const allBlogs = {
     id: 4,
     title: 'Build a Business That Builds You',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'March 23, 2023',
     readTime: '6 min read',
     tags: ['Business', 'Growth', 'Leadership'],
@@ -73,7 +73,7 @@ const allBlogs = {
     id: 5,
     title: 'The Freedom Matrix: Living Beyond Profit',
     author: 'Santosh Nair',
-    image: BlogPhoto,
+    image: santoshNair,
     date: 'February 15, 2023',
     readTime: '5 min read',
     tags: ['Freedom', 'Systems', 'Lifestyle'],
@@ -115,7 +115,7 @@ const BlogDetail = () => {
             {
               id: 1,
               author: "John Smith",
-              avatar: BlogPhoto,
+              avatar: santoshNair,
               text: "This is exactly what I needed to hear. The future is indeed bright if we approach it with the right mindset.",
               timestamp: "2 hours ago",
               likes: 8
@@ -123,7 +123,7 @@ const BlogDetail = () => {
             {
               id: 2,
               author: "Sarah Johnson",
-              avatar: BlogPhoto,
+              avatar: santoshNair,
               text: "Great insights! I especially appreciate the point about healthcare advancements. It's amazing to see how technology is transforming medicine.",
               timestamp: "5 hours ago",
               likes: 5
@@ -131,7 +131,7 @@ const BlogDetail = () => {
             {
               id: 3,
               author: "Michael Brown",
-              avatar: BlogPhoto,
+              avatar: santoshNair,
               text: "Very thought-provoking article. It's refreshing to see such an optimistic yet realistic take on technological advancement.",
               timestamp: "1 day ago",
               likes: 12
@@ -158,7 +158,7 @@ const BlogDetail = () => {
       {
         id: 1,
         author: "John Smith",
-        avatar: BlogPhoto,
+        avatar: santoshNair,
         text: "This is exactly what I needed to hear. The future is indeed bright if we approach it with the right mindset.",
         timestamp: "2 hours ago",
         likes: 8
@@ -166,7 +166,7 @@ const BlogDetail = () => {
       {
         id: 2,
         author: "Sarah Johnson",
-        avatar: BlogPhoto,
+        avatar: santoshNair,
         text: "Great insights! I especially appreciate the point about healthcare advancements. It's amazing to see how technology is transforming medicine.",
         timestamp: "5 hours ago",
         likes: 5
@@ -174,7 +174,7 @@ const BlogDetail = () => {
       {
         id: 3,
         author: "Michael Brown",
-        avatar: BlogPhoto,
+        avatar: santoshNair,
         text: "Very thought-provoking article. It's refreshing to see such an optimistic yet realistic take on technological advancement.",
         timestamp: "1 day ago",
         likes: 12
@@ -199,7 +199,7 @@ const BlogDetail = () => {
         const newComment = {
           id: Date.now(), // Use timestamp for unique ID
           author: "Guest User",
-          avatar: BlogPhoto,
+          avatar: santoshNair,
           text: comment,
           timestamp: "Just now",
           likes: 0
