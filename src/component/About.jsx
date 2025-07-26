@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import "./About.css";
 import { Link } from "react-router-dom";
 import Header from "./Header";
@@ -6,7 +6,6 @@ import santoshNair from "./images/Santosh Nair.JPG";
 import sindhuNair from "./images/SindhuNair.JPG";
 import Mehernosh from "./images/Mehernosh.jpeg";
 import rajeshTanksali from "./images/Rajesh Tanksali - Accounts & Finance DGM (1).JPG";
-// import himanshuTiwari from "./images/himanshu.jpg";
 import darshanMehta from "./images/Darshan Mehta.jpg";
 import GeetaNaidu from "./images/Geeta Naidu Khan.JPG";
 import Footer from "./Footer";
@@ -51,12 +50,11 @@ const teamMembers = [
   },
 ];
 
-// Example 12 cards for Sigma section
 const sigmaTeam = [
   {
     name: "T.I.G.E.R. Santosh Nair",
     title: "Chairman | Chief Mentor | Trainer",
-    desc: "Santosh Nair is one of India’s most inspiring business transformation coaches and the visionary behind smmart Training & Consultancy Services and the Santosh Nair Online Academy. With over 25 years of experience, he has mentored more than 1.5 lakh entrepreneurs and partnered with over 100+ organizations, driving real change from the ground up. Known for his fearless energy, sharp insights, and futuristic approach, Santosh Nair empowers individuals to become self-led, high-performance leaders. At the heart of his work is a powerful mission to build a new future for Indian enterprise, driven by bold minds and unstoppable action.",
+    desc: "Santosh Nair is one of India's most inspiring business transformation coaches and the visionary behind smmart Training & Consultancy Services and the Santosh Nair Online Academy. With over 25 years of experience, he has mentored more than 1.5 lakh entrepreneurs and partnered with over 100+ organizations, driving real change from the ground up. Known for his fearless energy, sharp insights, and futuristic approach, Santosh Nair empowers individuals to become self-led, high-performance leaders. At the heart of his work is a powerful mission to build a new future for Indian enterprise, driven by bold minds and unstoppable action.",
     image: santoshNair,
   },
   {
@@ -91,110 +89,32 @@ const sigmaTeam = [
   },
 ];
 
+// Memoized components for better performance
+const PersonCard = React.memo(({ person, idx, currentIndex, onSelect }) => (
+  <motion.div
+    className={`person-card${idx === currentIndex ? " active" : ""}`}
+    style={{ cursor: "pointer" }}
+    whileHover={{ scale: 1.05 }}
+    onClick={() => onSelect(idx)}
+  >
+    <img
+      src={person.image}
+      alt={person.name}
+      style={{
+        width: 120,
+        height: 120,
+        borderRadius: "50%",
+        objectFit: "cover",
+        border: idx === currentIndex ? "3px solid #5da9e9" : "3px solid transparent",
+        transition: "all 0.3s ease",
+      }}
+    />
+    <motion.p>{person.name}</motion.p>
+  </motion.div>
+));
 
-
-// Dialog component for displaying team member details
-// function Dialog({ isOpen, onClose, member, position }) {
-//   if (!isOpen || !member) return null;
-//   return (
-//     <div
-//       className="dialog-box"
-//       style={{
-//         position: "fixed",
-//         top: position?.top || 100,
-//         left: position?.left || 100,
-//         background: "white",
-//         padding: "20px",
-//         borderRadius: "12px",
-//         boxShadow: "0 5px 20px rgba(0, 0, 0, 0.3)",
-//         zIndex: 2000,
-//         maxWidth: "90%",
-//         width: "400px",
-//         maxHeight: "80vh",
-//         overflowY: "auto",
-//       }}
-//     >
-//       <div
-//         style={{
-//           display: "flex",
-//           justifyContent: "space-between",
-//           alignItems: "center",
-//           borderBottom: "1px solid #eee",
-//           paddingBottom: "10px",
-//           marginBottom: "15px",
-//         }}
-//       >
-//         <h2 style={{ margin: 0 }}>{member.name}</h2>
-//         <button
-//           onClick={onClose}
-//           style={{
-//             background: "none",
-//             border: "none",
-//             fontSize: "24px",
-//             cursor: "pointer",
-//           }}
-//         >
-//           &times;
-//         </button>
-//       </div>
-//       <div style={{ textAlign: "center" }}>
-//         <img
-//           src={member.image}
-//           alt={member.name}
-//           style={{
-//             width: "100px",
-//             height: "100px",
-//             borderRadius: "50%",
-//             marginBottom: "15px",
-//           }}
-//         />
-//         <h3 style={{ margin: "0 0 10px" }}>{member.title}</h3>
-//         <p style={{ margin: 0, textAlign: "left" }}>{member.desc}</p>
-//       </div>
-//     </div>
-//   );
-// }
-
-function About() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const current = teamMembers[currentIndex];
-  const [showLeaderDialog, setShowLeaderDialog] = useState(false);
-  const [dialogLeader, setDialogLeader] = useState(null);
-  const isLongBio = current.bio && current.bio.length > 120;
-
-  const handleReadmore = () => {
-    setDialogLeader(current);
-    setShowLeaderDialog(true);
-  };
-  const handlecloseDialog = () => setShowLeaderDialog(false);
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
-  };
-
-  const handleSelect = (idx) => setCurrentIndex(idx);
-
-  const [selectedMember, setSelectedMember] = useState(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
-  const textVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-  };
-
-  const isLongText = (text) => {
-    return text && text.length > 150;
-  };
-
+const SigmaCard = React.memo(({ member, idx, onReadMore }) => {
+  const isLongText = member.desc && member.desc.length > 150;
   const truncateText = (text, maxLength = 150) => {
     if (text && text.length > maxLength) {
       return text.substring(0, maxLength) + "...";
@@ -202,12 +122,137 @@ function About() {
     return text;
   };
 
-  const handleReadMore = (member, e) => {
+  return (
+    <motion.div
+      className="sigma-card"
+      variants={{
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+      }}
+    >
+      <div className="sigma-card-image">
+        <img src={member.image} alt={member.name} />
+      </div>
+      <div className="sigma-card-content">
+        <motion.div
+          className="sigma-card-title"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          {member.name}
+        </motion.div>
+        <motion.div
+          className="sigma-card-role"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          {member.title}
+        </motion.div>
+        <motion.div
+          className="sigma-card-desc"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          {truncateText(member.desc)}
+          {isLongText && (
+            <motion.button
+              className="read-more-btn"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              onClick={(e) => onReadMore(member, e)}
+            >
+              Read More
+            </motion.button>
+          )}
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+});
+
+const Dialog = React.memo(({ isOpen, onClose, member, type }) => {
+  if (!isOpen || !member) return null;
+
+  return (
+    <div className="dialog-backdrop" onClick={onClose}>
+      <div className="dialog-box" onClick={(e) => e.stopPropagation()}>
+        <div className="dialog-header">
+          <h2>{member.name}</h2>
+          <button className="dialog-close" onClick={onClose}>
+            &times;
+          </button>
+        </div>
+        <div className="dialog-content">
+          <img
+            src={member.image}
+            alt={member.name}
+            className="dialog-image"
+          />
+          <h3>{type === 'sigma' ? member.title : member.position}</h3>
+          <p>{type === 'sigma' ? member.desc : member.bio}</p>
+        </div>
+      </div>
+    </div>
+  );
+});
+
+function About() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showLeaderDialog, setShowLeaderDialog] = useState(false);
+  const [dialogLeader, setDialogLeader] = useState(null);
+  const [selectedMember, setSelectedMember] = useState(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
+  const [carouselRef, setCarouselRef] = useState(null);
+
+  const current = useMemo(() => teamMembers[currentIndex], [currentIndex]);
+
+  // Optimized event handlers
+  const handleReadmore = useCallback(() => {
+    setDialogLeader(current);
+    setShowLeaderDialog(true);
+  }, [current]);
+
+  const handlecloseDialog = useCallback(() => setShowLeaderDialog(false), []);
+
+  const handlePrev = useCallback(() => {
+    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
+  }, []);
+
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
+  }, []);
+
+  const handleSelect = useCallback((idx) => setCurrentIndex(idx), []);
+
+  const handleReadMore = useCallback((member, e) => {
     e.stopPropagation();
     setSelectedMember(member);
     setDialogOpen(true);
-  };
-  const handleCloseDialog = () => setDialogOpen(false);
+  }, []);
+
+  const handleCloseDialog = useCallback(() => setDialogOpen(false), []);
+
+  // Auto-scroll carousel to center active item on mobile
+  useEffect(() => {
+    if (carouselRef && window.innerWidth <= 768) {
+      const activeCard = carouselRef.querySelector('.person-card.active');
+      if (activeCard) {
+        const containerWidth = carouselRef.offsetWidth;
+        const cardLeft = activeCard.offsetLeft;
+        const cardWidth = activeCard.offsetWidth;
+        const scrollLeft = cardLeft - (containerWidth / 2) + (cardWidth / 2);
+        
+        carouselRef.scrollTo({
+          left: scrollLeft,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [currentIndex, carouselRef]);
 
   return (
     <>
@@ -222,13 +267,7 @@ function About() {
             <motion.h1 className="leader-name">{current.name}</motion.h1>
             <motion.h3 className="leader-title">{current.position}</motion.h3>
             <motion.p className="leader-description">{current.bio}</motion.p>
-            <button
-              className="leader-read-more"
-              onClick={() => {
-                setDialogLeader(current);
-                setShowLeaderDialog(true);
-              }}
-            >
+            <button className="leader-read-more" onClick={handleReadmore}>
               Read More
             </button>
           </motion.div>
@@ -236,152 +275,108 @@ function About() {
             <img src={current.image} alt={current.name} />
           </div>
         </div>
-        {showLeaderDialog && dialogLeader && (
-          <div className="dialog-backdrop" onClick={handlecloseDialog}>
-            <div className="dialog-box" onClick={(e) => e.stopPropagation()}>
-              <div className="dialog-header">
-                <h2>{dialogLeader.name}</h2>
-                <button className="dialog-close" onClick={handlecloseDialog}>
-                  &times;
-                </button>
-              </div>
-              <div className="dialog-content">
-                <img
-                  src={dialogLeader.image}
-                  alt={dialogLeader.name}
-                  className="dialog-image"
-                />
-                <h3>{dialogLeader.position}</h3>
-                <p>{dialogLeader.bio}</p>
-              </div>
-            </div>
-          </div>
-        )}
+        
+        <Dialog 
+          isOpen={showLeaderDialog} 
+          onClose={handlecloseDialog} 
+          member={dialogLeader} 
+          type="leader"
+        />
+        
         <div className="people-section">
           <div className="carousel-container">
-            <button className="nav-arrow left" onClick={handlePrev} style={{ borderRadius: '50%', background: 'rgba(93,169,233,0.15)', border: 'none', boxShadow: '0 2px 8px rgba(93,169,233,0.15)', width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', marginRight: 8 }}>
+            <button 
+              className="nav-arrow left" 
+              onClick={handlePrev} 
+              style={{ 
+                borderRadius: '50%', 
+                background: 'rgba(93,169,233,0.15)', 
+                border: 'none', 
+                boxShadow: '0 2px 8px rgba(93,169,233,0.15)', 
+                width: 44, 
+                height: 44, 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                marginRight: 8 
+              }}
+            >
               <span style={{ fontSize: '2rem', color: '#1a365d', fontWeight: 700 }}>&lt;</span>
             </button>
-            <div className="carousel-items">
+            <div 
+              className="carousel-items" 
+              ref={setCarouselRef}
+            >
               {teamMembers.map((person, idx) => (
-                <motion.div
+                <PersonCard
                   key={person.name}
-                  className={`person-card${idx === currentIndex ? " active" : ""
-                    }`}
-                  style={{ cursor: "pointer" }}
-                  whileHover={{ scale: 1.05 }}
-                  onClick={() => handleSelect(idx)}
-                >
-                  <img
-                    src={person.image}
-                    alt={person.name}
-                    style={{
-                      width: 120,
-                      height: 120,
-                      borderRadius: "50%",
-                      objectFit: "cover",
-                      border:
-                        idx === currentIndex
-                          ? "3px solid #5da9e9"
-                          : "3px solid transparent",
-                      transition: "all 0.3s ease",
-                    }}
-                  />
-                  <motion.p>{person.name}</motion.p>
-                </motion.div>
+                  person={person}
+                  idx={idx}
+                  currentIndex={currentIndex}
+                  onSelect={handleSelect}
+                />
               ))}
             </div>
-            <button className="nav-arrow right" onClick={handleNext} style={{ borderRadius: '50%', background: 'rgba(93,169,233,0.15)', border: 'none', boxShadow: '0 2px 8px rgba(93,169,233,0.15)', width: 44, height: 44, display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: 8 }}>
+            <button 
+              className="nav-arrow right" 
+              onClick={handleNext} 
+              style={{ 
+                borderRadius: '50%', 
+                background: 'rgba(93,169,233,0.15)', 
+                border: 'none', 
+                boxShadow: '0 2px 8px rgba(93,169,233,0.15)', 
+                width: 44, 
+                height: 44, 
+                display: 'flex', 
+                alignItems: 'center', 
+                justifyContent: 'center', 
+                marginLeft: 8 
+              }}
+            >
               <span style={{ fontSize: '2rem', color: '#1a365d', fontWeight: 700 }}>&gt;</span>
             </button>
           </div>
         </div>
       </motion.div>
+      
       <motion.div
         className="sigma-team-section"
         initial="hidden"
         animate="visible"
         variants={{
           hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+          visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
         }}
       >
-        <motion.h2 className="sigma-team-title" variants={textVariants}>
+        <motion.h2 
+          className="sigma-team-title" 
+          variants={{
+            hidden: { opacity: 0, y: 10 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+          }}
+        >
           Meet the smmart Training Team
         </motion.h2>
         <div className="sigma-team-cards">
           {sigmaTeam.map((member, idx) => (
-            <motion.div
-              className="sigma-card"
-              key={idx}
-              variants={cardVariants}
-            >
-              <div className="sigma-card-image">
-                <img src={member.image} alt={member.name} />
-              </div>
-              <div className="sigma-card-content">
-                <motion.div
-                  className="sigma-card-title"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  {member.name}
-                </motion.div>
-                <motion.div
-                  className="sigma-card-role"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
-                  {member.title}
-                </motion.div>
-                <motion.div
-                  className="sigma-card-desc"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                >
-                  {truncateText(member.desc)}
-                  {isLongText(member.desc) && (
-                    <motion.button
-                      className="read-more-btn"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      transition={{ duration: 0.5, delay: 0.5 }}
-                      onClick={(e) => handleReadMore(member, e)}
-                    >
-                      Read More
-                    </motion.button>
-                  )}
-                </motion.div>
-              </div>
-            </motion.div>
+            <SigmaCard
+              key={member.name}
+              member={member}
+              idx={idx}
+              onReadMore={handleReadMore}
+            />
           ))}
         </div>
       </motion.div>
-      {dialogOpen && selectedMember && (
-        <div className="dialog-backdrop" onClick={handleCloseDialog}>
-          <div className="dialog-box" onClick={(e) => e.stopPropagation()}>
-            <div className="dialog-header">
-              <h2>{selectedMember.name}</h2>
-              <button className="dialog-close" onClick={handleCloseDialog}>
-                &times;
-              </button>
-            </div>
-            <div className="dialog-content">
-              <img
-                src={selectedMember.image}
-                alt={selectedMember.name}
-                className="dialog-image"
-              />
-              <h3>{selectedMember.title}</h3>
-              <p>{selectedMember.desc}</p>
-            </div>
-          </div>
-        </div>
-      )}
-      <Footer></Footer>
+      
+      <Dialog 
+        isOpen={dialogOpen} 
+        onClose={handleCloseDialog} 
+        member={selectedMember} 
+        type="sigma"
+      />
+      
+      <Footer />
     </>
   );
 }
