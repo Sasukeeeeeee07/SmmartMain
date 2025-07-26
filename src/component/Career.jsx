@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
+import SmmartText from './SmmartText';
 import './Career.css';
 
 const categories = [
@@ -74,7 +75,7 @@ const Career = () => {
         <div className="career-container">
           <motion.div className="career-heading" {...slideUp}>Be Part of our Mission</motion.div>
           <motion.div className="career-desc" {...slideUp}>
-            Join our team of passionate innovators! At smmart, we believe in empowering talent, fostering growth, and creating meaningful impact. We offer a collaborative environment where your ideas matter and your growth is prioritized.
+            Join our team of passionate innovators! At <SmmartText>smmart</SmmartText>, we believe in empowering talent, fostering growth, and creating meaningful impact. We offer a collaborative environment where your ideas matter and your growth is prioritized.
           </motion.div>
           <div className="career-categories">
             {categories.map(cat => (

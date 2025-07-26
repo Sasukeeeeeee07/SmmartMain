@@ -1,5 +1,6 @@
 import React from 'react';
 import '../assets/Philosophy.css';
+import SmmartText from './SmmartText';
 
 const Philosophy = () => {
   return (
@@ -13,7 +14,7 @@ const Philosophy = () => {
           </div>
           
           <h1 className="main-heading">
-            smmart has taken the responsibility of<br />
+            <SmmartText>smmart</SmmartText> has taken the responsibility of<br />
             making Change Creators.
           </h1>
           
@@ -22,7 +23,7 @@ const Philosophy = () => {
           </p>
           
           <p className="highlight-text">
-            smmart – Your new way of doing business.
+            <SmmartText>smmart</SmmartText> – Your new way of doing business.
           </p>
         </div>
       </section>

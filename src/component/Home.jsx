@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import homevideo from '../assets/videos/homevideo.mp4';
 import Header from './Header';
+import SmmartText from './SmmartText';
 import './Home.css';
 
 const Home = () => {
@@ -41,7 +42,7 @@ const Home = () => {
         </video>
 
         <motion.div className="centered-text" {...fadeIn}>
-          <motion.h1 {...slideUp}>smmart- True School for Entrepreneurs</motion.h1>
+          <motion.h1 {...slideUp}><SmmartText>smmart- True School for Entrepreneurs</SmmartText></motion.h1>
 
           <button className="ml-button">Join Now</button>
         </motion.div>

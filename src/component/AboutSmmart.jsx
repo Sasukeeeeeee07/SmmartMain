@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Footer from './Footer';
+import SmmartText from './SmmartText';
 import './AboutSmmart.css';
 import { motion } from 'framer-motion';
 import journeyImage from './images/01_3-1.jpg'; // Add this import at the top with other imports
@@ -126,7 +127,7 @@ const AboutSmmart = () => {
             variants={fadeIn}
           >
             <motion.p whileHover={{ scale: 1.02 }}>
-              At smmart Training & Consultancy Services, our mission is to awaken the fearless entrepreneur in every individual and empower them to build self-led, scalable, and system-driven organizations. We operate with a high-performance culture grounded in discipline, accountability, and action — where transformation is driven not by theory, but by implementation.
+              At <SmmartText>smmart</SmmartText> Training & Consultancy Services, our mission is to awaken the fearless entrepreneur in every individual and empower them to build self-led, scalable, and system-driven organizations. We operate with a high-performance culture grounded in discipline, accountability, and action — where transformation is driven not by theory, but by implementation.
             </motion.p>
             <motion.div
               className="mission-pillars"
@@ -188,20 +189,20 @@ const AboutSmmart = () => {
               maxWidth: '90%',
               margin: '0 auto'
             }}
-          >          <motion.h1
-            className="hero-title"
-            style={{
-              color: '#FF8C00',
-              fontSize: '2.5rem',
-              lineHeight: '1.5',
-              fontWeight: 'bold',
-              textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-              position: 'relative',
-              zIndex: 10
-            }}
-            whileHover={{ scale: 1.03 }}
-          >
-              Leadership That Think smmart
+          >                      <motion.h1
+              className="hero-title"
+              style={{
+                color: '#FF8C00',
+                fontSize: '2.5rem',
+                lineHeight: '1.5',
+                fontWeight: 'bold',
+                textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                position: 'relative',
+                zIndex: 10
+              }}
+              whileHover={{ scale: 1.03 }}
+            >
+              Leadership That Think <SmmartText>smmart</SmmartText>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -242,7 +243,7 @@ const AboutSmmart = () => {
                 <div className="timeline-content">
                   <h3 className="timeline-year">2000–2009: The Foundation Years</h3>
                   <ul>
-                    <li>Birth of smmart and entry into the MSME sector.</li>
+                    <li>Birth of <SmmartText>smmart</SmmartText> and entry into the MSME sector.</li>
                     <li>First major failures shaped our resilience.</li>
                     <li>Launched T.I.G.E.R., AMYC, and expanded into MLM and Kerala.</li>
                     <li>Surat operations began to take off.</li>
@@ -300,7 +301,7 @@ const AboutSmmart = () => {
                   <h3 className="timeline-year">2025: Vision Forward</h3>
                   <ul>
                     <li>Rolled out a new Vision.</li>
-                    <li>Launched smmart Financial Azadi with Dipak Dhabalia.</li>
+                    <li>Launched <SmmartText>smmart</SmmartText> Financial Azadi with Dipak Dhabalia.</li>
                     <li>Conducted the Goa workshop Why Entrepreneurs Fail to Scale?</li>
                   </ul>
                 </div>
@@ -527,7 +528,7 @@ const AboutSmmart = () => {
           >
             <motion.h3 style={{ color: '#FF8C00' }}>Our Approach</motion.h3>
             <motion.p whileHover={{ scale: 1.02 }}>
-              <span style={{ color: '#FF8C00' }}>smmart</span>'s approach combines time-tested strategies with real-world experience.
+              <span style={{ color: '#FF8C00' }}><SmmartText>smmart</SmmartText></span>'s approach combines time-tested strategies with real-world experience.
               Our methodology is not just theoretical - it is crafted from years of hands-on
               experience working with real businesses facing real challenges.
             </motion.p>

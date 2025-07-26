@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, LazyMotion, domAnimation } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import SmmartText from './SmmartText';
 import '../assets/Featured.css';
 import '../assets/EventsSection.css';
 import '../assets/EventsPerformance.css';
@@ -120,7 +121,7 @@ const Featured = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.2 }} /* Faster animations */
             >
-              <span>Introducing</span> <span className="highlight">smmart</span>
+              <span>Introducing</span> <span className="highlight"><SmmartText>smmart</SmmartText></span>
             </motion.div>          <motion.h2
               className="meet-title"
               initial={{ opacity: 0, y: 15 }} /* Reduced distance */
@@ -135,7 +136,7 @@ const Featured = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.4 }} /* Faster animations */
             >
-              Santosh Nair is one of India's most inspiring business transformation coaches and the visionary behind smmart Training & Consultancy Services and the Santosh Nair Online Academy. With over 25 years of experience, he has mentored more than 1.5 lakh entrepreneurs and partnered with over 100+ organizations, driving real change from the ground up. Known for his fearless energy, sharp insights, and futuristic approach, Santosh Nair empowers individuals to become self-led, high-performance leaders. At the heart of his work is a powerful mission to build a new future for Indian enterprise, driven by bold minds and unstoppable action.
+              Santosh Nair is one of India's most inspiring business transformation coaches and the visionary behind <SmmartText>smmart</SmmartText> Training & Consultancy Services and the Santosh Nair Online Academy. With over 25 years of experience, he has mentored more than 1.5 lakh entrepreneurs and partnered with over 100+ organizations, driving real change from the ground up. Known for his fearless energy, sharp insights, and futuristic approach, Santosh Nair empowers individuals to become self-led, high-performance leaders. At the heart of his work is a powerful mission to build a new future for Indian enterprise, driven by bold minds and unstoppable action.
             </motion.p>
           </motion.div>        <motion.div
             className="meet-image"
@@ -164,61 +165,54 @@ const Featured = () => {
           viewport={{ once: true, amount: 0.2 }}
           style={{ marginTop: '80px' }}
         >
-          <div className="events-container">            <motion.div
+          <div className="events-container">
+            <motion.div
               className="events-header"
               variants={headerVariants}
             >
               <h2 className="events-heading">
-                smmart EVENTS
+                <SmmartText>smmart</SmmartText> EVENTS
               </h2>
               <span className="events-heading-accent"></span>
-              <div className="events-description">
+            </motion.div>
 
-              </div>
-            </motion.div><motion.div
+            <motion.div
               className="events-grid"
               ref={eventsContainerRef}
               variants={containerVariants}
-              style={{ maxWidth: '1400px', margin: '0 auto' }}
             >
-              {events.map(event => (
-                <motion.img
+              {events.map((event, index) => (
+                <motion.div
                   key={event.id}
-                  src={event.image}
-                  alt={event.title}
-                  className="event-image-large"
-                  loading="eager"
-                  onClick={handleEventClick}
-                  style={{
-                    width: '100%',
-                    height: '340px',
-                    objectFit: 'contain',
-                    borderRadius: '16px',
-                    margin: '0 10px 20px 10px',
-                    boxShadow: '0 8px 24px rgba(0,0,0,0.12)',
-                    display: 'block',
-                    cursor: 'pointer',
-                  }}
+                  className="event-banner-card"
+                  variants={cardVariants}
                   whileHover={{
-                    scale: 1.05,
-                    boxShadow: '0 12px 32px rgba(0,0,0,0.2)',
+                    scale: 1.02,
                     transition: { duration: 0.3, ease: "easeOut" }
                   }}
-                />
+                  onClick={handleEventClick}
+                >
+                  <img
+                    src={event.image}
+                    alt={event.title}
+                    className="event-banner-image"
+                    loading="lazy"
+                  />
+                </motion.div>
               ))}
             </motion.div>
 
-            {totalPages > 1 && (
-              <div className="event-indicators">
-                {Array.from({ length: totalPages }).map((_, index) => (
-                  <span
-                    key={index}
-                    className={`indicator ${currentPage === index ? 'active' : ''}`}
-                    onClick={() => setCurrentPage(index)}
-                  />
-                ))}
-              </div>
-            )}
+            <motion.div 
+              className="events-cta-section"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+            >
+              <button className="view-all-events-btn" onClick={handleEventClick}>
+                View All Events
+                <span className="btn-arrow">→</span>
+              </button>
+            </motion.div>
           </div>
         </motion.div>    </div>
     </LazyMotion>

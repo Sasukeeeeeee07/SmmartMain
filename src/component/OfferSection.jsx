@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SmmartText from './SmmartText';
 import '../assets/OfferSection.css';
 
 const programsData = [
@@ -62,14 +63,14 @@ const ProgramButton = ({ program, isOpen, onClick }) => {
   return (
     <div className="program-container">
       <button className={`program-button ${isOpen ? 'active' : ''}`} onClick={onClick}>
-        {program.name} <span className={`arrow-icon ${isOpen ? 'open' : ''}`}>→</span>
+        <SmmartText>{program.name}</SmmartText> <span className={`arrow-icon ${isOpen ? 'open' : ''}`}>→</span>
       </button>
       {isOpen && (
         <div className="program-details">
-          <p className="program-description">{program.description}</p>
+          <p className="program-description"><SmmartText>{program.description}</SmmartText></p>
           <ul className="program-features">
             {program.details.map((detail, index) => (
-              <li key={index}>{detail}</li>
+              <li key={index}><SmmartText>{detail}</SmmartText></li>
             ))}
           </ul>
           {/* <button className="learn-more">Learn More</button> */}

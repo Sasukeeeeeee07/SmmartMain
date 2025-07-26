@@ -10,6 +10,7 @@ import darshanMehta from "./images/Darshan Mehta.jpg";
 import GeetaNaidu from "./images/Geeta Naidu Khan.JPG";
 import Footer from "./Footer";
 import { motion, AnimatePresence } from "framer-motion";
+import SmmartText from './SmmartText';
 
 const teamMembers = [
   {
@@ -140,7 +141,7 @@ const SigmaCard = React.memo(({ member, idx, onReadMore }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          {member.name}
+          <SmmartText>{member.name}</SmmartText>
         </motion.div>
         <motion.div
           className="sigma-card-role"
@@ -148,7 +149,7 @@ const SigmaCard = React.memo(({ member, idx, onReadMore }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          {member.title}
+          <SmmartText>{member.title}</SmmartText>
         </motion.div>
         <motion.div
           className="sigma-card-desc"
@@ -156,7 +157,7 @@ const SigmaCard = React.memo(({ member, idx, onReadMore }) => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          {truncateText(member.desc)}
+          <SmmartText>{truncateText(member.desc)}</SmmartText>
           {isLongText && (
             <motion.button
               className="read-more-btn"
@@ -181,7 +182,7 @@ const Dialog = React.memo(({ isOpen, onClose, member, type }) => {
     <div className="dialog-backdrop" onClick={onClose}>
       <div className="dialog-box" onClick={(e) => e.stopPropagation()}>
         <div className="dialog-header">
-          <h2>{member.name}</h2>
+          <h2><SmmartText>{member.name}</SmmartText></h2>
           <button className="dialog-close" onClick={onClose}>
             &times;
           </button>
@@ -192,8 +193,8 @@ const Dialog = React.memo(({ isOpen, onClose, member, type }) => {
             alt={member.name}
             className="dialog-image"
           />
-          <h3>{type === 'sigma' ? member.title : member.position}</h3>
-          <p>{type === 'sigma' ? member.desc : member.bio}</p>
+          <h3><SmmartText>{type === 'sigma' ? member.title : member.position}</SmmartText></h3>
+          <p><SmmartText>{type === 'sigma' ? member.desc : member.bio}</SmmartText></p>
         </div>
       </div>
     </div>
@@ -261,12 +262,14 @@ function About() {
         <div className="header-spacer" style={{ height: "80px" }}></div>
         <div className="main-content">
           <motion.h2 className="subtitle">
-            Leadership that thinks smmart
+            Leadership that thinks <span className="smmart-text"><span className="smm">smm</span><span className="art">art</span></span>
           </motion.h2>
           <motion.div className="leader-info">
             <motion.h1 className="leader-name">{current.name}</motion.h1>
             <motion.h3 className="leader-title">{current.position}</motion.h3>
-            <motion.p className="leader-description">{current.bio}</motion.p>
+            <motion.p className="leader-description">
+              <SmmartText>{current.bio}</SmmartText>
+            </motion.p>
             <button className="leader-read-more" onClick={handleReadmore}>
               Read More
             </button>
@@ -355,7 +358,7 @@ function About() {
             visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
           }}
         >
-          Meet the smmart Training Team
+          Meet the <span className="smmart-text"><span className="smm">smm</span><span className="art">art</span></span> Training Team
         </motion.h2>
         <div className="sigma-team-cards">
           {sigmaTeam.map((member, idx) => (

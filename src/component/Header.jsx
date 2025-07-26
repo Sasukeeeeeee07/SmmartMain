@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import SmmartText from './SmmartText';
 import './Header.css';
 import logoImage from '../assets/image/logo.png';
 
@@ -142,7 +143,7 @@ const Header = () => {
             >              About
             </button>
             <div className={`dropdown-menu ${activeDropdown === 'about' ? 'show' : ''}`}>
-              <Link to="/about/AboutSmmart" onClick={() => setIsMenuOpen(false)}>About smmart</Link>
+              <Link to="/about/AboutSmmart" onClick={() => setIsMenuOpen(false)}>About <SmmartText>smmart</SmmartText></Link>
               <Link to="/about" onClick={() => setIsMenuOpen(false)}>Our People</Link>
             </div>
           </div>
@@ -179,7 +180,7 @@ const Header = () => {
             className={location.pathname.startsWith('/smmartevents') ? 'active' : ''}
             onClick={() => setIsMenuOpen(false)}
           >
-            smmart Events
+            <SmmartText>smmart</SmmartText> Events
           </Link>
         </div>
         <Link to="/contact" className="contact-btn" onClick={() => setIsMenuOpen(false)}>

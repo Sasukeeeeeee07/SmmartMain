@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SmmartText from './SmmartText';
 import './FAQSection.css';
 
 const faqs = [
@@ -58,11 +59,11 @@ const FAQSection = () => {
             onClick={() => handleToggle(idx)}
           >
             <div className="faq-question-row">
-              <span>{faq.question}</span>
+              <span><SmmartText>{faq.question}</SmmartText></span>
               <span className={`faq-arrow${openIdx === idx ? ' active' : ''}`}>&#9660;</span>
             </div>
             <div className={`faq-answer${openIdx === idx ? ' show' : ''}`}>
-              {faq.answer}
+              <SmmartText>{faq.answer}</SmmartText>
             </div>
           </div>
         ))}

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import SmmartText from './SmmartText';
 import './TestimonialCarousel.css';
 
 // Function to extract YouTube video ID
@@ -21,7 +22,7 @@ const testimonials = [
   {
     name: 'Chirag Katira',
     role: 'SNGT Director',
-    text: '"Chirag, Director of SNGT Group, congratulates SMART for completing 25 years and empowering over 30,000 entrepreneurs. He credits smmart for SNGTs growth from ₹25 crores in 2011 to over ₹150 crores today. After his father Rajesh Katira joined the Tiger Program, followed by Chira and his cousins, the company expanded to 90+ branches (90% owned), entered warehousing (5 lakh sq. ft.), and diversified into six other businesses. Managing their joint family business of 32 members with a 10-member core team has been smooth due to smmart clarity in vision, mission, and purpose. He thanks Santosh Sir and Sindhu Maam sincerely."',
+    text: '"Chirag, Director of SNGT Group, congratulates SMART for completing 25 years and empowering over 30,000 entrepreneurs. He credits <SmmartText>smmart</SmmartText> for SNGTs growth from ₹25 crores in 2011 to over ₹150 crores today. After his father Rajesh Katira joined the Tiger Program, followed by Chira and his cousins, the company expanded to 90+ branches (90% owned), entered warehousing (5 lakh sq. ft.), and diversified into six other businesses. Managing their joint family business of 32 members with a 10-member core team has been smooth due to <SmmartText>smmart</SmmartText> clarity in vision, mission, and purpose. He thanks Santosh Sir and Sindhu Maam sincerely."',
     videoId: 'xX7lBxQgh0o'
   },
   {

@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* AvantGarde font styling for smmart text - Global */
+.smmart-text {
+  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.smmart-text .smm {
+  font-weight: 700;
+  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+}
+
+.smmart-text .art {
+  font-weight: 400;
+  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+}

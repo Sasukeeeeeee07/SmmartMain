@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Contact.css';
 import Header from './Header';
+import SmmartText from './SmmartText';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
@@ -143,7 +144,7 @@ const Contact = () => {
                 <div className="feature-icon">✉️</div>
                 <div className="feature-text">
                   <h3>Email Us</h3>
-                  <p>info@SMMART.co.in</p>
+                  <p>info@<SmmartText>SMMART</SmmartText>.co.in</p>
                 </div>
               </div>
             </div>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import SmmartText from './SmmartText';
 import './Career.css';
 import './ApplyJob.css';
 
@@ -288,7 +289,7 @@ const ApplyJob = () => {
             <div className="job-card-meta">
               <span className="job-badge"><i className="fas fa-briefcase"></i> {job.type}</span>
               <span className="job-badge"><i className="fas fa-map-marker-alt"></i> {job.location}</span>
-              <span className="job-badge"><i className="fas fa-building"></i> {job.company}</span>
+              <span className="job-badge"><i className="fas fa-building"></i> <SmmartText>{job.company}</SmmartText></span>
             </div>
           </div>
 

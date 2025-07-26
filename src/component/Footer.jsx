@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SmmartText from './SmmartText';
 import './Footer.css';
 import logo from '../assets/image/logo.png';
 
@@ -16,7 +17,7 @@ const Footer = () => {
           <div className="footer-logo">
             <img src={logo} alt="SMMART Logo" />
           </div>          <div className="footer-link no-hover">
-            Transform your life with SMMART's expert guidance and proven methodologies. Join us on a journey of personal and professional growth.
+            Transform your life with <SmmartText>SMMART</SmmartText>'s expert guidance and proven methodologies. Join us on a journey of personal and professional growth.
           </div>
         </div>
         <div className="footer-col">
@@ -54,7 +55,7 @@ const Footer = () => {
           <span>English</span>
           <a href="/privacypolicy.html" target="_blank" rel="noopener noreferrer" className="footer-link">Privacy Policy</a>
           <a href="/terms.html" target="_blank" rel="noopener noreferrer" className="footer-link">Terms and Conditions</a>
-          <span>© 2025 SMMART. All rights reserved</span>
+          <span>© 2025 <SmmartText>SMMART</SmmartText>. All rights reserved</span>
         </div>
         <div className="footer-socials">
           <a href="https://www.facebook.com/SMMART" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
