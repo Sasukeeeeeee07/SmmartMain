@@ -14,16 +14,18 @@ code {
 
 /* AvantGarde font styling for smmart text - Global */
 .smmart-text {
-  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+  font-family: 'AvantGarde', 'ITC Avant Garde Gothic', 'Century Gothic', 'Futura', sans-serif;
   letter-spacing: 0.5px;
 }
 
 .smmart-text .smm {
   font-weight: 700;
-  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+  /* Bold */
+  font-family: 'AvantGarde', 'ITC Avant Garde Gothic', 'Century Gothic', 'Futura', sans-serif;
 }
 
 .smmart-text .art {
   font-weight: 400;
-  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+  /* Normal */
+  font-family: 'AvantGarde', 'ITC Avant Garde Gothic', 'Century Gothic', 'Futura', sans-serif;
 }

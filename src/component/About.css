@@ -149,18 +149,20 @@ html,
 
 /* AvantGarde font styling for smmart text */
 .smmart-text {
-  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+  font-family: 'AvantGarde', 'ITC Avant Garde Gothic', 'Century Gothic', 'Futura', sans-serif;
   letter-spacing: 0.5px;
 }
 
 .smmart-text .smm {
   font-weight: 700;
-  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+  /* Bold */
+  font-family: 'AvantGarde', 'ITC Avant Garde Gothic', 'Century Gothic', 'Futura', sans-serif;
 }
 
 .smmart-text .art {
   font-weight: 400;
-  font-family: 'Montserrat', 'Inter', 'Arial', sans-serif;
+  /* Normal */
+  font-family: 'AvantGarde', 'ITC Avant Garde Gothic', 'Century Gothic', 'Futura', sans-serif;
 }
 
 /* Optimize carousel for mobile */
@@ -255,7 +257,8 @@ html,
 
 .sigma-team-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Display 3 cards in a row */
+  grid-template-columns: repeat(3, 1fr);
+  /* Display 3 cards in a row */
   gap: 20px;
   width: 100%;
   max-width: 1200px;
@@ -380,6 +383,7 @@ html,
   z-index: 2;
   display: block;
 }
+
 .read-more-btn:hover {
   background: linear-gradient(90deg, #FF8C00, #1976D2);
   transform: translateY(-2px) scale(1.04);
@@ -388,13 +392,15 @@ html,
 
 @media (max-width: 1200px) {
   .sigma-team-cards {
-    grid-template-columns: repeat(3, 1fr); /* Keep 3 columns on medium screens */
+    grid-template-columns: repeat(3, 1fr);
+    /* Keep 3 columns on medium screens */
     gap: 20px;
     padding: 0 20px;
   }
 
   .sigma-card {
-    min-width: auto; /* Remove fixed min-width to let grid handle sizing */
+    min-width: auto;
+    /* Remove fixed min-width to let grid handle sizing */
     height: 420px;
   }
 
@@ -448,7 +454,8 @@ html,
   }
 
   .sigma-team-cards {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    grid-template-columns: repeat(2, 1fr);
+    /* 2 columns on tablets */
     padding: 0 20px;
     gap: 15px;
   }
@@ -476,16 +483,19 @@ html,
     -webkit-line-clamp: 4;
     line-clamp: 4;
   }
-/* 
+
+  /* 
   .dialog-content {
     width: 95%;
     max-height: 85vh;
   }
- */}
+ */
+}
 
 @media (max-width: 768px) {
   .sigma-team-cards {
-    grid-template-columns: 1fr; /* 1 column on mobile */
+    grid-template-columns: 1fr;
+    /* 1 column on mobile */
     max-width: 340px;
     margin: 0 auto;
     gap: 20px;
@@ -534,7 +544,8 @@ html,
   .dialog-description {
     font-size: 16px;
   }
-*/}
+*/
+}
 
 @media (max-width: 480px) {
   .main-content {
@@ -584,7 +595,7 @@ html,
     padding: 12px;
   }
 
-  
+
   /* .dialog-content {
     width: 95%;
     padding: 12px;
@@ -913,26 +924,27 @@ html,
   letter-spacing: 1px;
   outline: none;
 }
+
 .leader-read-more:hover {
   background: linear-gradient(90deg, #FF8C00, #1976D2);
   transform: translateY(-2px) scale(1.04);
   box-shadow: 0 4px 18px rgba(255, 140, 0, 0.18);
 }
 
- /* Optimize dialog performance */
+/* Optimize dialog performance */
 .dialog-backdrop {
   position: fixed;
-  top: 0; 
-  left: 0; 
-  right: 0; 
+  top: 0;
+  left: 0;
+  right: 0;
   bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 2000;
   display: flex;
   align-items: center;
   justify-content: center;
   backdrop-filter: blur(2px);
-} 
+}
 
 .dialog-box {
   position: fixed;
@@ -952,16 +964,26 @@ html,
   flex-direction: column;
   will-change: transform;
 }
+
 @media (max-width: 700px) {
   .dialog-box {
     width: 98vw;
     padding: 12px;
   }
 }
+
 @keyframes dialogPop {
-  0% { transform: scale(0.85); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
+
 .dialog-header {
   display: flex;
   justify-content: space-between;
@@ -970,11 +992,13 @@ html,
   padding-bottom: 10px;
   margin-bottom: 15px;
 }
+
 .dialog-header h2 {
   margin: 0;
   font-size: 1.5rem;
   color: #1976D2;
 }
+
 .dialog-close {
   background: none;
   border: none;
@@ -983,12 +1007,15 @@ html,
   cursor: pointer;
   transition: color 0.2s;
 }
+
 .dialog-close:hover {
   color: #1976D2;
 }
+
 .dialog-content {
   text-align: center;
 }
+
 .dialog-image {
   width: 90px;
   height: 90px;
@@ -997,11 +1024,13 @@ html,
   margin-bottom: 15px;
   border: 3px solid #1976D2;
 }
+
 .dialog-content h3 {
   margin: 0 0 10px;
   color: #FF8C00;
   font-size: 1.1rem;
 }
+
 .dialog-content p {
   color: #222;
   font-size: 1rem;
@@ -1199,16 +1228,17 @@ html,
 
 /* Reduce motion for users who prefer it */
 @media (prefers-reduced-motion: reduce) {
+
   .sigma-card,
   .person-card,
   .sigma-card-image img {
     transition: none;
   }
-  
+
   .carousel-container {
     scroll-behavior: auto;
   }
-  
+
   .motion-div {
     animation: none !important;
     transition: none !important;
