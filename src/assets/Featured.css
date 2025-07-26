@@ -148,7 +148,6 @@
   object-fit: contain;
   transition: transform 0.3s ease;
   display: block;
-  background: #f8f9fa;
 }
 
 .event-banner-card:hover .event-banner-image {
@@ -227,6 +226,7 @@
   line-height: 1.3;
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -238,6 +238,7 @@
   margin-bottom: 20px;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -324,8 +325,8 @@
 /* Responsive Design */
 @media screen and (max-width: 1200px) {
   .events-grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: 35px;
   }
 
   .events-heading {
@@ -333,14 +334,14 @@
   }
 
   .event-banner-image {
-    height: 260px;
+    height: 380px;
   }
 }
 
 @media screen and (max-width: 992px) {
   .events-grid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
   }
 
   .events-heading {
@@ -348,7 +349,7 @@
   }
 
   .event-banner-image {
-    height: 240px;
+    height: 360px;
   }
 }
 
@@ -373,11 +374,11 @@
 
   .events-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 25px;
   }
 
   .event-banner-image {
-    height: 220px;
+    height: 320px;
   }
 
   .event-banner-card {
@@ -399,7 +400,7 @@
   }
 
   .event-banner-image {
-    height: 200px;
+    height: 280px;
   }
 
   .event-banner-card {
