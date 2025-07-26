@@ -64,36 +64,220 @@ const AboutSmmart = () => {
             initial="hidden"
             animate="visible"
           >
-            <motion.div className="value-card" variants={slideUp} whileHover={{ scale: 1.05 }}>
-              <motion.div
-                className="value-icon"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                style={{ backgroundImage: 'url(/images/knowledge-icon.png)', backgroundSize: 'cover' }}
-              ></motion.div>
-              <h4 style={{ color: '#FF8C00' }}>Knowledge</h4>
-              <p>We transform through knowledge and believe in continuous learning.</p>
+            <motion.div
+              className="values-intro"
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                padding: '1.5rem',
+                borderRadius: '12px',
+                marginBottom: '2rem',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 140, 0, 0.2)',
+                textAlign: 'center'
+              }}
+              whileHover={{ scale: 1.01 }}
+            >
+              <h3 style={{ color: '#FF8C00', marginBottom: '1rem' }}>Our Core Values</h3>
+              <p style={{ fontSize: '1rem', lineHeight: '1.6' }}>
+                Guided by our core values that drive transformation through action, not theory
+              </p>
             </motion.div>
-            <motion.div className="value-card" variants={slideUp} whileHover={{ scale: 1.05 }}>
+
+            <motion.div
+              className="values-grid"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gap: '1.5rem'
+              }}
+            >
               <motion.div
-                className="value-icon"
-                whileHover={{ scale: 1.2, rotate: -5 }}
-                style={{ backgroundImage: 'url(/images/empowerment-icon.png)', backgroundSize: 'cover' }}
-              ></motion.div>
-              <h4 style={{ color: '#FF8C00' }}>Empowerment</h4>
-              <p>Empowering others is life and our core mission.</p>
-            </motion.div>
-            <motion.div className="value-card" variants={slideUp} whileHover={{ scale: 1.05 }}>
+                className="value-card"
+                variants={slideUp}
+                whileHover={{ scale: 1.05, y: -5 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center',
+                  height: '100%'
+                }}
+              >
+                <motion.div
+                  className="value-icon"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    backgroundColor: '#FF8C00',
+                    borderRadius: '50%',
+                    margin: '0 auto 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    color: 'white'
+                  }}
+                >
+                  ⭐
+                </motion.div>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Demanding Excellence</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  We set the highest standards and never compromise on quality in everything we deliver.
+                </p>
+              </motion.div>
+
               <motion.div
-                className="value-icon"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                style={{ backgroundImage: 'url(/images/growth-icon.png)', backgroundSize: 'cover' }}
-              ></motion.div>
-              <h4 style={{ color: '#FF8C00' }}>Growth</h4>
-              <p>Building businesses is our way of life. We transform mindsets before businesses.</p>
+                className="value-card"
+                variants={slideUp}
+                whileHover={{ scale: 1.05, y: -5 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center',
+                  height: '100%'
+                }}
+              >
+                <motion.div
+                  className="value-icon"
+                  whileHover={{ scale: 1.2, rotate: -5 }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    backgroundColor: '#FF8C00',
+                    borderRadius: '50%',
+                    margin: '0 auto 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    color: 'white'
+                  }}
+                >
+                  🚀
+                </motion.div>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Challenging Status Quo</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  We continuously question conventional wisdom and push boundaries to create breakthrough solutions.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="value-card"
+                variants={slideUp}
+                whileHover={{ scale: 1.05, y: -5 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center',
+                  height: '100%'
+                }}
+              >
+                <motion.div
+                  className="value-icon"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    backgroundColor: '#FF8C00',
+                    borderRadius: '50%',
+                    margin: '0 auto 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    color: 'white'
+                  }}
+                >
+                  💡
+                </motion.div>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Meaningful Experience</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  We speak from real, hands-on experience and share insights that truly matter.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="value-card"
+                variants={slideUp}
+                whileHover={{ scale: 1.05, y: -5 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center',
+                  height: '100%'
+                }}
+              >
+                <motion.div
+                  className="value-icon"
+                  whileHover={{ scale: 1.2, rotate: -5 }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    backgroundColor: '#FF8C00',
+                    borderRadius: '50%',
+                    margin: '0 auto 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    color: 'white'
+                  }}
+                >
+                  🎯
+                </motion.div>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Result-Oriented</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  We stay responsive and focused on delivering measurable, tangible outcomes.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="value-card"
+                variants={slideUp}
+                whileHover={{ scale: 1.05, y: -5 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center',
+                  height: '100%'
+                }}
+              >
+                <motion.div
+                  className="value-icon"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    backgroundColor: '#FF8C00',
+                    borderRadius: '50%',
+                    margin: '0 auto 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    color: 'white'
+                  }}
+                >
+                  🔥
+                </motion.div>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Entrepreneurial Spirit</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.5' }}>
+                  We nurture an entrepreneurial mindset with no entitlement, only earned success.
+                </p>
+              </motion.div>
             </motion.div>
           </motion.div>
-        );
-      case 'VISION':
+        ); case 'VISION':
         return (
           <motion.div
             className="vision-content"
@@ -101,7 +285,24 @@ const AboutSmmart = () => {
             animate="visible"
             variants={fadeIn}
           >
-            <motion.p whileHover={{ scale: 1.02 }}>To be the catalyst for entrepreneurial success across India and beyond, creating a wave of innovative, sustainable, and impactful businesses.</motion.p>
+            <motion.div
+              className="vision-statement"
+              whileHover={{ scale: 1.02 }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                padding: '2rem',
+                borderRadius: '15px',
+                marginBottom: '2rem',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 140, 0, 0.2)'
+              }}
+            >
+              <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Vision 2035</h3>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333' }}>
+                To become a <strong style={{ color: '#FF8C00' }}>global transformation leader by 2035</strong> by creating <strong style={{ color: '#FF8C00' }}>100 million success stories</strong> and awakening the fearless entrepreneur in every individual.
+              </p>
+            </motion.div>
+
             <motion.div
               className="vision-goals"
               variants={slideUp}
@@ -109,12 +310,81 @@ const AboutSmmart = () => {
               animate="visible"
               transition={{ delay: 0.3 }}
             >
-              <h4 style={{ color: '#FF8C00' }}>Future Goals</h4>
-              <ul>
-                <motion.li whileHover={{ x: 10, color: '#FF8C00' }}>Reaching 100,000+ entrepreneurs by 2027</motion.li>
-                <motion.li whileHover={{ x: 10, color: '#FF8C00' }}>Expanding our presence to 5 new countries</motion.li>
-                <motion.li whileHover={{ x: 10, color: '#FF8C00' }}>Creating an online learning platform for global reach</motion.li>
-              </ul>
+              <h4 style={{ color: '#FF8C00', marginBottom: '1.5rem' }}>We Envision A World Where:</h4>
+              <motion.div
+                className="vision-pillars"
+                variants={staggeredChildren}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                  gap: '1.5rem',
+                  marginBottom: '2rem'
+                }}
+              >
+                <motion.div
+                  className="vision-pillar"
+                  variants={slideUp}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  style={{
+                    background: 'rgba(255, 140, 0, 0.1)',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 140, 0, 0.2)',
+                    textAlign: 'center'
+                  }}
+                >
+                  <h5 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>Self-Led Organizations</h5>
+                  <p style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>Built through autonomy and leadership excellence</p>
+                </motion.div>
+
+                <motion.div
+                  className="vision-pillar"
+                  variants={slideUp}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  style={{
+                    background: 'rgba(255, 140, 0, 0.1)',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 140, 0, 0.2)',
+                    textAlign: 'center'
+                  }}
+                >
+                  <h5 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>Scalable Systems</h5>
+                  <p style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>Designed for sustainable growth and expansion</p>
+                </motion.div>
+
+                <motion.div
+                  className="vision-pillar"
+                  variants={slideUp}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  style={{
+                    background: 'rgba(255, 140, 0, 0.1)',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 140, 0, 0.2)',
+                    textAlign: 'center'
+                  }}
+                >
+                  <h5 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>System-Driven Success</h5>
+                  <p style={{ fontSize: '0.95rem', lineHeight: '1.6' }}>Through 100% implementation and results</p>
+                </motion.div>
+              </motion.div>
+
+              <motion.div
+                className="transformation-approach"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.1)'
+                }}
+                whileHover={{ scale: 1.01 }}
+              >
+                <h5 style={{ color: '#FF8C00', marginBottom: '1rem' }}>Our Transformation Promise</h5>
+                <p style={{ fontSize: '1rem', lineHeight: '1.7' }}>
+                  We deliver guaranteed success through a powerful blend of <strong>standardization</strong>, <strong>customization</strong>, and <strong>personalization</strong> — transforming lives through real, measurable, and sustained action, not theory.
+                </p>
+              </motion.div>
             </motion.div>
           </motion.div>
         );
@@ -126,26 +396,81 @@ const AboutSmmart = () => {
             animate="visible"
             variants={fadeIn}
           >
-            <motion.p whileHover={{ scale: 1.02 }}>
-              At <SmmartText>smmart</SmmartText> Training & Consultancy Services, our mission is to awaken the fearless entrepreneur in every individual and empower them to build self-led, scalable, and system-driven organizations. We operate with a high-performance culture grounded in discipline, accountability, and action — where transformation is driven not by theory, but by implementation.
-            </motion.p>
+            <motion.div
+              className="mission-statement"
+              whileHover={{ scale: 1.02 }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                padding: '2rem',
+                borderRadius: '15px',
+                marginBottom: '2rem',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 140, 0, 0.2)'
+              }}
+            >
+              <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Mission</h3>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333' }}>
+                At <SmmartText>smmart</SmmartText> Training & Consultancy Services, our mission is to <strong style={{ color: '#FF8C00' }}>awaken the fearless entrepreneur</strong> in every individual and empower them to build <strong style={{ color: '#FF8C00' }}>self-led, scalable, and system-driven organizations</strong>. We operate with a high-performance culture grounded in discipline, accountability, and action — where transformation is driven not by theory, but by <strong style={{ color: '#FF8C00' }}>implementation</strong>.
+              </p>
+            </motion.div>
+
             <motion.div
               className="mission-pillars"
               variants={staggeredChildren}
               initial="hidden"
               animate="visible"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '1.5rem'
+              }}
             >
-              <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
-                <h4 style={{ color: '#FF8C00' }}>Awaken</h4>
-                <p>Igniting the fearless entrepreneur within</p>
+              <motion.div
+                className="pillar"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Awaken</h4>
+                <p>Igniting the fearless entrepreneur within through rigorous insights and intense facilitation</p>
               </motion.div>
-              <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
-                <h4 style={{ color: '#FF8C00' }}>Empower</h4>
-                <p>Building self-led, scalable organizations</p>
+
+              <motion.div
+                className="pillar"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Empower</h4>
+                <p>Building self-led, scalable organizations through 100% implementation guarantee</p>
               </motion.div>
-              <motion.div className="pillar" variants={slideUp} whileHover={{ y: -5 }}>
-                <h4 style={{ color: '#FF8C00' }}>Transform</h4>
-                <p>Implementation-driven transformation</p>
+
+              <motion.div
+                className="pillar"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Transform</h4>
+                <p>Delivering guaranteed success through meaningful experience and sustained action</p>
               </motion.div>
             </motion.div>
           </motion.div>
@@ -190,18 +515,18 @@ const AboutSmmart = () => {
               margin: '0 auto'
             }}
           >                      <motion.h1
-              className="hero-title"
-              style={{
-                color: '#FF8C00',
-                fontSize: '2.5rem',
-                lineHeight: '1.5',
-                fontWeight: 'bold',
-                textShadow: '0 2px 4px rgba(0,0,0,0.1)',
-                position: 'relative',
-                zIndex: 10
-              }}
-              whileHover={{ scale: 1.03 }}
-            >
+            className="hero-title"
+            style={{
+              color: '#FF8C00',
+              fontSize: '2.5rem',
+              lineHeight: '1.5',
+              fontWeight: 'bold',
+              textShadow: '0 2px 4px rgba(0,0,0,0.1)',
+              position: 'relative',
+              zIndex: 10
+            }}
+            whileHover={{ scale: 1.03 }}
+          >
               Leadership That Think <SmmartText>smmart</SmmartText>
             </motion.h1>
             <motion.p

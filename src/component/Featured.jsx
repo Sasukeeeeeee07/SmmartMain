@@ -5,7 +5,7 @@ import SmmartText from './SmmartText';
 import '../assets/Featured.css';
 import '../assets/EventsSection.css';
 import '../assets/EventsPerformance.css';
-import santosh from './images/santoshnairfeature.jpg';
+import santosh from './images/Santosh Nair.JPG';
 // Import banner images
 import egBatchBanner from '../assets/banners/EG_50th Batch Launch.jpg';
 import pepTalkBanner from '../assets/banners/Peptalk.jpg';
@@ -202,7 +202,7 @@ const Featured = () => {
               ))}
             </motion.div>
 
-            <motion.div 
+            <motion.div
               className="events-cta-section"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}

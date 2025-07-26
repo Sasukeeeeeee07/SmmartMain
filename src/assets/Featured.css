@@ -57,8 +57,8 @@
 .person-image {
   width: 100%;
   height: auto;
-  max-height: 450px;
-  object-fit: cover;
+  max-height: 500px;
+  object-fit: contain;
   border-radius: 10px;
   box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -126,7 +126,7 @@
 
 /* Event Banner Card */
 .event-banner-card {
-  background: #ffffff;
+  background: transparent;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
@@ -145,7 +145,7 @@
 .event-banner-image {
   width: 100%;
   height: 280px;
-  object-fit: cover;
+  object-fit: contain;
   transition: transform 0.3s ease;
   display: block;
 }
@@ -326,11 +326,11 @@
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 25px;
   }
-  
+
   .events-heading {
     font-size: 3rem;
   }
-  
+
   .event-banner-image {
     height: 260px;
   }
@@ -341,11 +341,11 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 20px;
   }
-  
+
   .events-heading {
     font-size: 2.5rem;
   }
-  
+
   .event-banner-image {
     height: 240px;
   }
@@ -356,29 +356,29 @@
     margin-top: 60px;
     padding: 30px 0;
   }
-  
+
   .events-container {
     padding: 0 15px;
   }
-  
+
   .events-header {
     margin-bottom: 40px;
   }
-  
+
   .events-heading {
     font-size: 2.2rem;
     letter-spacing: 1px;
   }
-  
+
   .events-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
-  
+
   .event-banner-image {
     height: 220px;
   }
-  
+
   .event-banner-card {
     border-radius: 16px;
   }
@@ -388,23 +388,23 @@
   .events-section {
     padding: 20px 0;
   }
-  
+
   .events-container {
     padding: 0 12px;
   }
-  
+
   .events-heading {
     font-size: 1.8rem;
   }
-  
+
   .event-banner-image {
     height: 200px;
   }
-  
+
   .event-banner-card {
     border-radius: 12px;
   }
-  
+
   .view-all-events-btn {
     padding: 14px 28px;
     font-size: 1rem;
@@ -445,7 +445,7 @@
     width: 100% !important;
     max-width: 300px !important;
     height: auto !important;
-    max-height: none !important;
+    max-height: 400px !important;
     border-radius: 15px !important;
   }
 
@@ -482,6 +482,7 @@
 
   .person-image {
     max-width: 280px !important;
+    max-height: 380px !important;
     border-radius: 12px !important;
   }
 

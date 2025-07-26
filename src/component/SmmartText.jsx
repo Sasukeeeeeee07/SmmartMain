@@ -6,11 +6,11 @@ const SmmartText = ({ children, className = "" }) => {
   
   const parts = children.split(/(smmart)/gi);
   return parts.map((part, index) => {
-    if (part.toLowerCase() === 'smmart') {
+    if (part.toLowerCase() === 'smm𝖆rt') {
       return (
         <span key={index} className={`smmart-text ${className}`}>
           <span className="smm">smm</span>
-          <span className="art">art</span>
+          <span className="art">𝖆rt</span>
         </span>
       );
     }

@@ -31,7 +31,7 @@ const events = [
   },
   {
     type: 'normal',
-    name: 'Pep Talk',
+    name: 'PEPTALK',
     description: 'Get motivated and inspired with our energizing Pep Talk sessions designed to boost your entrepreneurial spirit and drive.',
     image: pepTalkBanner,
     learnMore: true,
@@ -39,7 +39,7 @@ const events = [
   },
   {
     type: 'normal',
-    name: 'Why do entrepreneurs fail to scale',
+    name: 'Why do entrepreneurs fail to scale?',
     description: 'Explore the common pitfalls and challenges that prevent entrepreneurs from scaling their businesses successfully.',
     image: whyDoGoaBanner,
     learnMore: true,

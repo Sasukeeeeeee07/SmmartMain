@@ -22,13 +22,13 @@ const teamMembers = [
   {
     name: "Sindhu Nair",
     position: "CO-FOUNDER & DIRECTOR",
-    bio: "I and my founder husband, Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then.Though we are based in Mumbai and Rajkot, we operate in Surat, Pune, Napgur, Amravati, Raipur, Delhi, Hyderabad, Calicut, Cochin. With the online curriculum added to our portfolio, we have added Pan India and international clients to our circle.After working for decades with corporates and multi national companies, we shifted gear to focus extensively with MSME Entrepreneurs thru our motivational programs, trainings, coaching, mentoring etc etc. We enhance their capability and have successfully helped transform more than 12 million individuals, entrepreneurs and their enterprises.We organise and also execute motivational programs, workshops, training interventions, review audits, Organisational need analysis, Training need analysis, creating systems & processes and making organisations future ready!.Our focus is implementation and not just Training.",
+    bio: "I and my founder husband, Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then.Though we are based in Mumbai and Rajkot, we operate in Surat, Pune, Napgur, Amravati, Raipur, Delhi, Hyderabad, Calicut, Cochin.",
     image: sindhuNair,
   },
   {
     name: "Mehernosh",
     position: "DIRECTOR",
-    bio: "Anup Nair is a seasoned professional with expertise in operations and team management.",
+    bio: "With over 25 years of rich, multi-industry and multi-location leadership experience, I bring a powerful blend of strategic foresight, operational precision, and transformation capability to every organisation I serve.",
     image: Mehernosh,
   },
   {
@@ -40,13 +40,13 @@ const teamMembers = [
   {
     name: "Geeta Naidu Khan",
     position: "DIRECTOR",
-    bio: "Himanshu Tiwari brings his expertise in marketing and business strategy to the leadership team.",
+    bio: "A result-oriented, award-winning Customer Experience leader with over 16 years of experience in BFSI, Travel & Hospitality.",
     image: GeetaNaidu,
   },
   {
     name: "Darshan Mehta",
     position: "DIRECTOR",
-    bio: "Darshan Mehta is known for his exceptional skills in financial management and business growth.",
+    bio: "Darshan Mehta is the Director, Professional Trainer and Motivational Speaker at Vigour Learnings.T.I.G.E.R. Darshan Mehta has succeeded in creating passionate experiences for his listeners and motivated them with his impactful insights and in-depth knowledge.",
     image: darshanMehta,
   },
 ];
@@ -246,7 +246,7 @@ function About() {
         const cardLeft = activeCard.offsetLeft;
         const cardWidth = activeCard.offsetWidth;
         const scrollLeft = cardLeft - (containerWidth / 2) + (cardWidth / 2);
-        
+
         carouselRef.scrollTo({
           left: scrollLeft,
           behavior: 'smooth'
@@ -278,36 +278,36 @@ function About() {
             <img src={current.image} alt={current.name} />
           </div>
         </div>
-        
-        <Dialog 
-          isOpen={showLeaderDialog} 
-          onClose={handlecloseDialog} 
-          member={dialogLeader} 
+
+        <Dialog
+          isOpen={showLeaderDialog}
+          onClose={handlecloseDialog}
+          member={dialogLeader}
           type="leader"
         />
-        
+
         <div className="people-section">
           <div className="carousel-container">
-            <button 
-              className="nav-arrow left" 
-              onClick={handlePrev} 
-              style={{ 
-                borderRadius: '50%', 
-                background: 'rgba(93,169,233,0.15)', 
-                border: 'none', 
-                boxShadow: '0 2px 8px rgba(93,169,233,0.15)', 
-                width: 44, 
-                height: 44, 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center', 
-                marginRight: 8 
+            <button
+              className="nav-arrow left"
+              onClick={handlePrev}
+              style={{
+                borderRadius: '50%',
+                background: 'rgba(93,169,233,0.15)',
+                border: 'none',
+                boxShadow: '0 2px 8px rgba(93,169,233,0.15)',
+                width: 44,
+                height: 44,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: 8
               }}
             >
               <span style={{ fontSize: '2rem', color: '#1a365d', fontWeight: 700 }}>&lt;</span>
             </button>
-            <div 
-              className="carousel-items" 
+            <div
+              className="carousel-items"
               ref={setCarouselRef}
             >
               {teamMembers.map((person, idx) => (
@@ -320,20 +320,20 @@ function About() {
                 />
               ))}
             </div>
-            <button 
-              className="nav-arrow right" 
-              onClick={handleNext} 
-              style={{ 
-                borderRadius: '50%', 
-                background: 'rgba(93,169,233,0.15)', 
-                border: 'none', 
-                boxShadow: '0 2px 8px rgba(93,169,233,0.15)', 
-                width: 44, 
-                height: 44, 
-                display: 'flex', 
-                alignItems: 'center', 
-                justifyContent: 'center', 
-                marginLeft: 8 
+            <button
+              className="nav-arrow right"
+              onClick={handleNext}
+              style={{
+                borderRadius: '50%',
+                background: 'rgba(93,169,233,0.15)',
+                border: 'none',
+                boxShadow: '0 2px 8px rgba(93,169,233,0.15)',
+                width: 44,
+                height: 44,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: 8
               }}
             >
               <span style={{ fontSize: '2rem', color: '#1a365d', fontWeight: 700 }}>&gt;</span>
@@ -341,7 +341,7 @@ function About() {
           </div>
         </div>
       </motion.div>
-      
+
       <motion.div
         className="sigma-team-section"
         initial="hidden"
@@ -351,8 +351,8 @@ function About() {
           visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
         }}
       >
-        <motion.h2 
-          className="sigma-team-title" 
+        <motion.h2
+          className="sigma-team-title"
           variants={{
             hidden: { opacity: 0, y: 10 },
             visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
@@ -371,14 +371,14 @@ function About() {
           ))}
         </div>
       </motion.div>
-      
-      <Dialog 
-        isOpen={dialogOpen} 
-        onClose={handleCloseDialog} 
-        member={selectedMember} 
+
+      <Dialog
+        isOpen={dialogOpen}
+        onClose={handleCloseDialog}
+        member={selectedMember}
         type="sigma"
       />
-      
+
       <Footer />
     </>
   );
