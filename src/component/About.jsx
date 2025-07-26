@@ -16,31 +16,31 @@ const teamMembers = [
   {
     name: "Santosh Nair",
     position: "CHAIRMAN & CHIEF ENERGY OFFICER",
-    bio: "T.I.G.E.R. Santosh Nair is a Leading Author, a Life Coach, Business Transformation Guru, Motivational Speaker, and Chairman at smmart Training & Consultancy.",
+    bio: "Santosh Nair is one of India's most inspiring business transformation coaches and the visionary behind smmart Training & Consultancy Services and the Santosh Nair Online Academy. With over 25 years of experience, he has mentored more than 1.5 lakh entrepreneurs and partnered with over 100+ organizations, driving real change from the ground up. Known for his fearless energy, sharp insights, and futuristic approach, Santosh Nair empowers individuals to become self-led, high-performance leaders. At the heart of his work is a powerful mission to build a new future for Indian enterprise, driven by bold minds and unstoppable action.",
     image: santoshNair,
   },
   {
     name: "Sindhu Nair",
     position: "CO-FOUNDER & DIRECTOR",
-    bio: "I and my founder husband, Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then.Though we are based in Mumbai and Rajkot, we operate in Surat, Pune, Napgur, Amravati, Raipur, Delhi, Hyderabad, Calicut, Cochin.",
+    bio: "I and my founder husband, Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then.Though we are based in Mumbai and Rajkot, we operate in Surat, Pune, Napgur, Amravati, Raipur, Delhi, Hyderabad, Calicut, Cochin. With the online curriculum added to our portfolio, we have added Pan India and international clients to our circle.After working for decades with corporates and multi national companies, we shifted gear to focus extensively with MSME Entrepreneurs thru our motivational programs, trainings, coaching, mentoring etc etc. We enhance their capability and have successfully helped transform more than 12 million individuals, entrepreneurs and their enterprises.We organise and also execute motivational programs, workshops, training interventions, review audits, Organisational need analysis, Training need analysis, creating systems & processes and making organisations future ready!.Our focus is implementation and not just Training.We have a fleet of highly acclaimed Trainers, coaches and OD Experts. Our set of Trainers and Business enhancers are key to us. We are always on the lookout for a Talent pool that is high on energy, ambitious, having a maverick mindset and willing to leave an inedible mark In our growth trajectory.Our journey is still on and we are ably guided by our chairmans strong BHAG to be the Harvard of entrepreneur transformation, create 100 million success stories and become a billion dollar company by 2035.",
     image: sindhuNair,
   },
   {
     name: "Mehernosh",
     position: "DIRECTOR",
-    bio: "With over 25 years of rich, multi-industry and multi-location leadership experience, I bring a powerful blend of strategic foresight, operational precision, and transformation capability to every organisation I serve.",
+    bio: "With over 25 years of rich, multi-industry and multi-location leadership experience, I bring a powerful blend of strategic foresight, operational precision, and transformation capability to every organisation I serve. I operate at the intersection of strategy, adaptability, and execution—ensuring that vision is not only crafted but also converted into sustainable business outcomes. My Value Proposition: I help organisations scale smartly—by simplifying complexity, aligning teams to business goals, building future-ready capabilities, and embedding agility into operations. Whether leading change, building new revenue engines, or reimagining structures, I drive performance through purpose. Key Contributions: - Spearheaded multi-location and multi-industry transformations across consulting, education, digital, and healthcare sectors - Led high-impact turnarounds through process innovation, strategic realignment, and revenue optimisation - Mentored CXOs and emerging leaders to develop strong internal pipelines and cultures of accountability - Integrated AI-readiness and data-driven decision-making into legacy systems for future resilience. My Skill Identity & Executive Presence: I am often seen as a strategic catalyst and calm executor—someone who can articulate the larger picture while driving granular excellence. My executive presence is grounded in authenticity, clarity, and the ability to lead with both empathy and impact. Skillset Snapshot: - Strategic Planning & Business Design - Operational Leadership & P&L Management - Change & Crisis Management - Team Alignment & Capability Building - Brand Communication & Stakeholder Engagement - Data & AI Integration for Business Decision Making.",
     image: Mehernosh,
   },
   {
     name: "Rajesh Tanksali",
     position: "DGM, FINANCE & ACCOUNTS",
-    bio: "With an experience of 18 years, Mr Tanksali is a true veteran at smmart. He has been instrumental in streamlining financial processes and enhancing the fiscal integrity of the organization.",
+    bio: "Rajesh brings over 20 years of experience in managing core functions of accounts, finance, taxation, and audits. At smmart, he oversees financial planning, compliance, fund management, and finalization of accounts, ensuring robust financial governance and strategic support to business operations.",
     image: rajeshTanksali,
   },
   {
     name: "Geeta Naidu Khan",
     position: "DIRECTOR",
-    bio: "A result-oriented, award-winning Customer Experience leader with over 16 years of experience in BFSI, Travel & Hospitality.",
+    bio: "A result-oriented, award-winning Customer Experience leader with over 16 years of experience in BFSI, Travel & Hospitality. Proven expertise in setting up back-office operations, building service frameworks, driving SLAs, and managing large teams across global markets. Known for strategic thinking, people leadership, process innovation, and consistently exceeding customer and stakeholder expectations.",
     image: GeetaNaidu,
   },
   {
@@ -101,14 +101,6 @@ const PersonCard = React.memo(({ person, idx, currentIndex, onSelect }) => (
     <img
       src={person.image}
       alt={person.name}
-      style={{
-        width: 120,
-        height: 120,
-        borderRadius: "50%",
-        objectFit: "cover",
-        border: idx === currentIndex ? "3px solid #5da9e9" : "3px solid transparent",
-        transition: "all 0.3s ease",
-      }}
     />
     <motion.p>{person.name}</motion.p>
   </motion.div>
@@ -208,9 +200,40 @@ function About() {
   const [selectedMember, setSelectedMember] = useState(null);
   const [dialogOpen, setDialogOpen] = useState(false);
   const [carouselRef, setCarouselRef] = useState(null);
+  const [showFullBio, setShowFullBio] = useState(false);
 
   const current = useMemo(() => teamMembers[currentIndex], [currentIndex]);
 
+  // Function to truncate text to approximately 6-7 lines (around 400-500 characters)
+  const truncateText = useCallback((text, maxLength = 450) => {
+    if (!text) return '';
+    if (text.length <= maxLength) return text;
+
+    // Find the last complete sentence within the limit
+    const truncated = text.substring(0, maxLength);
+    const lastSentenceEnd = Math.max(
+      truncated.lastIndexOf('.'),
+      truncated.lastIndexOf('!'),
+      truncated.lastIndexOf('?')
+    );
+
+    if (lastSentenceEnd > maxLength * 0.7) {
+      return truncated.substring(0, lastSentenceEnd + 1);
+    }
+
+    // If no sentence end found, truncate at word boundary
+    const lastSpace = truncated.lastIndexOf(' ');
+    return lastSpace > 0 ? truncated.substring(0, lastSpace) + '...' : truncated + '...';
+  }, []);
+
+  const displayBio = useMemo(() => {
+    if (!current.bio) return '';
+    return showFullBio ? current.bio : truncateText(current.bio);
+  }, [current.bio, showFullBio, truncateText]);
+
+  const shouldShowReadMore = useMemo(() => {
+    return current.bio && current.bio.length > 450;
+  }, [current.bio]);
   // Optimized event handlers
   const handleReadmore = useCallback(() => {
     setDialogLeader(current);
@@ -219,15 +242,24 @@ function About() {
 
   const handlecloseDialog = useCallback(() => setShowLeaderDialog(false), []);
 
+  const handleToggleBio = useCallback(() => {
+    setShowFullBio(prev => !prev);
+  }, []);
+
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
+    setShowFullBio(false); // Reset bio display when changing person
   }, []);
 
   const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
+    setShowFullBio(false); // Reset bio display when changing person
   }, []);
 
-  const handleSelect = useCallback((idx) => setCurrentIndex(idx), []);
+  const handleSelect = useCallback((idx) => {
+    setCurrentIndex(idx);
+    setShowFullBio(false); // Reset bio display when changing person
+  }, []);
 
   const handleReadMore = useCallback((member, e) => {
     e.stopPropagation();
@@ -263,15 +295,34 @@ function About() {
         <div className="main-content">
           <motion.h2 className="subtitle">
             Leadership that thinks <span className="smmart-text"><span className="smm">smm</span><span className="art">art</span></span>
-          </motion.h2>
-          <motion.div className="leader-info">
+          </motion.h2>          <motion.div className="leader-info">
             <motion.h1 className="leader-name">{current.name}</motion.h1>
             <motion.h3 className="leader-title">{current.position}</motion.h3>
-            <motion.p className="leader-description">
-              <SmmartText>{current.bio}</SmmartText>
-            </motion.p>
+            <motion.div className="leader-description-container">
+              <motion.p className="leader-description">
+                <SmmartText>{displayBio}</SmmartText>
+              </motion.p>
+              {shouldShowReadMore && (
+                <motion.button
+                  className="leader-read-more inline-read-more"
+                  onClick={handleToggleBio}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    color: '#5da9e9',
+                    cursor: 'pointer',
+                    textDecoration: 'underline',
+                    fontSize: '0.9rem',
+                    marginTop: '0.5rem',
+                    padding: '0'
+                  }}
+                >
+                  {showFullBio ? 'Show Less' : 'Read More'}
+                </motion.button>
+              )}
+            </motion.div>
             <button className="leader-read-more" onClick={handleReadmore}>
-              Read More
+              View Full Profile
             </button>
           </motion.div>
           <div className="leader-image">

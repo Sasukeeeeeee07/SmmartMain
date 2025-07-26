@@ -128,7 +128,7 @@ const Featured = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }} /* Faster animations */
             >
-              Meet, <span className="purple-text">Santosh Nair</span>
+              Meet, <span  color="orange">Santosh Nair</span>
             </motion.h2>
             <motion.p
               className="meet-description"

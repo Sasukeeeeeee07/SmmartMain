@@ -15,7 +15,7 @@ const allBlogs = {
     author: 'Santosh Nair',
     image: santoshNair,
     date: 'May 15, 2023',
-    readTime: '5 min read',
+    readTime: '2 min read',
     tags: ['Leadership', 'Motivation', 'Success'],
     content: [
       "Too many get lost in ideas, believing success happens from thinking alone. Dreamers envision. Doers execute.",
@@ -30,7 +30,7 @@ const allBlogs = {
     author: 'Santosh Nair',
     image: santoshNair,
     date: 'April 28, 2023',
-    readTime: '4 min read',
+    readTime: '2 min read',
     tags: ['Mindset', 'Growth', 'Self-Development'],
     content: [
       "The opinions you hold about yourself determine the world you build around you. Self-doubt builds blocks; self-belief builds bridges.",
@@ -45,7 +45,7 @@ const allBlogs = {
     author: 'Santosh Nair',
     image: santoshNair,
     date: 'April 10, 2023',
-    readTime: '3 min read',
+    readTime: '2 min read',
     tags: ['Strategy', 'Focus', 'Productivity'],
     content: [
       "Confusion is the real barrier to growth—not competition. Clear goals, clear systems, clear communication—these create traction.",
@@ -60,7 +60,7 @@ const allBlogs = {
     author: 'Santosh Nair',
     image: santoshNair,
     date: 'March 23, 2023',
-    readTime: '6 min read',
+    readTime: '2 min read',
     tags: ['Business', 'Growth', 'Leadership'],
     content: [
       "Most businesses grow around their founders. The best businesses grow because of them. If your business isn't stretching you, it's not scaling.",
@@ -75,7 +75,7 @@ const allBlogs = {
     author: 'Santosh Nair',
     image: santoshNair,
     date: 'February 15, 2023',
-    readTime: '5 min read',
+    readTime: '2 min read',
     tags: ['Freedom', 'Systems', 'Lifestyle'],
     content: [
       "Profit is essential. Real freedom is optional. Time freedom. Creative freedom. Leadership freedom. Financial freedom.",

@@ -119,8 +119,8 @@
 /* Events Grid */
 .events-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  gap: 40px;
   margin-bottom: 60px;
 }
 
@@ -144,10 +144,11 @@
 /* Event Banner Image */
 .event-banner-image {
   width: 100%;
-  height: 280px;
+  height: 400px;
   object-fit: contain;
   transition: transform 0.3s ease;
   display: block;
+  background: #f8f9fa;
 }
 
 .event-banner-card:hover .event-banner-image {
@@ -197,7 +198,7 @@
 
 /* Event Content */
 .event-content {
-  padding: 24px;
+  padding: 30px;
 }
 
 .event-meta {
@@ -291,7 +292,7 @@
 }
 
 .view-all-events-btn {
-  background: linear-gradient(135deg, #7f56da, #1976D2);
+  background: linear-gradient(orange);
   color: white;
   border: none;
   padding: 16px 32px;
