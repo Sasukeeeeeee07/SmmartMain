@@ -30,8 +30,57 @@ const testimonials = [
     role: 'Co-founder of Yellow (Goa)',
     text: '"The co-founder of Yellow (Goa) realized he was blocking his companys growth. After the first session, he delegated 80% of his tasks, promoted juniors, eliminated non-revenue work, and gained personal freedom. Sales began growing 100% monthly, and he even enjoyed a stress-free anniversary. He overcame trust issues, embraced team responsibility, and implemented systems. He calls the transformation massive and says the program returned 100x the value of his investment."',
     videoId: extractYouTubeVideoId('https://youtu.be/Bz_97XhIF_g'),
-  }
+  },
+  {
+    name: 'Noureen & Nazim Hemani',
+    role: 'Entrepreneur Gurukul Participants',
+    text: '"Hear the inspiring journey of Noureen & Nazim Hemani and how Entrepreneur Gurukul transformed their business approach and mindset."',
+    videoId: 'hb4Oytamyko'
+  },
+  {
+    name: 'Mr Mahendra Mehta',
+    role: 'Entrepreneur Gurukul Participant',
+    text: '"Mr Mahendra Mehta shares his transformative experience with Entrepreneur Gurukul and the impact it had on his entrepreneurial journey."',
+    videoId: 'eiufBXbw3ZQ'
+  },
+  {
+    name: 'Sandeep Sanghvi',
+    role: 'Entrepreneur Gurukul Participant',
+    text: '"Sandeep Sanghvi discusses how Entrepreneur Gurukul helped him scale his business and overcome entrepreneurial challenges."',
+    videoId: 'BZ9JjbNRa_c'
+  },
+  {
+    name: 'Kailash Batra',
+    role: 'Entrepreneur Gurukul Participant',
+    text: '"Kailash Batra explains the powerful insights and strategies he gained from the Entrepreneur Gurukul program."',
+    videoId: 'Gr4kXGvbwj4'
+  },
+  {
+    name: 'Pradeep Narkhede',
+    role: 'Entrepreneur Gurukul Participant',
+    text: '"Pradeep Narkhede shares his success story and the transformation he experienced through Entrepreneur Gurukul."',
+    videoId: '-6LEAjEttfM'
+  },
+  {
+    name: 'Mr. Punit',
+    role: 'Entrepreneur Gurukul Participant',
+    text: '"Mr. Punit discusses how the Entrepreneur Gurukul program changed his perspective on business and leadership."',
+    videoId: 'YsXhdiOAJQc'
+  },
+  {
+    name: 'Sourik Shah',
+    role: 'Entrepreneur Gurukul Participant',
+    text: '"Sourik Shah shares his experience with Entrepreneur Gurukul and the practical insights that helped grow his business."',
+    videoId: 'lo0rcM6GeKM'
+  },
+  {
+    name: 'Mixed Testimonials',
+    role: 'Entrepreneur Gurukul Participants',
+    text: '"A compilation of powerful testimonials from multiple Entrepreneur Gurukul participants sharing their transformation stories."',
+    videoId: 'UEwRPQ2tZqU'
+  },
 ];
+
 
 const TestimonialCarousel = () => {
   const [activeIndex, setActiveIndex] = useState(0);

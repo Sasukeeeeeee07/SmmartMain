@@ -6,7 +6,7 @@ import './AboutSmmart.css';
 import { motion } from 'framer-motion';
 import journeyImage from './images/01_3-1.jpg'; // Add this import at the top with other imports
 import journeyImageCake from './images/01_1.jpg';
-import journeyImage2 from './images/01-1.jpg';
+import journeyImage2 from './images/03-2.jpg';
 import whatWeDo from './images/04-2.jpg';
 import ourApproach from './images/06-1.jpg';
 
@@ -167,7 +167,7 @@ const AboutSmmart = () => {
                 </p>
               </motion.div>
 
-              
+
             </motion.div>
           </motion.div>
         ); case 'VISION':
@@ -247,8 +247,8 @@ const AboutSmmart = () => {
               </motion.div>
 
               <motion.div
-               
-              >                  
+
+              >
               </motion.div>
             </motion.div>              <motion.div
               className="transformation-approach"
@@ -340,7 +340,7 @@ const AboutSmmart = () => {
             </motion.div>
 
             <motion.div>
-              
+
             </motion.div>
           </motion.div>
         </motion.div>
@@ -397,7 +397,7 @@ const AboutSmmart = () => {
             }}
             whileHover={{ scale: 1.03 }}
           >
-              Leadership That Think <SmmartText>smmart</SmmartText>
+              Leadership That Thinks <SmmartText>smmart</SmmartText>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0 }}
@@ -595,22 +595,88 @@ const AboutSmmart = () => {
           >
             All brands and our operations to build on modern principles
           </motion.p> */}
-        </motion.section>
-
-        {/* Mission & Vision Section */}
+        </motion.section>        {/* Core Ideology Section */}
         <motion.section
-          className="mission-vision-section"
+          className="core-ideology-section"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeIn}
+        >          <motion.h2
+          className="section-title"
+          style={{
+            color: '#FF8C00',
+            fontSize: '3.5rem',
+            fontWeight: '800',
+            textAlign: 'center',
+            textShadow: '0 4px 20px rgba(255, 140, 0, 0.3)',
+            letterSpacing: '2px',
+            marginBottom: '3rem',
+            position: 'relative'
+          }}
+          whileHover={{
+            scale: 1.05,
+            textShadow: '0 6px 30px rgba(255, 140, 0, 0.5)',
+            color: '#FFA500'
+          }}
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.h2
-            className="section-title"
-            style={{ color: '#FF8C00' }}
-            whileHover={{ scale: 1.05 }}
-          >
-            OUR MISSION<br />&amp; VISION
+            <motion.span
+              style={{
+                position: 'relative',
+                display: 'inline-block'
+              }}
+              whileHover={{ rotate: [0, -2, 2, 0] }}
+              transition={{ duration: 0.6 }}
+            >
+              OUR CORE
+            </motion.span>
+            <br />
+            <motion.span
+              style={{
+                position: 'relative',
+                display: 'inline-block'
+              }}
+              whileHover={{ rotate: [0, 2, -2, 0] }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              IDEOLOGY
+            </motion.span>
+
+            {/* Decorative elements */}
+            <motion.div
+              style={{
+                position: 'absolute',
+                top: '-10px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '100px',
+                height: '4px',
+                background: 'linear-gradient(90deg, transparent, #FF8C00, transparent)',
+                borderRadius: '2px'
+              }}
+              initial={{ width: 0 }}
+              animate={{ width: '100px' }}
+              transition={{ duration: 1, delay: 0.5 }}
+            />
+
+            <motion.div
+              style={{
+                position: 'absolute',
+                bottom: '-15px',
+                left: '50%',
+                transform: 'translateX(-50%)',
+                width: '150px',
+                height: '3px',
+                background: 'linear-gradient(90deg, transparent, #FFA500, transparent)',
+                borderRadius: '2px'
+              }}
+              initial={{ width: 0 }}
+              animate={{ width: '150px' }}
+              transition={{ duration: 1, delay: 0.7 }}
+            />
           </motion.h2>
 
           <motion.div className="tab-navigation">
@@ -737,98 +803,7 @@ const AboutSmmart = () => {
             </motion.p>
           </motion.div>
         </motion.section>        {/* Future Goals Section */}
-        <motion.section
-          className="future-goals"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-          variants={fadeIn}
-        >
-          <motion.h2
-            className="section-title"
-            style={{ color: '#FF8C00' }}
-            whileHover={{ scale: 1.05 }}
-          >
-            FUTURE GOALS
-          </motion.h2>
-          <motion.div
-            className="goals-timeline"
-            variants={staggeredChildren}
-          >
-            <motion.div
-              className="timeline-item"
-              variants={slideUp}
-              whileHover={{ y: -10 }}
-            >
-              <motion.div
-                className="timeline-year"
-                style={{
-                  backgroundColor: '#FF8C00',
-                  overflow: 'hidden',
-                  whiteSpace: 'nowrap',
-                  textOverflow: 'ellipsis',
-                  maxWidth: '100%',
-                  display: 'inline-block'
-                }}
-                whileHover={{ scale: 1.1 }}
-              >
-                2025
-              </motion.div>
-              <div className="timeline-content" style={{ marginBottom: '0' }}>
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>National Expansion</h4>
-                <p style={{ marginBottom: '0' }}>Establish presence in all major Indian cities</p>
-              </div>
-            </motion.div>
-            <motion.div
-              className="timeline-item"
-              variants={slideUp}
-              whileHover={{ y: -10 }}
-            >
-              <motion.div
-                className="timeline-year"
-                style={{
-                  backgroundColor: '#FF8C00',
-                  overflow: 'hidden',
-                  whiteSpace: 'nowrap',
-                  textOverflow: 'ellipsis',
-                  maxWidth: '100%',
-                  display: 'inline-block'
-                }}
-                whileHover={{ scale: 1.1 }}
-              >
-                2026
-              </motion.div>
-              <div className="timeline-content" style={{ marginBottom: '0' }}>
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>Global Reach</h4>
-                <p style={{ marginBottom: '0' }}>Begin international operations in 3 countries</p>
-              </div>
-            </motion.div>
-            <motion.div
-              className="timeline-item"
-              variants={slideUp}
-              whileHover={{ y: -10 }}
-            >
-              <motion.div
-                className="timeline-year"
-                style={{
-                  backgroundColor: '#FF8C00',
-                  overflow: 'hidden',
-                  whiteSpace: 'nowrap',
-                  textOverflow: 'ellipsis',
-                  maxWidth: '100%',
-                  display: 'inline-block'
-                }}
-                whileHover={{ scale: 1.1 }}
-              >
-                2027
-              </motion.div>
-              <div className="timeline-content" style={{ marginBottom: '0' }}>
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>Digital Transformation</h4>
-                <p style={{ marginBottom: '0' }}>Launch comprehensive online learning platform</p>
-              </div>
-            </motion.div>
-          </motion.div>
-        </motion.section>
+
       </motion.main>
       <Footer />
     </motion.div>

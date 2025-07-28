@@ -125,14 +125,25 @@ const Contact = () => {
             <p className="contact-subtitle">
               Feel free to reach out to us for any inquiries or collaboration opportunities.
             </p>
-            <div className="contact-features">
-              <div className="feature-item">
-                <div className="feature-icon">📍</div>
-                <div className="feature-text">
-                  <h3>Visit Us</h3>
-                  <p>F-wing, 701/702 7th floor Remi Bizcourt, Andheri West, Mumbai - 400 053</p>
+            <div className="contact-features">              <div className="feature-item">
+              <div className="feature-icon">📍</div>
+              <div className="feature-text">
+                <h3>Visit Us</h3>
+                <p>F-wing, 701/702 7th floor Remi Bizcourt, Andheri West, Mumbai - 400 053</p>
+                <div style={{ marginTop: '15px' }}>
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.3898094260003!2d72.8371305!3d19.1344068!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c83b279ee6f7%3A0xc7cd0c4164a81900!2ssmmart%20Training%20and%20Consultancy%20Services%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1753711580696!5m2!1sen!2sin"
+                    width="100%"
+                    height="200"
+                    style={{ border: 0, borderRadius: '8px' }}
+                    allowFullScreen=""
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="SMMART Office Location"
+                  ></iframe>
                 </div>
               </div>
+            </div>
               <div className="feature-item">
                 <div className="feature-icon">📞</div>
                 <div className="feature-text">
