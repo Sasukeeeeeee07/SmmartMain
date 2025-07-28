@@ -81,8 +81,7 @@ const IndividualTransformation = () => {
 
         {/* Individual Transformation Content */}
         {activeTab === 'individual' && (
-          <>
-            {/* Introduction Section */}
+          <>            {/* Introduction Section */}
             <motion.section className="intro-section glass-card" variants={sectionVariants}>
               <div className="section-header">
                 <h2><span className="highlight">Individual Transformation</span></h2>
@@ -96,15 +95,29 @@ const IndividualTransformation = () => {
               </p>
 
               <div className="key-points">
-                {['Mindset Shift', 'Goal Clarity', 'Productivity'].map((point, index) => (
-                  <motion.div key={index} className="key-point" variants={cardVariants}>
-                    <div className="point-icon">
-                      <i className="fas fa-brain"></i>
-                    </div>
-                    <h3>{point}</h3>
-                    <p>Reshape limiting beliefs and develop a growth-oriented perspective</p>
-                  </motion.div>
-                ))}
+                <motion.div className="key-point" variants={cardVariants}>
+                  <div className="point-icon">
+                    <i className="fas fa-lightbulb"></i>
+                  </div>
+                  <h3>Mindset Shift</h3>
+                  <p>Reshape limiting beliefs and develop a growth-oriented perspective</p>
+                </motion.div>
+
+                <motion.div className="key-point" variants={cardVariants}>
+                  <div className="point-icon">
+                    <i className="fas fa-bullseye"></i>
+                  </div>
+                  <h3>Goal Clarity</h3>
+                  <p>Define clear objectives and create actionable pathways to success</p>
+                </motion.div>
+
+                <motion.div className="key-point" variants={cardVariants}>
+                  <div className="point-icon">
+                    <i className="fas fa-chart-line"></i>
+                  </div>
+                  <h3>Productivity</h3>
+                  <p>Optimize performance and maximize efficiency in all endeavors</p>
+                </motion.div>
               </div>
             </motion.section>
 
@@ -184,26 +197,24 @@ const IndividualTransformation = () => {
                 Our Entrepreneur Transformation programs are specifically designed for business owners and entrepreneurs
                 who are ready to scale their ventures systematically. We help you transition from daily operations to strategic leadership,
                 building self-sustaining and growth-oriented businesses.
-              </p>
-
-              <div className="key-points">
+              </p>              <div className="key-points">
                 <div className="key-point">
                   <div className="point-icon">
-                    <i className="fas fa-rocket"></i>
+                    <i className="fas fa-chart-line"></i>
                   </div>
                   <h3>Business Scaling</h3>
                   <p>Implement frameworks for sustainable and efficient business growth</p>
                 </div>
                 <div className="key-point">
                   <div className="point-icon">
-                    <i className="fas fa-cogs"></i>
+                    <i className="fas fa-network-wired"></i>
                   </div>
                   <h3>Systems Creation</h3>
                   <p>Develop automated processes that reduce founder dependency</p>
                 </div>
                 <div className="key-point">
                   <div className="point-icon">
-                    <i className="fas fa-users"></i>
+                    <i className="fas fa-user-tie"></i>
                   </div>
                   <h3>Team Leadership</h3>
                   <p>Build and empower high-performing teams aligned with your vision</p>
@@ -342,26 +353,24 @@ const IndividualTransformation = () => {
                 Our Enterprise Transformation solutions help established organizations redesign their culture, operations, and leadership frameworks
                 to meet the demands of rapid market changes. We partner with management teams to develop scalable, adaptable,
                 and forward-thinking organizational structures.
-              </p>
-
-              <div className="key-points">
+              </p>              <div className="key-points">
                 <div className="key-point">
                   <div className="point-icon">
-                    <i className="fas fa-building"></i>
+                    <i className="fas fa-sitemap"></i>
                   </div>
                   <h3>Organizational Design</h3>
                   <p>Create adaptive structures and workflows that support innovation</p>
                 </div>
                 <div className="key-point">
                   <div className="point-icon">
-                    <i className="fas fa-sync-alt"></i>
+                    <i className="fas fa-tasks"></i>
                   </div>
                   <h3>Process Optimization</h3>
                   <p>Streamline operations for maximum efficiency and minimal waste</p>
                 </div>
                 <div className="key-point">
                   <div className="point-icon">
-                    <i className="fas fa-users"></i>
+                    <i className="fas fa-handshake"></i>
                   </div>
                   <h3>Culture Transformation</h3>
                   <p>Build engaged, performance-driven teams with shared values</p>

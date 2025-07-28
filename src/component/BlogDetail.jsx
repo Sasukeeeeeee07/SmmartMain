@@ -3,9 +3,9 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
-import santoshNair from "./images/Santosh Nair.JPG";
+import BlogOption1 from "./images/Website Blog Post Thumbnail Option 01.jpg";
 import './BlogDetail.css';
-import { FaUser, FaComment, FaShare, FaHeart, FaBookmark, FaArrowLeft, FaTags } from 'react-icons/fa';
+import { FaUser, FaShare, FaHeart, FaBookmark, FaArrowLeft, FaTags } from 'react-icons/fa';
 
 // Blog data that should match the data in Blog.jsx
 const allBlogs = {
@@ -13,7 +13,7 @@ const allBlogs = {
     id: 1,
     title: 'Are You a Dreamer or a Doer?',
     author: 'Santosh Nair',
-    image: santoshNair,
+    image: BlogOption1,
     date: 'May 15, 2023',
     readTime: '2 min read',
     tags: ['Leadership', 'Motivation', 'Success'],
@@ -28,7 +28,7 @@ const allBlogs = {
     id: 2,
     title: 'Why Your Inner Voice Defines Your Outer Reality',
     author: 'Santosh Nair',
-    image: santoshNair,
+    image: BlogOption1,
     date: 'April 28, 2023',
     readTime: '2 min read',
     tags: ['Mindset', 'Growth', 'Self-Development'],
@@ -43,7 +43,7 @@ const allBlogs = {
     id: 3,
     title: 'Clarity Is the New Currency',
     author: 'Santosh Nair',
-    image: santoshNair,
+    image: BlogOption1,
     date: 'April 10, 2023',
     readTime: '2 min read',
     tags: ['Strategy', 'Focus', 'Productivity'],
@@ -58,7 +58,7 @@ const allBlogs = {
     id: 4,
     title: 'Build a Business That Builds You',
     author: 'Santosh Nair',
-    image: santoshNair,
+    image: BlogOption1,
     date: 'March 23, 2023',
     readTime: '2 min read',
     tags: ['Business', 'Growth', 'Leadership'],
@@ -73,7 +73,7 @@ const allBlogs = {
     id: 5,
     title: 'The Freedom Matrix: Living Beyond Profit',
     author: 'Santosh Nair',
-    image: santoshNair,
+    image: BlogOption1,
     date: 'February 15, 2023',
     readTime: '2 min read',
     tags: ['Freedom', 'Systems', 'Lifestyle'],
@@ -90,12 +90,10 @@ const BlogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [currentBlogId, setCurrentBlogId] = useState(Number(id) || 1);
-  const [comment, setComment] = useState('');
   const [likes, setLikes] = useState(24);
   const [isLiked, setIsLiked] = useState(false);
   const [isBookmarked, setIsBookmarked] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  // Update currentBlogId when URL parameter changes and load comments for that blog
+  const [isLoading, setIsLoading] = useState(false);  // Update currentBlogId when URL parameter changes
   useEffect(() => {
     if (id) {
       const blogId = Number(id);
@@ -104,40 +102,6 @@ const BlogDetail = () => {
         setIsLoading(true);
         setCurrentBlogId(blogId);
         window.scrollTo(0, 0);
-
-        // Load comments for this specific blog
-        const savedComments = localStorage.getItem(`blog-${blogId}-comments`);
-        if (savedComments) {
-          setComments(JSON.parse(savedComments));
-        } else {
-          // Reset to default comments if no saved comments for this blog
-          setComments([
-            {
-              id: 1,
-              author: "John Smith",
-              avatar: santoshNair,
-              text: "This is exactly what I needed to hear. The future is indeed bright if we approach it with the right mindset.",
-              timestamp: "2 hours ago",
-              likes: 8
-            },
-            {
-              id: 2,
-              author: "Sarah Johnson",
-              avatar: santoshNair,
-              text: "Great insights! I especially appreciate the point about healthcare advancements. It's amazing to see how technology is transforming medicine.",
-              timestamp: "5 hours ago",
-              likes: 5
-            },
-            {
-              id: 3,
-              author: "Michael Brown",
-              avatar: santoshNair,
-              text: "Very thought-provoking article. It's refreshing to see such an optimistic yet realistic take on technological advancement.",
-              timestamp: "1 day ago",
-              likes: 12
-            }
-          ]);
-        }
 
         // Simulate loading for a smoother transition
         setTimeout(() => {
@@ -148,98 +112,12 @@ const BlogDetail = () => {
         navigate('/blog');
       }
     }
-  }, [id, navigate]);// Load comments from localStorage or use defaults
-  const [comments, setComments] = useState(() => {
-    const savedComments = localStorage.getItem(`blog-${currentBlogId}-comments`);
-    if (savedComments) {
-      return JSON.parse(savedComments);
-    }
-    return [
-      {
-        id: 1,
-        author: "John Smith",
-        avatar: santoshNair,
-        text: "This is exactly what I needed to hear. The future is indeed bright if we approach it with the right mindset.",
-        timestamp: "2 hours ago",
-        likes: 8
-      },
-      {
-        id: 2,
-        author: "Sarah Johnson",
-        avatar: santoshNair,
-        text: "Great insights! I especially appreciate the point about healthcare advancements. It's amazing to see how technology is transforming medicine.",
-        timestamp: "5 hours ago",
-        likes: 5
-      },
-      {
-        id: 3,
-        author: "Michael Brown",
-        avatar: santoshNair,
-        text: "Very thought-provoking article. It's refreshing to see such an optimistic yet realistic take on technological advancement.",
-        timestamp: "1 day ago",
-        likes: 12
-      }
-    ];
-  });
-
-  // Effect to update localStorage when comments change or when blog changes
-  useEffect(() => {
-    localStorage.setItem(`blog-${currentBlogId}-comments`, JSON.stringify(comments));
-  }, [comments, currentBlogId]);
+  }, [id, navigate]);
 
   const currentBlog = allBlogs[currentBlogId];
-
   const relatedBlogs = Object.values(allBlogs)
     .filter(blog => blog.id !== currentBlogId)
-    .slice(0, 3); const handleCommentSubmit = (e) => {
-      e.preventDefault();
-
-      if (comment.trim()) {
-        // Create new comment
-        const newComment = {
-          id: Date.now(), // Use timestamp for unique ID
-          author: "Guest User",
-          avatar: santoshNair,
-          text: comment,
-          timestamp: "Just now",
-          likes: 0
-        };
-
-        // Add new comment to the beginning and limit to 3 most recent
-        const updatedComments = [newComment, ...comments].slice(0, 3);
-        setComments(updatedComments);
-        setComment('');
-
-        // Save to localStorage
-        localStorage.setItem(`blog-${currentBlogId}-comments`, JSON.stringify(updatedComments));
-
-        // Submit to Google Form via hidden form
-        const googleFormURL = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSdrxzgeCKul2VUDbg8rvTvUnUknrlYpGz5_aTm1M9rzRd4B1g/formResponse';
-
-        const form = document.createElement('form');
-        form.action = googleFormURL;
-        form.method = 'POST';
-        form.target = 'hidden-iframe';
-        form.style.display = 'none';
-
-        const commentField = document.createElement('input');
-        commentField.type = 'hidden';
-        commentField.name = 'entry.810634119';
-        commentField.value = newComment.text;
-        form.appendChild(commentField);
-
-        // Add the blog ID or title to know which blog the comment is for
-        const blogField = document.createElement('input');
-        blogField.type = 'hidden';
-        blogField.name = 'entry.1234567890'; // Used for tracking which blog the comment is for
-        blogField.value = currentBlog.title;
-        form.appendChild(blogField);
-
-        document.body.appendChild(form);
-        form.submit();
-        document.body.removeChild(form);
-      }
-    };
+    .slice(0, 3);
 
   const handleReadMore = (blogId) => {
     // Navigate to the correct blog URL instead of just updating state
@@ -271,16 +149,9 @@ const BlogDetail = () => {
     animate: { y: 0, opacity: 1 },
     transition: { duration: 0.8 }
   };
-
   return (
     <motion.div {...fadeIn}>
       <Header />
-      {/* Hidden iframe for form submission */}
-      <iframe
-        name="hidden-iframe"
-        style={{ display: 'none' }}
-        title="hidden-google-form"
-      />
 
       <div className={`blog-detail-wrapper ${isLoading ? 'loading' : ''}`}>
         <div className="blog-detail-back-link">
@@ -354,45 +225,7 @@ const BlogDetail = () => {
                 <FaBookmark className="blog-detail-action-icon" />
                 <span>{isBookmarked ? "Saved" : "Save"}</span>
               </button>
-            </div> */}
-          </div>
-
-          <div className="blog-comments-section">
-            <h2 className="blog-comments-title">
-              <FaComment className="blog-detail-icon" /> Comments ({comments.length})
-            </h2>            <form className="comment-form">
-              <textarea
-                value={comment}
-                onChange={(e) => setComment(e.target.value)}
-                placeholder="Share your thoughts..."
-                required
-              />
-              <button type="button" onClick={handleCommentSubmit}>Post Comment</button>
-            </form>            <div className="comments-list">
-              {comments.length > 0 ? (
-                <>
-                  {comments.map(comment => (
-                    <div key={comment.id} className="comment">
-                      <div className="comment-header">
-                        <div className="comment-user">
-                          <img src={comment.avatar} alt={comment.author} className="comment-avatar" />
-                          <span className="comment-author">{comment.author}</span>
-                        </div>
-                      </div>
-                      <p className="comment-text">{comment.text}</p>
-                    </div>
-                  ))}
-                  <div className="comments-notice">
-                    Only the 3 most recent comments are shown.
-                  </div>
-                </>
-              ) : (
-                <div className="no-comments">
-                  No comments yet. Be the first to share your thoughts!
-                </div>
-              )}
-            </div>
-          </div>
+            </div> */}          </div>
         </div>
 
         <div className="related-blogs">

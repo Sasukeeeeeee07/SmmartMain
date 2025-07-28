@@ -47,6 +47,7 @@
 /* Section Headers */
 .section-header {
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .section-header h2 {
@@ -68,7 +69,7 @@
   height: 4px;
   width: 80px;
   background: linear-gradient(90deg, #2196F3, #1976D2);
-  margin-bottom: 20px;
+  margin: 0 auto 20px auto;
   border-radius: 2px;
 }
 
@@ -152,6 +153,7 @@
 .intro-section {
   padding: 60px;
   margin: 0 20px 60px;
+  text-align: center;
 }
 
 .intro-text {
@@ -159,11 +161,15 @@
   line-height: 1.8;
   margin-bottom: 40px;
   color: #546E7A;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .highlight {
   color: #1976D2;
   font-weight: 700;
+  display: inline-block;
 }
 
 .key-points {
@@ -171,6 +177,7 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 30px;
   margin-top: 40px;
+  justify-items: center;
 }
 
 .key-point {
@@ -180,6 +187,8 @@
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(33, 150, 243, 0.2);
   transition: transform 0.3s ease;
+  max-width: 320px;
+  width: 100%;
 }
 
 .key-point:hover {
@@ -190,6 +199,7 @@
 .point-icon {
   font-size: 2.5rem;
   margin-bottom: 15px;
+  color: #1976D2;
 }
 
 .key-point h3 {

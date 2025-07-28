@@ -32,29 +32,14 @@ const Footer = () => {
           <Link to="/blog" className="footer-link">Blog</Link>
           <Link to="/merchandise" className="footer-link">Books</Link>
           <Link to="/careers" className="footer-link">Careers</Link>
-        </div>
-        <div className="footer-col">
+        </div>        <div className="footer-col">
           <div className="footer-heading">Products</div>
           <Link to="/products/individual" className="footer-link">Individual Transformation</Link>
           <Link to="/products/entrepreneur" className="footer-link">Entrepreneur Transformation</Link>
           <Link to="/products/enterprise" className="footer-link">Enterprise Transformation</Link>
-        </div>        <div className="footer-col">
-          <div className="footer-heading">Visit Us</div>
-          <div className="footer-link no-hover">
-            <i className="fas fa-map-marker-alt" style={{ color: '#FF8C00', marginRight: '8px' }}></i>
-            Our Location
-          </div>          <a
-            href="https://www.google.com/maps/place/smmart+Training+and+Consultancy+Services+Pvt.+Ltd./@19.1344068,72.8371305,17z/data=!3m1!4b1!4m6!3m5!1s0x3be7c83b279ee6f7:0xc7cd0c4164a81900!8m2!3d19.1344068!4d72.8397054!16s%2Fg%2F11c5z8z8z8"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-            style={{ color: '#FF8C00' }}
-          >
-            <i className="fas fa-external-link-alt" style={{ marginRight: '5px' }}></i>
-            View on Google Maps
-          </a>
         </div>
-      </div>      <div className="footer-bottom">
+
+      </div><div className="footer-bottom">
         <div>
           <span>English</span>
           <a href="/privacypolicy.html" target="_blank" rel="noopener noreferrer" className="footer-link">Privacy Policy</a>
