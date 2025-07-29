@@ -11,7 +11,7 @@ import whatWeDo from './images/04-2.jpg';
 import ourApproach from './images/06-1.jpg';
 
 const AboutSmmart = () => {
-  const [activeTab, setActiveTab] = useState('VALUES');
+  const [activeTab, setActiveTab] = useState('CORE_PURPOSE');
 
   const stats = {
     entrepreneurs: "10,000+",
@@ -53,31 +53,78 @@ const AboutSmmart = () => {
       transition: { type: "spring", stiffness: 100 }
     }
   };
-
   const renderTabContent = () => {
     switch (activeTab) {
-      case 'VALUES':
+      case 'CORE_PURPOSE':
+        return (
+          <motion.div
+            className="core-purpose-content"
+            variants={staggeredChildren}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div
+              className="core-purpose-intro"
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                padding: '1.5rem',
+                borderRadius: '12px',
+                marginBottom: '1.5rem',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 140, 0, 0.2)',
+                textAlign: 'center',
+                maxWidth: '800px',
+                margin: '0 auto 1.5rem auto'
+              }}
+              whileHover={{ scale: 1.01 }}
+            >
+              <h3 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Our Core Purpose</h3>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333', marginBottom: '0' }}>
+                To <strong style={{ color: '#FF8C00' }}>awaken the fearless entrepreneur</strong> in every individual and empower them to build <strong style={{ color: '#FF8C00' }}>self-led, scalable, and system-driven organizations</strong>.
+              </p>
+            </motion.div>
+
+            <motion.div
+              className="purpose-details"
+              style={{
+                background: 'rgba(255, 255, 255, 0.05)',
+                padding: '1.5rem',
+                borderRadius: '12px',
+                border: '1px solid rgba(255, 140, 0, 0.1)'
+              }}
+              whileHover={{ scale: 1.01 }}
+            >
+              <h5 style={{ color: '#FF8C00', marginBottom: '1rem' }}>Why We Exist</h5>
+              <p style={{ fontSize: '1rem', lineHeight: '1.7', marginBottom: '0' }}>
+                We operate with a high-performance culture grounded in discipline, accountability, and action — where transformation is driven not by theory, but by <strong style={{ color: '#FF8C00' }}>implementation</strong>. Our purpose is to create a world where every individual discovers their entrepreneurial potential and builds sustainable success.
+              </p>
+            </motion.div>
+          </motion.div>
+        );
+
+      case 'CORE_VALUES':
         return (
           <motion.div
             className="values-content"
             variants={staggeredChildren}
             initial="hidden"
             animate="visible"
-          >            <motion.div
-            className="values-intro"
-            style={{
-              background: 'rgba(255, 255, 255, 0.1)',
-              padding: '1.5rem',
-              borderRadius: '12px',
-              marginBottom: '1.5rem',
-              backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 140, 0, 0.2)',
-              textAlign: 'center',
-              maxWidth: '800px',
-              margin: '0 auto 1.5rem auto'
-            }}
-            whileHover={{ scale: 1.01 }}
           >
+            <motion.div
+              className="values-intro"
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                padding: '1.5rem',
+                borderRadius: '12px',
+                marginBottom: '1.5rem',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 140, 0, 0.2)',
+                textAlign: 'center',
+                maxWidth: '800px',
+                margin: '0 auto 1.5rem auto'
+              }}
+              whileHover={{ scale: 1.01 }}
+            >
               <h3 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Our Core Values</h3>
               <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '0' }}>
                 Guided by our core values that drive transformation through action, not theory
@@ -107,25 +154,27 @@ const AboutSmmart = () => {
                   textAlign: 'center',
                   height: '100%'
                 }}
-              >                <motion.div
-                className="value-icon"
-                whileHover={{ scale: 1.2, rotate: 5 }}
-                style={{
-                  width: '60px',
-                  height: '60px',
-                  backgroundColor: '#FF8C00',
-                  borderRadius: '50%',
-                  margin: '0 auto 1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.5rem',
-                  color: 'white',
-                  fontWeight: 'bold'
-                }}
               >
+                <motion.div
+                  className="value-icon"
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    backgroundColor: '#FF8C00',
+                    borderRadius: '50%',
+                    margin: '0 auto 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    color: 'white',
+                    fontWeight: 'bold'
+                  }}
+                >
                   E
-                </motion.div>                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Demanding Excellence</h4>
+                </motion.div>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Demanding Excellence</h4>
                 <p style={{ fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '0' }}>
                   We set the highest standards and never compromise on quality in everything we deliver.
                 </p>
@@ -143,81 +192,78 @@ const AboutSmmart = () => {
                   textAlign: 'center',
                   height: '100%'
                 }}
-              >                <motion.div
-                className="value-icon"
-                whileHover={{ scale: 1.2, rotate: -5 }}
-                style={{
-                  width: '60px',
-                  height: '60px',
-                  backgroundColor: '#FF8C00',
-                  borderRadius: '50%',
-                  margin: '0 auto 1rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '1.5rem',
-                  color: 'white',
-                  fontWeight: 'bold'
-                }}
               >
+                <motion.div
+                  className="value-icon"
+                  whileHover={{ scale: 1.2, rotate: -5 }}
+                  style={{
+                    width: '60px',
+                    height: '60px',
+                    backgroundColor: '#FF8C00',
+                    borderRadius: '50%',
+                    margin: '0 auto 1rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize: '1.5rem',
+                    color: 'white',
+                    fontWeight: 'bold'
+                  }}
+                >
                   C
-                </motion.div>                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Challenging Status Quo</h4>
+                </motion.div>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Challenging Status Quo</h4>
                 <p style={{ fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '0' }}>
                   We continuously question conventional wisdom and push boundaries to create breakthrough solutions.
                 </p>
               </motion.div>
-
-
             </motion.div>
           </motion.div>
-        ); case 'VISION':
-        return (<motion.div
-          className="vision-content"
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto'
-          }}
-        >            <motion.div
-          className="vision-statement"
-          whileHover={{ scale: 1.02 }}
-          style={{
-            background: 'rgba(255, 255, 255, 0.1)',
-            padding: '2rem',
-            borderRadius: '15px',
-            marginBottom: '1.5rem',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 140, 0, 0.2)'
-          }}
-        >
-            <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Vision 2035</h3>
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333', marginBottom: '0' }}>
-              To become a <strong style={{ color: '#FF8C00' }}>global transformation leader by 2035</strong> by creating <strong style={{ color: '#FF8C00' }}>100 million success stories</strong> and awakening the fearless entrepreneur in every individual.
-            </p>
-          </motion.div>
+        );
 
+      case 'BHAG':
+        return (
           <motion.div
-            className="vision-goals"
-            variants={slideUp}
+            className="bhag-content"
             initial="hidden"
             animate="visible"
-            transition={{ delay: 0.3 }}
+            variants={fadeIn}
+            style={{
+              maxWidth: '1200px',
+              margin: '0 auto'
+            }}
           >
-            <h4 style={{ color: '#FF8C00', marginBottom: '1rem' }}>We Envision A World Where:</h4>
             <motion.div
-              className="vision-pillars"
-              variants={staggeredChildren} style={{
+              className="bhag-statement"
+              whileHover={{ scale: 1.02 }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                padding: '2rem',
+                borderRadius: '15px',
+                marginBottom: '1.5rem',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 140, 0, 0.2)'
+              }}
+            >
+              <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Big Hairy Audacious Goal (BHAG)</h3>
+              <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#333', marginBottom: '0', fontWeight: 'bold' }}>
+                To become a <strong style={{ color: '#FF8C00' }}>global transformation leader by 2035</strong> by creating <strong style={{ color: '#FF8C00' }}>100 million success stories</strong> and awakening the fearless entrepreneur in every individual worldwide.
+              </p>
+            </motion.div>            <motion.div
+              className="bhag-metrics"
+              variants={slideUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: 0.3 }}
+              style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
                 gap: '1.5rem',
-                marginBottom: '1.5rem',
-                justifyItems: 'center'
+                marginBottom: '1.5rem'
               }}
             >
               <motion.div
-                className="vision-pillar"
+                className="bhag-metric"
                 variants={slideUp}
                 whileHover={{ y: -5, scale: 1.02 }}
                 style={{
@@ -227,124 +273,197 @@ const AboutSmmart = () => {
                   border: '1px solid rgba(255, 140, 0, 0.2)',
                   textAlign: 'center'
                 }}
-              >                  <h5 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>Self-Led Organizations</h5>
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '0' }}>Built through autonomy and leadership excellence</p>
-              </motion.div>
-
-              <motion.div
-                className="vision-pillar"
-                variants={slideUp}
-                whileHover={{ y: -5, scale: 1.02 }}
-                style={{
-                  background: 'rgba(255, 140, 0, 0.1)',
-                  padding: '1.5rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(255, 140, 0, 0.2)',
-                  textAlign: 'center'
-                }}
-              >                  <h5 style={{ color: '#FF8C00', marginBottom: '0.5rem' }}>Scalable Systems</h5>
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '0' }}>Designed for sustainable growth and expansion</p>
-              </motion.div>
-
-              <motion.div
-
               >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem', fontSize: '2rem' }}>100M</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '0' }}>Success Stories Created</p>
               </motion.div>
-            </motion.div>              <motion.div
-              className="transformation-approach"
+
+              <motion.div
+                className="bhag-metric"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem', fontSize: '2rem' }}>2035</h4>
+                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '0' }}>Target Achievement Year</p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        );
+
+      case 'VIVID_DESCRIPTION':
+        return (
+          <motion.div
+            className="vivid-description-content"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            style={{
+              maxWidth: '1200px',
+              margin: '0 auto'
+            }}
+          >
+            <motion.div
+              className="vivid-description-intro"
+              whileHover={{ scale: 1.02 }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                padding: '2rem',
+                borderRadius: '15px',
+                marginBottom: '1.5rem',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 140, 0, 0.2)'
+              }}
+            >
+              <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Vivid Description</h3>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333', marginBottom: '0' }}>
+                We envision a world where every street corner has a <strong style={{ color: '#FF8C00' }}>fearless entrepreneur</strong> who has been transformed by <SmmartText>smmart</SmmartText> methodologies, creating ripples of positive change across communities, nations, and continents.
+              </p>
+            </motion.div>            <motion.div
+              className="vivid-pillars"
+              variants={staggeredChildren}
+              initial="hidden"
+              animate="visible"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '1.5rem'
+              }}
+            >
+              <motion.div
+                className="vivid-pillar"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Self-Led Organizations</h4>
+                <p>Every business operates with autonomy, leadership excellence, and systematic processes that drive sustainable growth.</p>
+              </motion.div>
+
+              <motion.div
+                className="vivid-pillar"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Global Impact</h4>
+                <p>Our transformation methodologies are implemented across cultures, creating a universal language of entrepreneurial success.</p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        );
+
+      case 'BRAND_PROMISE':
+        return (
+          <motion.div
+            className="brand-promise-content"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+            style={{
+              maxWidth: '1200px',
+              margin: '0 auto'
+            }}
+          >
+            <motion.div
+              className="brand-promise-statement"
+              whileHover={{ scale: 1.02 }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.1)',
+                padding: '2rem',
+                borderRadius: '15px',
+                marginBottom: '1.5rem',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid rgba(255, 140, 0, 0.2)',
+                textAlign: 'center'
+              }}
+            >
+              <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Brand Promise</h3>
+              <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#333', marginBottom: '0', fontWeight: 'bold' }}>
+                We guarantee <strong style={{ color: '#FF8C00' }}>100% implementation success</strong> through our proven blend of <strong style={{ color: '#FF8C00' }}>standardization</strong>, <strong style={{ color: '#FF8C00' }}>customization</strong>, and <strong style={{ color: '#FF8C00' }}>personalization</strong> — transforming lives through measurable action, not theory.
+              </p>
+            </motion.div>            <motion.div
+              className="promise-pillars"
+              variants={staggeredChildren}
+              initial="hidden"
+              animate="visible"
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+                gap: '1.5rem',
+                marginBottom: '1.5rem'
+              }}
+            >
+              <motion.div
+                className="promise-pillar"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Guaranteed Results</h4>
+                <p>100% implementation guarantee with measurable outcomes and sustained transformation.</p>
+              </motion.div>
+
+              <motion.div
+                className="promise-pillar"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Action-Driven</h4>
+                <p>Real transformation through implementation, not theoretical knowledge or empty promises.</p>
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+              className="promise-commitment"
               style={{
                 background: 'rgba(255, 255, 255, 0.05)',
                 padding: '1.5rem',
                 borderRadius: '12px',
-                border: '1px solid rgba(255, 140, 0, 0.1)'
+                border: '1px solid rgba(255, 140, 0, 0.1)',
+                textAlign: 'center'
               }}
               whileHover={{ scale: 1.01 }}
             >
-              <h5 style={{ color: '#FF8C00', marginBottom: '1rem' }}>Our Transformation Promise</h5>
+              <h5 style={{ color: '#FF8C00', marginBottom: '1rem' }}>Our Commitment to You</h5>
               <p style={{ fontSize: '1rem', lineHeight: '1.7', marginBottom: '0' }}>
-                We deliver guaranteed success through a powerful blend of <strong>standardization</strong>, <strong>customization</strong>, and <strong>personalization</strong> — transforming lives through real, measurable, and sustained action, not theory.
+                When you choose <SmmartText>smmart</SmmartText>, you're not just getting training — you're getting a <strong style={{ color: '#FF8C00' }}>transformation partner</strong> committed to your success with accountability, discipline, and unwavering support until you achieve your entrepreneurial goals.
               </p>
             </motion.div>
           </motion.div>
-        </motion.div>
         );
-      case 'MISSION':
-        return (<motion.div
-          className="mission-content"
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          style={{
-            maxWidth: '1200px',
-            margin: '0 auto'
-          }}
-        >              <motion.div
-          className="mission-statement"
-          whileHover={{ scale: 1.02 }}
-          style={{
-            background: 'rgba(255, 255, 255, 0.1)',
-            padding: '2rem',
-            borderRadius: '15px',
-            marginBottom: '1.5rem',
-            backdropFilter: 'blur(10px)',
-            border: '1px solid rgba(255, 140, 0, 0.2)'
-          }}
-        >
-            <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Mission</h3>
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333', marginBottom: '0' }}>
-              At <SmmartText>smmart</SmmartText> Training & Consultancy Services, our mission is to <strong style={{ color: '#FF8C00' }}>awaken the fearless entrepreneur</strong> in every individual and empower them to build <strong style={{ color: '#FF8C00' }}>self-led, scalable, and system-driven organizations</strong>. We operate with a high-performance culture grounded in discipline, accountability, and action — where transformation is driven not by theory, but by <strong style={{ color: '#FF8C00' }}>implementation</strong>.
-            </p>
-          </motion.div>
 
-          <motion.div
-            className="mission-pillars"
-            variants={staggeredChildren}
-            initial="hidden"
-            animate="visible"
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '1.5rem'
-            }}
-          >
-            <motion.div
-              className="pillar"
-              variants={slideUp}
-              whileHover={{ y: -5, scale: 1.02 }}
-              style={{
-                background: 'rgba(255, 140, 0, 0.1)',
-                padding: '1.5rem',
-                borderRadius: '12px',
-                border: '1px solid rgba(255, 140, 0, 0.2)',
-                textAlign: 'center'
-              }}
-            >
-              <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Awaken</h4>
-              <p>Igniting the fearless entrepreneur within through rigorous insights and intense facilitation</p>
-            </motion.div>
-
-            <motion.div
-              className="pillar"
-              variants={slideUp}
-              whileHover={{ y: -5, scale: 1.02 }}
-              style={{
-                background: 'rgba(255, 140, 0, 0.1)',
-                padding: '1.5rem',
-                borderRadius: '12px',
-                border: '1px solid rgba(255, 140, 0, 0.2)',
-                textAlign: 'center'
-              }}
-            >
-              <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Empower</h4>
-              <p>Building self-led, scalable organizations through 100% implementation guarantee</p>
-            </motion.div>
-
-            <motion.div>
-
-            </motion.div>
-          </motion.div>
-        </motion.div>
-        );
       default:
         return null;
     }
@@ -677,35 +796,51 @@ const AboutSmmart = () => {
               animate={{ width: '150px' }}
               transition={{ duration: 1, delay: 0.7 }}
             />
-          </motion.h2>
-
-          <motion.div className="tab-navigation">
+          </motion.h2>          <motion.div className="tab-navigation">
             <motion.button
-              className={`tab-btn ${activeTab === 'VALUES' ? 'active' : ''}`}
-              onClick={() => handleTabChange('VALUES')}
-              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'VALUES' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
+              className={`tab-btn ${activeTab === 'CORE_PURPOSE' ? 'active' : ''}`}
+              onClick={() => handleTabChange('CORE_PURPOSE')}
+              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'CORE_PURPOSE' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
               whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: activeTab === 'VALUES' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
+              style={{ backgroundColor: activeTab === 'CORE_PURPOSE' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
             >
-              VALUES
+              CORE PURPOSE
             </motion.button>
             <motion.button
-              className={`tab-btn ${activeTab === 'MISSION' ? 'active' : ''}`}
-              onClick={() => handleTabChange('MISSION')}
-              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'MISSION' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
+              className={`tab-btn ${activeTab === 'CORE_VALUES' ? 'active' : ''}`}
+              onClick={() => handleTabChange('CORE_VALUES')}
+              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'CORE_VALUES' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
               whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: activeTab === 'MISSION' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
+              style={{ backgroundColor: activeTab === 'CORE_VALUES' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
             >
-              MISSION
+              CORE VALUES
             </motion.button>
             <motion.button
-              className={`tab-btn ${activeTab === 'VISION' ? 'active' : ''}`}
-              onClick={() => handleTabChange('VISION')}
-              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'VISION' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
+              className={`tab-btn ${activeTab === 'BHAG' ? 'active' : ''}`}
+              onClick={() => handleTabChange('BHAG')}
+              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'BHAG' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
               whileTap={{ scale: 0.95 }}
-              style={{ backgroundColor: activeTab === 'VISION' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
+              style={{ backgroundColor: activeTab === 'BHAG' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
             >
-              VISION
+              BHAG
+            </motion.button>
+            <motion.button
+              className={`tab-btn ${activeTab === 'VIVID_DESCRIPTION' ? 'active' : ''}`}
+              onClick={() => handleTabChange('VIVID_DESCRIPTION')}
+              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'VIVID_DESCRIPTION' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
+              whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: activeTab === 'VIVID_DESCRIPTION' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
+            >
+              VIVID DESCRIPTION
+            </motion.button>
+            <motion.button
+              className={`tab-btn ${activeTab === 'BRAND_PROMISE' ? 'active' : ''}`}
+              onClick={() => handleTabChange('BRAND_PROMISE')}
+              whileHover={{ scale: 1.05, backgroundColor: activeTab === 'BRAND_PROMISE' ? '#FF8C00' : 'rgba(255, 140, 0, 0.7)' }}
+              whileTap={{ scale: 0.95 }}
+              style={{ backgroundColor: activeTab === 'BRAND_PROMISE' ? '#FF8C00' : 'rgba(255, 255, 255, 0.2)' }}
+            >
+              BRAND PROMISE
             </motion.button>
           </motion.div>
 
@@ -732,30 +867,29 @@ const AboutSmmart = () => {
             className="what-we-do-content"
             variants={slideUp}
           >
-            <motion.h3 style={{ color: '#FF8C00' }}>What We Do</motion.h3>
-            <motion.ul
+            <motion.h3 style={{ color: '#FF8C00' }}>What We Do</motion.h3>            <motion.ul
               className="what-we-do-list"
               variants={staggeredChildren}
             >
               <motion.li variants={slideUp} whileHover={{ x: 10 }}>
                 <span className="list-marker" style={{ color: '#FF8C00' }}>01</span>
-                We believe in continuous efforts to reach to needy ones.
+                Lead Magnets: Free masterclasses, business assessments, and strategy sessions to awaken entrepreneurial awareness.
               </motion.li>
               <motion.li variants={slideUp} whileHover={{ x: 10 }}>
                 <span className="list-marker" style={{ color: '#FF8C00' }}>02</span>
-                We transform through knowledge.
+                Tripwires: Foundation workshops, blueprint sessions, and mindset transformation bootcamps for readiness.
               </motion.li>
               <motion.li variants={slideUp} whileHover={{ x: 10 }}>
                 <span className="list-marker" style={{ color: '#FF8C00' }}>03</span>
-                We transform mindset before we transform businesses.
+                Core Products: Entrepreneur Gurukul, Result Multiplier, and system-driven transformation programs.
               </motion.li>
               <motion.li variants={slideUp} whileHover={{ x: 10 }}>
                 <span className="list-marker" style={{ color: '#FF8C00' }}>04</span>
-                Empowering others is life.
+                Profit Maximizers: Wisdom Knights mastermind, executive coaching, and elite leadership summits.
               </motion.li>
               <motion.li variants={slideUp} whileHover={{ x: 10 }}>
                 <span className="list-marker" style={{ color: '#FF8C00' }}>05</span>
-                Building businesses is in our - It's a way of life.
+                Implementation Guarantee: Every event delivers measurable results through action, not theory.
               </motion.li>
             </motion.ul>
           </motion.div>
@@ -766,43 +900,93 @@ const AboutSmmart = () => {
           >
             <img src={whatWeDo} alt="What We Do" style={{ width: '100%', maxWidth: '400px', borderRadius: '8px', display: 'block', margin: '0 auto' }} />
           </motion.div>
-        </motion.section>
-
-        {/* Approach Section */}
+        </motion.section>        {/* How We Do Section */}
         <motion.section
           className="approach-section"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeIn}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '4rem',
+            padding: '4rem 2rem',
+            maxWidth: '1400px',
+            margin: '0 auto'
+          }}
         >
           <motion.div
             className="approach-image"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 300 }}
+            style={{
+              flex: '0 0 500px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
           >
-            <img src={ourApproach} alt="Our Approach" style={{ width: '100%', maxWidth: '400px', borderRadius: '8px', display: 'block', margin: '0 auto' }} />
+            <img src={ourApproach} alt="How We Do" style={{
+              width: '100%',
+              maxWidth: '500px',
+              borderRadius: '15px',
+              display: 'block',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
+            }} />
           </motion.div>
           <motion.div
             className="approach-content"
             variants={slideUp}
+            style={{ flex: '1' }}
           >
-            <motion.h3 style={{ color: '#FF8C00' }}>Our Approach</motion.h3>
-            <motion.p whileHover={{ scale: 1.02 }}>
-              <span style={{ color: '#FF8C00' }}><SmmartText>smmart</SmmartText></span>'s approach combines time-tested strategies with real-world experience.
-              Our methodology is not just theoretical - it is crafted from years of hands-on
-              experience working with real businesses facing real challenges.
+            <motion.h3 style={{ color: '#FF8C00', fontSize: '2.5rem', marginBottom: '1rem' }}>How We Do</motion.h3>
+            <motion.p whileHover={{ scale: 1.02 }} style={{ marginBottom: '2rem', fontSize: '1rem', lineHeight: '1.6' }}>
+              <span style={{ color: '#FF8C00' }}><SmmartText>smmart</SmmartText></span> Training Methodology combines diverse learning approaches to ensure maximum engagement and implementation success.
             </motion.p>
-            <motion.p
-              className="highlight-text"
-              whileHover={{ scale: 1.05 }}
-              style={{ color: '#FF8C00' }}
+
+            <motion.div
+              className="methodology-content"
+              variants={staggeredChildren}
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(2, 1fr)',
+                gap: '2.5rem',
+                alignItems: 'start'
+              }}
             >
-              We don't just teach business growth,<br />
-              We teach business mastery.
-            </motion.p>
+              <motion.div variants={slideUp}>
+                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold' }}>Interactive Learning</h5>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Case Studies</p>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Role Plays</p>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Participative Drills</p>
+                <p style={{ marginBottom: '2rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Games</p>
+
+                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold' }}>Content & Resources</h5>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Articles</p>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Book Reviews</p>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Audios</p>
+                <p style={{ marginBottom: '0', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Videos</p>
+              </motion.div>
+
+              <motion.div variants={slideUp}>
+                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold' }}>Collaborative Learning</h5>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Syndicate Discussions</p>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Group Presentations</p>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Self Administered Instruments</p>
+                <p style={{ marginBottom: '2rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Personal Counselling</p>
+
+                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold' }}>Practical Application</h5>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Simulation Exercises</p>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• On-the-Field Training</p>
+                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Written Tests and Quiz</p>
+                <p style={{ marginBottom: '0', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Outbound Training</p>
+              </motion.div>
+            </motion.div>
+
+
           </motion.div>
-        </motion.section>        {/* Future Goals Section */}
+        </motion.section>{/* Future Goals Section */}
 
       </motion.main>
       <Footer />
