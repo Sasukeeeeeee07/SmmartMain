@@ -195,6 +195,41 @@ body.contact-page-open {
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Special styling for inquiry source field to prevent text truncation */
+.form-group input[name="inquirySource"],
+.inquiry-source-field {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  font-weight: 600;
+  background: #f8f9fa !important;
+  color: #495057 !important;
+  border: 1px solid rgba(255, 140, 0, 0.3);
+  cursor: default;
+  position: relative;
+}
+
+.inquiry-source-field:hover {
+  border-color: rgba(255, 140, 0, 0.5);
+  box-shadow: 0 0 5px rgba(255, 140, 0, 0.2);
+}
+
+/* For very long text, allow wrapping on smaller screens */
+@media (max-width: 768px) {
+
+  .form-group input[name="inquirySource"],
+  .inquiry-source-field {
+    white-space: normal;
+    height: auto;
+    min-height: 3rem;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    text-overflow: initial;
+  }
+}
+
 .form-group input::placeholder,
 .form-group textarea::placeholder {
   color: rgba(70, 70, 70, 0.7);
@@ -322,4 +357,65 @@ body.contact-page-open {
   .success-message p {
     font-size: 1rem;
   }
+}
+
+.product-inquiry-info {
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+  border: 2px solid rgba(255, 140, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.inquiry-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.inquiry-icon {
+  font-size: 1.5rem;
+}
+
+.inquiry-header h3 {
+  margin: 0;
+  color: #FF8C00;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-details strong {
+  color: #4682B4;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.product-author {
+  color: #5A9FD4;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.product-rating {
+  color: #FFD700;
+  font-size: 1rem;
+}
+
+.product-category-info,
+.product-price-info {
+  color: #5A9FD4;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.product-price-info {
+  color: #FF8C00;
+  font-weight: 600;
 }

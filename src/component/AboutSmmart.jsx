@@ -908,83 +908,361 @@ const AboutSmmart = () => {
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeIn}
           style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '4rem',
-            padding: '4rem 2rem',
-            maxWidth: '1400px',
-            margin: '0 auto'
+            padding: 'clamp(1.5rem, 4vw, 3rem) clamp(0.5rem, 2vw, 1rem)',
+            background: 'rgba(255, 255, 255, 0.05)',
+            backdropFilter: 'blur(10px)',
+            borderRadius: '15px',
+            margin: '2rem auto',
+            maxWidth: '1200px',
+            border: '1px solid rgba(255, 140, 0, 0.1)'
           }}
         >
-          <motion.div
-            className="approach-image"
+          {/* Section Title */}
+          <motion.h3 
+            style={{ 
+              color: '#FF8C00', 
+              fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', 
+              fontWeight: 'bold',
+              marginBottom: 'clamp(1rem, 3vw, 2rem)',
+              textAlign: 'center',
+              textShadow: '0 2px 10px rgba(255, 140, 0, 0.3)'
+            }}
             whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 300 }}
+          >
+            How We Do
+          </motion.h3>
+
+          <motion.div
+            className="how-we-do-grid"
             style={{
-              flex: '0 0 500px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
+              display: 'grid',
+              gridTemplateColumns: 'minmax(0, 1fr)',
+              gap: 'clamp(1rem, 3vw, 2rem)',
+              alignItems: 'start'
             }}
           >
-            <img src={ourApproach} alt="How We Do" style={{
-              width: '100%',
-              maxWidth: '500px',
-              borderRadius: '15px',
-              display: 'block',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.1)'
-            }} />
-          </motion.div>
-          <motion.div
-            className="approach-content"
-            variants={slideUp}
-            style={{ flex: '1' }}
-          >
-            <motion.h3 style={{ color: '#FF8C00', fontSize: '2.5rem', marginBottom: '1rem' }}>How We Do</motion.h3>
-            <motion.p whileHover={{ scale: 1.02 }} style={{ marginBottom: '2rem', fontSize: '1rem', lineHeight: '1.6' }}>
-              <span style={{ color: '#FF8C00' }}><SmmartText>smmart</SmmartText></span> Training Methodology combines diverse learning approaches to ensure maximum engagement and implementation success.
-            </motion.p>
-
+            {/* Mobile-first layout - Image and description */}
             <motion.div
-              className="methodology-content"
-              variants={staggeredChildren}
+              className="approach-left"
+              variants={slideUp}
               style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(2, 1fr)',
-                gap: '2.5rem',
-                alignItems: 'start'
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center',
+                order: 1,
+                marginBottom: 'clamp(1rem, 3vw, 2rem)'
               }}
             >
-              <motion.div variants={slideUp}>
-                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold' }}>Interactive Learning</h5>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Case Studies</p>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Role Plays</p>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Participative Drills</p>
-                <p style={{ marginBottom: '2rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Games</p>
-
-                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold' }}>Content & Resources</h5>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Articles</p>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Book Reviews</p>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Audios</p>
-                <p style={{ marginBottom: '0', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Videos</p>
+              <motion.div
+                className="approach-image"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 300 }}
+                style={{
+                  borderRadius: '15px',
+                  boxShadow: '0 10px 30px rgba(255, 140, 0, 0.2)',
+                  marginBottom: '1.5rem'
+                }}
+              >
+                <img 
+                  src={ourApproach} 
+                  alt="How We Do" 
+                  style={{ 
+                    width: '100%', 
+                    maxWidth: 'clamp(200px, 50vw, 320px)', 
+                    borderRadius: '15px'
+                  }} 
+                />
               </motion.div>
 
-              <motion.div variants={slideUp}>
-                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold' }}>Collaborative Learning</h5>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Syndicate Discussions</p>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Group Presentations</p>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Self Administered Instruments</p>
-                <p style={{ marginBottom: '2rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Personal Counselling</p>
-
-                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem', fontWeight: 'bold' }}>Practical Application</h5>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Simulation Exercises</p>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• On-the-Field Training</p>
-                <p style={{ marginBottom: '0.5rem', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Written Tests and Quiz</p>
-                <p style={{ marginBottom: '0', fontSize: '1rem', color: '#333', fontWeight: '500' }}>• Outbound Training</p>
-              </motion.div>
+              <motion.p 
+                style={{ 
+                  fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', 
+                  lineHeight: '1.6', 
+                  color: '#555',
+                  maxWidth: '100%',
+                  margin: '0 auto',
+                  padding: '0 1rem'
+                }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <span style={{ color: '#FF8C00', fontWeight: 'bold' }}><SmmartText>smmart</SmmartText></span> Training Methodology combines diverse learning approaches for maximum engagement and implementation success.
+              </motion.p>
             </motion.div>
 
+            {/* Methodology content */}
+            <motion.div
+              className="approach-content"
+              variants={slideUp}
+              style={{
+                background: 'rgba(255, 255, 255, 0.08)',
+                padding: 'clamp(1rem, 3vw, 2rem)',
+                borderRadius: '15px',
+                border: '1px solid rgba(255, 140, 0, 0.15)',
+                order: 2
+              }}
+            >              <motion.div
+                className="methodology-grid"
+                variants={staggeredChildren}
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(min(280px, 100%), 1fr))',
+                  gap: 'clamp(1rem, 2.5vw, 1.5rem)'
+                }}
+              >                {/* Interactive Learning */}
+                <motion.div 
+                  variants={slideUp}
+                  className="methodology-card"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.1), rgba(255, 140, 0, 0.05))',
+                    padding: 'clamp(1rem, 3vw, 1.5rem)',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 140, 0, 0.2)'
+                  }}
+                >
+                  <h5 style={{ 
+                    color: '#FF8C00', 
+                    marginBottom: '1rem', 
+                    fontSize: 'clamp(1rem, 2.5vw, 1.1rem)', 
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    <span style={{
+                      width: '8px',
+                      height: '8px',
+                      background: '#FF8C00',
+                      borderRadius: '50%',
+                      display: 'inline-block'
+                    }}></span>
+                    Interactive Learning
+                  </h5>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {['Case Studies', 'Role Plays', 'Participative Drills', 'Games'].map((item, index) => (
+                      <motion.span 
+                        key={item}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        style={{ 
+                          fontSize: 'clamp(0.85rem, 2vw, 0.9rem)', 
+                          color: '#444', 
+                          fontWeight: '500',
+                          paddingLeft: '1rem',
+                          position: 'relative'
+                        }}
+                      >
+                        <span style={{
+                          position: 'absolute',
+                          left: '0',
+                          color: '#FF8C00',
+                          fontWeight: 'bold'
+                        }}>•</span>
+                        {item}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
 
+                {/* Content & Resources */}
+                <motion.div 
+                  variants={slideUp}
+                  className="methodology-card"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.08), rgba(255, 140, 0, 0.03))',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 140, 0, 0.15)'
+                  }}
+                >
+                  <h5 style={{ 
+                    color: '#FF8C00', 
+                    marginBottom: '1rem', 
+                    fontSize: '1.1rem', 
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    <span style={{
+                      width: '8px',
+                      height: '8px',
+                      background: '#FF8C00',
+                      borderRadius: '50%',
+                      display: 'inline-block'
+                    }}></span>
+                    Content & Resources
+                  </h5>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {['Articles', 'Book Reviews', 'Audios', 'Videos'].map((item, index) => (
+                      <motion.span 
+                        key={item}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 + 0.2 }}
+                        style={{ 
+                          fontSize: '0.9rem', 
+                          color: '#444', 
+                          fontWeight: '500',
+                          paddingLeft: '1rem',
+                          position: 'relative'
+                        }}
+                      >
+                        <span style={{
+                          position: 'absolute',
+                          left: '0',
+                          color: '#FF8C00',
+                          fontWeight: 'bold'
+                        }}>•</span>
+                        {item}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Collaborative Learning */}
+                <motion.div 
+                  variants={slideUp}
+                  className="methodology-card"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.06), rgba(255, 140, 0, 0.02))',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 140, 0, 0.12)'
+                  }}
+                >
+                  <h5 style={{ 
+                    color: '#FF8C00', 
+                    marginBottom: '1rem', 
+                    fontSize: '1.1rem', 
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    <span style={{
+                      width: '8px',
+                      height: '8px',
+                      background: '#FF8C00',
+                      borderRadius: '50%',
+                      display: 'inline-block'
+                    }}></span>
+                    Collaborative Learning
+                  </h5>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {['Syndicate Discussions', 'Group Presentations', 'Self Administered Tools', 'Personal Counselling'].map((item, index) => (
+                      <motion.span 
+                        key={item}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 + 0.4 }}
+                        style={{ 
+                          fontSize: '0.9rem', 
+                          color: '#444', 
+                          fontWeight: '500',
+                          paddingLeft: '1rem',
+                          position: 'relative'
+                        }}
+                      >
+                        <span style={{
+                          position: 'absolute',
+                          left: '0',
+                          color: '#FF8C00',
+                          fontWeight: 'bold'
+                        }}>•</span>
+                        {item}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Practical Application */}
+                <motion.div 
+                  variants={slideUp}
+                  className="methodology-card"
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  style={{
+                    background: 'linear-gradient(135deg, rgba(255, 140, 0, 0.04), rgba(255, 140, 0, 0.01))',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 140, 0, 0.1)'
+                  }}
+                >
+                  <h5 style={{ 
+                    color: '#FF8C00', 
+                    marginBottom: '1rem', 
+                    fontSize: '1.1rem', 
+                    fontWeight: 'bold',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                  }}>
+                    <span style={{
+                      width: '8px',
+                      height: '8px',
+                      background: '#FF8C00',
+                      borderRadius: '50%',
+                      display: 'inline-block'
+                    }}></span>
+                    Practical Application
+                  </h5>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+                    {['Simulation Exercises', 'On-the-Field Training', 'Written Tests & Quiz', 'Outbound Training'].map((item, index) => (
+                      <motion.span 
+                        key={item}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 + 0.6 }}
+                        style={{ 
+                          fontSize: '0.9rem', 
+                          color: '#444', 
+                          fontWeight: '500',
+                          paddingLeft: '1rem',
+                          position: 'relative'
+                        }}
+                      >
+                        <span style={{
+                          position: 'absolute',
+                          left: '0',
+                          color: '#FF8C00',
+                          fontWeight: 'bold'
+                        }}>•</span>
+                        {item}
+                      </motion.span>
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* Bottom tagline */}
+              <motion.div
+                style={{
+                  marginTop: '2rem',
+                  textAlign: 'center',
+                  padding: '1.5rem',
+                  background: 'linear-gradient(90deg, rgba(255, 140, 0, 0.1), rgba(255, 140, 0, 0.2), rgba(255, 140, 0, 0.1))',
+                  borderRadius: '10px',
+                  border: '1px solid rgba(255, 140, 0, 0.3)'
+                }}
+                whileHover={{ scale: 1.02 }}
+              >
+                <motion.p
+                  style={{ 
+                    color: '#FF8C00', 
+                    fontSize: 'clamp(1rem, 3vw, 1.2rem)', 
+                    fontWeight: 'bold', 
+                    marginBottom: '0',
+                    lineHeight: '1.4'
+                  }}
+                >
+                  Transforming Business Through Proven Methodologies
+                </motion.p>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </motion.section>{/* Future Goals Section */}
 

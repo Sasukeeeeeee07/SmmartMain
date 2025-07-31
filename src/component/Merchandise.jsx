@@ -97,11 +97,11 @@ const Merchandise = () => {
 
   return (
     <motion.div initial="hidden" animate="visible" variants={slideUp} className="merchandise-bg">
-      <Header />
-      <div className="merch-hero-section">
+      <Header />      <div className="merch-hero-section">
         <div className="merch-quote-section">
           <motion.h1 className="merch-quote" {...slideUp}>"Today a Reader,<br />Tomorrow a Leader."</motion.h1>
           <motion.div className="merch-quote-author" {...slideUp}>- Margaret Fuller</motion.div>
+          <motion.div className="merch-subtitle" {...slideUp}>Discover our collection of transformational books</motion.div>
         </div>
         <div className="floating-books-container">
           <div className="floating-book book1">
@@ -125,9 +125,21 @@ const Merchandise = () => {
               <h2 className="merch-book-title">{book.title}</h2>
               <div className="merch-book-author">Author: <span>{book.author}</span></div>
               <div className="merch-book-rating">{'★'.repeat(Math.floor(book.rating))}{book.rating % 1 ? '½' : ''}</div>
-              <div className="merch-book-desc">{book.description}</div>
-              <Link to={`/merchandise/${book.id}`} className="merch-readmore-btn">Read More</Link>
-              <Link to="/contact" className="merch-buy-btn">Buy</Link>
+              <div className="merch-book-desc">{book.description}</div>              <Link to={`/merchandise/${book.id}`} className="merch-readmore-btn">Read More</Link>
+              <Link
+                to="/contact"
+                className="merch-buy-btn"
+                state={{
+                  product: {
+                    title: book.title,
+                    author: book.author,
+                    rating: book.rating,
+                    type: 'book'
+                  }
+                }}
+              >
+                Buy
+              </Link>
             </div>
           </div>
         ))}

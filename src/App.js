@@ -15,6 +15,7 @@ import OfferSection from './component/OfferSection';
 import Blog from "./component/Blog";
 import BlogDetail from "./component/BlogDetail";
 import Merchandise from "./component/Merchandise";
+import Products from "./component/Products";
 import BookDetail from "./component/BookDetail";
 import Contact from "./component/Contact";
 import ApplyJob from "./component/ApplyJob";
@@ -72,9 +73,9 @@ function App() {
         <Route path="/careers" element={<ScrollToTopWrapper><Career /></ScrollToTopWrapper>} />
         <Route path="/careers/apply/:id" element={<ScrollToTopWrapper><ApplyJob /></ScrollToTopWrapper>} />
         <Route path="/blog" element={<ScrollToTopWrapper><Blog /></ScrollToTopWrapper>} />
-        <Route path="/blog/:id" element={<ScrollToTopWrapper><BlogDetail /></ScrollToTopWrapper>} />
-        <Route path="/merchandise" element={<ScrollToTopWrapper><Merchandise /></ScrollToTopWrapper>} />
+        <Route path="/blog/:id" element={<ScrollToTopWrapper><BlogDetail /></ScrollToTopWrapper>} />        <Route path="/merchandise" element={<ScrollToTopWrapper><Merchandise /></ScrollToTopWrapper>} />
         <Route path="/merchandise/:id" element={<ScrollToTopWrapper><BookDetail /></ScrollToTopWrapper>} />
+        <Route path="/products" element={<ScrollToTopWrapper><Products /></ScrollToTopWrapper>} />
         <Route path="/contact" element={<ScrollToTopWrapper><Contact /></ScrollToTopWrapper>} />
         <Route path="/events" element={<ScrollToTopWrapper><Events /></ScrollToTopWrapper>} />
         <Route path="/smmartevents" element={<ScrollToTopWrapper><SMMARTEvents /></ScrollToTopWrapper>} />

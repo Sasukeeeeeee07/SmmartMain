@@ -1,17 +1,20 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Contact.css';
 import Header from './Header';
 import SmmartText from './SmmartText';
 import { motion } from 'framer-motion';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
+  const location = useLocation();
+  const productInfo = location.state?.product; const [formData, setFormData] = useState({
     name: '',
     email: '',
     contact: '',
     city: '',
     pincode: '',
-    message: ''
+    message: '',
+    inquirySource: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -19,12 +22,36 @@ const Contact = () => {
 
   // Add class to body when component mounts and remove when unmounts
   useEffect(() => {
-    document.body.classList.add('contact-page-open');
+    document.body.classList.add('contact-page-open');    // Set initial message with product information if available
+    if (productInfo) {
+      let productMessage = '';
+      let inquirySource = '';
+
+      if (productInfo.type === 'book') {
+        productMessage = `Hi, I'm interested in purchasing the book "${productInfo.title}" by ${productInfo.author}. Please provide more details about pricing, availability, and shipping options.\n\n`;
+        inquirySource = `Book Inquiry: ${productInfo.title} by ${productInfo.author}`;
+      } else if (productInfo.type === 'product') {
+        productMessage = `Hi, I'm interested in purchasing "${productInfo.title}" (${productInfo.category}) priced at ${productInfo.price}. Please provide more details about availability and shipping options.\n\n`;
+        inquirySource = `Product Purchase: ${productInfo.title} - ${productInfo.category} (${productInfo.price})`;
+      } else if (productInfo.type === 'enquiry') {
+        productMessage = `Hi, I would like to enquire about "${productInfo.title}" (${productInfo.category}) priced at ${productInfo.price}. Please provide more information about this product.\n\n`;
+        inquirySource = `Product Enquiry: ${productInfo.title} - ${productInfo.category} (${productInfo.price})`;
+      } else if (productInfo.type === 'event') {
+        productMessage = `Hi, I'm interested in the event "${productInfo.title}". Please provide more details about registration, timing, and pricing.\n\n`;
+        inquirySource = `Event Inquiry: ${productInfo.title}`;
+      }
+
+      setFormData(prev => ({
+        ...prev,
+        message: productMessage,
+        inquirySource: inquirySource
+      }));
+    }
 
     return () => {
       document.body.classList.remove('contact-page-open');
     };
-  }, []);
+  }, [productInfo]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -68,21 +95,32 @@ const Contact = () => {
       cityField.type = 'hidden';
       cityField.name = 'entry.987654321'; // Replace with actual entry ID
       cityField.value = formData.city;
-      form.appendChild(cityField);
-
-      const pincodeField = document.createElement('input');
+      form.appendChild(cityField); const pincodeField = document.createElement('input');
       pincodeField.type = 'hidden';
       pincodeField.name = 'entry.112233445'; // Replace with actual entry ID
       pincodeField.value = formData.pincode;
       form.appendChild(pincodeField);
 
+      // Add hidden field for product/inquiry source
+      const sourceField = document.createElement('input');
+      sourceField.type = 'hidden';
+      sourceField.name = 'entry.556677889'; // Replace with actual entry ID for source tracking
+      sourceField.value = formData.inquirySource || 'Direct Contact';
+      form.appendChild(sourceField);
+
       document.body.appendChild(form);
       form.submit();
-      document.body.removeChild(form);
-
-      setTimeout(() => {
+      document.body.removeChild(form); setTimeout(() => {
         setSubmitted(true);
-        setFormData({ name: '', email: '', contact: '', city: '', pincode: '' });
+        setFormData({
+          name: '',
+          email: '',
+          contact: '',
+          city: '',
+          pincode: '',
+          message: '',
+          inquirySource: ''
+        });
         setIsSubmitting(false);
       }, 1500);
     } catch (error) {
@@ -161,87 +199,119 @@ const Contact = () => {
             </div>
           </div>
 
-          <div className="contact-form-container">
-            <div className="form-card">
-              <h2>Contact Us</h2>
-              {submitted ? (
-                <div className="success-message">
-                  <div className="success-icon">✓</div>
-                  <h3>Thank You!</h3>
-                  <p>Your message has been sent successfully. We'll get back to you soon.</p>
+          <div className="contact-form-container">            <div className="form-card">
+            <h2>Contact Us</h2>
+
+            {productInfo && (
+              <div className="product-inquiry-info">
+                <div className="inquiry-header">                  <span className="inquiry-icon">
+                  {productInfo.type === 'book' ? '📚' :
+                    productInfo.type === 'event' ? '🎉' : '🛍️'}
+                </span>
+                  <h3>
+                    {productInfo.type === 'book' ? 'Book Inquiry' :
+                      productInfo.type === 'event' ? 'Event Inquiry' :
+                        productInfo.type === 'enquiry' ? 'Product Enquiry' : 'Product Purchase'}
+                  </h3>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        placeholder="Name"
-                        required
-                      />
+                <div className="product-details">
+                  <strong>{productInfo.title}</strong>
+                  {productInfo.author && (
+                    <span className="product-author">by {productInfo.author}</span>
+                  )}
+                  {productInfo.category && (
+                    <span className="product-category-info">Category: {productInfo.category}</span>
+                  )}
+                  {productInfo.price && (
+                    <span className="product-price-info">Price: {productInfo.price}</span>
+                  )}                  {productInfo.rating && (
+                    <div className="product-rating">
+                      {'★'.repeat(Math.floor(productInfo.rating))}{productInfo.rating % 1 ? '½' : ''}
                     </div>
-                    <div className="form-group">
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        placeholder="Email"
-                        required
-                      />
-                    </div>
+                  )}
+                </div>
+              </div>
+            )}
+            {submitted ? (
+              <div className="success-message">
+                <div className="success-icon">✓</div>
+                <h3>Thank You!</h3>
+                <p>Your message has been sent successfully. We'll get back to you soon.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <div className="form-row">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder="Name"
+                      required
+                    />
+                  </div>                  <div className="form-group">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email"
+                      required
+                    />
                   </div>
-                  <div className="form-row">
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="contact"
-                        value={formData.contact}
-                        onChange={handleChange}
-                        placeholder="Contact Number"
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleChange}
-                        placeholder="City"
-                        required
-                      />
-                    </div>
-                    <div className="form-group">
-                      <input
-                        type="text"
-                        name="pincode"
-                        value={formData.pincode}
-                        onChange={handleChange}
-                        placeholder="Pincode"
-                        required
-                      />
-                    </div>
+                </div>
+
+           
+
+                <div className="form-row">
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="contact"
+                      value={formData.contact}
+                      onChange={handleChange}
+                      placeholder="Contact Number"
+                      required
+                    />
                   </div>
                   <div className="form-group">
-                    <textarea
-                      name="message"
-                      value={formData.message}
+                    <input
+                      type="text"
+                      name="city"
+                      value={formData.city}
                       onChange={handleChange}
-                      placeholder="Message"
+                      placeholder="City"
                       required
-                      rows="4"
-                    ></textarea>
+                    />
                   </div>
-                  <button type="submit" className="submit-button" disabled={isSubmitting}>
-                    {isSubmitting ? 'Sending...' : 'Send'}
-                  </button>
-                </form>
-              )}
-            </div>
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      name="pincode"
+                      value={formData.pincode}
+                      onChange={handleChange}
+                      placeholder="Pincode"
+                      required
+                    />
+                  </div>
+                </div>                <div className="form-group">
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder="Message"
+                    required
+                    rows="4"
+                  ></textarea>
+                </div>
+
+                <button type="submit" className="submit-button" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send'}
+                </button>
+              </form>
+            )}
+          </div>
           </div>
         </div>
       </div>

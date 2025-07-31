@@ -167,14 +167,23 @@ const Header = () => {
             onClick={() => setIsMenuOpen(false)}
           >
             Careers
-          </Link>
-          <Link
-            to="/merchandise"
-            className={location.pathname.startsWith('/merchandise') ? 'active' : ''}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Merchandise
-          </Link>
+          </Link>          <div className={`dropdown ${activeDropdown === 'merchandise' ? 'active' : ''}`}>
+            <button
+              className="dropdown-trigger"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleDropdown('merchandise');
+              }}
+              aria-expanded={activeDropdown === 'merchandise'}
+            >
+              Merchandise
+            </button>
+            <div className={`dropdown-menu ${activeDropdown === 'merchandise' ? 'show' : ''}`}>
+              <Link to="/merchandise" onClick={() => setIsMenuOpen(false)}>Books</Link>
+              <Link to="/products" onClick={() => setIsMenuOpen(false)}>Products</Link>
+            </div>
+          </div>
           <Link
             to="/smmartevents"
             className={location.pathname.startsWith('/smmartevents') ? 'active' : ''}
