@@ -67,8 +67,8 @@ const AboutSmmart = () => {
               className="core-purpose-intro"
               style={{
                 background: 'rgba(255, 255, 255, 0.1)',
-                padding: '1.5rem',
-                borderRadius: '12px',
+                padding: '2rem',
+                borderRadius: '15px',
                 marginBottom: '1.5rem',
                 backdropFilter: 'blur(10px)',
                 border: '1px solid rgba(255, 140, 0, 0.2)',
@@ -78,31 +78,58 @@ const AboutSmmart = () => {
               }}
               whileHover={{ scale: 1.01 }}
             >
-              <h3 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Our Core Purpose</h3>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333', marginBottom: '0' }}>
-                To <strong style={{ color: '#FF8C00' }}>awaken the fearless entrepreneur</strong> in every individual and empower them to build <strong style={{ color: '#FF8C00' }}>self-led, scalable, and system-driven organizations</strong>.
-              </p>
+              <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Core Purpose</h3>
+              <motion.h4 style={{ color: '#FF8C00', fontSize: '1.8rem', marginBottom: '1.5rem', fontWeight: 'bold' }}>
+                "To Transform Lives"
+              </motion.h4>
             </motion.div>
 
             <motion.div
-              className="purpose-details"
               style={{
-                background: 'rgba(255, 255, 255, 0.05)',
-                padding: '1.5rem',
-                borderRadius: '12px',
-                border: '1px solid rgba(255, 140, 0, 0.1)'
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+                gap: '1.5rem',
+                marginBottom: '1.5rem'
               }}
-              whileHover={{ scale: 1.01 }}
             >
-              <h5 style={{ color: '#FF8C00', marginBottom: '1rem' }}>Why We Exist</h5>
-              <p style={{ fontSize: '1rem', lineHeight: '1.7', marginBottom: '0' }}>
-                We operate with a high-performance culture grounded in discipline, accountability, and action — where transformation is driven not by theory, but by <strong style={{ color: '#FF8C00' }}>implementation</strong>. Our purpose is to create a world where every individual discovers their entrepreneurial potential and builds sustainable success.
-              </p>
+              <motion.div
+                className="purpose-how"
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                variants={slideUp}
+              >
+                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem' }}>HOW</h5>
+                <p style={{ fontSize: '1rem', lineHeight: '1.7', marginBottom: '0' }}>
+                  By providing <strong style={{ color: '#FF8C00' }}>path-breaking solutions</strong> to develop radical shifts in the mindset of all those who come in touch with us.
+                </p>
+              </motion.div>
+
+              <motion.div
+                className="purpose-why"
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+                whileHover={{ scale: 1.02, y: -5 }}
+                variants={slideUp}
+              >
+                <h5 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem' }}>WHY</h5>
+                <p style={{ fontSize: '1rem', lineHeight: '1.7', marginBottom: '0' }}>
+                  So that they can <strong style={{ color: '#FF8C00' }}>scale greater heights</strong> in this dynamic and ever-changing world.
+                </p>
+              </motion.div>
             </motion.div>
           </motion.div>
-        );
-
-      case 'CORE_VALUES':
+        ); case 'CORE_VALUES':
         return (
           <motion.div
             className="values-content"
@@ -116,112 +143,92 @@ const AboutSmmart = () => {
                 background: 'rgba(255, 255, 255, 0.1)',
                 padding: '1.5rem',
                 borderRadius: '12px',
-                marginBottom: '1.5rem',
+                marginBottom: '2rem',
                 backdropFilter: 'blur(10px)',
                 border: '1px solid rgba(255, 140, 0, 0.2)',
                 textAlign: 'center',
                 maxWidth: '800px',
-                margin: '0 auto 1.5rem auto'
+                margin: '0 auto 2rem auto'
               }}
               whileHover={{ scale: 1.01 }}
             >
               <h3 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Our Core Values</h3>
               <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '0' }}>
-                Guided by our core values that drive transformation through action, not theory
+                The fundamental principles that guide our transformation journey
               </p>
-            </motion.div>
-
-            <motion.div
+            </motion.div>            <motion.div
               className="values-grid"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '1.5rem',
-                maxWidth: '1200px',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '1rem',
+                maxWidth: '1000px',
                 margin: '0 auto',
-                justifyItems: 'center'
+                padding: '0 1rem'
               }}
             >
-              <motion.div
-                className="value-card"
-                variants={slideUp}
-                whileHover={{ scale: 1.05, y: -5 }}
-                style={{
-                  background: 'rgba(255, 140, 0, 0.1)',
-                  padding: '1.5rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(255, 140, 0, 0.2)',
-                  textAlign: 'center',
-                  height: '100%'
-                }}
-              >
+              {[
+                { title: "Demand Excellence", icon: "◆", description: "We set the highest standards and never compromise on quality in everything we deliver." },
+                { title: "Challenge the Status Quo", icon: "⟐", description: "We continuously question conventional wisdom and push boundaries for breakthrough solutions." },
+                { title: "Speak from Meaningful Experience", icon: "●", description: "Our insights and guidance come from real-world experience and proven results." },
+                { title: "Quest to Learn", icon: "◇", description: "We maintain an insatiable curiosity and commitment to continuous learning and growth." },
+                { title: "Responsive & Result Oriented", icon: "▲", description: "We act swiftly and focus relentlessly on delivering measurable outcomes." },
+                { title: "Entrepreneurial Spirit & No Entitlement Attitude", icon: "◈", description: "We embody the entrepreneurial mindset with ownership, accountability, and no sense of entitlement." }
+              ].map((value, index) => (
                 <motion.div
-                  className="value-icon"
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  style={{
-                    width: '60px',
-                    height: '60px',
-                    backgroundColor: '#FF8C00',
-                    borderRadius: '50%',
-                    margin: '0 auto 1rem',
+                  key={index}
+                  className="value-card"
+                  variants={slideUp}
+                  whileHover={{ scale: 1.02, y: -5 }} style={{
+                    background: 'rgba(255, 140, 0, 0.1)',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '1px solid rgba(255, 140, 0, 0.2)',
+                    textAlign: 'center',
+                    height: '100%',
+                    minHeight: '220px',
+                    width: '100%',
+                    boxSizing: 'border-box',
                     display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.5rem',
-                    color: 'white',
-                    fontWeight: 'bold'
+                    flexDirection: 'column',
+                    justifyContent: 'flex-start'
                   }}
                 >
-                  E
+                  <motion.div
+                    className="value-icon"
+                    whileHover={{ scale: 1.1, rotate: 5 }} style={{
+                      fontSize: '3rem',
+                      marginBottom: '1rem',
+                      color: '#FF8C00',
+                      fontWeight: 'bold'
+                    }}
+                  >
+                    {value.icon}
+                  </motion.div>
+                  <h4 style={{
+                    color: '#FF8C00',
+                    marginBottom: '1rem',
+                    fontSize: '1.1rem',
+                    lineHeight: '1.3',
+                    wordWrap: 'break-word',
+                    flex: '0 0 auto'
+                  }}>
+                    {value.title}
+                  </h4>
+                  <p style={{
+                    fontSize: '0.9rem',
+                    lineHeight: '1.5',
+                    marginBottom: '0',
+                    color: '#333',
+                    flex: '1 1 auto'
+                  }}>
+                    {value.description}
+                  </p>
                 </motion.div>
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Demanding Excellence</h4>
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '0' }}>
-                  We set the highest standards and never compromise on quality in everything we deliver.
-                </p>
-              </motion.div>
-
-              <motion.div
-                className="value-card"
-                variants={slideUp}
-                whileHover={{ scale: 1.05, y: -5 }}
-                style={{
-                  background: 'rgba(255, 140, 0, 0.1)',
-                  padding: '1.5rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(255, 140, 0, 0.2)',
-                  textAlign: 'center',
-                  height: '100%'
-                }}
-              >
-                <motion.div
-                  className="value-icon"
-                  whileHover={{ scale: 1.2, rotate: -5 }}
-                  style={{
-                    width: '60px',
-                    height: '60px',
-                    backgroundColor: '#FF8C00',
-                    borderRadius: '50%',
-                    margin: '0 auto 1rem',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '1.5rem',
-                    color: 'white',
-                    fontWeight: 'bold'
-                  }}
-                >
-                  C
-                </motion.div>
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Challenging Status Quo</h4>
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.5', marginBottom: '0' }}>
-                  We continuously question conventional wisdom and push boundaries to create breakthrough solutions.
-                </p>
-              </motion.div>
+              ))}
             </motion.div>
           </motion.div>
-        );
-
-      case 'BHAG':
+        ); case 'BHAG':
         return (
           <motion.div
             className="bhag-content"
@@ -242,24 +249,29 @@ const AboutSmmart = () => {
                 borderRadius: '15px',
                 marginBottom: '1.5rem',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 140, 0, 0.2)'
+                border: '1px solid rgba(255, 140, 0, 0.2)',
+                textAlign: 'center'
               }}
             >
               <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Big Hairy Audacious Goal (BHAG)</h3>
-              <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#333', marginBottom: '0', fontWeight: 'bold' }}>
-                To become a <strong style={{ color: '#FF8C00' }}>global transformation leader by 2035</strong> by creating <strong style={{ color: '#FF8C00' }}>100 million success stories</strong> and awakening the fearless entrepreneur in every individual worldwide.
+              <p style={{ fontSize: '1.3rem', lineHeight: '1.8', color: '#333', marginBottom: '0', fontWeight: 'bold' }}>
+                To create <strong style={{ color: '#FF8C00' }}>100 million success stories</strong> and become a <strong style={{ color: '#FF8C00' }}>Global Transformation Leader by 2035</strong>
               </p>
-            </motion.div>            <motion.div
+            </motion.div>
+
+            <motion.div
               className="bhag-metrics"
               variants={slideUp}
               initial="hidden"
               animate="visible"
-              transition={{ delay: 0.3 }}
-              style={{
+              transition={{ delay: 0.3 }} style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '1.5rem',
-                marginBottom: '1.5rem'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                gap: '1rem',
+                marginBottom: '1.5rem',
+                maxWidth: '800px',
+                margin: '0 auto 1.5rem auto',
+                padding: '0 1rem'
               }}
             >
               <motion.div
@@ -274,8 +286,8 @@ const AboutSmmart = () => {
                   textAlign: 'center'
                 }}
               >
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem', fontSize: '2rem' }}>100M</h4>
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '0' }}>Success Stories Created</p>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem', fontSize: '2.5rem' }}>100M</h4>
+                <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '0', fontWeight: '600' }}>Success Stories to Create</p>
               </motion.div>
 
               <motion.div
@@ -290,14 +302,27 @@ const AboutSmmart = () => {
                   textAlign: 'center'
                 }}
               >
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem', fontSize: '2rem' }}>2035</h4>
-                <p style={{ fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '0' }}>Target Achievement Year</p>
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem', fontSize: '2.5rem' }}>2035</h4>                <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '0', fontWeight: '600' }}>Target Achievement Year</p>
+              </motion.div>
+
+              <motion.div
+                className="bhag-metric"
+                variants={slideUp}
+                whileHover={{ y: -5, scale: 1.02 }}
+                style={{
+                  background: 'rgba(255, 140, 0, 0.1)',
+                  padding: '1.5rem',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(255, 140, 0, 0.2)',
+                  textAlign: 'center'
+                }}
+              >
+                <h4 style={{ color: '#FF8C00', marginBottom: '0.5rem', fontSize: '1.8rem' }}>Global</h4>
+                <p style={{ fontSize: '1rem', lineHeight: '1.6', marginBottom: '0', fontWeight: '600' }}>Transformation Leadership</p>
               </motion.div>
             </motion.div>
           </motion.div>
-        );
-
-      case 'VIVID_DESCRIPTION':
+        ); case 'VIVID_DESCRIPTION':
         return (
           <motion.div
             className="vivid-description-content"
@@ -316,62 +341,142 @@ const AboutSmmart = () => {
                 background: 'rgba(255, 255, 255, 0.1)',
                 padding: '2rem',
                 borderRadius: '15px',
-                marginBottom: '1.5rem',
+                marginBottom: '2rem',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 140, 0, 0.2)'
+                border: '1px solid rgba(255, 140, 0, 0.2)',
+                textAlign: 'center'
               }}
             >
-              <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Vivid Description</h3>
-              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333', marginBottom: '0' }}>
-                We envision a world where every street corner has a <strong style={{ color: '#FF8C00' }}>fearless entrepreneur</strong> who has been transformed by <SmmartText>smmart</SmmartText> methodologies, creating ripples of positive change across communities, nations, and continents.
+              <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Vivid Description by 2035</h3>
+              <p style={{ fontSize: '1.1rem', lineHeight: '1.8', color: '#333', marginBottom: '0', fontWeight: '600' }}>
+                <SmmartText>smmart</SmmartText> will be the <strong style={{ color: '#FF8C00' }}>most sought-after Transformation Company globally</strong>
               </p>
             </motion.div>            <motion.div
-              className="vivid-pillars"
+              className="vivid-details"
               variants={staggeredChildren}
               initial="hidden"
               animate="visible"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '1.5rem'
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gap: '1rem',
+                maxWidth: '1000px',
+                margin: '0 auto',
+                padding: '0 1rem'
               }}
             >
-              <motion.div
-                className="vivid-pillar"
-                variants={slideUp}
-                whileHover={{ y: -5, scale: 1.02 }}
-                style={{
-                  background: 'rgba(255, 140, 0, 0.1)',
-                  padding: '1.5rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(255, 140, 0, 0.2)',
-                  textAlign: 'center'
-                }}
-              >
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Self-Led Organizations</h4>
-                <p>Every business operates with autonomy, leadership excellence, and systematic processes that drive sustainable growth.</p>
-              </motion.div>
-
-              <motion.div
-                className="vivid-pillar"
-                variants={slideUp}
-                whileHover={{ y: -5, scale: 1.02 }}
-                style={{
-                  background: 'rgba(255, 140, 0, 0.1)',
-                  padding: '1.5rem',
-                  borderRadius: '12px',
-                  border: '1px solid rgba(255, 140, 0, 0.2)',
-                  textAlign: 'center'
-                }}
-              >
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Global Impact</h4>
-                <p>Our transformation methodologies are implemented across cultures, creating a universal language of entrepreneurial success.</p>
-              </motion.div>
+              {[
+                {
+                  title: "Culture & Team",
+                  icon: "◈",
+                  points: [
+                    "Members will exhibit camaraderie, high energy, entrepreneurial spirit",
+                    "Happy & Great Place to Work",
+                    "Every member will work in their Distinct Forte"
+                  ]
+                },
+                {
+                  title: "Organization DNA",
+                  icon: "⟐",
+                  points: [
+                    "Belief-driven Parivaar treating transformation as religion",
+                    "Learning Organization with 'Learning and Transformation' as core skill",
+                    "Every employee groomed to become an Entrepreneur within smmart"
+                  ]
+                },
+                {
+                  title: "Service Excellence",
+                  icon: "▲",
+                  points: [
+                    "Dedicated to Transformation and Growth",
+                    "Via Standardization, Customization, and Personalization",
+                    "SNOA part of academic curriculums in top schools and colleges"
+                  ]
+                },
+                {
+                  title: "Digital Dominance",
+                  icon: "◇",
+                  points: [
+                    "Dominate internet presence and social media",
+                    "Leading digital transformation platform",
+                    "Global online reach and influence"
+                  ]
+                },
+                {
+                  title: "Social Impact",
+                  icon: "●",
+                  points: [
+                    "smmart Foundation supporting underprivileged women and children",
+                    "Empowerment via entrepreneurship",
+                    "Creating sustainable social change"
+                  ]
+                },
+                {
+                  title: "Infrastructure",
+                  icon: "◆",
+                  points: [
+                    "100-acre Development Centre (SDC)",
+                    "Research and value-driven solutions",
+                    "World-class facility for transformation"
+                  ]
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="vivid-pillar"
+                  variants={slideUp}
+                  whileHover={{ y: -5, scale: 1.02 }} style={{
+                    background: 'rgba(255, 140, 0, 0.15)',
+                    padding: '1.5rem',
+                    borderRadius: '12px',
+                    border: '2px solid rgba(255, 140, 0, 0.3)',
+                    height: '100%',
+                    width: '100%',
+                    boxSizing: 'border-box'
+                  }}
+                >
+                  <div style={{ textAlign: 'center', marginBottom: '1rem' }}>
+                    <span style={{
+                      fontSize: '2.5rem',
+                      marginBottom: '0.5rem',
+                      display: 'block',
+                      color: '#FF8C00',
+                      fontWeight: 'bold'
+                    }}>{item.icon}</span>
+                    <h4 style={{
+                      color: '#FF8C00',
+                      marginBottom: '1rem',
+                      fontSize: '1.1rem',
+                      fontWeight: '600'
+                    }}>{item.title}</h4>
+                  </div>
+                  <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+                    {item.points.map((point, pointIndex) => (
+                      <li key={pointIndex} style={{
+                        fontSize: '0.9rem',
+                        lineHeight: '1.5',
+                        marginBottom: '0.8rem',
+                        paddingLeft: '1rem',
+                        position: 'relative',
+                        color: '#333',
+                        fontWeight: '500'
+                      }}>
+                        <span style={{
+                          position: 'absolute',
+                          left: '0',
+                          color: '#FF8C00',
+                          fontWeight: 'bold',
+                          fontSize: '1.1rem'
+                        }}>•</span>
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
             </motion.div>
           </motion.div>
-        );
-
-      case 'BRAND_PROMISE':
+        ); case 'BRAND_PROMISE':
         return (
           <motion.div
             className="brand-promise-content"
@@ -387,61 +492,118 @@ const AboutSmmart = () => {
               className="brand-promise-statement"
               whileHover={{ scale: 1.02 }}
               style={{
-                background: 'rgba(255, 255, 255, 0.1)',
+                background: 'rgba(255, 255, 255, 0.15)',
                 padding: '2rem',
                 borderRadius: '15px',
-                marginBottom: '1.5rem',
+                marginBottom: '2rem',
                 backdropFilter: 'blur(10px)',
-                border: '1px solid rgba(255, 140, 0, 0.2)',
+                border: '1px solid rgba(255, 140, 0, 0.3)',
                 textAlign: 'center'
               }}
             >
               <h3 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.5rem' }}>Our Brand Promise</h3>
-              <p style={{ fontSize: '1.2rem', lineHeight: '1.8', color: '#333', marginBottom: '0', fontWeight: 'bold' }}>
-                We guarantee <strong style={{ color: '#FF8C00' }}>100% implementation success</strong> through our proven blend of <strong style={{ color: '#FF8C00' }}>standardization</strong>, <strong style={{ color: '#FF8C00' }}>customization</strong>, and <strong style={{ color: '#FF8C00' }}>personalization</strong> — transforming lives through measurable action, not theory.
-              </p>
-            </motion.div>            <motion.div
-              className="promise-pillars"
-              variants={staggeredChildren}
-              initial="hidden"
-              animate="visible"
+              <motion.h4 style={{
+                color: '#FF8C00',
+                fontSize: '2rem',
+                marginBottom: '1.5rem',
+                fontWeight: 'bold'
+              }}>
+                100% Implementation
+              </motion.h4>
+            </motion.div>
+
+            <motion.div
+              className="promise-methods"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-                gap: '1.5rem',
-                marginBottom: '1.5rem'
+                gridTemplateColumns: '1fr 1fr',
+                gap: '2rem',
+                marginBottom: '2rem'
               }}
             >
               <motion.div
-                className="promise-pillar"
-                variants={slideUp}
-                whileHover={{ y: -5, scale: 1.02 }}
+                className="promise-through"
                 style={{
                   background: 'rgba(255, 140, 0, 0.1)',
                   padding: '1.5rem',
                   borderRadius: '12px',
-                  border: '1px solid rgba(255, 140, 0, 0.2)',
-                  textAlign: 'center'
+                  border: '1px solid rgba(255, 140, 0, 0.2)'
                 }}
+                whileHover={{ scale: 1.02 }}
+                variants={slideUp}
               >
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Guaranteed Results</h4>
-                <p>100% implementation guarantee with measurable outcomes and sustained transformation.</p>
+                <h4 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem' }}>Through:</h4>
+                <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+                  <li style={{
+                    fontSize: '1rem',
+                    color: '#333',
+                    lineHeight: '1.6',
+                    marginBottom: '0.8rem',
+                    paddingLeft: '1.5rem',
+                    position: 'relative'
+                  }}>
+                    <span style={{
+                      position: 'absolute',
+                      left: '0',
+                      color: '#FF8C00',
+                      fontWeight: 'bold',
+                      fontSize: '1.2rem'
+                    }}>•</span>
+                    <strong>Rigorous Insights</strong>
+                  </li>
+                  <li style={{
+                    fontSize: '1rem',
+                    color: '#333',
+                    lineHeight: '1.6',
+                    marginBottom: '0.8rem',
+                    paddingLeft: '1.5rem',
+                    position: 'relative'
+                  }}>
+                    <span style={{
+                      position: 'absolute',
+                      left: '0',
+                      color: '#FF8C00',
+                      fontWeight: 'bold',
+                      fontSize: '1.2rem'
+                    }}>•</span>
+                    <strong>Intense Facilitation for Guaranteed Success Stories</strong>
+                  </li>
+                </ul>
               </motion.div>
 
               <motion.div
-                className="promise-pillar"
-                variants={slideUp}
-                whileHover={{ y: -5, scale: 1.02 }}
+                className="promise-means"
                 style={{
                   background: 'rgba(255, 140, 0, 0.1)',
                   padding: '1.5rem',
                   borderRadius: '12px',
-                  border: '1px solid rgba(255, 140, 0, 0.2)',
-                  textAlign: 'center'
+                  border: '1px solid rgba(255, 140, 0, 0.2)'
                 }}
+                whileHover={{ scale: 1.02 }}
+                variants={slideUp}
               >
-                <h4 style={{ color: '#FF8C00', marginBottom: '0.8rem' }}>Action-Driven</h4>
-                <p>Real transformation through implementation, not theoretical knowledge or empty promises.</p>
+                <h4 style={{ color: '#FF8C00', marginBottom: '1rem', fontSize: '1.2rem' }}>By means of:</h4>
+                <ul style={{ listStyle: 'none', padding: '0', margin: '0' }}>
+                  {['Standardization', 'Customization', 'Personalization'].map((item, index) => (
+                    <li key={index} style={{
+                      fontSize: '1rem',
+                      color: '#333',
+                      lineHeight: '1.6',
+                      marginBottom: '0.8rem',
+                      paddingLeft: '1.5rem',
+                      position: 'relative'
+                    }}>
+                      <span style={{
+                        position: 'absolute',
+                        left: '0',
+                        color: '#FF8C00',
+                        fontWeight: 'bold',
+                        fontSize: '1.2rem'
+                      }}>•</span>
+                      <strong>{item}</strong>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             </motion.div>
 
@@ -455,10 +617,11 @@ const AboutSmmart = () => {
                 textAlign: 'center'
               }}
               whileHover={{ scale: 1.01 }}
+              variants={slideUp}
             >
-              <h5 style={{ color: '#FF8C00', marginBottom: '1rem' }}>Our Commitment to You</h5>
+              <h5 style={{ color: '#FF8C00', marginBottom: '1rem' }}>Our Commitment</h5>
               <p style={{ fontSize: '1rem', lineHeight: '1.7', marginBottom: '0' }}>
-                When you choose <SmmartText>smmart</SmmartText>, you're not just getting training — you're getting a <strong style={{ color: '#FF8C00' }}>transformation partner</strong> committed to your success with accountability, discipline, and unwavering support until you achieve your entrepreneurial goals.
+                When you choose <SmmartText>smmart</SmmartText>, you're getting a <strong style={{ color: '#FF8C00' }}>transformation partner</strong> committed to your success with accountability, discipline, and unwavering support until you achieve your goals through our proven methodology.
               </p>
             </motion.div>
           </motion.div>
@@ -980,60 +1143,62 @@ const AboutSmmart = () => {
                   marginBottom: '1.5rem'
                 }}
                 variants={staggeredChildren}
-              >
-                {[
-                  { title: "CASE STUDIES", icon: "📊" },
-                  { title: "GAMES", icon: "🎮" },
-                  { title: "ROLE PLAYS", icon: "🎭" },
-                  { title: "GROUP PRESENTATIONS", icon: "👥" },
-                  { title: "DRILLS", icon: "⚡" },
-                  { title: "INSTRUMENTS", icon: "📝" },
-                  { title: "ARTICLES", icon: "📖" },
-                  { title: "SIMULATIONS", icon: "🔄" },
-                  { title: "BOOK REVIEWS", icon: "📚" },
-                  { title: "FIELD TRAINING", icon: "🎯" },
-                  { title: "COUNSELLING", icon: "💬" },
-                  { title: "TESTS & QUIZ", icon: "✍️" },
-                  { title: "AUDIOS", icon: "🎵" },
-                  { title: "OUTBOUND", icon: "🏔️" },
-                  { title: "VIDEOS", icon: "🎬" }
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="methodology-item"
-                    variants={slideUp}
-                    whileHover={{
-                      scale: 1.1,
-                      y: -3
-                    }}
+              >                {[
+                { title: "CASE STUDIES", icon: "fas fa-chart-bar" },
+                { title: "GAMES", icon: "fas fa-gamepad" },
+                { title: "ROLE PLAYS", icon: "fas fa-theater-masks" },
+                { title: "GROUP PRESENTATIONS", icon: "fas fa-users" },
+                { title: "DRILLS", icon: "fas fa-bolt" },
+                { title: "INSTRUMENTS", icon: "fas fa-clipboard-list" },
+                { title: "ARTICLES", icon: "fas fa-file-alt" },
+                { title: "SIMULATIONS", icon: "fas fa-sync-alt" },
+                { title: "BOOK REVIEWS", icon: "fas fa-book-open" },
+                { title: "FIELD TRAINING", icon: "fas fa-bullseye" },
+                { title: "COUNSELLING", icon: "fas fa-comments" },
+                { title: "TESTS & QUIZ", icon: "fas fa-clipboard-check" },
+                { title: "AUDIOS", icon: "fas fa-volume-up" },
+                { title: "OUTBOUND", icon: "fas fa-mountain" },
+                { title: "VIDEOS", icon: "fas fa-video" }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  className="methodology-item"
+                  variants={slideUp}
+                  whileHover={{
+                    scale: 1.1,
+                    y: -3
+                  }}
+                  style={{
+                    textAlign: 'center',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                >                    <motion.div
+                  style={{
+                    fontSize: '1.8rem',
+                    marginBottom: '0.5rem',
+                    color: '#1976D2'
+                  }}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                >
+                    <i className={item.icon}></i>
+                  </motion.div>
+                  <motion.p
                     style={{
-                      textAlign: 'center',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
+                      fontSize: '0.8rem',
+                      fontWeight: '600',
+                      color: '#333',
+                      lineHeight: '1.3',
+                      margin: '0'
                     }}
                   >
-                    <motion.div
-                      style={{ fontSize: '1.8rem', marginBottom: '0.5rem' }}
-                      whileHover={{ scale: 1.2, rotate: 5 }}
-                    >
-                      {item.icon}
-                    </motion.div>
-                    <motion.p
-                      style={{
-                        fontSize: '0.8rem',
-                        fontWeight: '600',
-                        color: '#333',
-                        lineHeight: '1.3',
-                        margin: '0'
-                      }}
-                    >
-                      {item.title}
-                    </motion.p>
-                  </motion.div>
-                ))}
+                    {item.title}
+                  </motion.p>
+                </motion.div>
+              ))}
               </motion.div>
 
-             
+
             </motion.div>
           </motion.div>          {/* Responsive design for mobile */}
           <style jsx>{`
@@ -1067,8 +1232,97 @@ const AboutSmmart = () => {
               }
             }
           `}</style>
-        </motion.section>
-
+        </motion.section>          {/* Mobile responsive styles for Core Values */}
+        <style jsx>{`
+            @media (max-width: 1024px) {
+              .values-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.8rem !important;
+                padding: 0 0.5rem !important;
+                max-width: 900px !important;
+              }
+              
+              .vivid-details {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 0.8rem !important;
+                padding: 0 0.5rem !important;
+                max-width: 900px !important;
+              }
+              
+              .bhag-metrics {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)) !important;
+                gap: 0.8rem !important;
+                padding: 0 0.5rem !important;
+                max-width: 600px !important;
+              }
+            }
+            
+            @media (max-width: 768px) {
+              .values-grid {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                padding: 0 1rem !important;
+                max-width: 100% !important;
+              }
+              
+              .vivid-details {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                padding: 0 1rem !important;
+                max-width: 100% !important;
+              }
+              
+              .bhag-metrics {
+                grid-template-columns: 1fr !important;
+                gap: 1rem !important;
+                padding: 0 1rem !important;
+                max-width: 100% !important;
+              }
+            }
+            
+            @media (max-width: 480px) {
+              .values-grid {
+                padding: 0 0.5rem !important;
+              }
+              
+              .vivid-details {
+                padding: 0 0.5rem !important;
+              }
+              
+              .bhag-metrics {
+                padding: 0 0.5rem !important;
+              }
+              
+              .value-card {
+                min-height: 180px !important;
+                padding: 1.2rem !important;
+              }
+              
+              .vivid-pillar {
+                padding: 1.2rem !important;
+              }
+              
+              .value-icon {
+                font-size: 2.5rem !important;
+              }
+              
+              .value-card h4 {
+                font-size: 1rem !important;
+              }
+              
+              .value-card p {
+                font-size: 0.85rem !important;
+              }
+              
+              .vivid-pillar h4 {
+                font-size: 1rem !important;
+              }
+              
+              .vivid-pillar li {
+                font-size: 0.85rem !important;
+              }
+            }
+          `}</style>
       </motion.main>
       <Footer />
     </motion.div>
