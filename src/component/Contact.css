@@ -409,7 +409,8 @@ body.contact-page-open {
 }
 
 .product-category-info,
-.product-price-info {
+.product-price-info,
+.product-duration-info {
   color: #5A9FD4;
   font-size: 0.95rem;
   font-weight: 500;
@@ -418,4 +419,21 @@ body.contact-page-open {
 .product-price-info {
   color: #FF8C00;
   font-weight: 600;
+}
+
+.product-duration-info {
+  color: #4682B4;
+  font-weight: 600;
+}
+
+.product-description-info {
+  color: #666;
+  font-size: 0.9rem;
+  font-style: italic;
+  line-height: 1.4;
+  margin-top: 4px;
+  padding: 8px;
+  background: rgba(255, 140, 0, 0.05);
+  border-radius: 6px;
+  border-left: 3px solid #FF8C00;
 }

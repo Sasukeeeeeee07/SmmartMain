@@ -2,14 +2,29 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import Header from '../component/Header';
 import Footer from '../component/Footer';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './IndividualTransformation.css';
 
 const IndividualTransformation = () => {
   const [activeTab, setActiveTab] = useState('individual');
+  const navigate = useNavigate();
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
+  };
+
+  const handleProgramInquiry = (programTitle, programType, description, duration) => {
+    const programInfo = {
+      type: 'program',
+      title: programTitle,
+      category: programType,
+      description: description,
+      duration: duration
+    };
+
+    navigate('/contact', {
+      state: { product: programInfo }
+    });
   };
 
   const sectionVariants = {
@@ -127,19 +142,63 @@ const IndividualTransformation = () => {
                 <h2>Individual Programs</h2>
                 <div className="divider center"></div>
                 <p className="section-subtitle">Comprehensive solutions designed for lasting personal change</p>
-              </div>
+              </div>              <div className="program-grid">
+                <motion.div className="program-card glass-card" variants={cardVariants}>
+                  <div className="program-card-header">
+                    <h3>Client Pep Talks</h3>
+                    <span className="program-duration">2-3 Hours</span>
+                  </div>
+                  <p>In-person motivational sessions to spark clarity, action, and energy for immediate transformation.</p>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Client Pep Talks',
+                      'Individual Transformation',
+                      'In-person motivational sessions to spark clarity, action, and energy for immediate transformation.',
+                      '2-3 Hours'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
+                </motion.div>
 
-              <div className="program-grid">
-                {['Client Pep Talks', 'Wisdom Knights', 'SNOA Video Library'].map((program, index) => (
-                  <motion.div key={index} className="program-card glass-card" variants={cardVariants}>
-                    <div className="program-card-header">
-                      <h3>{program}</h3>
-                      <span className="program-duration">2-3 Hours</span>
-                    </div>
-                    <p>In-person motivational sessions to spark clarity, action, and energy.</p>
-                    <Link to="/contact" className="program-btn">Learn More</Link>
-                  </motion.div>
-                ))}
+                <motion.div className="program-card glass-card" variants={cardVariants}>
+                  <div className="program-card-header">
+                    <h3>Wisdom Knights</h3>
+                    <span className="program-duration">2-3 Hours</span>
+                  </div>
+                  <p>Intensive sessions combining ancient wisdom with modern success principles for personal mastery.</p>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Wisdom Knights',
+                      'Individual Transformation',
+                      'Intensive sessions combining ancient wisdom with modern success principles for personal mastery.',
+                      '2-3 Hours'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
+                </motion.div>
+
+                <motion.div className="program-card glass-card" variants={cardVariants}>
+                  <div className="program-card-header">
+                    <h3>SNOA Video Library</h3>
+                    <span className="program-duration">Self-Paced</span>
+                  </div>
+                  <p>Comprehensive video collection covering mindset, productivity, and personal development strategies.</p>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'SNOA Video Library',
+                      'Individual Transformation',
+                      'Comprehensive video collection covering mindset, productivity, and personal development strategies.',
+                      'Self-Paced'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
+                </motion.div>
               </div>
             </motion.section>
 
@@ -228,18 +287,26 @@ const IndividualTransformation = () => {
                 <h2>Entrepreneur Programs</h2>
                 <div className="divider center"></div>
                 <p className="section-subtitle">Structured paths to elevate your business and leadership</p>
-              </div>
-
-              <div className="program-grid">
+              </div>              <div className="program-grid">
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Orientation Gurukul</h3>
                   </div>
-                  <p> For entrepreneurs with greater than 1 Cr turnover. Build mindset, structure, and clarity.</p>
+                  <p>For entrepreneurs with greater than 1 Cr turnover. Build mindset, structure, and clarity.</p>
                   <ul className="program-features">
                     <li>Method: Group sessions, peer activities, learning assignments.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Learn More</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Orientation Gurukul',
+                      'Entrepreneur Transformation',
+                      'For entrepreneurs with greater than 1 Cr turnover. Build mindset, structure, and clarity through group sessions, peer activities, and learning assignments.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
@@ -250,18 +317,38 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Strategy sessions, live reviews, process tools.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Enroll Now</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Foundation Gurukul',
+                      'Entrepreneur Transformation',
+                      'For ₹1–5 Cr turnover. Focus on people, processes, and productivity through strategy sessions, live reviews, and process tools.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Enroll Now
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Entrepreneur Gurukul</h3>
                   </div>
-                  <p> For ₹5–50 Cr turnover. Build leadership team, scalability, and profits.</p>
+                  <p>For ₹5–50 Cr turnover. Build leadership team, scalability, and profits.</p>
                   <ul className="program-features">
                     <li>Method: Live sessions + business reviews + buddy meets.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Register</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Entrepreneur Gurukul',
+                      'Entrepreneur Transformation',
+                      'For ₹5–50 Cr turnover. Build leadership team, scalability, and profits through live sessions, business reviews, and buddy meets.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Register
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
@@ -272,7 +359,17 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Deep diagnostics, leadership tools, planning frameworks.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">View Details</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Advanced Gurukul',
+                      'Entrepreneur Transformation',
+                      'For Less than ₹50 Cr businesses. Focus on reorientation and transformation through deep diagnostics, leadership tools, and planning frameworks.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    View Details
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
@@ -283,18 +380,38 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Mentoring, immersion labs, strategic execution planning.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">View Details</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Master Gurukul',
+                      'Entrepreneur Transformation',
+                      'For evolved entrepreneurs. Focus on business mastery and long-term vision through mentoring, immersion labs, and strategic execution planning.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    View Details
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Nirvana Gurukul</h3>
                   </div>
-                  <p> For legacy-building entrepreneurs. Focus on purpose and long-term impact.</p>
+                  <p>For legacy-building entrepreneurs. Focus on purpose and long-term impact.</p>
                   <ul className="program-features">
                     <li>Method: Coaching + deep reflection + leadership visioning.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">View Details</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Nirvana Gurukul',
+                      'Entrepreneur Transformation',
+                      'For legacy-building entrepreneurs. Focus on purpose and long-term impact through coaching, deep reflection, and leadership visioning.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    View Details
+                  </button>
                 </div>
               </div>
             </section>
@@ -384,9 +501,7 @@ const IndividualTransformation = () => {
                 <h2>Enterprise Programs</h2>
                 <div className="divider center"></div>
                 <p className="section-subtitle">Comprehensive organizational development solutions</p>
-              </div>
-
-              <div className="program-grid">
+              </div>              <div className="program-grid">
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Organization Diagnostics</h3>
@@ -395,7 +510,17 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Interviews, surveys, field study, gap analysis.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Request Consultation</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Organization Diagnostics',
+                      'Enterprise Transformation',
+                      '360° study of business across people, systems, culture, and processes through interviews, surveys, field study, and gap analysis.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Request Consultation
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
@@ -406,7 +531,17 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Custom training, simulations, coaching labs.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Learn More</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Leadership Development',
+                      'Enterprise Transformation',
+                      'Equip leaders to handle change, performance, and future readiness through custom training, simulations, and coaching labs.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
@@ -417,7 +552,17 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Audits, workshops, field enablement, reviews.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Get Details</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Sales Transformation',
+                      'Enterprise Transformation',
+                      'Build a high-performing sales engine with systems and accountability through audits, workshops, field enablement, and reviews.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Get Details
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
@@ -428,7 +573,17 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Phase-wise rollout, performance tracking, team coaching.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Schedule Assessment</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Zone-wise/Division-wise Projects',
+                      'Enterprise Transformation',
+                      'Long-term structured interventions across company units or verticals through phase-wise rollout, performance tracking, and team coaching.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Schedule Assessment
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
@@ -439,18 +594,38 @@ const IndividualTransformation = () => {
                   <ul className="program-features">
                     <li>Method: Department-specific curriculum + implementation support.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Schedule Assessment</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Capability Building Programs',
+                      'Enterprise Transformation',
+                      'Functional training for HR, Admin, Ops, Finance, and Sales teams through department-specific curriculum and implementation support.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Schedule Assessment
+                  </button>
                 </div>
 
                 <div className="program-card glass-card">
                   <div className="program-card-header">
                     <h3>Culture Transformation</h3>
                   </div>
-                  <p> Build alignment, accountability, and ownership mindset in your workforce.</p>
+                  <p>Build alignment, accountability, and ownership mindset in your workforce.</p>
                   <ul className="program-features">
                     <li>Method: Storytelling, rituals, systems, team engagement formats.</li>
                   </ul>
-                  <Link to="/contact" className="program-btn">Schedule Assessment</Link>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Culture Transformation',
+                      'Enterprise Transformation',
+                      'Build alignment, accountability, and ownership mindset in your workforce through storytelling, rituals, systems, and team engagement formats.',
+                      'To be discussed'
+                    )}
+                    className="program-btn"
+                  >
+                    Schedule Assessment
+                  </button>
                 </div>
               </div>
             </section>

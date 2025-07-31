@@ -257,25 +257,7 @@ const ApplyJob = () => {
     <div className="apply-page">
       <Header />
       <div className="apply-container">
-        {/* Brochures Section */}
-        {job.brochures && job.brochures.length > 0 && (
-          <div className="job-brochures">
-            <h3>Job Brochures</h3>
-            <ul>
-              {job.brochures.map((brochure, idx) => (
-                <li key={idx}>
-                  <button
-                    className="brochure-btn"
-                    onClick={() => window.open(brochure.url, '_blank', 'noopener,noreferrer')}
-                    type="button"
-                  >
-                    {brochure.label}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+       
         {/* Page Title */}
         <div className="page-title">
           <h1>Apply for a Position</h1>

@@ -295,11 +295,15 @@
   cursor: pointer;
   transition: all 0.3s ease;
   align-self: flex-start;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .program-btn:hover {
   background: rgba(33, 150, 243, 0.2);
   transform: translateY(-2px);
+  text-decoration: none;
 }
 
 /* Audience Section */

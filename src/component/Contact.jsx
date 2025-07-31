@@ -25,9 +25,7 @@ const Contact = () => {
     document.body.classList.add('contact-page-open');    // Set initial message with product information if available
     if (productInfo) {
       let productMessage = '';
-      let inquirySource = '';
-
-      if (productInfo.type === 'book') {
+      let inquirySource = ''; if (productInfo.type === 'book') {
         productMessage = `Hi, I'm interested in purchasing the book "${productInfo.title}" by ${productInfo.author}. Please provide more details about pricing, availability, and shipping options.\n\n`;
         inquirySource = `Book Inquiry: ${productInfo.title} by ${productInfo.author}`;
       } else if (productInfo.type === 'product') {
@@ -39,6 +37,9 @@ const Contact = () => {
       } else if (productInfo.type === 'event') {
         productMessage = `Hi, I'm interested in the event "${productInfo.title}". Please provide more details about registration, timing, and pricing.\n\n`;
         inquirySource = `Event Inquiry: ${productInfo.title}`;
+      } else if (productInfo.type === 'program') {
+        productMessage = `Hi, I'm interested in learning more about the "${productInfo.title}" program${productInfo.category ? ` (${productInfo.category})` : ''}. Please provide detailed information about the curriculum, duration, pricing, and enrollment process.${productInfo.description ? `\n\nProgram Description: ${productInfo.description}` : ''}\n\n`;
+        inquirySource = `Program Inquiry: ${productInfo.title}${productInfo.category ? ` - ${productInfo.category}` : ''}`;
       }
 
       setFormData(prev => ({
@@ -203,17 +204,18 @@ const Contact = () => {
             <h2>Contact Us</h2>
 
             {productInfo && (
-              <div className="product-inquiry-info">
-                <div className="inquiry-header">                  <span className="inquiry-icon">
-                  {productInfo.type === 'book' ? '📚' :
-                    productInfo.type === 'event' ? '🎉' : '🛍️'}
-                </span>
-                  <h3>
-                    {productInfo.type === 'book' ? 'Book Inquiry' :
-                      productInfo.type === 'event' ? 'Event Inquiry' :
+              <div className="product-inquiry-info">                <div className="inquiry-header">                  <span className="inquiry-icon">
+                {productInfo.type === 'book' ? '📚' :
+                  productInfo.type === 'event' ? '🎉' :
+                    productInfo.type === 'program' ? '🎓' : '🛍️'}
+              </span>
+                <h3>
+                  {productInfo.type === 'book' ? 'Book Inquiry' :
+                    productInfo.type === 'event' ? 'Event Inquiry' :
+                      productInfo.type === 'program' ? 'Program Inquiry' :
                         productInfo.type === 'enquiry' ? 'Product Enquiry' : 'Product Purchase'}
-                  </h3>
-                </div>
+                </h3>
+              </div>
                 <div className="product-details">
                   <strong>{productInfo.title}</strong>
                   {productInfo.author && (
@@ -221,10 +223,15 @@ const Contact = () => {
                   )}
                   {productInfo.category && (
                     <span className="product-category-info">Category: {productInfo.category}</span>
-                  )}
-                  {productInfo.price && (
+                  )}                  {productInfo.price && (
                     <span className="product-price-info">Price: {productInfo.price}</span>
-                  )}                  {productInfo.rating && (
+                  )}                  {productInfo.duration && (
+                    <span className="product-duration-info">Duration: {productInfo.duration}</span>
+                  )}
+                  {productInfo.description && (
+                    <span className="product-description-info">{productInfo.description}</span>
+                  )}
+                  {productInfo.rating && (
                     <div className="product-rating">
                       {'★'.repeat(Math.floor(productInfo.rating))}{productInfo.rating % 1 ? '½' : ''}
                     </div>
@@ -262,7 +269,7 @@ const Contact = () => {
                   </div>
                 </div>
 
-           
+
 
                 <div className="form-row">
                   <div className="form-group">
