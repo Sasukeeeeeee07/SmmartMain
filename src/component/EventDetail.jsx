@@ -199,7 +199,7 @@ The workshop includes interactive discussions, group exercises, and actionable f
       animate={{ opacity: 1 }}
       style={{ background: 'linear-gradient(135deg, #87CEEB 0%, #4682B4 100%)' }}
     >
-      <Header />      <motion.main 
+      <Header />      <motion.main
         className="event-detail-container"
         style={{
           paddingTop: isMobile ? '100px' : undefined
