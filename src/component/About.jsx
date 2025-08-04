@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import "./About.css";
-import { Link } from "react-router-dom";
 import Header from "./Header";
 import santoshNair from "./images/Santosh Nair.JPG";
 import sindhuNair from "./images/SindhuNair.JPG";
@@ -9,270 +8,138 @@ import rajeshTanksali from "./images/Rajesh Tanksali - Accounts & Finance DGM (1
 import darshanMehta from "./images/Darshan Mehta.jpg";
 import GeetaNaidu from "./images/Geeta Naidu Khan.JPG";
 import Footer from "./Footer";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import SmmartText from './SmmartText';
 
 const teamMembers = [
   {
     name: "Santosh Nair",
-    position: "CHAIRMAN & CHIEF ENERGY OFFICER",
+    position: "Position",
     bio: "Santosh Nair is one of India's most inspiring business transformation coaches and the visionary behind smmart Training & Consultancy Services and the Santosh Nair Online Academy. With over 25 years of experience, he has mentored more than 1.5 lakh entrepreneurs and partnered with over 100+ organizations, driving real change from the ground up. Known for his fearless energy, sharp insights, and futuristic approach, Santosh Nair empowers individuals to become self-led, high-performance leaders. At the heart of his work is a powerful mission to build a new future for Indian enterprise, driven by bold minds and unstoppable action.",
     image: santoshNair,
   },
   {
     name: "Sindhu Nair",
-    position: "CO-FOUNDER & DIRECTOR",
-    bio: "I and my founder husband, Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then.Though we are based in Mumbai and Rajkot, we operate in Surat, Pune, Napgur, Amravati, Raipur, Delhi, Hyderabad, Calicut, Cochin. With the online curriculum added to our portfolio, we have added Pan India and international clients to our circle.After working for decades with corporates and multi national companies, we shifted gear to focus extensively with MSME Entrepreneurs thru our motivational programs, trainings, coaching, mentoring etc etc. We enhance their capability and have successfully helped transform more than 12 million individuals, entrepreneurs and their enterprises.We organise and also execute motivational programs, workshops, training interventions, review audits, Organisational need analysis, Training need analysis, creating systems & processes and making organisations future ready!.Our focus is implementation and not just Training.We have a fleet of highly acclaimed Trainers, coaches and OD Experts. Our set of Trainers and Business enhancers are key to us. We are always on the lookout for a Talent pool that is high on energy, ambitious, having a maverick mindset and willing to leave an inedible mark In our growth trajectory.Our journey is still on and we are ably guided by our chairmans strong BHAG to be the Harvard of entrepreneur transformation, create 100 million success stories and become a billion dollar company by 2035.",
+    position: "Position",
+    bio: "I and my founder husband, Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then. Though we are based in Mumbai and Rajkot, we operate in Surat, Pune, Nagpur, Amravati, Raipur, Delhi, Hyderabad, Calicut, Cochin. With the online curriculum added to our portfolio, we have added Pan India and international clients to our circle. After working for decades with corporates and multi national companies, we shifted gear to focus extensively with MSME Entrepreneurs through our motivational programs, trainings, coaching, mentoring etc. We enhance their capability and have successfully helped transform more than 12 million individuals, entrepreneurs and their enterprises.",
     image: sindhuNair,
   },
   {
     name: "Mehernosh",
-    position: "",
-    bio: "With over 25 years of rich, multi-industry and multi-location leadership experience, I bring a powerful blend of strategic foresight, operational precision, and transformation capability to every organisation I serve. I operate at the intersection of strategy, adaptability, and execution—ensuring that vision is not only crafted but also converted into sustainable business outcomes. My Value Proposition: I help organisations scale smartly—by simplifying complexity, aligning teams to business goals, building future-ready capabilities, and embedding agility into operations. Whether leading change, building new revenue engines, or reimagining structures, I drive performance through purpose. ",
+    position: "Position",
+    bio: "With over 25 years of rich, multi-industry and multi-location leadership experience, I bring a powerful blend of strategic foresight, operational precision, and transformation capability to every organisation I serve. I operate at the intersection of strategy, adaptability, and execution—ensuring that vision is not only crafted but also converted into sustainable business outcomes. My Value Proposition: I help organisations scale smartly—by simplifying complexity, aligning teams to business goals, building future-ready capabilities, and embedding agility into operations.",
     image: Mehernosh,
   },
   {
     name: "Rajesh Tanksali",
-    position: "DGM, FINANCE & ACCOUNTS",
+    position: "Position",
     bio: "Rajesh brings over 20 years of experience in managing core functions of accounts, finance, taxation, and audits. At smmart, he oversees financial planning, compliance, fund management, and finalization of accounts, ensuring robust financial governance and strategic support to business operations.",
     image: rajeshTanksali,
   },
   {
     name: "Geeta Naidu Khan",
-    position: "DIRECTOR",
+    position: "Position",
     bio: "A result-oriented, award-winning Customer Experience leader with over 16 years of experience in BFSI, Travel & Hospitality. Proven expertise in setting up back-office operations, building service frameworks, driving SLAs, and managing large teams across global markets. Known for strategic thinking, people leadership, process innovation, and consistently exceeding customer and stakeholder expectations.",
     image: GeetaNaidu,
   },
   {
     name: "Darshan Mehta",
-    position: "DIRECTOR",
-    bio: "Darshan Mehta is the Director, Professional Trainer and Motivational Speaker at Vigour Learnings.T.I.G.E.R. Darshan Mehta has succeeded in creating passionate experiences for his listeners and motivated them with his impactful insights and in-depth knowledge.",
+    position: "Position",
+    bio: "Darshan Mehta is the Director, Professional Trainer and Motivational Speaker at Vigour Learnings. T.I.G.E.R. Darshan Mehta has succeeded in creating passionate experiences for his listeners and motivated them with his impactful insights and in-depth knowledge.",
     image: darshanMehta,
   },
 ];
 
-const sigmaTeam = [
-  {
-    name: "T.I.G.E.R. Santosh Nair",
-    title: "Chairman | Chief Mentor | Trainer",
-    desc: "Santosh Nair is one of India's most inspiring business transformation coaches and the visionary behind smmart Training & Consultancy Services and the Santosh Nair Online Academy. With over 25 years of experience, he has mentored more than 1.5 lakh entrepreneurs and partnered with over 100+ organizations, driving real change from the ground up. Known for his fearless energy, sharp insights, and futuristic approach, Santosh Nair empowers individuals to become self-led, high-performance leaders. At the heart of his work is a powerful mission to build a new future for Indian enterprise, driven by bold minds and unstoppable action.",
-    image: santoshNair,
-  },
-  {
-    name: "Mehernosh",
-    title: "Coach",
-    desc: "With over 25 years of rich, multi-industry and multi-location leadership experience, I bring a powerful blend of strategic foresight, operational precision, and transformation capability to every organisation I serve. I operate at the intersection of strategy, adaptability, and execution—ensuring that vision is not only crafted but also converted into sustainable business outcomes. My Value Proposition: I help organisations scale smartly—by simplifying complexity, aligning teams to business goals, building future-ready capabilities, and embedding agility into operations. Whether leading change, building new revenue engines, or reimagining structures, I drive performance through purpose. Key Contributions: - Spearheaded multi-location and multi-industry transformations across consulting, education, digital, and healthcare sectors - Led high-impact turnarounds through process innovation, strategic realignment, and revenue optimisation - Mentored CXOs and emerging leaders to develop strong internal pipelines and cultures of accountability - Integrated AI-readiness and data-driven decision-making into legacy systems for future resilience. My Skill Identity & Executive Presence: I am often seen as a strategic catalyst and calm executor—someone who can articulate the larger picture while driving granular excellence. My executive presence is grounded in authenticity, clarity, and the ability to lead with both empathy and impact. Skillset Snapshot: - Strategic Planning & Business Design - Operational Leadership & P&L Management - Change & Crisis Management - Team Alignment & Capability Building - Brand Communication & Stakeholder Engagement - Data & AI Integration for Business Decision Making.",
-    image: Mehernosh,
-  },
-  {
-    name: "Mrs. Sindhu Santosh Nair",
-    title: "Co-founder | Coach",
-    desc: "I and my founder husband, Santosh Nair started smmart Training in Feb 2000 and its been operational successfully since then.Though we are based in Mumbai and Rajkot, we operate in Surat, Pune, Napgur, Amravati, Raipur, Delhi, Hyderabad, Calicut, Cochin. With the online curriculum added to our portfolio, we have added Pan India and international clients to our circle.After working for decades with corporates and multi national companies, we shifted gear to focus extensively with MSME Entrepreneurs thru our motivational programs, trainings, coaching, mentoring etc etc. We enhance their capability and have successfully helped transform more than 12 million individuals, entrepreneurs and their enterprises.We organise and also execute motivational programs, workshops, training interventions, review audits, Organisational need analysis, Training need analysis, creating systems & processes and making organisations future ready!.Our focus is implementation and not just Training.We have a fleet of highly acclaimed Trainers, coaches and OD Experts. Our set of Trainers and Business enhancers are key to us. We are always on the lookout for a Talent pool that is high on energy, ambitious, having a maverick mindset and willing to leave an inedible mark In our growth trajectory.Our journey is still on and we are ably guided by our chairmans strong BHAG to be the Harvard of entrepreneur transformation, create 100 million success stories and become a billion dollar company by 2035.",
-    image: sindhuNair,
-  },
-  {
-    name: "Geeta Naidu Khan",
-    title: "Trainer",
-    desc: "A result-oriented, award-winning Customer Experience leader with over 16 years of experience in BFSI, Travel & Hospitality. Proven expertise in setting up back-office operations, building service frameworks, driving SLAs, and managing large teams across global markets. Known for strategic thinking, people leadership, process innovation, and consistently exceeding customer and stakeholder expectations.",
-    image: GeetaNaidu,
-  },
-  {
-    name: "Darshan Mehta",
-    title: "Director | Professional Trainer | Motivational Speaker",
-    desc: "Darshan Mehta is the Director, Professional Trainer and Motivational Speaker at Vigour Learnings.T.I.G.E.R. Darshan Mehta has succeeded in creating passionate experiences for his listeners and motivated them with his impactful insights and in-depth knowledge. After attending his sessions, an individual not only gets motivated for his professional growth, but also develops his personality, confidence, and intellectual level, and is able to see a new transformation in his life!",
-    image: darshanMehta,
-  },
-  {
-    name: "Rajesh Tanksali",
-    title: "Deputy General Manager – Accounts & Finance",
-    desc: "Rajesh brings over 20 years of experience in managing core functions of accounts, finance, taxation, and audits. At smmart, he oversees financial planning, compliance, fund management, and finalization of accounts, ensuring robust financial governance and strategic support to business operations.",
-    image: rajeshTanksali,
-  },
-];
-
-// Memoized components for better performance
-const PersonCard = React.memo(({ person, idx, currentIndex, onSelect }) => (
+const TeamMemberCard = React.memo(({ member, isActive, onClick }) => (
   <motion.div
-    className={`person-card${idx === currentIndex ? " active" : ""}`}
-    style={{ cursor: "pointer" }}
+    className={`team-member-card ${isActive ? 'active' : ''}`}
+    onClick={onClick}
     whileHover={{ scale: 1.05 }}
-    onClick={() => onSelect(idx)}
+    whileTap={{ scale: 0.95 }}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.3 }}
   >
-    <img
-      src={person.image}
-      alt={person.name}
-    />
-    <motion.p>{person.name}</motion.p>
+    <div className="card-image-container">
+      <img src={member.image} alt={member.name} style={{ objectPosition: 'top' }} />
+      {isActive && <div className="active-indicator"></div>}
+    </div>
+    <div className="card-content">
+      <h3>{member.name}</h3>
+      <p>{member.position}</p>
+    </div>
   </motion.div>
 ));
 
-const SigmaCard = React.memo(({ member, idx, onReadMore }) => {
-  const isLongText = member.desc && member.desc.length > 150;
-  const truncateText = (text, maxLength = 150) => {
-    if (text && text.length > maxLength) {
-      return text.substring(0, maxLength) + "...";
-    }
-    return text;
-  };
+const FeaturedMember = React.memo(({ member }) => {
+  const [expanded, setExpanded] = useState(false);
+  const bioPreview = useMemo(() => {
+    if (!member.bio) return '';
+    if (expanded || member.bio.length <= 300) return member.bio;
+    return member.bio.substring(0, 300) + '...';
+  }, [member.bio, expanded]);
 
   return (
-    <motion.div
-      className="sigma-card"
-      variants={{
-        hidden: { opacity: 0, y: 50 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-      }}
+    <motion.div 
+      className="featured-member"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
-      <div className="sigma-card-image">
-        <img src={member.image} alt={member.name} />
-      </div>
-      <div className="sigma-card-content">
-        <motion.div
-          className="sigma-card-title"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <SmmartText>{member.name}</SmmartText>
-        </motion.div>
-        <motion.div
-          className="sigma-card-role"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <SmmartText>{member.title}</SmmartText>
-        </motion.div>
-        <motion.div
-          className="sigma-card-desc"
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <SmmartText>{truncateText(member.desc)}</SmmartText>
-          {isLongText && (
-            <motion.button
-              className="read-more-btn"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              onClick={(e) => onReadMore(member, e)}
-            >
-              Read More
-            </motion.button>
-          )}
-        </motion.div>
+      <div className="featured-content">
+        <div className="featured-text">
+          <motion.h2 className="sectiontitle">
+            LEADERSHIP THAT THINKS <span className="smmart-text-small">smm<span>art</span></span>
+          </motion.h2>
+          <h1>{member.name}</h1>
+          <h3>{member.position}</h3>
+          <div className="bio-container">
+            <p>{bioPreview}</p>
+            {member.bio.length > 300 && (
+              <button 
+                className="read-more-btn" 
+                onClick={() => setExpanded(!expanded)}
+              >
+                {expanded ? 'Show Less' : 'Read More'}
+              </button>
+            )}
+          </div>
+        </div>
+        <div className="featured-image-container">
+          <motion.img
+            src={member.image}
+            alt={member.name}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          />
+        </div>
       </div>
     </motion.div>
   );
 });
 
-const Dialog = React.memo(({ isOpen, onClose, member, type }) => {
-  if (!isOpen || !member) return null;
-
-  return (
-    <div className="dialog-backdrop" onClick={onClose}>
-      <div className="dialog-box" onClick={(e) => e.stopPropagation()}>
-        <div className="dialog-header">
-          <h2><SmmartText>{member.name}</SmmartText></h2>
-          <button className="dialog-close" onClick={onClose}>
-            &times;
-          </button>
-        </div>
-        <div className="dialog-content">
-          <img
-            src={member.image}
-            alt={member.name}
-            className="dialog-image"
-          />
-          <h3><SmmartText>{type === 'sigma' ? member.title : member.position}</SmmartText></h3>
-          <p><SmmartText>{type === 'sigma' ? member.desc : member.bio}</SmmartText></p>
-        </div>
-      </div>
-    </div>
-  );
-});
-
 function About() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showLeaderDialog, setShowLeaderDialog] = useState(false);
-  const [dialogLeader, setDialogLeader] = useState(null);
-  const [selectedMember, setSelectedMember] = useState(null);
-  const [dialogOpen, setDialogOpen] = useState(false);
   const [carouselRef, setCarouselRef] = useState(null);
-  const [showFullBio, setShowFullBio] = useState(false);
 
-  const current = useMemo(() => teamMembers[currentIndex], [currentIndex]);
-
-  // Function to truncate text to approximately 6-7 lines (around 400-500 characters)
-  const truncateText = useCallback((text, maxLength = 450) => {
-    if (!text) return '';
-    if (text.length <= maxLength) return text;
-
-    // Find the last complete sentence within the limit
-    const truncated = text.substring(0, maxLength);
-    const lastSentenceEnd = Math.max(
-      truncated.lastIndexOf('.'),
-      truncated.lastIndexOf('!'),
-      truncated.lastIndexOf('?')
-    );
-
-    if (lastSentenceEnd > maxLength * 0.7) {
-      return truncated.substring(0, lastSentenceEnd + 1);
-    }
-
-    // If no sentence end found, truncate at word boundary
-    const lastSpace = truncated.lastIndexOf(' ');
-    return lastSpace > 0 ? truncated.substring(0, lastSpace) + '...' : truncated + '...';
-  }, []);
-
-  const displayBio = useMemo(() => {
-    if (!current.bio) return '';
-    return showFullBio ? current.bio : truncateText(current.bio);
-  }, [current.bio, showFullBio, truncateText]);
-
-  const shouldShowReadMore = useMemo(() => {
-    return current.bio && current.bio.length > 450;
-  }, [current.bio]);
-  // Optimized event handlers
-  const handleReadmore = useCallback(() => {
-    setDialogLeader(current);
-    setShowLeaderDialog(true);
-  }, [current]);
-
-  const handlecloseDialog = useCallback(() => setShowLeaderDialog(false), []);
-
-  const handleToggleBio = useCallback(() => {
-    setShowFullBio(prev => !prev);
-  }, []);
+  const currentMember = useMemo(() => teamMembers[currentIndex], [currentIndex]);
 
   const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? teamMembers.length - 1 : prev - 1));
-    setShowFullBio(false); // Reset bio display when changing person
+    setCurrentIndex(prev => (prev === 0 ? teamMembers.length - 1 : prev - 1));
   }, []);
 
   const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev === teamMembers.length - 1 ? 0 : prev + 1));
-    setShowFullBio(false); // Reset bio display when changing person
+    setCurrentIndex(prev => (prev === teamMembers.length - 1 ? 0 : prev + 1));
   }, []);
 
   const handleSelect = useCallback((idx) => {
     setCurrentIndex(idx);
-    setShowFullBio(false); // Reset bio display when changing person
   }, []);
 
-  const handleReadMore = useCallback((member, e) => {
-    e.stopPropagation();
-    setSelectedMember(member);
-    setDialogOpen(true);
-  }, []);
-
-  const handleCloseDialog = useCallback(() => setDialogOpen(false), []);
-
-  // Auto-scroll carousel to center active item on mobile
   useEffect(() => {
-    if (carouselRef && window.innerWidth <= 768) {
-      const activeCard = carouselRef.querySelector('.person-card.active');
+    if (carouselRef) {
+      const activeCard = carouselRef.querySelector('.team-member-card.active');
       if (activeCard) {
         const containerWidth = carouselRef.offsetWidth;
         const cardLeft = activeCard.offsetLeft;
@@ -288,150 +155,57 @@ function About() {
   }, [currentIndex, carouselRef]);
 
   return (
-    <>
-      <motion.div className="about-page-wrapper">
-        <Header />
-        <div className="header-spacer" style={{ height: "80px" }}></div>
-        <div className="main-content">
-          <motion.h2 className="subtitle">
-            Leadership that thinks <span className="smmart-text"><span className="smm">smm</span><span className="art">art</span></span>
-          </motion.h2>          <motion.div className="leader-info">
-            <motion.h1 className="leader-name">{current.name}</motion.h1>
-            <motion.h3 className="leader-title">{current.position}</motion.h3>
-            <motion.div className="leader-description-container">
-              <motion.p className="leader-description">
-                <SmmartText>{displayBio}</SmmartText>
-              </motion.p>
-              {shouldShowReadMore && (
-                <motion.button
-                  className="leader-read-more inline-read-more"
-                  onClick={handleToggleBio}
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    color: '#5da9e9',
-                    cursor: 'pointer',
-                    textDecoration: 'underline',
-                    fontSize: '0.9rem',
-                    marginTop: '0.5rem',
-                    padding: '0'
-                  }}
-                >
-                  {showFullBio ? 'Show Less' : 'Read More'}
-                </motion.button>
-              )}
-            </motion.div>
-            <button className="leader-read-more" onClick={handleReadmore}>
-              View Full Profile
-            </button>
-          </motion.div>
-          <div className="leader-image">
-            <img src={current.image} alt={current.name} />
-          </div>
+    <div className="about-page">
+      <Header />
+      <div className="header-spacer"></div>
+      
+      <main className="about-content">
+        {/* Carousel Nav Outer - Prev/Next on far left/right */}
+        <div className="carousel-nav-outer">
+          <button 
+            className="nav-arrow nav-left" 
+            onClick={handlePrev} 
+            aria-label="Previous" 
+            title="Previous"
+          >
+            <i className="fas fa-chevron-left"></i>
+          </button>
+          <button 
+            className="nav-arrow nav-right" 
+            onClick={handleNext} 
+            aria-label="Next" 
+            title="Next"
+          >
+            <i className="fas fa-chevron-right"></i>
+          </button>
         </div>
 
-        <Dialog
-          isOpen={showLeaderDialog}
-          onClose={handlecloseDialog}
-          member={dialogLeader}
-          type="leader"
-        />
+        {/* Featured Member Section */}
+        <section className="featured-section">
+          <FeaturedMember 
+            member={currentMember} 
+          />
+        </section>
 
-        <div className="people-section">
+        {/* Team Carousel Section */}
+        <section className="team-carousel-section">
           <div className="carousel-container">
-            <button
-              className="nav-arrow left"
-              onClick={handlePrev}
-              style={{
-                borderRadius: '50%',
-                background: 'rgba(93,169,233,0.15)',
-                border: 'none',
-                boxShadow: '0 2px 8px rgba(93,169,233,0.15)',
-                width: 44,
-                height: 44,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginRight: 8
-              }}
-            >
-              <span style={{ fontSize: '2rem', color: '#1a365d', fontWeight: 700 }}>&lt;</span>
-            </button>
-            <div
-              className="carousel-items"
-              ref={setCarouselRef}
-            >
-              {teamMembers.map((person, idx) => (
-                <PersonCard
-                  key={person.name}
-                  person={person}
-                  idx={idx}
-                  currentIndex={currentIndex}
-                  onSelect={handleSelect}
+            <div className="carousel-items" ref={setCarouselRef}>
+              {teamMembers.map((member, idx) => (
+                <TeamMemberCard
+                  key={member.name}
+                  member={member}
+                  isActive={idx === currentIndex}
+                  onClick={() => handleSelect(idx)}
                 />
               ))}
             </div>
-            <button
-              className="nav-arrow right"
-              onClick={handleNext}
-              style={{
-                borderRadius: '50%',
-                background: 'rgba(93,169,233,0.15)',
-                border: 'none',
-                boxShadow: '0 2px 8px rgba(93,169,233,0.15)',
-                width: 44,
-                height: 44,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginLeft: 8
-              }}
-            >
-              <span style={{ fontSize: '2rem', color: '#1a365d', fontWeight: 700 }}>&gt;</span>
-            </button>
           </div>
-        </div>
-      </motion.div>
-
-      <motion.div
-        className="sigma-team-section"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-        }}
-      >
-        <motion.h2
-          className="sigma-team-title"
-          variants={{
-            hidden: { opacity: 0, y: 10 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-          }}
-        >
-          Meet the <span className="smmart-text"><span className="smm">smm</span><span className="art">art</span></span> Training Team
-        </motion.h2>
-        <div className="sigma-team-cards">
-          {sigmaTeam.map((member, idx) => (
-            <SigmaCard
-              key={member.name}
-              member={member}
-              idx={idx}
-              onReadMore={handleReadMore}
-            />
-          ))}
-        </div>
-      </motion.div>
-
-      <Dialog
-        isOpen={dialogOpen}
-        onClose={handleCloseDialog}
-        member={selectedMember}
-        type="sigma"
-      />
+        </section>
+      </main>
 
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -99,21 +99,11 @@ const Merchandise = () => {
     <motion.div initial="hidden" animate="visible" variants={slideUp} className="merchandise-bg">
       <Header />      <div className="merch-hero-section">
         <div className="merch-quote-section">
-          <motion.h1 className="merch-quote" {...slideUp}>"Today a Reader,<br />Tomorrow a Leader."</motion.h1>
+          <motion.h1 className="merch-quote" {...slideUp}>"Today a Reader, Tomorrow a Leader."</motion.h1>
           <motion.div className="merch-quote-author" {...slideUp}>- Margaret Fuller</motion.div>
           <motion.div className="merch-subtitle" {...slideUp}>Discover our collection of transformational books</motion.div>
         </div>
-        <div className="floating-books-container">
-          <div className="floating-book book1">
-            <img src={books[0].image} alt="Book 1" />
-          </div>
-          <div className="floating-book book2">
-            <img src={books[1].image} alt="Book 2" />
-          </div>
-          <div className="floating-book book3">
-            <img src={books[2].image} alt="Book 3" />
-          </div>
-        </div>
+        
       </div>
       <div className="merch-books-list">
         {displayedBooks.map(book => (

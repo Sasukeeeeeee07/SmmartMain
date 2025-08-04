@@ -2,7 +2,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #060018;
+  background: linear-gradient(to right, #cceeff, #ffe0cc);
+
 }
 
 .App {

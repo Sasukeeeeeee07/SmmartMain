@@ -146,7 +146,7 @@ const IndividualTransformation = () => {
                 <motion.div className="program-card glass-card" variants={cardVariants}>
                   <div className="program-card-header">
                     <h3>Client Pep Talks</h3>
-                    <span className="program-duration">2-3 Hours</span>
+                    <span className="program-duration">Live 1:1</span>
                   </div>
                   <p>In-person motivational sessions to spark clarity, action, and energy for immediate transformation.</p>
                   <button
@@ -154,7 +154,7 @@ const IndividualTransformation = () => {
                       'Client Pep Talks',
                       'Individual Transformation',
                       'In-person motivational sessions to spark clarity, action, and energy for immediate transformation.',
-                      '2-3 Hours'
+                      'Live 1:1'
                     )}
                     className="program-btn"
                   >
@@ -165,15 +165,15 @@ const IndividualTransformation = () => {
                 <motion.div className="program-card glass-card" variants={cardVariants}>
                   <div className="program-card-header">
                     <h3>Wisdom Knights</h3>
-                    <span className="program-duration">2-3 Hours</span>
+                    <span className="program-duration">Community Meetups</span>
                   </div>
-                  <p>Intensive sessions combining ancient wisdom with modern success principles for personal mastery.</p>
+                  <p>Quarterly alumni gatherings for inspiration, knowledge exchange, and bonding.</p>
                   <button
                     onClick={() => handleProgramInquiry(
                       'Wisdom Knights',
                       'Individual Transformation',
-                      'Intensive sessions combining ancient wisdom with modern success principles for personal mastery.',
-                      '2-3 Hours'
+                      'Quarterly alumni gatherings for inspiration, knowledge exchange, and bonding.',
+                      'Community Meetups'
                     )}
                     className="program-btn"
                   >
@@ -193,6 +193,101 @@ const IndividualTransformation = () => {
                       'Individual Transformation',
                       'Comprehensive video collection covering mindset, productivity, and personal development strategies.',
                       'Self-Paced'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
+                </motion.div>
+
+                <motion.div className="program-card glass-card" variants={cardVariants}>
+                  <div className="program-card-header">
+                    <h3>Workshops</h3>
+                    <span className="program-duration">Hands on Learning</span>
+                  </div>
+                  <p>Practical training on leadership, vasooli, and key life skills via online and offline formats.</p>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Workshops',
+                      'Individual Transformation',
+                      'Practical training on leadership, vasooli, and key life skills via online and offline formats.',
+                      'Hands-on Learning'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
+                </motion.div>
+
+                <motion.div className="program-card glass-card" variants={cardVariants}>
+                  <div className="program-card-header">
+                    <h3>APO</h3>
+                    <span className="program-duration">Self-Paced</span>
+                  </div>
+                  <p>Auto Pilot Organization: Learn how to build systems and processes to run your business independently.</p>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'APO – Auto Pilot Organization',
+                      'Individual Transformation',
+                      'Auto Pilot Organization: Learn how to build systems and processes to run your business independently.',
+                      'Self-Paced'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
+                </motion.div>
+
+                <motion.div className="program-card glass-card" variants={cardVariants}>
+                  <div className="program-card-header">
+                    <h3>AEO</h3>
+                    <span className="program-duration">Strategy-Based</span>
+                  </div>
+                  <p>Auto Exponential Organization: Learn how to create scalable growth engines in life and business.</p>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'AEO – Auto Exponential Organization',
+                      'Individual Transformation',
+                      'Auto Exponential Organization: Learn how to create scalable growth engines in life and business.',
+                      'Strategy-Based'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
+                </motion.div>
+
+                <motion.div className="program-card glass-card" variants={cardVariants}>
+                  <div className="program-card-header">
+                    <h3>ATO</h3>
+                    <span className="program-duration">Diagnostic + Learning</span>
+                  </div>
+                  <p>Auto Transforming Organization: Build systems for ongoing transformation, adaptability, and mindset evolution.</p>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'ATO – Auto Transforming Organization',
+                      'Individual Transformation',
+                      'Auto Transforming Organization: Build systems for ongoing transformation, adaptability, and mindset evolution.',
+                      'Diagnostic + Learning'
+                    )}
+                    className="program-btn"
+                  >
+                    Learn More
+                  </button>
+                </motion.div>
+
+                <motion.div className="program-card glass-card" variants={cardVariants}>
+                  <div className="program-card-header">
+                    <h3>Train the Trainer</h3>
+                    <span className="program-duration">Hybrid</span>
+                  </div>
+                  <p>Become a certified Smmart Trainer. Build facilitation and delivery expertise.</p>
+                  <button
+                    onClick={() => handleProgramInquiry(
+                      'Train the Trainer',
+                      'Individual Transformation',
+                      'Become a certified Smmart Trainer. Build facilitation and delivery expertise.',
+                      'Hybrid'
                     )}
                     className="program-btn"
                   >
@@ -677,7 +772,6 @@ const IndividualTransformation = () => {
             <p>Take the first step toward unlocking your full potential and creating lasting positive change.</p>
             <div className="cta-buttons">
               <Link to="/contact" className="primary-btn">Contact Us</Link>
-              <Link to="/contact" className="secondary-btn">Download Brochure</Link>
             </div>
           </div>
         </section>

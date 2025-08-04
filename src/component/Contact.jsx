@@ -167,7 +167,7 @@ const Contact = () => {
             <div className="contact-features">              <div className="feature-item">
               <div className="feature-icon">📍</div>
               <div className="feature-text">
-                <h3>Visit Us</h3>
+                <h3>Visit Us - smmart HO</h3>
                 <p>F-wing, 701/702 7th floor Remi Bizcourt, Andheri West, Mumbai - 400 053</p>
                 <div style={{ marginTop: '15px' }}>
                   <iframe

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Header from './Header';
 import Footer from './Footer';
 import BlogOption1 from "./images/Website Blog Post Thumbnail Option 01.jpg";
+import santosh from './images/Santosh Nair.JPG';
 import './BlogDetail.css';
 import { FaUser, FaShare, FaHeart, FaBookmark, FaArrowLeft, FaTags } from 'react-icons/fa';
 
@@ -13,6 +14,7 @@ const allBlogs = {
     id: 1,
     title: 'Are You a Dreamer or a Doer?',
     author: 'Santosh Nair',
+    authorImage: santosh,
     image: BlogOption1,
     date: 'May 15, 2023',
     readTime: '2 min read',
@@ -28,6 +30,7 @@ const allBlogs = {
     id: 2,
     title: 'Why Your Inner Voice Defines Your Outer Reality',
     author: 'Santosh Nair',
+    authorImage: santosh,
     image: BlogOption1,
     date: 'April 28, 2023',
     readTime: '2 min read',
@@ -43,6 +46,7 @@ const allBlogs = {
     id: 3,
     title: 'Clarity Is the New Currency',
     author: 'Santosh Nair',
+    authorImage: santosh,
     image: BlogOption1,
     date: 'April 10, 2023',
     readTime: '2 min read',
@@ -58,6 +62,7 @@ const allBlogs = {
     id: 4,
     title: 'Build a Business That Builds You',
     author: 'Santosh Nair',
+    authorImage: santosh,
     image: BlogOption1,
     date: 'March 23, 2023',
     readTime: '2 min read',
@@ -73,6 +78,7 @@ const allBlogs = {
     id: 5,
     title: 'The Freedom Matrix: Living Beyond Profit',
     author: 'Santosh Nair',
+    authorImage: santosh,
     image: BlogOption1,
     date: 'February 15, 2023',
     readTime: '2 min read',
@@ -162,7 +168,7 @@ const BlogDetail = () => {
 
         <div className="blog-detail-header">
           <div className="blog-detail-image-container">
-            <img src={currentBlog.image} alt={currentBlog.title} className="blog-detail-image" />
+            {/* <img src={currentBlog.image} alt={currentBlog.title} className="blog-detail-image" /> */}
             <div className="blog-detail-overlay"></div>
           </div>
 
@@ -172,7 +178,7 @@ const BlogDetail = () => {
 
             <div className="blog-detail-author">
               <div className="blog-detail-author-info">
-                <img src={currentBlog.image} alt={currentBlog.author} className="blog-detail-author-avatar" />
+                <img src={currentBlog.authorImage || currentBlog.image} alt={currentBlog.author} className="blog-detail-author-avatar" />
                 <span className="blog-detail-author-name">
                   <FaUser className="blog-detail-icon" /> {currentBlog.author}
                 </span>

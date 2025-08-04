@@ -29,6 +29,7 @@
   flex-direction: column;
   justify-content: flex-start;
   padding-bottom: 40px;
+  background: linear-gradient(135deg, #E0F7FA, #B3E5FC);
 }
 
 /* Hero Section */
@@ -119,6 +120,7 @@
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  color: #768385;
 }
 
 .blog-author-avatar {

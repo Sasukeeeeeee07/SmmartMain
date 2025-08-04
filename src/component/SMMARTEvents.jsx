@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/Events.css';
 import Header from './Header';
@@ -52,15 +52,10 @@ const events = [
 ];
 
 const EventCard = ({ type, name, title, description, learnMore, image, fullDescription, slug }) => {
-  const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
 
   const handleLearnMore = () => {
-    setShowModal(true);
-  };
-
-  const handleCloseModal = () => {
-    setShowModal(false);
+    navigate(`/events/${slug}`);
   };
 
   const handleEventClick = () => {
@@ -90,39 +85,12 @@ const EventCard = ({ type, name, title, description, learnMore, image, fullDescr
         {learnMore && (
           <button
             className="learn-more-btn"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleLearnMore();
-            }}
+            onClick={handleLearnMore}
           >
             Learn more
           </button>
         )}
       </div>
-
-      {/* Modal for full description */}
-      {showModal && (
-        <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-header">
-              <h2>{name}</h2>
-              <button className="modal-close-btn" onClick={handleCloseModal}>×</button>
-            </div>
-            <div className="modal-body">
-              <p>{fullDescription}</p>
-              <button
-                className="view-details-btn"
-                onClick={() => {
-                  handleCloseModal();
-                  handleEventClick();
-                }}
-              >
-                View Full Details
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 };
