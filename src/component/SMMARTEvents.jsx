@@ -16,6 +16,7 @@ const events = [
     type: 'featured',
     // title: 'Entrepreneur Gurukul (50th Batch)',
     name: 'Entrepreneur Gurukul (50th Batch)',
+    slug: 'entrepreneur-gurukul',
     description: 'Join our flagship program - the 50th batch of Entrepreneur Gurukul. Transform your entrepreneurial journey with comprehensive training, mentorship, and practical insights from industry experts.',
     image: egBatchBanner,
     learnMore: true,
@@ -24,6 +25,7 @@ const events = [
   {
     type: 'normal',
     name: 'T.I.G.E.R. Program',
+    slug: 'tiger-program',
     description: 'Transform, Innovate, Grow, Execute, and Rise with our comprehensive T.I.G.E.R. program designed for ambitious entrepreneurs.',
     image: tigerBanner,
     learnMore: true,
@@ -32,6 +34,7 @@ const events = [
   {
     type: 'normal',
     name: 'PEPTALK',
+    slug: 'pep-talk',
     description: 'Get motivated and inspired with our energizing Pep Talk sessions designed to boost your entrepreneurial spirit and drive.',
     image: pepTalkBanner,
     learnMore: true,
@@ -40,6 +43,7 @@ const events = [
   {
     type: 'normal',
     name: 'Why do entrepreneurs fail to scale?',
+    slug: 'why-entrepreneurs-fail-to-scale',
     description: 'Explore the common pitfalls and challenges that prevent entrepreneurs from scaling their businesses successfully.',
     image: whyDoGoaBanner,
     learnMore: true,
@@ -47,8 +51,9 @@ const events = [
   },
 ];
 
-const EventCard = ({ type, name, title, description, learnMore, image, fullDescription }) => {
+const EventCard = ({ type, name, title, description, learnMore, image, fullDescription, slug }) => {
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleLearnMore = () => {
     setShowModal(true);
@@ -58,9 +63,17 @@ const EventCard = ({ type, name, title, description, learnMore, image, fullDescr
     setShowModal(false);
   };
 
+  const handleEventClick = () => {
+    navigate(`/events/${slug}`);
+  };
+
   return (
     <>
-      <div className={`card ${type === 'featured' ? 'featured-card' : 'regular-card'}`}>
+      <div
+        className={`card ${type === 'featured' ? 'featured-card' : 'regular-card'}`}
+        onClick={handleEventClick}
+        style={{ cursor: 'pointer' }}
+      >
         {image && (
           <div className="event-image-container">
             <img src={image} alt={name} className="event-image" />
@@ -74,7 +87,17 @@ const EventCard = ({ type, name, title, description, learnMore, image, fullDescr
         )}
         <h3 className="card-title">{name}</h3>
         <p className="card-description">{description}</p>
-        {learnMore && <button className="learn-more-btn" onClick={handleLearnMore}>Learn more</button>}
+        {learnMore && (
+          <button
+            className="learn-more-btn"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleLearnMore();
+            }}
+          >
+            Learn more
+          </button>
+        )}
       </div>
 
       {/* Modal for full description */}
@@ -87,6 +110,15 @@ const EventCard = ({ type, name, title, description, learnMore, image, fullDescr
             </div>
             <div className="modal-body">
               <p>{fullDescription}</p>
+              <button
+                className="view-details-btn"
+                onClick={() => {
+                  handleCloseModal();
+                  handleEventClick();
+                }}
+              >
+                View Full Details
+              </button>
             </div>
           </div>
         </div>

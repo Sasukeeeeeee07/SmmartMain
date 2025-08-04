@@ -16,35 +16,34 @@ const Featured = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const eventsContainerRef = useRef(null);
   const navigate = useNavigate();
-
   // Event data with banner images
   const events = [
     {
       id: 1,
       title: 'Why do entrepreneurs fail to scale',
       image: whyDoGoaBanner,
-      // link: 'https://example.com/why-do-entrepreneurs',
+      slug: 'why-entrepreneurs-fail-to-scale',
       date: 'July 28, 2025'
     },
     {
       id: 2,
       title: 'T.I.G.E.R. Program',
       image: tigerBanner,
-      // link: 'https://example.com/tiger-program',
+      slug: 'tiger-program',
       date: 'July 10, 2025'
     },
     {
       id: 3,
       title: 'Pep Talk',
       image: pepTalkBanner,
-      // link: 'https://example.com/pep-talk',
+      slug: 'pep-talk',
       date: 'July 25, 2025'
     },
     {
       id: 4,
       title: 'Entrepreneur Gurukul (50th Batch)',
       image: egBatchBanner,
-      // link: 'https://example.com/entrepreneur-gurukul',
+      slug: 'entrepreneur-gurukul',
       date: 'July 31, 2025'
     }
   ];
@@ -96,9 +95,12 @@ const Featured = () => {
   const handleNextClick = () => {
     setCurrentPage(prev => (prev < totalPages - 1 ? prev + 1 : 0));
   };
-
   const handleEventClick = () => {
     navigate('/smmartevents');
+  };
+
+  const handleIndividualEventClick = (eventSlug) => {
+    navigate(`/events/${eventSlug}`);
   };
   return (
     <LazyMotion features={domAnimation}>
@@ -128,7 +130,7 @@ const Featured = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: 0.3 }} /* Faster animations */
             >
-              Meet, <span  color="orange">Santosh Nair</span>
+              Meet, <span color="orange">Santosh Nair</span>
             </motion.h2>
             <motion.p
               className="meet-description"
@@ -181,24 +183,24 @@ const Featured = () => {
               ref={eventsContainerRef}
               variants={containerVariants}
             >
-              {events.map((event, index) => (
-                <motion.div
-                  key={event.id}
-                  className="event-banner-card"
-                  variants={cardVariants}
-                  whileHover={{
-                    scale: 1.02,
-                    transition: { duration: 0.3, ease: "easeOut" }
-                  }}
-                  onClick={handleEventClick}
-                >
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    className="event-banner-image"
-                    loading="lazy"
-                  />
-                </motion.div>
+              {events.map((event, index) => (<motion.div
+                key={event.id}
+                className="event-banner-card"
+                variants={cardVariants}
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.3, ease: "easeOut" }
+                }}
+                onClick={() => handleIndividualEventClick(event.slug)}
+                style={{ cursor: 'pointer' }}
+              >
+                <img
+                  src={event.image}
+                  alt={event.title}
+                  className="event-banner-image"
+                  loading="lazy"
+                />
+              </motion.div>
               ))}
             </motion.div>
 
